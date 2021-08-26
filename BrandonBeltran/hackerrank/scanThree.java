@@ -15,12 +15,12 @@ public class scanThree {
         * and one string.
         */
 
-        int i = Integer.parseInt(scan.nextLine());
-        double d = Double.parseDouble(scan.nextLine());
-        String s = scan.nextLine();
+        int entero = Integer.parseInt(scan.nextLine());
+        double doble = Double.parseDouble(scan.nextLine());
+        String cadena = scan.nextLine();
 
-        System.out.println("String: " + s);
-        System.out.println("Double: " + d);
-        System.out.println("Int: " + i);
+        System.out.println("String: " + cadena);
+        System.out.println("Double: " + doble);
+        System.out.println("Int: " + entero);
     }
 }

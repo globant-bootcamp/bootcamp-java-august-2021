@@ -15,7 +15,7 @@ public class ifElse {
 
         /*
         *  If the number is odd or is in the inclusive range
-        *  of 5 and 20, it's a weird number and the program should
+        *  of 6 and 20, it's a weird number and the program should
         *  print "Weird", else, it should print "Not Weird".
         */
         if ((number > 5 && number < 21) || number % 2 == 1 ) {
