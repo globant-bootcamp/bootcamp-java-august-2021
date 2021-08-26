@@ -1,4 +1,7 @@
+package challenge;
+
 import java.util.Scanner;
+import challenge.solutions.*;
 
 public class Main {
 
