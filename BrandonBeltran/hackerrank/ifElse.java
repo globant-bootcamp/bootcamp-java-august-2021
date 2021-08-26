@@ -2,7 +2,7 @@ package bootcamp;
 
 import java.util.Scanner;
 
-public class ifElse {
+public class IfElse {
 
     private static final Scanner scanner = new Scanner(System.in);
 

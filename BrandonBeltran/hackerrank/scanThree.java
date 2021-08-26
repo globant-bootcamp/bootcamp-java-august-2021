@@ -2,7 +2,7 @@ package bootcamp;
 
 import java.util.Scanner;
 
-public class scanThree {
+public class ScanThree {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
