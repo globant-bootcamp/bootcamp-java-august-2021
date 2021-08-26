@@ -1,5 +1,4 @@
-
-
+package clasesPruebas;
 import java.util.Scanner;
 
 public class ejercicios {
