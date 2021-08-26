@@ -1,16 +1,14 @@
-import java.io.*;
-import java.util.*;
-
-public class StdinAndStdoutI {
+import java.util.Scanner;
+public class stdinAndStdoutI {
     public static void main(String[] args) {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
         Scanner scan = new Scanner(System.in);
         int[] a = new int[3];
         
-        for (int i = 0; i<3; ++i)
-            a[i] = scan.nextInt();    
-        for (int i = 0; i<3; ++i)
-            System.out.println(a[i]); 
+        for (int index = 0; index<3; ++index)
+            a[index] = scan.nextInt();    
+        for (int index = 0; index<3; ++index)
+            System.out.println(a[index]); 
         scan.close();
     }
 }

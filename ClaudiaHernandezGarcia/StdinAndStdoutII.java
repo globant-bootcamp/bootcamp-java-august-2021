@@ -1,27 +1,26 @@
-import java.util.*;
+import java.util.Scanner;
 
-public class StdinAndStdoutII {
+public class stdinAndStdoutII {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         
-        String s = "";
-        int i = 0;
-        Double d = 0.0; 
+        String stringInp = "";
+        int intInp = 0;
+        Double doubleInp = 0.0; 
         int counter = 0;
 
         do {
-            s = scan.nextLine();
-            //System.out.println("String read: " + s); 
+            stringInp = scan.nextLine();
             if(counter ==0)
-                i = Integer.parseInt(s);
+                intInp = Integer.parseInt(stringInp);
             if(counter == 1)
-                d = Double.parseDouble(s);
+                doubleInp = Double.parseDouble(stringInp);
             ++counter;
         } while(counter < 3);
 
         scan.close();
-        System.out.println("String: " + s);
-        System.out.println("Double: " + d);
-        System.out.println("Int: " + i);
+        System.out.println("String: " + stringInp);
+        System.out.println("Double: " + doubleInp);
+        System.out.println("Int: " + intInp);
     }
 }
