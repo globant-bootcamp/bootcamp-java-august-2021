@@ -1,3 +1,5 @@
+package com.mx.HackerRankExercises;
+
 import java.util.Scanner;
 
 public class IntegerValues {

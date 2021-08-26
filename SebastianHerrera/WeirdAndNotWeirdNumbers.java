@@ -1,3 +1,5 @@
+package com.mx.HackerRankExercises;
+
 import java.util.Scanner;
 
 public class WeirdAndNotWeirdNumbers {
@@ -17,20 +19,16 @@ public class WeirdAndNotWeirdNumbers {
             System.out.println(NOT_A_NUMBER);
             scan.next();
         }
-
         int number = scan.nextInt();
         scan.skip(SKIP_PATTERN);
         String result;
-        if (number % 2 == 1) {
+        if ((number % 2 == 1) || (number >= 6 && number <= 20)) {
             result = WEIRD;
-        } else {
-            if (number >= 2 && number <= 5) {
-                result = NOT_WEIRD;
-            } else if (number >= 6 && number <= 20) {
-                result = WEIRD;
-            } else {
-                result = NOT_WEIRD;
-            }
+        } else if (number >= 2 && number <= 5){
+            result = NOT_WEIRD;
+        }
+        else {
+            result = NOT_WEIRD;
         }
         System.out.println(result);
     }
