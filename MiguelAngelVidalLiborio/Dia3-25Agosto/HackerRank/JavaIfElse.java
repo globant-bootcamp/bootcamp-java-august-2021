@@ -1,25 +1,25 @@
-package logia;
+package hackerrank;
 
 import java.util.Scanner;
 public class JavaIfElse {
 
 	public static void main(String[] args) {
 
-		Scanner scanner=new Scanner(System.in);
-		int N = scanner.nextInt();
-		scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+		Scanner scanner =new Scanner(System.in);
+		int number = scanner.nextInt();
+		int isEven=number % 2;
 
-		if(N % 2 ==0 && N > 20){
-			System.out.println("Not Weird");   
-		}
-		if(N % 2==1){
+		if(isEven ==1){
 			System.out.println("Weird"); 
-		}
-		if(N % 2 ==0 && (N >=2 && N <=5) ){
+
+		}else if(isEven ==0 && (number >=2 && number <=5) ){
 			System.out.println("Not Weird");   
-		}
-		if(N % 2 ==0 && (N >=6 && N <=20) ){
-			System.out.println("Weird"); 
+
+		}else if(isEven ==0 && (number >=6 && number <=20) ){
+			System.out.println("Weird");     
+
+		}else{
+			System.out.println("Not Weird");   
 		}
 		scanner.close();
 	}

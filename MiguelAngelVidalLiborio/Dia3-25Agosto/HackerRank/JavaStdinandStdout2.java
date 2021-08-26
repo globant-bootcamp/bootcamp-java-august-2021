@@ -1,4 +1,4 @@
-package logia;
+package hackerrank;
 import java.util.Scanner;
 public class JavaStdinandStdout2 {
 
