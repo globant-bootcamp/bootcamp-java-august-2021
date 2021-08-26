@@ -4,13 +4,13 @@ import java.util.Scanner;
 public class prueba3 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int entero = sc.nextInt();
-		double doble = sc.nextDouble();
-		String cadena = sc.next();
+		int number = sc.nextInt();
+		double decimal = sc.nextDouble();
+		String word = sc.next();
 
-		System.out.println("String: " + cadena);
-		System.out.println("Double: " + doble);
-		System.out.println("Int: " + entero);
+		System.out.println("String: " + word);
+		System.out.println("Double: " + decimal);
+		System.out.println("Int: " + number);
 		sc.close();
 	}
 }
