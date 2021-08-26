@@ -1,4 +1,4 @@
-package nao.main;
+package nao.example.inout_2;
 import java.util.Scanner;
 
 public class Solution {

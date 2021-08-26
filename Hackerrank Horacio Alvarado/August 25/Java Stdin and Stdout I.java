@@ -1,16 +1,16 @@
-package nao.main;
+package nao.example.inout1;
 import java.util.*;
 
 public class Solution {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int a = scan.nextInt();
-        int b = scan.nextInt();
-        int c = scan.nextInt();
+        int integer1 = scan.nextInt();
+        int integer2 = scan.nextInt();
+        int integer3 = scan.nextInt();
 
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println(c);
+        System.out.println(integer1);
+        System.out.println(integer2);
+        System.out.println(integer3);
     }
 }

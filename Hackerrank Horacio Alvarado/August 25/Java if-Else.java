@@ -1,4 +1,4 @@
-package nao.main;
+package nao.example.if_else;
 
 import java.io.*;
 import java.math.*;
@@ -15,13 +15,13 @@ public class Solution {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int N = scanner.nextInt();
+        int number = scanner.nextInt();
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
         
         
-        if(N % 2 != 0 || (N >= 6 && N <= 20))
+        if(number % 2 != 0 || (number >= 6 && number <= 20))
             System.out.println("Weird");
-        else if(N >= 2 && N <= 5 || (N > 20))  
+        else if(number >= 2 && number <= 5 || (N > 20))  
               System.out.println("Not Weird");        
                         
         scanner.close();
