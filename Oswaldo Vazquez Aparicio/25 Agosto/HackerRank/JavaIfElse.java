@@ -1,10 +1,4 @@
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
+import java.util.Scanner;
 
 public class JavaIfElse {
 
@@ -14,25 +8,25 @@ public class JavaIfElse {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int N = scanner.nextInt();
+        int number = scanner.nextInt();
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-        
-        if(isOdd(N))
+
+        if(isOdd(number))
             System.out.println(WEIRD);
-        else if(!isOdd(N) && isBetweenRange(N, 2, 5))
+        else if(!isOdd(number) && isBetweenRange(number, 2, 5))
             System.out.println(NOT_WEIRD);
-        else if(!isOdd(N) && isBetweenRange(N, 6, 20))
+        else if(!isOdd(number) && isBetweenRange(number, 6, 20))
             System.out.println(WEIRD);
-        else if(!isOdd(N) && N > 20)
+        else if(!isOdd(number) && number > 20)
             System.out.println(NOT_WEIRD);
-            
+
         scanner.close();
     }
-    
+
     public static boolean isOdd(int number){
         return number % 2 != 0;
     }
-    
+
     public static boolean isBetweenRange(int number, int min, int max){
         return number >= min && number <= max;
     }
