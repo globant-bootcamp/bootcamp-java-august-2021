@@ -7,10 +7,10 @@ public class prueba3 {
 		int entero = sc.nextInt();
 		double doble = sc.nextDouble();
 		String cadena = sc.next();
-		
+
 		System.out.println("String: " + cadena);
-	    System.out.println("Double: " + doble);
-	    System.out.println("Int: " + entero);
+		System.out.println("Double: " + doble);
+		System.out.println("Int: " + entero);
 		sc.close();
 	}
 }
