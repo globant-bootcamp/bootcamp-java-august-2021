@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class SolutionC {
 
-    
     public SolutionC () {}
 
     public void solve() {

@@ -1,4 +1,4 @@
-public class Main {
+public class HackerRankExercises {
     public static void main ( String args[] ) {
 
         SolutionA solutionA = new SolutionA();
@@ -12,4 +12,4 @@ public class Main {
 
 
     }
-}
+}   

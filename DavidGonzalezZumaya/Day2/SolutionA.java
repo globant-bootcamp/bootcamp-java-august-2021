@@ -1,11 +1,9 @@
+
 import java.util.Scanner;
 
 public class SolutionA {
-
-  
-
-    public SolutionA() { }
-
+    
+    public SolutionA() {}
     
     public void Scanner(){
         Scanner scan = new Scanner(System.in);
