@@ -1,17 +1,18 @@
+package nao.main;
 import java.util.Scanner;
 
 public class Solution {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int i = scan.nextInt();
-        double d = scan.nextDouble();
+        int printedInt = scan.nextInt();
+        double printedDouble = scan.nextDouble();
         scan.nextLine();
-        String s = scan.nextLine();
+        String printedString = scan.nextLine();
         
 
-        System.out.println("String: " + s);
-        System.out.println("Double: " + d);
-        System.out.println("Int: " + i);
+        System.out.println("String: " + printedString);
+        System.out.println("Double: " + printedDouble);
+        System.out.println("Int: " + printedInt);
     }
 }
