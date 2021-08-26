@@ -6,13 +6,13 @@ public class StdinStdout2 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int entero = scanner.nextInt();
-        double doble = scanner.nextDouble();
+        int myInt = scanner.nextInt();
+        double myDouble = scanner.nextDouble();
         scanner.nextLine();
-        String cadena = scanner.nextLine();
+        String myString = scanner.nextLine();
         scanner.close();
-        System.out.println("String: " + cadena);
-        System.out.println("Double: " + doble);
-        System.out.println("Int: " + entero);
+        System.out.println("String: " + myString);
+        System.out.println("Double: " + myDouble);
+        System.out.println("Int: " + myInt);
     }
 }
