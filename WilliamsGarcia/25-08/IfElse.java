@@ -4,10 +4,9 @@ import java.util.Scanner;
 
 public class IfElse {
 
-    private static final Scanner SCANNER = new Scanner(System.in);
-
     public static void main(String[] args) {
 
+        final Scanner SCANNER = new Scanner(System.in);
         int inputNumber = SCANNER.nextInt();
 
         if (inputNumber <= 100 && inputNumber >= 1) {
