@@ -1,4 +1,5 @@
 David Gonzalez Zumaya |25|
+Braulio de Jesús Luna Ocampo |25|26|
 Sebastian Herrera Bermeo |25|26|
 Oswaldo Vazquez Aparicio |25|
 Miguel Angel Vidal Liborio |25|
@@ -9,4 +10,5 @@ Horacio Miguel Alvarado Garza |25|
 Humbertino Avilez Carpintero |25|
 Brandon Ali Beltran Rivera |25||26|
 Claudia Hernández García |25|
+Omar Espinosa Castro |25|26|
 Adriana Cano Rodriguez |25||26|
