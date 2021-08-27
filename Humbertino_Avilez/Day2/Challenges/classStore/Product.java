@@ -62,7 +62,7 @@ public class Product {
 	}
 
 	public String totalPrice() {
-		String totalPrice = "";
+		String totalPrice;
 		if (quantity == null) {
 			totalPrice = "\n ::quantity field not updated::";
 		} else {
