@@ -2,7 +2,7 @@ package bootcamp;
 public class Main {
 	public static void main(String[] Args) {
 		Vehicle v1 = new Sedan("Nissan", "Sentra", "Standard", 2019, 210, true);
-		Vehicle v2 = new Truck("Ford", "Windstar", "Automatic", 2000, 60, "2 Wheels", 8);
+		Vehicle v2 = new Truck("Ford",  "Windstar", "Automatic", 2000, 60, "2 Wheels", 8);
 		defineVehicle(v1);
 		defineVehicle(v2);
 	}	
