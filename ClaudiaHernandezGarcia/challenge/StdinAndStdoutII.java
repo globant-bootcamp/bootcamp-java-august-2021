@@ -2,7 +2,7 @@ package challenge;
 
 import java.util.Scanner;
 
-public class stdinAndStdoutII {
+public class StdinAndStdoutII {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         
