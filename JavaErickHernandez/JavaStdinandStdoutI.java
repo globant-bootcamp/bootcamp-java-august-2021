@@ -1,7 +1,10 @@
+package bootcamp;
 import java.util.Scanner;
 
 public class JavaStdinandStdoutI {
 	public static int data [] = new int [3];
+	public static String enter = ("Please enter a number and press Enter:");
+	public static String error = ("Please make sure it is a number");
 	public static void main(String[] args) {
 		enterData();
 		printData();
@@ -18,14 +21,14 @@ public class JavaStdinandStdoutI {
 		Scanner scanner = new Scanner(System.in);
 		int counter = 0;
 		do {
-			System.out.println("Please enter a number and press Enter:");
+			System.out.println(enter);
 			String number =  scanner.next();
 			boolean nextStep = isNumber(number);
 			if(nextStep) { 
 				data[counter] = Integer.parseInt(number);
 				counter++;
 			}else {
-				System.out.println("Please make sure it is a number");
+				System.out.println(error);
 			}
 		}while(counter <= 2);
 	}

@@ -1,7 +1,9 @@
+ 
 import java.util.Scanner;
 
 public class JavaIfElse {
-
+	public static String enter = ("Please enter a number and press Enter:");
+	public static String error = ("Please make sure it is a number");
 	public static void main(String[] args) {
 			enterData();
 	}
@@ -9,14 +11,14 @@ public class JavaIfElse {
 		Scanner scanner = new Scanner(System.in);
 		boolean nextStep;
 		do {
-			System.out.println("Please enter a number and press Enter:");
+			System.out.println(enter);
 			String number =  scanner.next();
 			nextStep = isNumber(number);
 			if(nextStep) {
 				int numberX  =  Integer.parseInt(number);
 				checkWeird(numberX);
 			}else {
-				System.out.println("Please make sure it is a number");
+				System.out.println(error);
 			}
 		}while(!nextStep);		
 	}

@@ -1,3 +1,4 @@
+package bootcamp;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -5,6 +6,8 @@ public class JavaStdinandStdoutII {
 	public static String userString;
 	public static int userInt;
 	public static double userDouble; 
+	public static String enter = ("Please enter a number and press Enter:");
+	public static String error = ("Please make sure it is a number");
 	public static void main(String[] args) {
 		askInteger();
 		askDouble();
@@ -22,32 +25,32 @@ public class JavaStdinandStdoutII {
 		Scanner scanner = new Scanner(System.in);
 		boolean nextStep;
 		do {
-			System.out.println("Please enter a number and press Enter:");
+			System.out.println(enter);
 			String number =  scanner.next();
 			nextStep = isNumber(number); 
 			if(nextStep) {
 				userInt = Integer.parseInt(number);	
 			}else {
-				System.out.println("Please make sure it is a number");
+				System.out.println(error);
 			}
 		}while(!nextStep);	
 	}
 	private static void askString() { 
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Please enter a sentence and press Enter:");
+		System.out.println(enter);
 		userString = scanner.next();
 	}
 	private static void askDouble() {
 		Scanner scanner = new Scanner(System.in);
 		boolean nextStep;
 		do {
-			System.out.println("Please enter a double and press Enter:");
+			System.out.println(enter);
 			String number =  scanner.next();
 			nextStep = isDouble(number); 
 			if(nextStep) {
 				userDouble = Double.parseDouble(number);	
 			}else {
-				System.out.println("Please make sure it is a number");
+				System.out.println(error);
 			}
 		}while(!nextStep);	
 		
