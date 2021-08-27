@@ -18,13 +18,14 @@ public class Woodwind extends Instrument {
         this.family = family;
     }
 
-    void play(){
-        System.out.printf("The %s plays... Do do do do...%n", family);
-    }
-
     @Override
     void getTuning(){
         System.out.printf("The %s ", family);
         super.getTuning();
+    }
+
+    @Override
+    void play(){
+        System.out.printf("The %s plays... Do do do do...%n", family);
     }
 }
