@@ -1,45 +1,46 @@
 package bootcamp;
 public class Truck extends Vehicle implements Gas{
 	
-	public double passengersCapacity;
+	public int passengersCapacity;
 
-	public double getPassengers() {
+	public int getPassengers() {
 		return passengersCapacity;
 	}
 
-	public void setCapacidadPasajeros(double capacidadPasajeros) {
-		this.passengersCapacity = capacidadPasajeros;
+	public void setPassengersCapacity(int passengersCapacity) {
+		this.passengersCapacity = passengersCapacity;
 	}
 
-	public String getTraccion() {
-		return traccion;
+	public String getTraction() {
+		return traction;
 	}
 
-	public void setTraccion(String traccion) {
-		this.traccion = traccion;
+	public void setTraction(String traccion) {
+		this.traction = traccion;
 	}
 
-	public String traccion;
+	public String traction;
 
-	public Truck(String marca, String modelo, String tipo, int año, double precio) {
-		super(marca, modelo, tipo, año, precio);
-		traccion = "standard";
-		passengersCapacity = 0;
+	public Truck(String company, String model, String type, int year, double price, String traction, int passengersCapacity ) {
+		super(company, model, type, year, price);
+		this.traction = traction;
+		this.passengersCapacity = passengersCapacity;
 	}
 
 
 
 	@Override
 	public String gasType(String gas) {
-		System.out.print("This vehicle use gas: " +gas);
-		return null;
+		String gasMessage = (". This vehicle use gas: " +gas);
+		System.out.println("");
+		return gasMessage;
 	}
 
 	@Override
 	String dataVehicle() {
-		System.out.print("Company: " + getCompany() + ". Model: " + getModel() + ". Type: " + getType() + ". Year: " + getYear() + ". Price: "
-				+ getPrice() + " dollars. Traction: " + traccion + ".  Passengers Capacity: " + passengersCapacity);
-		return null;
+		String data = ("Company: " + getCompany() + ". Model: " + getModel() + ". Type: " + getType() + ". Year: " + getYear() + ". Price: "
+				+ getPrice() + " dollars. Traction: " + traction + ".  Passengers Capacity: " + passengersCapacity);
+		return data;
 	}
 
 

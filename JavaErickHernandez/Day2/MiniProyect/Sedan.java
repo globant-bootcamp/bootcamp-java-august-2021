@@ -1,33 +1,33 @@
 package bootcamp;
 public class Sedan extends Vehicle implements Gas {
 
-	public Sedan(String company, String model, String type, int year, double price) {
+	public Sedan(String company, String model, String type, int year, double price, boolean convertible) {
 		super(company, model, type, year, price);
-		descapotable = true;
+		this.convertible = convertible;
 	}
 
-	public boolean descapotable;
+	public boolean convertible;
 
-	public boolean isDescapotable() {
-		return descapotable;
+	public boolean isConvertible() {
+		return convertible;
 	}
 
-	public void setDescapotable(boolean descapotable) {
-		this.descapotable = descapotable;
+	public void setConvertible(boolean convertible) {
+		this.convertible = convertible;
 	}
 
 	@Override
 	public String gasType(String gas) {
-		System.out.print(". This vehicle use gas: " + gas);
+		String gasMessage = (". This vehicle use gas: " + gas);
 		System.out.println("");
-		return null;
+		return gasMessage;
 	}
 
 	@Override
 	String dataVehicle() {
-		System.out.print("Company: " + getCompany() + ". Model: " + getModel() + ". Type: " + getType() + ". Year: " + getYear() + ". Price: "
-				+ getPrice() + " dollars. Descapotable: " + descapotable);
-		return null;
+		String data = ("Company: " + getCompany() + ". Model: " + getModel() + ". Type: " + getType() + ". Year: " + getYear() + ". Price: "
+				+ getPrice() + " dollars. Convertible: " + convertible);
+		return data;
 	}
 
 }

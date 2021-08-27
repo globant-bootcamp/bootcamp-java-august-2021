@@ -72,16 +72,5 @@ public abstract class Vehicle {
 	
 	abstract String dataVehicle();
 	
-	public static void main(String[] Args) {
-		Sedan sedan = new Sedan("Nissan", "Sentra", "Standard", 2019, 210);
-		sedan.descapotable = false;
-		sedan.dataVehicle();
-		sedan.gasType("diesel");
-		System.out.println("");
-		Truck truck = new Truck("Ford", "Windstar", "Automatic", 2000, 60);
-		truck.passengersCapacity = 8;
-		truck.traccion = "2 Wheels";
-		truck.dataVehicle();
-		sedan.gasType("premium");
-	}
+	
 }
