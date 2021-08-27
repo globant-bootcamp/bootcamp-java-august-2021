@@ -1,6 +1,9 @@
+package com.company;
+
 import java.util.Scanner;
 
 public class StdIntStdOutOne {
+    
     public static void main(String[] args) {
         int cont = 0;
         Scanner scan = new Scanner(System.in);

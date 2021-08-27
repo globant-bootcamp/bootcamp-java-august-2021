@@ -1,15 +1,19 @@
+package com.company;
+
 import java.util.Scanner;
 
 public class StdIntStdOutTwo {
+
     public static void main(String[] args) {
+        
         Scanner scan = new Scanner(System.in);
-        int i = scan.nextInt();
-        double d = scan.nextDouble();
-        String s = scan.next() + scan.nextLine();
+        int inputInt = scan.nextInt();
+        double inputDouble = scan.nextDouble();
+        String inputString = scan.next() + scan.nextLine();
         scan.close();
 
-        System.out.println("String: " + s);
-        System.out.println("Double: " + d);
-        System.out.println("Int: " + i);
+        System.out.println("String: " + inputString);
+        System.out.println("Double: " + inputDouble);
+        System.out.println("Int: " + inputInt);
     }
 }
