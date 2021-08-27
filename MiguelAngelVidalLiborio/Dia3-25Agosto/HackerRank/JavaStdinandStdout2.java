@@ -1,18 +1,20 @@
 package hackerrank;
+
 import java.util.Scanner;
+
 public class JavaStdinandStdout2 {
+	public static final Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-		int i = scan.nextInt();
-		double d=scan.nextDouble();
-		String s=scan.nextLine();
+		int i = scanner.nextInt();
+		double d = scanner.nextDouble();
+		String s = scanner.nextLine();
 
-		s=scan.nextLine();
+		s = scanner.nextLine();
 		System.out.println("String: " + s);
 		System.out.println("Double: " + d);
 		System.out.println("Int: " + i);
-
+		scanner.close();
 	}
 
 }
