@@ -5,14 +5,14 @@ public class Solution {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         
-        int i = scan.nextInt();
-        double d = scan.nextDouble();
+        int integerValue = scan.nextInt();
+        double doubleValue = scan.nextDouble();
         scan.nextLine();
-        String s = scan.nextLine();
+        String stringValue = scan.nextLine();
 
-        System.out.println("String: " + s);
-        System.out.println("Double: " + d);
-        System.out.println("Int: " + i);
+        System.out.println("String: " + stringValue);
+        System.out.println("Double: " + doubleValue);
+        System.out.println("Int: " + integerValue);
     }
 }
 
