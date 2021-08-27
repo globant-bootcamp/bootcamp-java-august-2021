@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public class IfElse {
 
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
 
     public static void main(String[] args) {
 
-        int inputNumber = scanner.nextInt();
+        int inputNumber = SCANNER.nextInt();
 
         if (inputNumber <= 100 && inputNumber >= 1) {
             if (inputNumber % 2 == 0) {
@@ -22,6 +22,6 @@ public class IfElse {
             }
         }
 
-        scanner.close();
+        SCANNER.close();
     }
 }
