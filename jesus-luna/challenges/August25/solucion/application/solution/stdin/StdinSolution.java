@@ -12,12 +12,12 @@ public class StdinSolution extends Solution {
   public void solution() {
     System.out.println(StdinSolution.STDIN_CHALLENGE_TITLE);
     int[] numbers = new int[3];
-    for (int i = 0; i < numbers.length; i++) {
-      System.out.print(String.format(StdinSolution.LABEL_NUMBER_PROMPTED,(i + 1)));
-      numbers[i] = Solution.scanner.nextInt();
+    for (int index = 0; index < numbers.length; index++) {
+      System.out.print(String.format(StdinSolution.LABEL_NUMBER_PROMPTED,(index + 1)));
+      numbers[index] = Solution.scanner.nextInt();
     }
-    for (int i : numbers) {
-      System.out.println(String.format(StdinSolution.LABEL_NUMBER_OUTPUT, i));
+    for (int number : numbers) {
+      System.out.println(String.format(StdinSolution.LABEL_NUMBER_OUTPUT, number));
     }
   }
 }

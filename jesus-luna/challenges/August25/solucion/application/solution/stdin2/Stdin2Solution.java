@@ -13,9 +13,9 @@ public class Stdin2Solution extends Solution {
 
   @Override
   public void solution() {
-    String promptedValue3 = "";
-    int promptedValue1 = 0;
-    double promptedValue2 = 0.0;
+    String promptedValue3;
+    int promptedValue1;
+    double promptedValue2;
     System.out.println(Stdin2Solution.INITIAL_INSTRUCTIONS_IN);
     System.out.println(Stdin2Solution.INITIAL_INSTRUCTION_OUT);
     System.out.print(Stdin2Solution.VALUE_1_LABEL);

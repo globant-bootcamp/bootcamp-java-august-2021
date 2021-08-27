@@ -12,11 +12,11 @@ public class WeirdSolution extends Solution {
 
   @Override
   public void solution() {
-    int promptedValue = 0;
+    int promptedValue;
+    String response;
     System.out.println(WeirdSolution.INITIAL_WEIRD_CHALLENGE_INSTRUCTIONS);
     promptedValue = Solution.scanner.nextInt();
     Solution.scanner.skip(WeirdSolution.SKIP_PATTERN);
-    String response = null;
     if (promptedValue % 2 == 0) {
       response = ((promptedValue >= 6) && (promptedValue <= 20)) ? WeirdSolution.WEIRD_VALUE : WeirdSolution.NOT_WEIRD_VALUE;
     } else {

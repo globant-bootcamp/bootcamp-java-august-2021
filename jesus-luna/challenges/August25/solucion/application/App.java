@@ -7,14 +7,14 @@ import application.solution.weird.WeirdSolution;
 
 public class App {
 
-  private static final String MAIN_TITLE = "Problematicas de HackerRank";
+  private static final String MAIN_TITLE = "HackerRank challenges";
   private static final String CHALLENGE_1_TITLE = "\nJava Stdin and Stdout I";
   private static final String CHALLENGE_2_TITLE = "\nJava If-Else";
   private static final String CHALLENGE_3_TITLE = "\nJava Stdin and Stdout II";
 
   public static void main(String[] args) {
     System.out.println(App.MAIN_TITLE);
-    Solution problem = null;
+    Solution problem;
     System.out.println(App.CHALLENGE_1_TITLE);
     problem = new StdinSolution();
     problem.solution();
