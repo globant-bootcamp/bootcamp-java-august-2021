@@ -5,13 +5,14 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        double d = scanner.nextDouble();
-        scanner.nextLine(); //Reads the enter key. 
-        String s = scanner.nextLine();
+        String inputAsInt = scanner.nextLine();
+        String inputAsDouble = scanner.nextLine(); 
+        String inputTypeString = scanner.nextLine();
+        int inputTypeInt = Integer.parseInt(inputAsInt);
+        double inputTypeDouble = Double.parseDouble(inputAsDouble);
         
-        System.out.println("String: " + s);
-        System.out.println("Double: " + d);
-        System.out.println("Int: " + n);
+        System.out.println("String: " + inputTypeString);
+        System.out.println("Double: " + inputTypeDouble);
+        System.out.println("Int: " + inputTypeInt); 
     }
 }
