@@ -10,14 +10,14 @@ public class IfElse {
 
         int inputNumber = scanner.nextInt();
 
-        if (inputNumber <= 100 & inputNumber >= 1) {
+        if (inputNumber <= 100 && inputNumber >= 1) {
             if (inputNumber % 2 == 0) {
                 if ((inputNumber >= 2 && inputNumber <= 5) || inputNumber > 20) {
                     System.out.println("Not Weird");
                 } else {
                     System.out.println("Weird");
                 }
-            }else{
+            } else {
                 System.out.println("Weird");
             }
         }
