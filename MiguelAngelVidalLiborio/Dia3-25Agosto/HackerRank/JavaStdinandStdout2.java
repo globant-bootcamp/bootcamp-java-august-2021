@@ -6,14 +6,14 @@ public class JavaStdinandStdout2 {
 	public static final Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		int i = scanner.nextInt();
-		double d = scanner.nextDouble();
-		String s = scanner.nextLine();
+		int myAgeTerminalScan = scanner.nextInt();
+		double mySalaryTerminalScan = scanner.nextDouble();
+		String myNameTerminalScan = scanner.nextLine();
 
-		s = scanner.nextLine();
-		System.out.println("String: " + s);
-		System.out.println("Double: " + d);
-		System.out.println("Int: " + i);
+		myNameTerminalScan = scanner.nextLine();
+		System.out.println("String: " + myNameTerminalScan);
+		System.out.println("Double: " + mySalaryTerminalScan);
+		System.out.println("Int: " + myAgeTerminalScan);
 		scanner.close();
 	}
 
