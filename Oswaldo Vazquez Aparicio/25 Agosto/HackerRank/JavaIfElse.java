@@ -1,9 +1,8 @@
+package hackerrank;
+
 import java.util.Scanner;
 
 public class JavaIfElse {
-
-    private static final String WEIRD = "Weird";
-    private static final String NOT_WEIRD = "Not Weird";
 
     private static final Scanner scanner = new Scanner(System.in);
 
@@ -11,14 +10,20 @@ public class JavaIfElse {
         int number = scanner.nextInt();
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-        if(isOdd(number))
+        final String WEIRD = "Weird";
+        final String NOT_WEIRD = "Not Weird";
+
+        if(isOdd(number)){
             System.out.println(WEIRD);
-        else if(!isOdd(number) && isBetweenRange(number, 2, 5))
-            System.out.println(NOT_WEIRD);
-        else if(!isOdd(number) && isBetweenRange(number, 6, 20))
-            System.out.println(WEIRD);
-        else if(!isOdd(number) && number > 20)
-            System.out.println(NOT_WEIRD);
+        }else{
+            if(isBetweenRange(number, 2, 5)){
+                System.out.println(NOT_WEIRD);
+            }else if(isBetweenRange(number, 6, 20)){
+                System.out.println(WEIRD);
+            }else if(number > 20){
+                System.out.println(NOT_WEIRD);
+            }
+        }
 
         scanner.close();
     }
