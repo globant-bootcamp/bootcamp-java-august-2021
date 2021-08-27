@@ -8,7 +8,7 @@ public class Main {
         if(inputNumber%2 != 0 || (inputNumber >= 6 && inputNumber <= 20)){ 
             System.out.println("Weird");
         }else{
-                System.out.println("Not Weird");
+            System.out.println("Not Weird");
         }
     }
 }
