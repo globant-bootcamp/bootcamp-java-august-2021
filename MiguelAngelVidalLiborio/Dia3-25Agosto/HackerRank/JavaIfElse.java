@@ -9,13 +9,10 @@ public class JavaIfElse {
 		int number = scanner.nextInt();
 		int isEven=number % 2;
 
-		if(isEven ==1){
-			System.out.println("Weird"); 
-
-		}else if(isEven ==0 && (number >=2 && number <=5) ){
+		if(isEven ==0 && (number >=2 && number <=5) ){
 			System.out.println("Not Weird");   
 
-		}else if(isEven ==0 && (number >=6 && number <=20) ){
+		}else if(isEven ==0 && (number >=6 && number <=20) || isEven ==1 ){
 			System.out.println("Weird");     
 
 		}else{
