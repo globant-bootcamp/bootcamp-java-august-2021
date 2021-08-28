@@ -1,0 +1,5 @@
+package inheritanceII;
+
+class Arithmetic {
+
+}
