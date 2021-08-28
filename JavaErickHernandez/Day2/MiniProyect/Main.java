@@ -1,4 +1,4 @@
-package bootcamp;
+package bootcamp
 public class Main {
 	public static void main(String[] Args) {
 		Vehicle v1 = new Sedan("Nissan", "Sentra", "Standard", 2019, 210, true);
