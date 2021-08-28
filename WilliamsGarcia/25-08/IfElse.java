@@ -6,7 +6,7 @@ public class IfElse {
 
     public static final Scanner SCANNER = new Scanner(System.in);
     public static final String WEIRD = "Weird";
-    public static final String NOT_WEIRD = "Weird";
+    public static final String NOT_WEIRD = "Not Weird";
 
     public static void main(String[] args) {
 
