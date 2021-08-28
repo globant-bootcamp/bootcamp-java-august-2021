@@ -7,19 +7,21 @@ public class Third {
     public static void solving() {
 
         Scanner scanner = new Scanner(System.in);
+        int numOfIterations = 3;
 
-        System.out.println("================================");
+        String decorator = "================================";
+        System.out.println(decorator);
 
-        for(int i = 0; i < 3; i++)
-        {
-            String formatedString=scanner.next();
-            int formatedNumber=scanner.nextInt();
+        for (int currentIteration = 0; currentIteration < numOfIterations; currentIteration++) {
 
-            System.out.printf("%-15s%03d%n", formatedString, formatedNumber);
+            String formattedString = scanner.next();
+            int formattedNumber = scanner.nextInt();
+
+            System.out.printf("%-15s%03d%n", formattedString, formattedNumber);
 
         }
 
-        System.out.println("================================");
+        System.out.println(decorator);
 
     }
 }

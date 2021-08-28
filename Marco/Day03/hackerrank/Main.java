@@ -1,22 +1,30 @@
 package hackerrank;
 
-import hackerrank.solutions.*;
+import hackerrank.solutions.Bird;
+import hackerrank.solutions.Two;
+import hackerrank.solutions.Third;
 
 public class Main {
     public static void main(String[] args) {
 
+        String firstSolutionEntrance, secondSolutionEntrance,thirdSolutionEntrance;
+
         Bird bird = new Bird();
-        System.out.println("The bird goes...");
+        firstSolutionEntrance = "The bird goes...";
+        System.out.println(firstSolutionEntrance);
         bird.fly();
         bird.walk();
         bird.sing();
 
         Two secondSolution = new Two();
-        System.out.println("Doing maths...");
-        secondSolution.resolve();
+        secondSolutionEntrance = "Doing maths...";
+        System.out.println(secondSolutionEntrance);
+        Two.resolve();
 
         Third thirdSolution = new Third();
-        System.out.println("Just enter a string followed by a integer: ");
-        thirdSolution.solving();
+        thirdSolutionEntrance = "Just enter a string followed by a integer: ";
+        System.out.println(thirdSolutionEntrance);
+        Third.solving();
+
     }
 }

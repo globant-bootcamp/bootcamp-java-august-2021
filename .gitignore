@@ -1,6 +1,9 @@
 # self ignoring
 .gitignore
 
+# Metadata
+*.iml
+
 # Compiled class file
 *.class
 
@@ -27,3 +30,7 @@ hs_err_pid*
 
 # IDE files
 *.idea
+
+# Folders 
+out/
+.idea/
