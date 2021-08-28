@@ -4,13 +4,19 @@ import java.util.List;
 
 public class Frontend extends Course {
 
-	public void welcome() {
-		System.out.println("Welcome to ReactJs Course");
+	@Override
+	public void getStudent() {
+		super.getStudent();
+	}
+
+	@Override
+	public void getStudent(int index) {
+		super.getStudent(index);
 	}
 
 	@Override
 	public void setMeeting(String myMeeting) {
-		super.setMeeting("Frontend: " + myMeeting);
+		super.setMeeting("\nLet's go! Frontend: " + myMeeting);
 	}
 
 	@Override

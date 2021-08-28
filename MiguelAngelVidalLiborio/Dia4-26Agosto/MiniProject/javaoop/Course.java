@@ -5,15 +5,15 @@ import java.util.List;
 
 public class Course {
 
-	private static final String COMPANY = "Globant";
 	private List<Student> myStudents = new ArrayList<Student>();
 
-	public void welcome() {
-		System.out.println("Welcome to: " + COMPANY);
+	public void getStudent() {
+		int lastElementFromList = myStudents.size() - 1;
+		System.out.println(myStudents.get(lastElementFromList).studentName);
 	}
 
-	public void welcome(String greeting) {
-		System.out.println(greeting);
+	public void getStudent(int index) {
+		System.out.printf("%-5s:%d", myStudents.get(index).studentName, myStudents.get(index).age);
 	}
 
 	public void setMeeting(String myMeeting) {
@@ -21,11 +21,11 @@ public class Course {
 	}
 
 	public void addStudent(Student student) {
-		this.myStudents.add(student);
+		myStudents.add(student);
 	}
 
 	public List<Student> getStudents() {
-		return this.myStudents;
+		return myStudents;
 	}
 
 }
