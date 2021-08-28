@@ -1,3 +1,6 @@
+# self ignoring
+.gitignore
+
 # Compiled class file
 *.class
 
