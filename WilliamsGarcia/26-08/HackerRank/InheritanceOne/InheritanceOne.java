@@ -1,4 +1,4 @@
-package com.company;
+package com.bootcamp.daytwo.hackerrank.inheritanceone;
 
 public class InheritanceOne {
 
