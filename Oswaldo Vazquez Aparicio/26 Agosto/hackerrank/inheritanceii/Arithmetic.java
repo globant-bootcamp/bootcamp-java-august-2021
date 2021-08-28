@@ -2,8 +2,8 @@ package hackerrank.inheritanceii;
 
 class Arithmetic {
 
-    public int add(int a, int b){
-        return a + b;
+    public int add(int numberOne, int numberTwo){
+        return numberOne + numberTwo;
     }
 
 }
