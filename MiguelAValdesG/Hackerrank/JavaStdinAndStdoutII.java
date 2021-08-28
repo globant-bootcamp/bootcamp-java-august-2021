@@ -3,15 +3,20 @@ import java.util.Scanner;
 public class JavaStdinAndStdoutII {
 
   public static void main(String[] args) {
-    Scanner scan = new Scanner(System.in);
-    int i = scan.nextInt();
-    double d = scan.nextDouble();
-    scan.nextLine();
-    String s = scan.nextLine();
+    Scanner readLineTerminal = new Scanner(System.in);
 
-    System.out.println("String: " + s);
-    System.out.println("Double: " + d);
-    System.out.println("Int: " + i);
+    int readIntegerLineTerminal = readLineTerminal.nextInt();
+    double readDoubleLineTerminal = readLineTerminal.nextDouble();
+    readLineTerminal.nextLine();
+    String readStringLineTerminal = readLineTerminal.nextLine();
+
+    final String STRING_RESULT = "String: ".concat(readStringLineTerminal);
+    final String DOUBLE_RESULT = "Double: " + readDoubleLineTerminal;
+    final String INT_RESULT = "Int: " + readIntegerLineTerminal;
+
+    System.out.println(STRING_RESULT);
+    System.out.println(DOUBLE_RESULT);
+    System.out.println(INT_RESULT);
   }
 
 }

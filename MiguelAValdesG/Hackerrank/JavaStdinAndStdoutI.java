@@ -3,12 +3,13 @@ import java.util.Scanner;
 public class JavaStdinAndStdoutI {
 
   public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
-    int[] inputs = new int[3];
+    Scanner readLineTerminal = new Scanner(System.in);
+    final int INPUT_ARRAY_SIZE = 3;
+    int[] inputs = new int[INPUT_ARRAY_SIZE];
 
-    inputs[0] = scanner.nextInt();
-    inputs[1] = scanner.nextInt();
-    inputs[2] = scanner.nextInt();
+    inputs[0] = readLineTerminal.nextInt();
+    inputs[1] = readLineTerminal.nextInt();
+    inputs[2] = readLineTerminal.nextInt();
 
     for(int element : inputs)
       System.out.println(element);
