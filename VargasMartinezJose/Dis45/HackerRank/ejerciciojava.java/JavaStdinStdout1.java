@@ -1,4 +1,3 @@
-import java.util.*;
 import java.util.Scanner;
 
 public class JavaStdinStdout1{
@@ -8,15 +7,14 @@ public class JavaStdinStdout1{
         Scanner scan = new Scanner(System.in);
        
 
-        int a = scan.nextInt();
-        int b = scan.nextInt();
-        int c = scan.nextInt();
+        int integer_a = scan.nextInt();
+        int integer_b = scan.nextInt();
+        int integer_c = scan.nextInt();
 
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println(c);
+        System.out.println(integer_a);
+        System.out.println(integer_b);
+        System.out.println(integer_c);
 
         scan.close();
     }
 }
-

@@ -1,4 +1,3 @@
-import java.util.*;
 import java.util.Scanner;
 
 public class JavaStdinStdout2{
@@ -6,15 +5,15 @@ public class JavaStdinStdout2{
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         
-        int i = scan.nextInt();
-        double d = scan.nextDouble();
+        int ineteger_value = scan.nextInt();
+        double double_value = scan.nextDouble();
         scan.nextLine();
-        String s = scan.nextLine();
-        // Write your code here.
+        String string_value = scan.nextLine();
+        
 
-        System.out.println("String: "+ s);
-        System.out.println("Double: " + d);
-        System.out.println("Int: " + i);
+        System.out.println("String: "+ string_value);
+        System.out.println("Double: " + double_value);
+        System.out.println("Int: " + ineteger_value);
        
         
         scan.close();
