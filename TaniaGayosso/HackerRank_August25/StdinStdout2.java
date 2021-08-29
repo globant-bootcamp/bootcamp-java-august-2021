@@ -1,23 +1,21 @@
+package ChallengesOne;
+
 import java.util.Scanner;
 
 public class StdinStdout2 {
-	
-	    public static void main(String[] args) {
-	    	
-	    	System.out.println("Introduce");
-	    	
-	        Scanner scan = new Scanner(System.in);
-	        int i = scan.nextInt();
-	        double d = scan.nextDouble();
-	        String s = "";
-	        while(scan.hasNextLine()) {
-	        	s += scan.nextLine();
-	        }
-	        
-	        scan.close();
 
-	        System.out.println("String: " + s);
-	        System.out.println("Double: " + d);
-	        System.out.println("Int: " + i);
-	    }
+	public static void main(String[] args) {
+
+		Scanner scan = new Scanner(System.in);
+
+		int number = scan.nextInt();
+		double decimalNumber = scan.nextDouble();
+		scan.nextLine();
+		String text = scan.nextLine();
+		scan.close();
+
+		System.out.println("String: " + text);
+		System.out.println("Double: " + decimalNumber);
+		System.out.println("Int: " + number);
+	}
 }
