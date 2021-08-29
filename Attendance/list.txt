@@ -1,3 +1,4 @@
+Sergio Mendoza Parra |25|26|27|
 David Gonzalez Zumaya |25|
 Sebastian Herrera Bermeo |25|
 Erick Eduardo Hernández Rodríguez |25|
@@ -5,9 +6,12 @@ Diego Flores Aleman |25|26|27
 Braulio de Jesús Luna Ocampo |25|26|
 Braulio de Jesús Luna Ocampo |25|26|27
 Sebastian Herrera Bermeo |25|26|
+Sebastian Herrera Bermeo |25|26|27|
+Erick Eduardo Hernández Rodríguez |25|26|
+Diego Flores Aleman |25|
+Braulio de Jesús Luna Ocampo |25|26|27|
 Oswaldo Vazquez Aparicio |25|
 Miguel Angel Vidal Liborio |25|
-Erick Eduardo Hernández Rodríguez |25|26|
 Marco Antonio Cardenas Medina |25|26|27|
 Vicente Paul Romero Douriet |25|
 Horacio Miguel Alvarado Garza |25|
@@ -18,3 +22,4 @@ Omar Espinosa Castro |25|26|
 Williams de Jesús García Orozco |25|26|27
 Estefany Reynoso Rodriguez |25|26|27
 Adriana Cano Rodriguez |25||26||27|
+
