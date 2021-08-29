@@ -7,12 +7,12 @@ public class Third {
     public static void solving() {
 
         Scanner scanner = new Scanner(System.in);
-        int numOfIterations = 3;
 
-        String decorator = "================================";
-        System.out.println(decorator);
+        final String DECORATOR = "================================";
+        System.out.println(DECORATOR);
 
-        for (int currentIteration = 0; currentIteration < numOfIterations; currentIteration++) {
+        final int NUMBER_OF_ITERATIONS = 3;
+        for (int currentIteration = 0; currentIteration < NUMBER_OF_ITERATIONS; currentIteration++) {
 
             String formattedString = scanner.next();
             int formattedNumber = scanner.nextInt();
@@ -21,7 +21,7 @@ public class Third {
 
         }
 
-        System.out.println(decorator);
+        System.out.println(DECORATOR);
 
     }
 }
