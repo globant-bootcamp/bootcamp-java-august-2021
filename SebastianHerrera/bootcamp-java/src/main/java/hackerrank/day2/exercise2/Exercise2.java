@@ -13,12 +13,12 @@ public class Exercise2 {
      */
     public static void setOperationInfo() {
         // Create operations new Adder object
-        Operations operations = new Operations();
+        Adder adder = new Adder();
 
         // Print the name of the superclass on operations new line
-        System.out.println(SUPERCLASS_IS + operations.getClass().getSimpleName());
+        System.out.println(SUPERCLASS_IS + adder.getClass().getSuperclass().getSimpleName());
 
         // Print the result of 3 calls to Adder's `add(int,int)` method as 3 space-separated integers:
-        System.out.print(operations.add(10, 32) + " " + operations.add(10, 3) + " " + operations.add(10, 10) + "\n");
+        System.out.print(adder.add(10, 32) + " " + adder.add(10, 3) + " " + adder.add(10, 10) + "\n");
     }
 }
