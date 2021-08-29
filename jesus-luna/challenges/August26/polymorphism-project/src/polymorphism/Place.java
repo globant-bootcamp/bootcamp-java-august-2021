@@ -5,8 +5,6 @@ public abstract class Place {
 	private double large;
 	private double width;
 	
-	public Place() {}
-
 	public Place(String name, double large, double width) {
 		super();
 		this.name = name;
