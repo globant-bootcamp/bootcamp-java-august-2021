@@ -1,4 +1,4 @@
-package com.mx.HackerRankExercises;
+package hackerrank.day1;
 
 import java.util.Scanner;
 
