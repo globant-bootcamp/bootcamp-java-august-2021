@@ -1,4 +1,4 @@
-package javaInheritance1;
+package java_inheritance1;
 
 public class Main {
 	public static void main(String args[]){

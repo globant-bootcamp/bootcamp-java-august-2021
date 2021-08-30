@@ -1,4 +1,4 @@
-package javaInheritance1;
+package java_inheritance1;
 
 public class Bird extends Animal {
 	public void fly() {

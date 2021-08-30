@@ -1,3 +1,3 @@
-package javaInheritance2;
+package java_inheritance2;
 
 class Adder extends Arithmetic { }

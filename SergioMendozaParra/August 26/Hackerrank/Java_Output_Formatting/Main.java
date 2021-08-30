@@ -1,4 +1,4 @@
-package java_Output_formatting;
+package java_output_formatting;
 
 import java.util.Scanner;
 import java.io.PrintStream;
@@ -7,9 +7,9 @@ public class Main {
 
     public static String addZeros(int number){
         String result;
-        if(number <= 99 && number >= 10)
+        if(number >= 10 && number <= 99)
             result = "0" + number;
-        else if(number <= 9 && number >= 0)    
+        else if(number >= 0 && number <= 9)    
             result = "00" + number;
         else
             result = "" + number;    
@@ -18,7 +18,7 @@ public class Main {
     } 
 
     public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
+            Scanner scanner = new Scanner(System.in);
             final int TOP = 3;
             final int BLANK_SPACES = 17;
             int number, counter;
@@ -26,8 +26,8 @@ public class Main {
             System.out.println("================================");
             
             for(counter = 0; counter < TOP; counter++){
-                string = sc.next();
-                number = sc.nextInt();
+                string = scanner.next();
+                number = scanner.nextInt();
                 System.out.printf("%s %"+ (BLANK_SPACES - string.length()) +"s %n", string, addZeros(number));    
             }
             

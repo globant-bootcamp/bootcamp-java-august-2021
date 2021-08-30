@@ -3,8 +3,8 @@ package challenge;
 public class Car extends Machine {
 		
 	@Override
-	public void printSpeed(String speed){
-		super.printSpeed("The car runs approximately with a velocity of: " + speed);
+	public void printSpeed(final String SPEED){
+		super.printSpeed("The car runs approximately with a velocity of: " + SPEED);
 	}
 
 	@Override
