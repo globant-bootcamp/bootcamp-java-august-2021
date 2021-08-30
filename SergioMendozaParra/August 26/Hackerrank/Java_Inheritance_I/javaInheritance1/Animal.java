@@ -1,4 +1,4 @@
-package myPackage;
+package javaInheritance1;
 
 public class Animal {
 	public void walk() {

@@ -1,6 +1,7 @@
-package myPackage;
+package java_Output_formatting;
 
 import java.util.Scanner;
+import java.io.PrintStream;
 
 public class Main {
 
@@ -17,17 +18,17 @@ public class Main {
     } 
 
     public static void main(String[] args) {
-            Scanner sc=new Scanner(System.in);
-            int     number, i;
-            String  string;
-            String  spaces = "";
+            Scanner sc = new Scanner(System.in);
+            final int TOP = 3;
+            final int BLANK_SPACES = 17;
+            int number, counter;
+            String string;
             System.out.println("================================");
             
-            for(i = 0; i < 3 ; i++){
+            for(counter = 0; counter < TOP; counter++){
                 string = sc.next();
                 number = sc.nextInt();
-                spaces = String.format("%18s", addZeros(number));
-                System.out.println(string + spaces.substring(string.length(), spaces.length()));    
+                System.out.printf("%s %"+ (BLANK_SPACES - string.length()) +"s %n", string, addZeros(number));    
             }
             
             System.out.println("================================");

@@ -1,14 +1,15 @@
-package myPackage;
+package challenge;
 
 public class Machine {
 
 	private String speed;
 	private String color;	
 
-	public void	printSpeed(String speed){
+	public void printSpeed(String speed){
 		System.out.println(speed);
 	}
-	public void	printColor(String color){
+	
+	public void printColor(String color){
 		System.out.println(color);
 	}
 
