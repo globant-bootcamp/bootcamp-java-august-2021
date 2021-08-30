@@ -1,0 +1,2 @@
+class Adder extends Arithmetic {
+}
