@@ -1,11 +1,10 @@
 import java.util.Scanner;
 
-public class JavaStdinStdout1{
+public class JavaStdinStdout1 {
 
     public static void main(String[] args) {
-        
+
         Scanner scan = new Scanner(System.in);
-       
 
         int integer_a = scan.nextInt();
         int integer_b = scan.nextInt();
