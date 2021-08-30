@@ -1,3 +1,5 @@
+package InheritanceI;
+
 public class Animal {
 
     public void walk() {

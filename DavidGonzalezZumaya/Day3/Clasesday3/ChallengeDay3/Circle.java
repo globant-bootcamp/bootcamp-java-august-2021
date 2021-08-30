@@ -1,3 +1,5 @@
+package ChallengeDay3;
+
 public class Circle extends Figure {
 
     public static final double PI = 3.1416;
@@ -5,6 +7,7 @@ public class Circle extends Figure {
     public double radius;
 
     public Circle() {
+        super();
     }
 
     public Circle(String color, double radius) {

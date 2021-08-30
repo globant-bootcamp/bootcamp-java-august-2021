@@ -4,6 +4,7 @@ public class Triangle extends Figure {
     public double height;
 
     public Triangle() {
+        super();
     }
 
     public Triangle(String color, double base, double height) {
