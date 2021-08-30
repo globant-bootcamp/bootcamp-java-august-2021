@@ -1,3 +1,5 @@
+package ChallengeDay3;
+
 public abstract class Figure {
 
     public String color;

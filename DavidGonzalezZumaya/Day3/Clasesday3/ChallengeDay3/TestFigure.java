@@ -1,3 +1,5 @@
+package ChallengeDay3;
+
 public class TestFigure {
     public static void main(String[] args) {
 

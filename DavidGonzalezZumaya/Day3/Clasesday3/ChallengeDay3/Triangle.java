@@ -1,3 +1,5 @@
+package ChallengeDay3;
+
 public class Triangle extends Figure {
 
     public double base;
@@ -14,13 +16,12 @@ public class Triangle extends Figure {
     }
 
     public void calculateArea() {
-        double area = (base * height) / 2;
-        this.area = area;
+        this.area = (base * height) / 2;
         System.out.println("Calculating the area of the triangle.");
     }
 
     public String toString() {
-        String state = "Triangle - color: " + color + ", " + "base: " + base + ", " + "height: " + height + ", "
+        String state = "ChallengeDay3.Triangle - color: " + color + ", " + "base: " + base + ", " + "height: " + height + ", "
                 + "area: " + area;
 
         return state;

@@ -1,9 +1,12 @@
+package ChallengeDay3;
+
 public class Rectangle extends Figure {
 
     public double base;
     public double height;
 
     public Rectangle() {
+        super();
     }
 
     public Rectangle(String color, double base, double height) {
@@ -13,13 +16,12 @@ public class Rectangle extends Figure {
     }
 
     public void calculateArea() {
-        double area = base * height;
-        this.area = area;
-        System.out.println("Calculating the area of the Rectangle");
+        this.area = base * height;
+        System.out.println("Calculating the area of the ChallengeDay3.Rectangle");
     }
 
     public String toString() {
-        String state = "Rectangle - color: " + color + ", " + "base: " + base + ", " + "height: " + height + ", "
+        String state = "ChallengeDay3.Rectangle - color: " + color + ", " + "base: " + base + ", " + "height: " + height + ", "
                 + "area: " + area;
 
         return state;
