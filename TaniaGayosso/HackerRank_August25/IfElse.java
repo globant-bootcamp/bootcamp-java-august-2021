@@ -1,4 +1,4 @@
-package ChallengesOne;
+package challenges.one;
 
 import java.util.Scanner;
 
@@ -8,22 +8,22 @@ public class IfElse {
 
 	public static void main(String[] args) {
 
-		int number = scanner.nextInt();
-		String message;
+		final int NUMBER = scanner.nextInt();
+		final String MESSAGE;
 		scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-		if (number % 2 == 1) {
-			message = "Weird";
+		if (NUMBER % 2 == 1) {
+			MESSAGE = "Weird";
 		} else {
-			if (number >= 2 && number <= 5) {
-				message = "Not Weird";
-			} else if (number >= 6 && number <= 20) {
-				message = "Weird";
+			if (NUMBER >= 2 && NUMBER <= 5) {
+				MESSAGE = "Not Weird";
+			} else if (NUMBER >= 6 && NUMBER <= 20) {
+				MESSAGE = "Weird";
 			} else {
-				message = "Not Weird";
+				MESSAGE = "Not Weird";
 			}
 		}
 		scanner.close();
-		System.out.println(message);
+		System.out.println(MESSAGE);
 	}
 }
