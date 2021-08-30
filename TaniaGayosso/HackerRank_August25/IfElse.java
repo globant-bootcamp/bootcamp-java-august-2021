@@ -5,25 +5,19 @@ import java.util.Scanner;
 public class IfElse {
 
 	private static final Scanner scanner = new Scanner(System.in);
-
+	public static final String WEIRD_NUMBER = "Weird";
+	public static final String NOT_WEIRD_NUMBER = "Not Weird"; 
+	
 	public static void main(String[] args) {
 
-		final int NUMBER = scanner.nextInt();
-		final String MESSAGE;
+		int number = scanner.nextInt();
 		scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-		if (NUMBER % 2 == 1) {
-			MESSAGE = "Weird";
+		if (number % 2 == 1 || number >= 6 && number <= 20)  {
+			System.out.println (WEIRD_NUMBER);
 		} else {
-			if (NUMBER >= 2 && NUMBER <= 5) {
-				MESSAGE = "Not Weird";
-			} else if (NUMBER >= 6 && NUMBER <= 20) {
-				MESSAGE = "Weird";
-			} else {
-				MESSAGE = "Not Weird";
+			System.out.println (NOT_WEIRD_NUMBER);
 			}
-		}
 		scanner.close();
-		System.out.println(MESSAGE);
-	}
+		}
 }
