@@ -1,17 +1,20 @@
+public class JavaOutputFormatting {
 
-public class JavaOutputFormatting{
+    public static final Scanner scan = new Scanner(System.in);
+    public static final String LINES = "================================";
+    public static final String FORMAT1 = "%-15s%03d%n";
 
     public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            System.out.println("================================");
-            for(int i=0;i<3;i++){
-                String strings = sc.next();
-                int integers = sc.nextInt();
-                System.out.printf("%-15s%03d%n",strings, integers);
-            }
-            System.out.println("================================");
+
+        System.out.println(LINES);
+
+        for (int index = 0; index < 3; index++) {
+            String strings_value = scan.next();
+            int integers_value = scan.nextInt();
+            System.out.printf(FORMAT1, strings_value, integers_value);
+        }
+        System.out.println(LINES);
 
     }
 
 }
-
