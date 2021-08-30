@@ -1,4 +1,6 @@
-public class Tester extends Employee {
+package com.king_arthur.company;
+
+class Tester extends Employee {
     String work;
 
     @Override

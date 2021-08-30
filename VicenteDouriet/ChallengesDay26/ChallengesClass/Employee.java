@@ -1,4 +1,6 @@
-public class Employee implements Printable {
+package com.king_arthur.company;
+
+class Employee implements Printable {
     String name;
     int age;
     double salary;

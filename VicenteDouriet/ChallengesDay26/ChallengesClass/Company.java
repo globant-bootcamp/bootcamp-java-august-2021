@@ -1,3 +1,5 @@
+package com.king_arthur.company;
+
 public class Company {
     public static void main(String[] args) {
 
