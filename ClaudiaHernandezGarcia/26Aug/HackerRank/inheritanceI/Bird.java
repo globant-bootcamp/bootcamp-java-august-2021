@@ -2,10 +2,10 @@ package inheritanceI;
 
 public class Bird extends Animal {
     void fly() {
-        System.out.println("I am flying");
+        System.out.println(defString + "flying");
     }
 
     void sing() {
-        System.out.println("I am singing");
+        System.out.println(defString + "singing");
     }
 }
