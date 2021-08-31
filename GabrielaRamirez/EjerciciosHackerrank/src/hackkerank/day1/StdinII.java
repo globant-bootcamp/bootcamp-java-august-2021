@@ -1,7 +1,7 @@
-package basics;
+package hackkerank.day1;
 import java.util.Scanner;
 
-public class StdinI {
+public class StdinII {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int a = scan.nextInt();

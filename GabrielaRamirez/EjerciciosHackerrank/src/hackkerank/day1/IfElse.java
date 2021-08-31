@@ -1,4 +1,4 @@
-package basics;
+package hackkerank.day1;
 import java.util.Scanner;
 
 public class IfElse {

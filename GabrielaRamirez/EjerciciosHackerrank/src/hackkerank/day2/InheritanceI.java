@@ -1,4 +1,4 @@
-package basics;
+package hackkerank.day2;
 
 class Animal{
     void walk()
