@@ -1,13 +1,13 @@
+David Gonzalez Zumaya |25|26|27|
 Sergio Mendoza Parra |25|26|27|
-David Gonzalez Zumaya |25|
 Oswaldo Vazquez Aparicio |25|26|27|
-Sebastian Herrera Bermeo |25|26|27|
+Sebastian Herrera Bermeo |25|26|27|30|
 Erick Eduardo Hernández Rodríguez |25|26|27|
 Diego Flores Aleman |25|
 Braulio de Jesús Luna Ocampo |25|26|27|
-Miguel Angel Vidal Liborio |25|
+Miguel Angel Vidal Liborio |25|26|27|
 Marco Antonio Cardenas Medina |25|26|27|
-Vicente Paul Romero Douriet |25|
+Vicente Paul Romero Douriet |25|26|27|
 Horacio Miguel Alvarado Garza |25|
 Miguel Angel Valdés García |25|26|27|
 Humbertino Avilez Carpintero |25|
@@ -17,3 +17,4 @@ Omar Espinosa Castro |25|26|
 Williams de Jesús García Orozco |25|26|27
 Estefany Reynoso Rodriguez |25|26|27
 Adriana Cano Rodriguez |25||26||27|
+Vargas Martínez José de Jesús |25|26|27|30|
