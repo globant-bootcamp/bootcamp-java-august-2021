@@ -2,6 +2,7 @@ package bootcamp;
 
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 /* This solution is the one that I submitted to Hackerrank. I just
 *  renamed the variables to a more readable state */
@@ -19,7 +20,7 @@ public class JavaHashsetHackerrank {
             pairRight[index] = scanner.next();
         }
 
-        HashSet<String> pairs = new HashSet<>();
+        Set<String> pairs = new HashSet<>();
         for(int iterator = 0; iterator < queries; iterator++){
             pairs.add(pairLeft[iterator] + " " + pairRight[iterator]);
             System.out.println(pairs.size());

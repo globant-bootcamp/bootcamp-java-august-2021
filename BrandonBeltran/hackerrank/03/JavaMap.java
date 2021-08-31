@@ -22,7 +22,7 @@ public class JavaMap {
 
         while(scanner.hasNext()){
             String query = scanner.nextLine();
-            if(phoneBook.get(query) != null){
+            if(phoneBook.containsKey(query)){
                 int number = phoneBook.get(query);
                 System.out.printf("%s=%d%n",query,number);
             }else{

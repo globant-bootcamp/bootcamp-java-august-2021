@@ -9,7 +9,7 @@ public class JavaArrayList {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int collections = scanner.nextInt();
-        ArrayList <List> numbers = new ArrayList<>();
+        List <List> numbers = new ArrayList<>();
 
         for(int collectionIterator = 0; collectionIterator < collections; collectionIterator++){
             int size = scanner.nextInt();
