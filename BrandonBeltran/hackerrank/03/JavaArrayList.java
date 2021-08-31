@@ -14,7 +14,7 @@ public class JavaArrayList {
         for(int collectionIterator = 0; collectionIterator < collections; collectionIterator++){
             int size = scanner.nextInt();
 
-            ArrayList <Integer> numberSubList = new ArrayList<>();
+            List <Integer> numberSubList = new ArrayList<>();
 
             int listIterator = 0;
             while(listIterator < size){
