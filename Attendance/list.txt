@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 David Gonzalez Zumaya |25|26|27|
 Sergio Mendoza Parra |25|26|27|
 Oswaldo Vazquez Aparicio |25|26|27|
@@ -15,9 +14,8 @@ Humbertino Avilez Carpintero |25|
 Brandon Ali Beltran Rivera |25||26|27|30|
 Claudia Hernández García |25|26|
 Omar Espinosa Castro |25|26|27|30|
-Williams de Jesús García Orozco |25|26|27
+Williams de Jesús García Orozco |25|26|27|30
 Estefany Reynoso Rodriguez |25|26|27
 Adriana Cano Rodriguez |25||26||27|
 Vargas Martínez José de Jesús |25|26|27|30|
 Tania Belen Gayosso Domínguez |25|26|27|30|
->>>>>>> master
