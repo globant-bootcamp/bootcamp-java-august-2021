@@ -1,13 +1,20 @@
 package org.example;
-public class Solution {
+public class Formatting {
+    
     public static void main(String[] args) {
-            Scanner sc=new Scanner(System.in);
-            System.out.println("================================");
-            for(int indice=0;indice<3;indice++){
-                String stringIn=sc.next();
-                int number=sc.nextInt();
-                 System.out.printf("%-15s%03d%n",stringIn,number);
-            }
-            System.out.println("================================");
+        String separator = "================================";
+        String formato = "%-15s%03d%n";
+        Scanner sc = new Scanner(System.in);
+        String[] stringIn = new String[3];
+        int[] numbers = new int[3];
+        for (int indice = 0; indice < 3; indice++) {
+            stringIn[indice] = sc.next();
+            numbers[indice] = sc.nextInt();
+        }
+        System.out.println(separator);
+        for (int indice = 0; indice < 3; indice++) {
+            System.out.printf(formato, stringIn[indice], numbers[indice]);
+        }
+        System.out.println(separator);
     }
 }
