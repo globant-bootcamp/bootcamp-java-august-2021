@@ -14,14 +14,11 @@ public class Principal {
     public static void salary(Job job) {
         if (job instanceof Driver) {
             ((Driver) job).calculateSalary();
-            //System.out.println(job.getName() + " para el puesto de Chofer tu saldo es: " + job.getSalary());
             job.toString_();
         } else if (job instanceof Doctor) {
-            //System.out.println(job.getName() + " para el puesto de Medico tu saldo es: " + job.getSalary());
             job.toString_();
         } else if (job instanceof Teacher) {
             ((Teacher) job).calculateSalary();
-            //System.out.println(job.getName() + " para el puesto de docente tu saldo es: " + job.getSalary());
             job.toString_();
         }
     }
