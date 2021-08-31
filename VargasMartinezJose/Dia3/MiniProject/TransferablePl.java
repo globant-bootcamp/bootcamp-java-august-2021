@@ -1,3 +1,5 @@
+package miniproject.bootcamp.tf;
+
 public class TransferablePl extends NewPlayer {
 
     String[] strArray2 = new String[] { "VALUE: ", "NEW TEAM: ", "INJURIES: " };

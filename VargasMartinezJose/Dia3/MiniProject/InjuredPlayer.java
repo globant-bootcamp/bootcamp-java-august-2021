@@ -1,3 +1,5 @@
+package miniproject.bootcamp.ip;
+
 public class InjuredPlayer extends NewPlayer {
 
     String[] strArray1 = new String[] { "TIME: " };

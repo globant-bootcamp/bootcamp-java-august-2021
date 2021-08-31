@@ -1,3 +1,5 @@
+package miniproject.bootcamp.mnfl;
+
 public class MainNfl {
 
     public static final String PLAYER_LINE = "**********Player*********";

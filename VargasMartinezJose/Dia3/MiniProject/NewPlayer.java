@@ -1,3 +1,5 @@
+package miniproject.bootcamp.np;
+
 public class NewPlayer {
 
     public static final String NULL_VALUE = "ENTER DATA";
