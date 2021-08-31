@@ -1,17 +1,21 @@
+package bootcamp.java.day.three.jinh2;
+
+import java.util.Scanner;
+
 public class JavaInheritance2 {
 
     public static final Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) {
 
-        int integer_value = scan.nextInt();
-        double double_value = scan.nextDouble();
+        int integerValue = scan.nextInt();
+        double doubleValue = scan.nextDouble();
         scan.nextLine();
-        String string_value = scan.nextLine();
+        String stringValue = scan.nextLine();
 
-        System.out.println("String: " + string_value);
-        System.out.println("Double: " + double_value);
-        System.out.println("Int: " + integer_value);
+        System.out.println("String: " + stringValue);
+        System.out.println("Double: " + doubleValue);
+        System.out.println("Int: " + integerValue);
 
     }
 }

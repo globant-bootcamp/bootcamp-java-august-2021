@@ -1,3 +1,5 @@
+package bootcamp.java.day.three.bd;
+
 class Bird extends Animal {
 
     void fly() {

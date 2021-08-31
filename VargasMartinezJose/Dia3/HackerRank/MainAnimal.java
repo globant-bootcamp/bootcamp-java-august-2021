@@ -1,3 +1,5 @@
+package bootcamp.java.day.three.ma;
+
 public class MainAnimal {
 
    public static void main(String args[]) {

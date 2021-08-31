@@ -1,3 +1,7 @@
+package bootcamp.java.day.three.jouf;
+
+import java.util.Scanner;
+
 public class JavaOutputFormatting {
 
     public static final Scanner scan = new Scanner(System.in);
@@ -6,12 +10,13 @@ public class JavaOutputFormatting {
 
     public static void main(String[] args) {
 
+        int upperRange = 3;
         System.out.println(LINES);
 
-        for (int index = 0; index < 3; index++) {
-            String strings_value = scan.next();
-            int integers_value = scan.nextInt();
-            System.out.printf(FORMAT1, strings_value, integers_value);
+        for (int index = 0; index < upperRange; index++) {
+            String stringsValue = scan.next();
+            int integersValue = scan.nextInt();
+            System.out.printf(FORMAT1, stringsValue, integersValue);
         }
         System.out.println(LINES);
 
