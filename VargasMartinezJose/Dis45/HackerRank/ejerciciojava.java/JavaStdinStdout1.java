@@ -1,3 +1,5 @@
+package bootcamp.java.day.two.jsin;
+
 import java.util.Scanner;
 
 public class JavaStdinStdout1 {
@@ -6,13 +8,13 @@ public class JavaStdinStdout1 {
 
         Scanner scan = new Scanner(System.in);
 
-        int integer_a = scan.nextInt();
-        int integer_b = scan.nextInt();
-        int integer_c = scan.nextInt();
+        int integerValue = scan.nextInt();
+        int integerValue1 = scan.nextInt();
+        int integerValue2 = scan.nextInt();
 
-        System.out.println(integer_a);
-        System.out.println(integer_b);
-        System.out.println(integer_c);
+        System.out.println(integerValue);
+        System.out.println(integerValue1);
+        System.out.println(integerValue2);
 
         scan.close();
     }
