@@ -3,7 +3,6 @@ package collections;
 import java.util.Scanner;
 import java.util.Map;
 import java.util.HashMap;
-
 public class MapExercise {
 	public static final Scanner SCAN = new Scanner(System.in);
 
