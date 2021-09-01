@@ -19,7 +19,6 @@ public class ResultHashTableRansom {
 				break;
 			}
 		}
-
 		System.out.println(valid);
 	}
 
@@ -34,5 +33,4 @@ public class ResultHashTableRansom {
 		}
 		return myMapConverted;
 	}
-
 }

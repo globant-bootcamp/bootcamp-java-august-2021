@@ -30,5 +30,6 @@ public class ListExercise {
 		}
 
 		myNumbersList.forEach(myNumber -> System.out.print(myNumber + " "));
+		
 	}
 }

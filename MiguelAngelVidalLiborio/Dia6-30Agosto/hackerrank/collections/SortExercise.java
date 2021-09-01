@@ -32,6 +32,6 @@ public class SortExercise {
 		for (StudentSortExercise st : studentList) {
 			System.out.println(st.getFirstName());
 		}
+		
 	}
-
 }

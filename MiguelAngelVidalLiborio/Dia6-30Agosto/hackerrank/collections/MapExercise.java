@@ -3,6 +3,7 @@ package collections;
 import java.util.Scanner;
 import java.util.Map;
 import java.util.HashMap;
+
 public class MapExercise {
 	public static final Scanner SCAN = new Scanner(System.in);
 
@@ -24,6 +25,6 @@ public class MapExercise {
 			System.out.println(myMap.containsKey(userQuery) ? String.format("%s=%d", userQuery, myMap.get(userQuery))
 					: "Not found");
 		}
+		
 	}
-
 }

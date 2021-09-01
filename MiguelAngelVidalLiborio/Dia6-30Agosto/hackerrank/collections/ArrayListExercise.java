@@ -34,7 +34,6 @@ public class ArrayListExercise {
 					: myList.get(numbers).get(position)));
 			count += 1;
 		}
-
 	}
 
 }

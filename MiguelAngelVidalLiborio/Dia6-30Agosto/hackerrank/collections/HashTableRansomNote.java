@@ -39,5 +39,4 @@ public class HashTableRansomNote {
 		bufferedReader.close();
 
 	}
-
 }

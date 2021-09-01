@@ -24,5 +24,6 @@ public class HashSetExercise {
 			System.out.println(mySet.size());
 			count++;
 		}
+		
 	}
 }

@@ -1,7 +1,6 @@
 package collections;
 
 public class StudentSortExercise {
-
 	private int id;
 	private String firstName;
 	private double cgpa;
@@ -24,4 +23,5 @@ public class StudentSortExercise {
 	public double getCgpa() {
 		return cgpa;
 	}
+	
 }
