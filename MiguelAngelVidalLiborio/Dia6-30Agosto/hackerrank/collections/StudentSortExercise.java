@@ -6,7 +6,6 @@ public class StudentSortExercise {
 	private double cgpa;
 
 	public StudentSortExercise(int id, String firstName, double cgpa) {
-		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.cgpa = cgpa;
@@ -23,5 +22,5 @@ public class StudentSortExercise {
 	public double getCgpa() {
 		return cgpa;
 	}
-	
+
 }
