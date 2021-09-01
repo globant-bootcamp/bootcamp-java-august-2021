@@ -6,30 +6,27 @@ import java.util.List;
 import java.util.Scanner;
 
 public class SortExample {
-    
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int testCases = Integer.parseInt(scan.nextLine());
-
         List<Student> studentList = new ArrayList<>();
 
         while (testCases > 0) {
             int id = scan.nextInt();
-            String fname = scan.next();
-            double cgpa = scan.nextDouble();
+            String name = scan.next();
+            double cumulativeGradePointAverage = scan.nextDouble();
 
-            Student st = new Student(id, fname, cgpa);
-            studentList.add(st);
+            Student student = new Student(id, name, cumulativeGradePointAverage);
+            studentList.add(student);
 
             testCases--;
         }
 
-        StudentComparator validate = new StudentComparator();
-        studentList.sort(validate);
+        Collections.sort(studentList);
 
         for (Student student : studentList) {
-            System.out.println(student.getFname());
+            System.out.println(student.getName());
         }
     }
 }

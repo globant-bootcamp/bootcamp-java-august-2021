@@ -2,15 +2,16 @@ package com.bootcamp.daythree.hackerrank.hashtable;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Result {
-    
+
     public static final String VALID = "Yes";
     public static final String NO_VALID = "No";
 
     public static void checkMagazine(List<String> magazine, List<String> note) {
-
-        HashMap<String, Integer> words = new HashMap();
+        Map<String, Integer> words = new HashMap<>();
+        
         for (String magazineWord : magazine) {
             words.merge(magazineWord, 1, Integer::sum);
         }
@@ -21,7 +22,7 @@ public class Result {
         }
     }
 
-    public static boolean checkNote(HashMap<String, Integer> words, List<String> note) {
+    public static boolean checkNote(Map<String, Integer> words, List<String> note) {
 
         for (String noteWord : note) {
             if (words.containsKey(noteWord) && words.get(noteWord) > 0) {

@@ -2,26 +2,26 @@ package com.bootcamp.daythree.hackerrank.hashset;
 
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class HashSetExample {
 
     public static void main(String[] args) {
-
         Scanner scan = new Scanner(System.in);
         int inputNumber = scan.nextInt();
-        String[] pair_left = new String[inputNumber];
-        String[] pair_right = new String[inputNumber];
+        String[] pairLeft = new String[inputNumber];
+        String[] pairRight = new String[inputNumber];
 
         for (int iteratorFill = 0; iteratorFill < inputNumber; iteratorFill++) {
-            pair_left[iteratorFill] = scan.next();
-            pair_right[iteratorFill] = scan.next();
+            pairLeft[iteratorFill] = scan.next();
+            pairRight[iteratorFill] = scan.next();
         }
 
         scan.close();
 
-        HashSet<String> merge = new HashSet(inputNumber);
+        Set<String> merge = new HashSet<>();
         for (int iterator = 0; iterator < inputNumber; iterator++) {
-            merge.add(pair_left[iterator] + " " + pair_right[iterator]);
+            merge.add(pairLeft[iterator] + " " + pairRight[iterator]);
             System.out.println(merge.size());
         }
     }

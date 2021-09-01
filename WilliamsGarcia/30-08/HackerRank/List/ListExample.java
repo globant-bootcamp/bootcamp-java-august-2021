@@ -12,10 +12,10 @@ public class ListExample {
 
         Scanner scan = new Scanner(System.in);
         int inputNumber = scan.nextInt();
-        List<Integer> list = new ArrayList<>();
+        List<Integer> numberList = new ArrayList<>();
 
         for (int iteratorFill = 0; iteratorFill < inputNumber; iteratorFill++) {
-            list.add(scan.nextInt());
+            numberList.add(scan.nextInt());
         }
 
         int numberQ = scan.nextInt();
@@ -24,14 +24,14 @@ public class ListExample {
             if (scan.next().equals(CASE_INSERT)) {
                 int index = scan.nextInt();
                 int value = scan.nextInt();
-                list.add(index, value);
+                numberList.add(index, value);
             } else {
-                list.remove(scan.nextInt());
+                numberList.remove(scan.nextInt());
             }
-        }
+        }        
         scan.close();
 
-        for (Integer number : list) {
+        for (Integer number : numberList) {
             System.out.print(number + " ");
         }
     }

@@ -16,7 +16,6 @@ public class HashTableExercise {
     public static final String NO = "No";
 
     public static void main(String[] args) throws IOException {
-        
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
         String[] firstMultipleInput = bufferedReader.readLine().replaceAll(WHITE_SPACES, WITHOUT_SPACE).split(SPACE);
