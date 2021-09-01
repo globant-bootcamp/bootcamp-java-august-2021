@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class JavaMap {
 
     private static final Scanner scanner = new Scanner(System.in);
-    private static Map<String, Integer> phoneBook = new HashMap<>();
+    private static Map<String, Integer> phoneBookMap = new HashMap<>();
 
     public static void main(String[] args) {
 
@@ -36,7 +36,7 @@ public class JavaMap {
         String name = scanner.nextLine();
         Integer phoneNumber = scanner.nextInt();
         scanner.nextLine();
-        phoneBook.put(name, phoneNumber);
+        phoneBookMap.put(name, phoneNumber);
     }
 
     private static boolean hasNextQuery(){
@@ -44,7 +44,7 @@ public class JavaMap {
     }
 
     private static String searchName(String name) {
-        return phoneBook.containsKey(name) ? String.format("%s=%d", name, phoneBook.get(name)) : "Not found";
+        return phoneBookMap.containsKey(name) ? String.format("%s=%d", name, phoneBookMap.get(name)) : "Not found";
     }
     
 }

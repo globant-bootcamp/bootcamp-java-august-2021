@@ -8,12 +8,12 @@ public class Result {
 
     public static void checkMagazine(List<String> magazine, List<String> note) {
 
-        Map<String, Integer> wordsFreqMagazine = createWordsFrequencyTable(magazine);
-        Map<String, Integer> wordsFreqNote = createWordsFrequencyTable(note);
+        Map<String, Integer> wordsFreqMagazineMap = createWordsFrequencyTable(magazine);
+        Map<String, Integer> wordsFreqNoteMap = createWordsFrequencyTable(note);
 
         for(String word: note){
-            int wordFreqInMagazine = (wordsFreqMagazine.get(word) == null)? 0 : wordsFreqMagazine.get(word);
-            int wordFreqInNote = (wordsFreqNote.get(word)== null)? 0 : wordsFreqNote.get(word);
+            int wordFreqInMagazine = (wordsFreqMagazineMap.get(word) == null)? 0 : wordsFreqMagazineMap.get(word);
+            int wordFreqInNote = (wordsFreqNoteMap.get(word)== null)? 0 : wordsFreqNoteMap.get(word);
 
             if(wordFreqInMagazine < wordFreqInNote){
                 System.out.println("No");
@@ -27,12 +27,12 @@ public class Result {
     }
 
     private static Map<String, Integer> createWordsFrequencyTable(List<String> words){
-        Map<String, Integer> frequencyTable = new HashMap<>();
+        Map<String, Integer> frequencyTableMap = new HashMap<>();
         for(String word: words){
-            Integer frequency = frequencyTable.get(word);
-            frequencyTable.put(word, (frequency == null)? 1 : frequency + 1);
+            Integer frequency = frequencyTableMap.get(word);
+            frequencyTableMap.put(word, (frequency == null)? 1 : frequency + 1);
         }
-        return frequencyTable;
+        return frequencyTableMap;
     }
 
 }
