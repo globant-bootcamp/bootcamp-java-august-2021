@@ -6,30 +6,34 @@ import java.util.Scanner;
 
 public class JavaArraylist {
 	static List<List<Integer>> mainList = new ArrayList<List<Integer>>();
-	static Scanner sc = new Scanner(System.in);
+	static Scanner scanner = new Scanner(System.in);
+	static String[] elements;
+	static List<Integer> temporaryList;
+	static final String MESSAGE_ERROR = "ERROR!";
+	static final String SPLIT_SYMBOL = " ";
 
 	public static void main(String[] args) {
-		int lines = sc.nextInt();
-		sc.nextLine();
+		int lines = scanner.nextInt();
+		scanner.nextLine();
 		while (lines > 0) {
-			List<Integer> temporaryList = new ArrayList<>();
-			String[] elements = sc.nextLine().split(" ");
+			temporaryList = new ArrayList<>();
+			elements = scanner.nextLine().split(SPLIT_SYMBOL);
 			for (int i = 0; i < Integer.parseInt(elements[0]); i++) {
 				temporaryList.add(Integer.parseInt(elements[i + 1]));
 			}
 			mainList.add(temporaryList);
 			lines--;
 		}
-		int queries = sc.nextInt();
-		sc.nextLine();
+		int queries = scanner.nextInt();
+		scanner.nextLine();
 		for (int i = 0; i < queries; i++) {
-			String[] query = sc.nextLine().split(" ");
+			String[] query = scanner.nextLine().split(SPLIT_SYMBOL);
 			try {
 				System.out.println(mainList.get(Integer.parseInt(query[0]) - 1).get(Integer.parseInt(query[1]) - 1));
 			} catch (Exception e) {
-				System.out.println("ERROR!");
+				System.out.println(MESSAGE_ERROR);
 			}
 		}
-		sc.close();
+		scanner.close();
 	}
 }
