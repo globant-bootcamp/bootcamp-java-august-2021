@@ -6,14 +6,14 @@ import java.util.Scanner;
 public JavaArrayList {
 
     private static final Scanner scanner = new Scanner(System.in);
-    private static List<List<Integer>> table;
+    private static List<List<Integer>> tableListList; 
 
     public static void main(String[] args) {
 
         int rowsNumber = scanner.nextInt();
         scanner.nextLine();
 
-        table = createTable(rowsNumber);
+        tableListList = createTable(rowsNumber);
 
         int queriesNumber = scanner.nextInt();
         scanner.nextLine();
@@ -25,14 +25,14 @@ public JavaArrayList {
     }
 
     private static List<List<Integer>> createTable(int rowsNumber) {
-        List<List<Integer>> table = new ArrayList<>(rowsNumber);
+        List<List<Integer>> tableListList = new ArrayList<>(rowsNumber);
         for (int rowIndex = 0; rowIndex < rowsNumber; rowIndex++) {
             int numbersInRow = scanner.nextInt();
             List<Integer> row = createRow(numbersInRow);
-            table.add(row);
+            tableListList.add(row);
         }
         scanner.nextLine();
-        return table;
+        return tableListList;
     }
 
     private static List<Integer> createRow(int numbersInRow) {
@@ -55,11 +55,11 @@ public JavaArrayList {
 
     private static void performQuery(int lineNumber, int position) {
         String errorMessage = "ERROR!";
-        int linesNumber = table.size();
+        int linesNumber = tableListList.size();
 
         if (lineNumber <= linesNumber) {
 
-            List<Integer> line = table.get(lineNumber - 1);
+            List<Integer> line = tableListList.get(lineNumber - 1);
             if (position <= line.size()) {
                 int numberResult = line.get(position - 1);
                 System.out.println(numberResult);

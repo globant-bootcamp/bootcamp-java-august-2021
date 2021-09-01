@@ -14,11 +14,11 @@ public class HashTablesRansomNote {
         String blankSpace = " ";
         String[] firstMultipleInput = bufferedReader.readLine().replaceAll(regex, "").split(blankSpace);
 
-        List<String> magazine = Arrays.asList(bufferedReader.readLine().replaceAll(regex, "").split(blankSpace));
+        List<String> magazineList = Arrays.asList(bufferedReader.readLine().replaceAll(regex, "").split(blankSpace));
 
-        List<String> note = Arrays.asList(bufferedReader.readLine().replaceAll(regex, "").split(blankSpace));
+        List<String> noteList = Arrays.asList(bufferedReader.readLine().replaceAll(regex, "").split(blankSpace));
 
-        Result.checkMagazine(magazine, note);
+        Result.checkMagazine(magazineList, noteList);
 
         bufferedReader.close();
     }

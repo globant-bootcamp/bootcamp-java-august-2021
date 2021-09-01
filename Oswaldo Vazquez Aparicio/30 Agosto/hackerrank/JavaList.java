@@ -7,7 +7,7 @@ import java.util.List;
 public class JavaList {
 
     private static final Scanner scanner = new Scanner(System.in);
-    private static final List<Integer> list = new LinkedList<>();
+    private static final List<Integer> listList = new LinkedList<>();
 
     public static void main(String[] args) {
         
@@ -30,7 +30,7 @@ public class JavaList {
     private static void fillLinkedList(int elementsNumber){
         for(int elementIndex = 0; elementIndex < elementsNumber; elementIndex++){
             int element = scanner.nextInt();
-            list.add(element);
+            listList.add(element);
         }
     }
     
@@ -46,10 +46,10 @@ public class JavaList {
         switch(action){
             case "Insert":
                 int value = scanner.nextInt();
-                list.add(index, value);
+                listList.add(index, value);
                 break;
             case "Delete":
-                list.remove(index);
+                listList.remove(index);
                 break;
             default:
                 System.out.println("Action not available.");
@@ -57,7 +57,7 @@ public class JavaList {
     }
     
     private static void printList(){
-        for(int item: list){
+        for(int item: listList){
             System.out.printf("%d ", item);
         }
     }
