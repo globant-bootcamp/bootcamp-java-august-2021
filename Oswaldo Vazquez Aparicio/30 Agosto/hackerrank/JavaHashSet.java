@@ -2,6 +2,7 @@ package hackerrank;
 
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class JavaHashSet {
 
@@ -10,7 +11,7 @@ public class JavaHashSet {
         Scanner scanner = new Scanner(System.in);
         int pairsNumber = scanner.nextInt();
 
-        HashSet<String> pairs = new HashSet<>();
+        Set<String> pairs = new HashSet<>();
 
         for (int index = 0; index < pairsNumber; index++) {
             String leftPair = scanner.next();

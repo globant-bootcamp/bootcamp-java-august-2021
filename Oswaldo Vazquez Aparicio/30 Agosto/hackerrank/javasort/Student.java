@@ -28,12 +28,12 @@ class Student implements Comparable<Student> {
     public int compareTo(Student student) {
         int compareCgpa = cgpa.compareTo(student.getCgpa());
 
-        if (!areEquals(compareCgpa)) {
-            return invertOrder(compareCgpa);
+        if (compareCgpa != 0) {
+            return -compareCgpa;
         } else {
             int compareFname = fname.compareTo(student.getFname());
 
-            if (!areEquals(compareFname)) {
+            if (compareFname != 0) {
                 return compareFname;
             } else {
                 return id.compareTo(student.getId());
@@ -43,11 +43,4 @@ class Student implements Comparable<Student> {
 
     }
 
-    private boolean areEquals(int resultOfCompare) {
-        return resultOfCompare == 0;
-    }
-
-    private int invertOrder(int resultOfCompare) {
-        return -resultOfCompare;
-    }
 }

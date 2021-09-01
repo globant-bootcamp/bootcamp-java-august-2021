@@ -6,7 +6,7 @@ import java.util.Scanner;
 public JavaArrayList {
 
     private static final Scanner scanner = new Scanner(System.in);
-    private static ArrayList<ArrayList<Integer>> table;
+    private static List<List<Integer>> table;
 
     public static void main(String[] args) {
 
@@ -24,19 +24,19 @@ public JavaArrayList {
 
     }
 
-    private static ArrayList<ArrayList<Integer>> createTable(int rowsNumber) {
-        ArrayList<ArrayList<Integer>> table = new ArrayList<>(rowsNumber);
+    private static List<List<Integer>> createTable(int rowsNumber) {
+        List<List<Integer>> table = new ArrayList<>(rowsNumber);
         for (int rowIndex = 0; rowIndex < rowsNumber; rowIndex++) {
             int numbersInRow = scanner.nextInt();
-            ArrayList<Integer> row = createRow(numbersInRow);
+            List<Integer> row = createRow(numbersInRow);
             table.add(row);
         }
         scanner.nextLine();
         return table;
     }
 
-    private static ArrayList<Integer> createRow(int numbersInRow) {
-        ArrayList<Integer> row = new ArrayList<>(numbersInRow);
+    private static List<Integer> createRow(int numbersInRow) {
+        List<Integer> row = new ArrayList<>(numbersInRow);
         for (int numberIndex = 0; numberIndex < numbersInRow; numberIndex++) {
             int number = scanner.nextInt();
             row.add(number);
@@ -59,7 +59,7 @@ public JavaArrayList {
 
         if (lineNumber <= linesNumber) {
 
-            ArrayList<Integer> line = table.get(lineNumber - 1);
+            List<Integer> line = table.get(lineNumber - 1);
             if (position <= line.size()) {
                 int numberResult = line.get(position - 1);
                 System.out.println(numberResult);

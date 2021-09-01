@@ -2,11 +2,12 @@ package hackerrank;
 
 import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.List;
 
 public class JavaList {
 
     private static final Scanner scanner = new Scanner(System.in);
-    private static final LinkedList<Integer> list = new LinkedList<>();
+    private static final List<Integer> list = new LinkedList<>();
 
     public static void main(String[] args) {
         

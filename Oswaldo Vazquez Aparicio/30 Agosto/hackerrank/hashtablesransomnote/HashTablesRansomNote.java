@@ -14,10 +14,6 @@ public class HashTablesRansomNote {
         String blankSpace = " ";
         String[] firstMultipleInput = bufferedReader.readLine().replaceAll(regex, "").split(blankSpace);
 
-        int wordsInMagazine = Integer.parseInt(firstMultipleInput[0]);
-
-        int wordsInNote = Integer.parseInt(firstMultipleInput[1]);
-
         List<String> magazine = Arrays.asList(bufferedReader.readLine().replaceAll(regex, "").split(blankSpace));
 
         List<String> note = Arrays.asList(bufferedReader.readLine().replaceAll(regex, "").split(blankSpace));
