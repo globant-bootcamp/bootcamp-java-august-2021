@@ -19,10 +19,10 @@ public class HashSetExample {
 
         scan.close();
 
-        Set<String> merge = new HashSet<>();
+        Set<String> mergeSet = new HashSet<>();
         for (int iterator = 0; iterator < inputNumber; iterator++) {
-            merge.add(pairLeft[iterator] + " " + pairRight[iterator]);
-            System.out.println(merge.size());
+            mergeSet.add(pairLeft[iterator] + " " + pairRight[iterator]);
+            System.out.println(mergeSet.size());
         }
     }
 }

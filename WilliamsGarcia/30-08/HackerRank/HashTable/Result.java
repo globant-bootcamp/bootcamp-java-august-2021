@@ -10,23 +10,23 @@ public class Result {
     public static final String NO_VALID = "No";
 
     public static void checkMagazine(List<String> magazine, List<String> note) {
-        Map<String, Integer> words = new HashMap<>();
+        Map<String, Integer> wordsMap = new HashMap<>();
         
         for (String magazineWord : magazine) {
-            words.merge(magazineWord, 1, Integer::sum);
+            wordsMap.merge(magazineWord, 1, Integer::sum);
         }
-        if (checkNote(words, note)) {
+        if (checkNote(wordsMap, note)) {
             System.out.println(VALID);
         } else {
             System.out.println(NO_VALID);
         }
     }
 
-    public static boolean checkNote(Map<String, Integer> words, List<String> note) {
+    public static boolean checkNote(Map<String, Integer> wordsMap, List<String> note) {
 
         for (String noteWord : note) {
-            if (words.containsKey(noteWord) && words.get(noteWord) > 0) {
-                words.put(noteWord, words.get(noteWord) - 1);
+            if (wordsMap.containsKey(noteWord) && wordsMap.get(noteWord) > 0) {
+                wordsMap.put(noteWord, wordsMap.get(noteWord) - 1);
             } else {
                 return false;
             }
