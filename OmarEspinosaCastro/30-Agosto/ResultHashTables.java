@@ -2,10 +2,11 @@
 package collection;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class ResultHashTables {
     static boolean checkMagazine(String[] magazine, String[] note) {
-        HashMap<String, Integer> magazineWords = new HashMap<String, Integer>();
+        Map<String, Integer> magazineWords = new HashMap<>();
         for (int indiceMagazine = 0; indiceMagazine < magazine.length; indiceMagazine++) {
             Integer wordCount = magazineWords.get(magazine[indiceMagazine]);
             if (wordCount == null) {

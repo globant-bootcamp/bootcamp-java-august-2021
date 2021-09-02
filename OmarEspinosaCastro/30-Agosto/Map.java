@@ -3,6 +3,7 @@ package collection;
 
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.Map;
 
 public class Map {
 
@@ -10,7 +11,7 @@ public class Map {
         Scanner in = new Scanner(System.in);
         int lengthDirectory = in.nextInt();
         in.nextLine();
-        HashMap<String, Integer> directorio = new HashMap<String, Integer>();
+        Map<String, Integer> directorio = new HashMap<>();
         for (int rowDirectory = 0; rowDirectory < lengthDirectory; rowDirectory++) {
             String nameClave = in.nextLine();
             int valueNumber = in.nextInt();
