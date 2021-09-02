@@ -9,7 +9,7 @@ public class HashSets {
 	final static String enterFirstName = "Enter first name: ";
 	final static String enterSecondName = "Enter second: ";
 	final static String error = "Error!";
-	final static HashSet<String> nameList = new HashSet<String>();
+	final static Set<String> nameList = new HashSet<String>();
 
 	public static void numberOfInputs() {
 		System.out.println(numberOfInputs);
