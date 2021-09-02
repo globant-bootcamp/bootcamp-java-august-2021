@@ -1,6 +1,8 @@
 
 package collection;
 
+import java.util.HashMap;
+
 public class ResultHashTables {
     static boolean checkMagazine(String[] magazine, String[] note) {
         HashMap<String, Integer> magazineWords = new HashMap<String, Integer>();

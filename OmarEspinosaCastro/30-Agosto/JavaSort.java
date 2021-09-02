@@ -1,6 +1,11 @@
 
 package collection;
 
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 public class JavaSort {
 
     public static void main(String[] args) {
@@ -9,9 +14,9 @@ public class JavaSort {
         ArrayList<Student> studentList = new ArrayList<Student>();
         while (numberStudent > 0) {
             int id = in.nextInt();
-            String fname = in.next();
+            String name = in.next();
             double cgpa = in.nextDouble();
-            Student st = new Student(id, fname, cgpa);
+            Student st = new Student(id, name, cgpa);
             studentList.add(st);
             numberStudent--;
         }

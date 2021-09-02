@@ -1,6 +1,9 @@
 
 package collection;
 
+import java.util.HashMap;
+import java.util.Scanner;
+
 public class Map {
 
     public static void main(String[] args) {
@@ -14,7 +17,7 @@ public class Map {
             directorio.put(nameClave, valueNumber);
             in.nextLine();
         }
-        String findUser =  findUser = in.nextLine();
+        String findUser = in.nextLine();
         while (!findUser.equals("")) {
             if(directorio.containsKey(findUser)){
                 System.out.println(findUser+"="+directorio.get(findUser));
