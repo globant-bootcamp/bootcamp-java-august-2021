@@ -4,6 +4,7 @@ package challenge.day2;
  * @author Sebastian Herrera (bermeosebas@gmail.com)
  * @created 27/08/21
  */
+
 public class Ticket {
     public static void main(String[] args) {
         PayHamburger();

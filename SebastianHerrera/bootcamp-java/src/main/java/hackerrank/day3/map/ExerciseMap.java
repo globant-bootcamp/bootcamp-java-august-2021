@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 /**
  * @author Sebastian Herrera (bermeosebas@gmail.com)
- * @created 31/08/21
+ * @created 31/08/  21
  */
 public class ExerciseMap {
 
