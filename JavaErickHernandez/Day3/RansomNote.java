@@ -11,8 +11,8 @@ public class RansomNote {
 	final static String yes = "YES";
 	final static String no = "NO";
 	final static String tryAgainMessage = "Try Again";
-	final static HashSet<String> noteWordSet = new HashSet<String>();
-	final static HashSet<String> magazineWordSet = new HashSet<String>();
+	final static Set<String> noteWordSet = new HashSet<String>();
+	final static Set<String> magazineWordSet = new HashSet<String>();
 
 	public static void numberOfInputs() {
 		System.out.println(wordsMagazine);
