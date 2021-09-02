@@ -2,6 +2,7 @@ package hackerrank.day3.hashset;
 
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 /**
  * @author Sebastian Herrera (bermeosebas@gmail.com)
@@ -23,7 +24,7 @@ public class ExerciseHashset {
             pairRight[index] = scanner.next();
         }
 
-        HashSet<String> pairs = new HashSet<>();
+        Set<String> pairs = new HashSet<>();
         System.out.println("Output: \n");
         for (int index = 0; index < testCases; index++) {
             pairs.add("(" + pairLeft[index] + ", " + pairRight[index] + ")");

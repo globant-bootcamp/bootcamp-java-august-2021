@@ -14,6 +14,7 @@ import hackerrank.day3.sort.ExcerciseSort;
 public class HackerRankExercisesDay3 {
 
     public static void main(String[] args) {
+
         System.out.println("Exercise Sort: ");
         ExcerciseSort.getScanInfoStudents();
         System.out.println("Exercise Hashset: ");

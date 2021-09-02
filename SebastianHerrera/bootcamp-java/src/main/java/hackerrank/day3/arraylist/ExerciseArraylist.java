@@ -1,6 +1,7 @@
 package hackerrank.day3.arraylist;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -17,7 +18,7 @@ public class ExerciseArraylist {
 
         int numberLines = scanner.nextInt();
 
-        ArrayList<ArrayList<Integer>> dynamicTable = new ArrayList<>();
+        List<List> dynamicTable = new  ArrayList<>();
 
         for (int tableIndex = 0; tableIndex < numberLines; tableIndex++) {
             int arraySize = scanner.nextInt();
