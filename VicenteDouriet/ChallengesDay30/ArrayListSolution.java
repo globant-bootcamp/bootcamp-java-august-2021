@@ -8,7 +8,7 @@ public class ArrayListSolution {
 
         Scanner scanner = new Scanner(System.in);
         int numOfLines = scanner.nextInt();
-        ArrayList[] arrayLists = new ArrayList[20000];
+        List[] arrayLists = new ArrayList[20000];
         for (int i = 0; i < numOfLines; i++) {
             arrayLists[i] = new ArrayList();
             int numOfInts = scanner.nextInt();
