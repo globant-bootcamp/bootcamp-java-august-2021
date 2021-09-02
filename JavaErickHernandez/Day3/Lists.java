@@ -26,7 +26,7 @@ public class Lists {
 	}
 
 	public static void fillList(int inputs) {
-		for (int i = 1; i <= inputs; i++) { // column
+		for (int i = 1; i <= inputs; i++) { 
 			System.out.println(enterInput + (i));
 			int number = isNumber();
 			numbers.add(number);
