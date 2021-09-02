@@ -3,11 +3,10 @@ package hackerrank;
 import java.util.Scanner;
 
 import org.apache.log4j.Logger;
-
-import com.sun.tools.javac.Main;
+import org.apache.log4j.chainsaw.Main;
 
 public class JavaStaticInitializerBlock {
-	private static Logger javaLog = Logger.getLogger(Main.class);
+	private static final Logger javaLog = Logger.getLogger(Main.class) ;
 	static Scanner scanner = new Scanner(System.in);
 	static final String MESSAGE_EXCEPTION ="java.lang.Exception: Breadth and height must be positive";
 	static Boolean flag = false;
