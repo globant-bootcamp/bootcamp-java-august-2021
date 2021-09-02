@@ -3,12 +3,13 @@ package collection;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.List;
 
 public class List {
     public static void main(String[] args) {
         Scanner in =new Scanner(System.in);
         int numberElements = in.nextInt();
-        ArrayList<Integer> lista = new ArrayList();
+        List<Integer> lista = new ArrayList<>();
         for (int i = 0; i < numberElements; i++) {
             int valueElement = in.nextInt();
             lista.add(valueElement);

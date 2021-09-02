@@ -5,13 +5,14 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 public class JavaSort {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int numberStudent  = Integer.parseInt(in.nextLine());
-        ArrayList<Student> studentList = new ArrayList<Student>();
+        List<Student> studentList = new ArrayList<Student>();
         while (numberStudent > 0) {
             int id = in.nextInt();
             String name = in.next();
