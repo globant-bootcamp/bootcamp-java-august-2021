@@ -7,13 +7,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class SortedList {
-	static String numberOfInputs = "Enter the number of Students: ";
-	static String tryAgainMessage = "Try Again";
-	static String enterName = "Enter name: ";
-	static String enterId = "Enter id: ";
-	static String enterCGPA = "Enter CGPA: ";
-	static String error = "Error!";
-	static ArrayList<Student> students = new ArrayList<Student>();
+	final static String numberOfInputs = "Enter the number of Students: ";
+	final static String tryAgainMessage = "Try Again";
+	final static String enterName = "Enter name: ";
+	final static String enterId = "Enter id: ";
+	final static String enterPoints = "Enter points: ";
+	final static String error = "Error!";
+	final static List<Student> studentList = new ArrayList<Student>();
 
 	public static void numberOfInputs() {
 		System.out.println(numberOfInputs);
@@ -37,15 +37,15 @@ public class SortedList {
 			do {
 				id = isNumber();
 			} while (id <= 0 && id >= 100000);
-			System.out.println(enterCGPA);
-			double cgpa = 0.0;
+			System.out.println(enterPoints);
+			double points = 0.0;
 			do {
-				cgpa = isDoubleNumber();
-			} while (cgpa <= 0 && cgpa > 4);
-			Student student = new Student(id, name, cgpa);
+				points = isDoubleNumber();
+			} while (points <= 0 && points > 4);
+			Student student = new Student(id, name, points);
 			boolean exist = existStudent(student);
 			if (!exist) {
-				students.add(student);
+				studentList.add(student);
 			} else {
 				System.out.println(tryAgainMessage);
 				i--;
@@ -55,15 +55,15 @@ public class SortedList {
 	}
 
 	static void sortStudents() {
-		students.sort(
-				Comparator.comparing(Student::getCgpa, Comparator.reverseOrder()).thenComparing(Student::getName));
-		for (Student student : students) {
-			System.out.println(student.name + " " + student.cgpa);
+		studentList.sort(
+				Comparator.comparing(Student::getPoints, Comparator.reverseOrder()).thenComparing(Student::getName));
+		for (Student student : studentList) {
+			System.out.println(student.name + " " + student.points);
 		}
 	}
 
 	static boolean existStudent(Student student) {
-		boolean exist = students.stream().anyMatch(o -> o.getId() == student.id);
+		boolean exist = studentList.stream().anyMatch(o -> o.getId() == student.id);
 		return exist;
 	}
 

@@ -1,21 +1,23 @@
 package bootcamp;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
-import java.util.*;;
+
 
 public class ArrayLists {
-	static ArrayList<number> numbers = new ArrayList<number>();
-	static String numberOfRows = "Enter the number of Rows: ";
-	static String numberOfRowsFinal = "Your number of Rows: ";
-	static String tryAgainMessage = "Try Again";
-	static String lengthOfRow = "Enter how many inputs for this row: ";
-	static String messageRow = "You are in row: ";
-	static String enterInput = "Enter your input: ";
-	static String enterX = "Enter x coordenate: ";
-	static String enterY = "Enter y coordenate: ";
-	static String enterQueries = "Enter the number of Queries: ";
-	static String value = "The value from the coordenates: ";
-	static String error = "Error!";
+	final static List<number> numberList = new ArrayList<number>();
+	final static String numberOfRows = "Enter the number of Rows: ";
+	final static String numberOfRowsFinal = "Your number of Rows: ";
+	final static String tryAgainMessage = "Try Again";
+	final static String lengthOfRow = "Enter how many inputs for this row: ";
+	final static String messageRow = "You are in row: ";
+	final static String enterInput = "Enter your input: ";
+	final static String enterX = "Enter x coordinate: ";
+	final static String enterY = "Enter y coordinate: ";
+	final static String enterQueries = "Enter the number of Queries: ";
+	final static String value = "The value from the coordinates: ";
+	final static String error = "Error!";
 
 	public static void numberOfRows() {
 		System.out.println(numberOfRows);
@@ -36,13 +38,13 @@ public class ArrayLists {
 			do {
 				numberOfInputs = isNumber();
 			} while (inputs <= 0 && inputs >= 50000);
-			if (numbers.size() >= 100000)
+			if (numberList.size() >= 100000)
 				break;
 			for (int j = 1; j <= numberOfInputs; j++) {
 				System.out.println(enterInput);
 				int value = isNumber();
 				number numberToList = new number(i, j, value);
-				numbers.add(numberToList);
+				numberList.add(numberToList);
 			}
 		}
 		enterCoordenates();
@@ -56,17 +58,17 @@ public class ArrayLists {
 		} while (queries <= 0 && queries >= 20000);
 		for (int i = 0; i < queries; i++) {
 			System.out.println(enterX);
-			int x = isNumber();
+			int coordinateX = isNumber();
 			System.out.println(enterY);
-			int y = isNumber();
-			if (!findNumber(x, y))
+			int coordinateY = isNumber();
+			if (!findNumber(coordinateX, coordinateY))
 				System.out.println(error);
 		}
 	}
 
-	public static boolean findNumber(int x, int y) {
-		for (number number : numbers) {
-			if (number.getX() == x && number.getY() == y) {
+	public static boolean findNumber(int coordinateX, int coordinateY) {
+		for (number number : numberList) {
+			if (number.getCoordinateX() == coordinateX && number.getCoordinateY() == coordinateY) {
 				System.out.println(value + number.getValue());
 				return true;
 			}
@@ -91,3 +93,4 @@ public class ArrayLists {
 	}
 
 }
+

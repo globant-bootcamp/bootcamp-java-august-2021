@@ -5,14 +5,14 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class RansomNote {
-	static String wordsMagazine = "Enter the number of words in the magazine: ";
-	static String wordsNote = "Enter the number of words in the note: ";
-	static String word = "Enter the word: ";
-	static String yes = "YES";
-	static String no = "NO";
-	static String tryAgainMessage = "Try Again";
-	static HashSet<String> noteWords = new HashSet<String>();
-	static HashSet<String> magazineWords = new HashSet<String>();
+	final static String wordsMagazine = "Enter the number of words in the magazine: ";
+	final static String wordsNote = "Enter the number of words in the note: ";
+	final static String word = "Enter the word: ";
+	final static String yes = "YES";
+	final static String no = "NO";
+	final static String tryAgainMessage = "Try Again";
+	final static HashSet<String> noteWordSet = new HashSet<String>();
+	final static HashSet<String> magazineWordSet = new HashSet<String>();
 
 	public static void numberOfInputs() {
 		System.out.println(wordsMagazine);
@@ -32,7 +32,7 @@ public class RansomNote {
 			do {
 				word = scanner.next();
 			} while (word.length() < 5 && word.length() > 30);
-			magazineWords.add(word);
+			magazineWordSet.add(word);
 		}
 		System.out.println(wordsNote);
 		int wordsNote;
@@ -50,21 +50,21 @@ public class RansomNote {
 			do {
 				word = scanner.next();
 			} while (word.length() < 5 && word.length() > 30);
-			noteWords.add(word);
+			noteWordSet.add(word);
 		}
 		compareSets();
 	}
 
 	static void compareSets() {
 		int count = 0;
-		for (String note : noteWords) {
-			for (String magazine : magazineWords) {
+		for (String note : noteWordSet) {
+			for (String magazine : magazineWordSet) {
 				if (note.contentEquals(magazine)) {
 					count++;
 				}
 			}
 		}
-		if (count == noteWords.size())
+		if (count == noteWordSet.size())
 			System.out.println(yes);
 		else
 			System.out.println(no);
@@ -85,3 +85,4 @@ public class RansomNote {
 		} while (!false);
 	}
 }
+

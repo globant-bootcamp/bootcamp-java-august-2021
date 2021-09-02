@@ -1,13 +1,14 @@
 package bootcamp;
+
 public class Student {
 	Integer id;
 	String name;
-	double cgpa;
+	double points;
 
-	public Student(Integer id, String name, double cgpa) {
+	public Student(Integer id, String name, double points) {
 		this.id = id;
 		this.name = name;
-		this.cgpa = cgpa;
+		this.points = points;
 	}
 
 	public Integer getId() {
@@ -26,12 +27,12 @@ public class Student {
 		this.name = name;
 	}
 
-	public double getCgpa() {
-		return cgpa;
+	public double getPoints() {
+		return points;
 	}
 
-	public void setCgpa(double cgpa) {
-		this.cgpa = cgpa;
+	public void setCgpa(double points) {
+		this.points = points;
 	}
 
 }

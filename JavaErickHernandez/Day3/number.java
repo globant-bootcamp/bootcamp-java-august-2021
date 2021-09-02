@@ -1,24 +1,25 @@
 package bootcamp;
+
 public class number {
-	int x;
-	int y;
+	int coordinateX;
+	int coordinateY;
 	int value;
-	public number(int x, int y, int value) {
+	public number(int coordinateX, int coordinateY, int value) {
 		this.value = value;
-		this.x = x;
-		this.y = y;
+		this.coordinateX = coordinateX;
+		this.coordinateY = coordinateY;
 	}
-	public int getX() {
-		return x;
+	public int getCoordinateX() {
+		return coordinateX;
 	}
-	public void setX(int x) {
-		this.x = x;
+	public void setCoordinateXX(int coordinateX) {
+		this.coordinateX = coordinateX;
 	}
-	public int getY() {
-		return y;
+	public int getCoordinateY() {
+		return coordinateY;
 	}
-	public void setY(int y) {
-		this.y = y;
+	public void setCoordinateY(int coordinateY) {
+		this.coordinateY = coordinateY;
 	}
 	public int getValue() {
 		return value;

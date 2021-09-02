@@ -4,18 +4,14 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Maps {
-	static String numberOfInputs = "Enter the count of phone numbers: ";
-	static String tryAgainMessage = "Try Again";
-	static String tryAgainPhoneMessage = "Each phone number has exactly 8 digits without any leading zeros";
-	static Map<String, Integer> phoneNumbers = new HashMap<String, Integer>();
-	static String enterName = "Enter name of the contact: ";
-	static String enterQueries = "Enter the number of Queries: ";
-	static String phone = "Enter the phone of the contact: ";
-	static String error = "Error!";
-
-	public static void main(String[] args) {
-		numberOfPhones();
-	}
+	final static String numberOfInputs = "Enter the count of phone numbers: ";
+	final static String tryAgainMessage = "Try Again";
+	final static String tryAgainPhoneMessage = "Each phone number has exactly 8 digits without any leading zeros";
+	final static Map<String, Integer> phoneNumberList = new HashMap<String, Integer>();
+	final static String enterName = "Enter name of the contact: ";
+	final static String enterQueries = "Enter the number of Queries: ";
+	final static String phone = "Enter the phone of the contact: ";
+	final static String error = "Error!";
 
 	public static void numberOfPhones() {
 		System.out.println(numberOfInputs);
@@ -33,7 +29,7 @@ public class Maps {
 			String nameContact = scanner.next();
 			System.out.println(phone);
 			int phoneNumber = isPhoneNumber();
-			phoneNumbers.put(nameContact, phoneNumber);
+			phoneNumberList.put(nameContact, phoneNumber);
 		}
 		enterQueries();
 	}
@@ -48,8 +44,8 @@ public class Maps {
 			System.out.println(enterName);
 			Scanner scanner = new Scanner(System.in);
 			String nameContact = scanner.next();
-			if (phoneNumbers.containsKey(nameContact)) {
-				System.out.println(phoneNumbers.get(nameContact));
+			if (phoneNumberList.containsKey(nameContact)) {
+				System.out.println(phoneNumberList.get(nameContact));
 			}else {
 				System.out.println(error);
 			}

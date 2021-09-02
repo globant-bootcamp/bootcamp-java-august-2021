@@ -4,16 +4,12 @@ import java.util.Set;
 import java.util.HashSet;
 
 public class HashSets {
-	static String numberOfInputs = "Enter the number of pairs: ";
-	static String tryAgainMessage = "Try Again";
-	static String enterFirstName = "Enter first name: ";
-	static String enterSecondName = "Enter second: ";
-	static String error = "Error!";
-	static HashSet<String> names = new HashSet<String>();
-
-	public static void main(String[] args) {
-		numberOfInputs();
-	}
+	final static String numberOfInputs = "Enter the number of pairs: ";
+	final static String tryAgainMessage = "Try Again";
+	final static String enterFirstName = "Enter first name: ";
+	final static String enterSecondName = "Enter second: ";
+	final static String error = "Error!";
+	final static HashSet<String> nameList = new HashSet<String>();
 
 	public static void numberOfInputs() {
 		System.out.println(numberOfInputs);
@@ -32,8 +28,8 @@ public class HashSets {
 			System.out.println(enterSecondName);
 			String secondName = scanner.next();
 			String pair = firstName + " " + secondName;
-			names.add(pair);
-			System.out.println(names.size());
+			nameList.add(pair);
+			System.out.println(nameList.size());
 		}
 
 	}

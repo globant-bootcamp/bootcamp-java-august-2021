@@ -1,21 +1,19 @@
 package bootcamp;
-import java.util.*;;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class Lists {
-	static List<Integer> numbers = new ArrayList<>();
-	static String numberOfInputs = "Enter the size of the list: ";
-	static String numberOfInputsFinal = "Your number of Inputs: ";
-	static String tryAgainMessage = "Try Again";
-	static String enterInput = "Enter your input: ";
-	static String enterX = "Enter index: ";
-	static String enterQueries = "Enter the number of Queries: ";
-	static String enterOption = "Type Insert or Delete to continue: ";
-	static String warning = "Input must not be greater than List size: ";
-	static String error = "Error!";
-
-	public static void main(String[] args) {
-		numberOfRows();
-	}
+	final static List<Integer> numbers = new ArrayList<>();
+	final static String numberOfInputs = "Enter the size of the list: ";
+	final static String numberOfInputsFinal = "Your number of Inputs: ";
+	final static String tryAgainMessage = "Try Again";
+	final static String enterInput = "Enter your input: ";
+	final static String enterX = "Enter index: ";
+	final static String enterQueries = "Enter the number of Queries: ";
+	final static String enterOption = "Type Insert or Delete to continue: ";
+	final static String warning = "Input must not be greater than List size: ";
+	final static String error = "Error!";
 
 	public static void numberOfRows() {
 		System.out.println(numberOfInputs);
@@ -34,10 +32,10 @@ public class Lists {
 			numbers.add(number);
 		}
 		System.out.println(numbers);
-		enterCoordenates();
+		enterCoordinates();
 	}
 
-	public static void enterCoordenates() {
+	public static void enterCoordinates() {
 		System.out.println(enterQueries);
 		int queries;
 		do {
@@ -114,3 +112,4 @@ public class Lists {
 		} while (!false);
 	}
 }
+
