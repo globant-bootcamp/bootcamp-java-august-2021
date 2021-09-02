@@ -12,9 +12,9 @@ public class Icecream {
         System.out.println("Your topping is: " + topping);
     }
     public void topping(String topping, String topping2){
-        System.out.println("Your toppings are: " + topping + topping2);
+        System.out.println("Your toppings are: " + topping + " " +  topping2);
     }
     public void topping(String topping, String topping2, String topping3){
-        System.out.println("Your toppings are: " + topping + topping2 + topping3);
+        System.out.println("Your toppings are: " + topping + " " + topping2 + " " + topping3);
     }
 }
