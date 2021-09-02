@@ -19,7 +19,7 @@ public class SortedList {
 		System.out.println(numberOfInputs);
 		int studentsCount;
 		do {
-			studentsCount = isNumber();
+			studentsCount = validNumber();
 		} while (studentsCount <= 0 && studentsCount >= 100000);
 		fillStudent(studentsCount);
 	}
@@ -35,12 +35,12 @@ public class SortedList {
 			System.out.println(enterId);
 			int id;
 			do {
-				id = isNumber();
+				id = validNumber();
 			} while (id <= 0 && id >= 100000);
 			System.out.println(enterPoints);
 			double points = 0.0;
 			do {
-				points = isDoubleNumber();
+				points = validDoubleNumber();
 			} while (points <= 0 && points > 4);
 			Student student = new Student(id, name, points);
 			boolean exist = existStudent(student);
@@ -67,14 +67,12 @@ public class SortedList {
 		return exist;
 	}
 
-	static int isNumber() {
+	static int validNumber() {
 		do {
 			Scanner scanner = new Scanner(System.in);
-			boolean nextStep;
 			try {
 				String number = scanner.next();
 				Integer.parseInt(number);
-				nextStep = true;
 				return Integer.parseInt(number);
 			} catch (Exception e) {
 				System.out.println(tryAgainMessage);
@@ -82,14 +80,12 @@ public class SortedList {
 		} while (!false);
 	}
 
-	static double isDoubleNumber() {
+	static double validDoubleNumber() {
 		do {
 			Scanner scanner = new Scanner(System.in);
-			boolean nextStep;
 			try {
 				String number = scanner.next();
 				Double.parseDouble(number);
-				nextStep = true;
 				return Double.parseDouble(number);
 			} catch (Exception e) {
 				System.out.println(tryAgainMessage);
