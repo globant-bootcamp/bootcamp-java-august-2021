@@ -70,3 +70,5 @@ public class JavaHashTablesRansomNote {
     bufferedReader.close();
   }
 }
+
+// Challenge: https://www.hackerrank.com/challenges/ctci-ransom-note/problem
