@@ -1,6 +1,7 @@
 package hackerrank.day3.ransom;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -22,7 +23,7 @@ public class ExerciseRansom {
         String[] magazine = scanner.nextLine().split(" ");
         String[] note = scanner.nextLine().split(" ");
 
-        HashMap<String, Integer> frequentWord = new HashMap<>();
+        Map<String, Integer> frequentWord = new HashMap<>();
 
         for (int magazineIndex = 0; magazineIndex < magazineSize; magazineIndex++) {
             if (frequentWord.containsKey(magazine[magazineIndex])) {

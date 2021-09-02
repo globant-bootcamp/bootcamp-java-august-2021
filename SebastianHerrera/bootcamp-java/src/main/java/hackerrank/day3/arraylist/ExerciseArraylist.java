@@ -22,7 +22,7 @@ public class ExerciseArraylist {
 
         for (int tableIndex = 0; tableIndex < numberLines; tableIndex++) {
             int arraySize = scanner.nextInt();
-            ArrayList<Integer> arrayElements = new ArrayList<>();
+            List<Integer> arrayElements = new ArrayList<>();
             for (int lineIndex = 0; lineIndex < arraySize; lineIndex++) {
                 arrayElements.add(scanner.nextInt());
             }
