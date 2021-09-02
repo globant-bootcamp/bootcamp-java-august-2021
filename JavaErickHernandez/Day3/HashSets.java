@@ -15,7 +15,7 @@ public class HashSets {
 		System.out.println(numberOfInputs);
 		int pairNumbers;
 		do {
-			pairNumbers = isNumber();
+			pairNumbers = validNumber();
 		} while (pairNumbers <= 0 && pairNumbers >= 100000);
 		goingToAdd(pairNumbers);
 	}
@@ -34,14 +34,12 @@ public class HashSets {
 
 	}
 
-	static int isNumber() {
+	static int validNumber() {
 		do {
 			Scanner scanner = new Scanner(System.in);
-			boolean nextStep;
 			try {
 				String number = scanner.next();
 				Integer.parseInt(number);
-				nextStep = true;
 				return Integer.parseInt(number);
 			} catch (Exception e) {
 				System.out.println(tryAgainMessage);
