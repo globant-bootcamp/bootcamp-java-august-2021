@@ -17,7 +17,7 @@ public class Maps {
 		System.out.println(numberOfInputs);
 		int contactCount;
 		do {
-			contactCount = isNumber();
+			contactCount = validNumber();
 		} while (contactCount <= 0 && contactCount >= 100000);
 		goingToAdd(contactCount);
 	}
@@ -28,7 +28,7 @@ public class Maps {
 			Scanner scanner = new Scanner(System.in);
 			String nameContact = scanner.next();
 			System.out.println(phone);
-			int phoneNumber = isPhoneNumber();
+			int validPhoneNumber = validPhoneNumber();
 			phoneNumberList.put(nameContact, phoneNumber);
 		}
 		enterQueries();
@@ -38,7 +38,7 @@ public class Maps {
 		System.out.println(enterQueries);
 		int queries;
 		do {
-			queries = isNumber();
+			queries = validNumber();
 		} while (queries <= 0 && queries >= 10000);
 		for (int i = 0; i < queries; i++) {
 			System.out.println(enterName);
@@ -53,7 +53,7 @@ public class Maps {
 		}
 	}
 
-	static int isNumber() {
+	static int validNumber() {
 		do {
 			Scanner scanner = new Scanner(System.in);
 			boolean nextStep;
@@ -68,15 +68,13 @@ public class Maps {
 		} while (!false);
 	}
 
-	static int isPhoneNumber() {
+	static int validPhoneNumber() {
 		do {
 			Scanner scanner = new Scanner(System.in);
-			boolean nextStep;
 			try {
 				String number = scanner.next();
 				Integer.parseInt(number);
 				if (number.length() == 8 && !(number.startsWith("0"))) {
-					nextStep = true;
 					return Integer.parseInt(number);
 				} else {
 					System.out.println(tryAgainPhoneMessage);
