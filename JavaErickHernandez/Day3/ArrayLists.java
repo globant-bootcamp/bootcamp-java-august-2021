@@ -61,12 +61,12 @@ public class ArrayLists {
 			int coordinateX = validNumber();
 			System.out.println(enterY);
 			int coordinateY = validNumber();
-			if (!findNumber(coordinateX, coordinateY))
+			if (!isNumberFinded(coordinateX, coordinateY))
 				System.out.println(error);
 		}
 	}
 
-	public static boolean findNumber(int coordinateX, int coordinateY) {
+	public static boolean isNumberFinded(int coordinateX, int coordinateY) {
 		for (number number : numberList) {
 			if (number.getCoordinateX() == coordinateX && number.getCoordinateY() == coordinateY) {
 				System.out.println(value + number.getValue());
