@@ -23,7 +23,7 @@ public class ArrayLists {
 		System.out.println(numberOfRows);
 		int finalNumberOfRows;
 		do {
-			finalNumberOfRows = isNumber();
+			finalNumberOfRows = validNumber();
 		} while (finalNumberOfRows <= 0 && finalNumberOfRows >= 20000);
 
 		System.out.println(numberOfRowsFinal + finalNumberOfRows);
@@ -36,13 +36,13 @@ public class ArrayLists {
 			System.out.println(lengthOfRow);
 			int numberOfInputs;
 			do {
-				numberOfInputs = isNumber();
+				numberOfInputs = validNumber();
 			} while (inputs <= 0 && inputs >= 50000);
 			if (numberList.size() >= 100000)
 				break;
 			for (int j = 1; j <= numberOfInputs; j++) {
 				System.out.println(enterInput);
-				int value = isNumber();
+				int value = validNumber();
 				number numberToList = new number(i, j, value);
 				numberList.add(numberToList);
 			}
@@ -54,13 +54,13 @@ public class ArrayLists {
 		System.out.println(enterQueries);
 		int queries;
 		do {
-			queries = isNumber();
+			queries = validNumber();
 		} while (queries <= 0 && queries >= 20000);
 		for (int i = 0; i < queries; i++) {
 			System.out.println(enterX);
-			int coordinateX = isNumber();
+			int coordinateX = validNumber();
 			System.out.println(enterY);
-			int coordinateY = isNumber();
+			int coordinateY = validNumber();
 			if (!findNumber(coordinateX, coordinateY))
 				System.out.println(error);
 		}
@@ -77,14 +77,12 @@ public class ArrayLists {
 
 	}
 
-	static int isNumber() {
+	static int validNumber() {
 		do {
 			Scanner scanner = new Scanner(System.in);
-			boolean nextStep = false;
 			try {
 				String number = scanner.next();
 				Integer.parseInt(number);
-				nextStep = true;
 				return Integer.parseInt(number);
 			} catch (Exception e) {
 				System.out.println(tryAgainMessage);
