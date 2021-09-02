@@ -10,20 +10,21 @@ Sebastian Herrera Bermeo |25|26|
 Sebastian Herrera Bermeo |25|26|27|
 Erick Eduardo Hernández Rodríguez |25|26|
 Oswaldo Vazquez Aparicio |25|26|27|
-Sebastian Herrera Bermeo |25|26|27|30|
+Sebastian Herrera Bermeo |25|26|27|30|31|
 Erick Eduardo Hernández Rodríguez |25|26|27|
 Braulio de Jesús Luna Ocampo |25|26|27|
 Miguel Angel Vidal Liborio |25|26|27|
-Marco Antonio Cardenas Medina |25|26|27|
-Vicente Paul Romero Douriet |25|
+Marco Antonio Cardenas Medina |25|26|27|30|31|
+Vicente Paul Romero Douriet |25|26|27|
 Horacio Miguel Alvarado Garza |25|
 Miguel Angel Valdés García |25|26|27|
 Humbertino Avilez Carpintero |25|
-Brandon Ali Beltran Rivera |25||26|
+Brandon Ali Beltran Rivera |25||26|27|30|
 Claudia Hernández García |25|26|
-Omar Espinosa Castro |25|26|
+Omar Espinosa Castro |25|26|27|30|
 Williams de Jesús García Orozco |25|26|27
 Estefany Reynoso Rodriguez |25|26|27
-Adriana Cano Rodriguez |25||26||27|
+Adriana Cano Rodriguez |25||26||27||31|
 Vargas Martínez José de Jesús |25|26|27|30|
-      
+Tania Belen Gayosso Domínguez |25|26|27|30|
+Gabriela Guadalupe Ramirez Tecatl |25|26|27|30|31|01|
