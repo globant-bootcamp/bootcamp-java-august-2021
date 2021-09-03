@@ -6,6 +6,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class Hashset {
+    
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int lines = in.nextInt();

@@ -15,15 +15,15 @@ public class JavaSort {
         List<Student> studentList = new ArrayList<Student>();
         while (numberStudent > 0) {
             int id = in.nextInt();
-            String name = in.next();
-            double cgpa = in.nextDouble();
-            Student st = new Student(id, name, cgpa);
+            String firstName = in.next();
+            double qualification = in.nextDouble();
+            Student st = new Student(id, firstName, qualification);
             studentList.add(st);
             numberStudent--;
         }
-        Collections.sort(studentList, Comparator.comparing(Student::getCgpa).reversed().thenComparing(Student::getFname).thenComparing(Student::getId));
+        Collections.sort(studentList, Comparator.comparing(Student::getQualification).reversed().thenComparing(Student::getFirstName).thenComparing(Student::getId));
         for (Student student : studentList) {
-            System.out.println(student.getFname());
+            System.out.println(student.getFirstName());
         }
     }
 }

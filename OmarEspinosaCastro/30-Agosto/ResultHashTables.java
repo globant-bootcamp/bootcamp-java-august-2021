@@ -3,24 +3,26 @@ package collection;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
 
 public class ResultHashTables {
-    static boolean checkMagazine(String[] magazine, String[] note) {
-        Map<String, Integer> magazineWords = new HashMap<>();
-        for (int indiceMagazine = 0; indiceMagazine < magazine.length; indiceMagazine++) {
-            Integer wordCount = magazineWords.get(magazine[indiceMagazine]);
+    
+    static boolean checkMagazine(List<String> magazine, List<String> note) {
+         Map<String, Integer> magazineWords = new HashMap<>();   
+        for (String magazineString : magazine) {
+            Integer wordCount = magazineWords.get(magazineString);
             if (wordCount == null) {
-                magazineWords.put(magazine[indiceMagazine], 1);
+                magazineWords.put(magazineString, 1);
             } else {
-                magazineWords.put(magazine[indiceMagazine], wordCount + 1);
+                magazineWords.put(magazineString, wordCount + 1);
             }
         }
-        for (int note_index = 0; note_index < note.length; note_index++) {
-            Integer founWord = magazineWords.get(note[note_index]);
-            if (founWord == null || founWord == 0) {
+        for (String noteString : note) {
+             Integer wordFound = magazineWords.get(noteString);
+            if (wordFound == null || wordFound == 0) {
                 return false;
             } else {
-                magazineWords.put(note[note_index], founWord - 1);
+                magazineWords.put(noteString, wordFound - 1);
             }
         }
         return true;
