@@ -1,14 +1,12 @@
-/**
- * 
- */
 package com.bolsadeideas.springboot.bootcamp.app.services.Implements;
 
 import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
-import static com.bolsadeideas.springboot.bootcamp.app.utils.Constans.ANSWER_VALID;
-import static com.bolsadeideas.springboot.bootcamp.app.utils.Constans.ANSWER_INVALID;
+import static com.bolsadeideas.springboot.bootcamp.app.utils.Constants.ANSWER_VALID;
+import static com.bolsadeideas.springboot.bootcamp.app.utils.Constants.ANSWER_INVALID;
 
 import com.bolsadeideas.springboot.bootcamp.app.services.JavaPatternSyntaxChecker;
 
@@ -22,8 +20,8 @@ public class JavaPatternSyntaxCheckerImpl implements JavaPatternSyntaxChecker {
 			Pattern.compile(patternToValidate);
 			javaLog.debug(ANSWER_VALID);
 			return ANSWER_VALID;
-		} catch (Exception exception) {
-			javaLog.debug(ANSWER_INVALID);
+		} catch (PatternSyntaxException  exception) {
+			javaLog.debug(ANSWER_INVALID + exception);
 			return ANSWER_INVALID;
 		}
 	}

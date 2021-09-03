@@ -2,10 +2,10 @@ package com.bolsadeideas.springboot.bootcamp.app.services.Implements;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
-import static com.bolsadeideas.springboot.bootcamp.app.utils.Constans.ANSWER_YES;
-import static com.bolsadeideas.springboot.bootcamp.app.utils.Constans.ANSWER_NO;
-import static com.bolsadeideas.springboot.bootcamp.app.utils.Constans.SYMBOL_SPACE;
-import static com.bolsadeideas.springboot.bootcamp.app.utils.Constans.SYMBOL_NOSPACE;
+import static com.bolsadeideas.springboot.bootcamp.app.utils.Constants.ANSWER_YES;
+import static com.bolsadeideas.springboot.bootcamp.app.utils.Constants.ANSWER_NO;
+import static com.bolsadeideas.springboot.bootcamp.app.utils.Constants.SYMBOL_SPACE;
+import static com.bolsadeideas.springboot.bootcamp.app.utils.Constants.SYMBOL_NOSPACE;
 import com.bolsadeideas.springboot.bootcamp.app.services.JavaStringReverseService;
 
 @Service

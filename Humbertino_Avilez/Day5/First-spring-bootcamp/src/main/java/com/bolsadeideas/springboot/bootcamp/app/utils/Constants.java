@@ -1,6 +1,6 @@
 package com.bolsadeideas.springboot.bootcamp.app.utils;
 
-public class Constans {
+public class Constants {
 	public static final String ANSWER_YES = "Yes";
 	public static final String ANSWER_NO = "No";
 	public static final String ANSWER_ANAGRAM_YES = "Anagrams";

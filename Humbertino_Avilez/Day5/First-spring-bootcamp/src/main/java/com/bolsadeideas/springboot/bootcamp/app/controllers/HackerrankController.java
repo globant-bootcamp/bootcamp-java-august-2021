@@ -27,8 +27,8 @@ public class HackerrankController {
 	}
 
 	@GetMapping("/JavaAnagrams/{word}/{anagram}")
-	public String isAnagrams(@PathVariable String word, @PathVariable String anagram) {
-		return javaAnagramsService.isAnagram(word, anagram);
+	public String validateAnagram(@PathVariable String word, @PathVariable String anagram) {
+		return javaAnagramsService.validateAnagram(word, anagram);
 	}
 
 	@GetMapping("/JavaPatternSyntax/{pattern}")
