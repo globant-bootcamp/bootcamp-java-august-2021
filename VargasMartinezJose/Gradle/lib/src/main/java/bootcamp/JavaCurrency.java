@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 
 public class JavaCurrency {
     public static void main(String[] args) {
-        final Logger LOG = Logger.getLogger("bootcamp.JavaCurrency");
+        final Logger LOGGER = Logger.getLogger("bootcamp.JavaCurrency");
         Scanner scanner = new Scanner(System.in);
         double payment = scanner.nextDouble();
         final String INDIA = "IN: ";
@@ -21,10 +21,10 @@ public class JavaCurrency {
         NumberFormat china = NumberFormat.getCurrencyInstance(Locale.CHINA);
         NumberFormat france = NumberFormat.getCurrencyInstance(Locale.FRANCE);
 
-        LOG.debug(US + us.format(payment));
-        LOG.debug(INDIA + india.format(payment));
-        LOG.debug(CHINA + china.format(payment));
-        LOG.debug(FRANCE + france.format(payment));
+        LOGGER.debug(US + us.format(payment));
+        LOGGER.debug(INDIA + india.format(payment));
+        LOGGER.debug(CHINA + china.format(payment));
+        LOGGER.debug(FRANCE + france.format(payment));
         scanner.close();
     }
 }
