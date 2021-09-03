@@ -13,6 +13,7 @@ public class ReArrange extends Solution {
 	private static final String ID_INPUT_INSTRUCTIONS = "Give the ID of the student : ";
 	private static final String ID_INPUT_INVALID = "The expected value is a number between 0 - 10000";
 	private static final String CGPA_INPUT_INSTRUCTIONS = "Give the CGPA of the student : ";
+	private static final String CGPA_FORMAT_INPUT = "([0-3]{1}\\.[0-9]{2,}|4.00)";
 	private static final String CGPA_INPUT_INVALID = "The expected value is a number between 0.00 - 4.00 and will contain, at most, 2 digits after the decimal point.";
 	private static final String NAME_INPUT_INSTRUCTIONS = "Give the name of the student : ";
 	private static final String NAME_INPUT_INVALID = "The expected value is a string with a length between 5 - 30";
@@ -75,7 +76,7 @@ public class ReArrange extends Solution {
 	private double readCgpa() {
 		double cgpa;
 		cgpa = readDoubleInput(ReArrange.CGPA_INPUT_INSTRUCTIONS);
-		boolean cgpaFormat = String.valueOf(cgpa).matches("([0-3]{1}\\.[0-9]{2,}|4.00)");
+		boolean cgpaFormat = String.valueOf(cgpa).matches(ReArrange.CGPA_FORMAT_INPUT);
 		if(cgpa < 0 || cgpa > 4.00 | !cgpaFormat) {
 			System.out.println(ReArrange.CGPA_INPUT_INVALID);
 			cgpa = readCgpa();
