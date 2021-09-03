@@ -9,25 +9,25 @@ public class List {
     public static void main(String[] args) {
         Scanner in =new Scanner(System.in);
         int numberElements = in.nextInt();
-        List<Integer> lista = new ArrayList<>();
+        List<Integer> listList = new ArrayList<>();
         for (int i = 0; i < numberElements; i++) {
             int valueElement = in.nextInt();
-            lista.add(valueElement);
+            listList.add(valueElement);
         }
-        int queries = in.nextInt();
-        for (int numberQuery = 0; numberQuery < queries; numberQuery++) {
+        int query = in.nextInt();
+        for (int queryNumber = 0; queryNumber < query; queryNumber++) {
             String querie = in.next();
             if (querie.equals("Insert")) {
                 int index = in.nextInt();
                 int value = in.nextInt();
-                lista.add(index, value);
+                listList.add(index, value);
             }else{
                 int index = in.nextInt();
-                lista.remove(index);
+                listList.remove(index);
             }
         }
-        for (Integer elemento : lista) {
-            System.out.print(elemento + " ");
+        for (Integer element : listList) {
+            System.out.print(element + " ");
         }
     }
 }

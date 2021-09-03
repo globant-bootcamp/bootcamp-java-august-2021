@@ -1,14 +1,13 @@
 
 package collection;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Hashtable;
 import java.util.List;
 
 public class ResultHashTables {
     
     static boolean checkMagazine(List<String> magazine, List<String> note) {
-         Map<String, Integer> magazineWords = new HashMap<>();   
+         Hashtable<String, Integer> magazineWords = new Hashtable<>();   
         for (String magazineString : magazine) {
             Integer wordCount = magazineWords.get(magazineString);
             if (wordCount == null) {

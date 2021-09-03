@@ -17,8 +17,8 @@ public class JavaSort {
             int id = in.nextInt();
             String firstName = in.next();
             double qualification = in.nextDouble();
-            Student st = new Student(id, firstName, qualification);
-            studentList.add(st);
+            Student student = new Student(id, firstName, qualification);
+            studentList.add(student);
             numberStudent--;
         }
         Collections.sort(studentList, Comparator.comparing(Student::getQualification).reversed().thenComparing(Student::getFirstName).thenComparing(Student::getId));

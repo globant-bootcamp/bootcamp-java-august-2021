@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArrayList {
+    final static String ERROR = "ERROR!";
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int lineNumber = in.nextInt();
@@ -22,11 +23,11 @@ public class ArrayList {
         for (int numberQuery = 0; numberQuery < queryNumber; numberQuery++) {
             int positionX = in.nextInt();
             int positionY = in.nextInt();
-             List<Integer> linea = rowListList.get(positionX-1);
-            if (positionY <= linea.size()) {
-                System.out.println(linea.get(positionY-1));
+             List<Integer> line = rowListList.get(positionX-1);
+            if (positionY <= line.size()) {
+                System.out.println(line.get(positionY-1));
             } else {
-                System.out.println("ERROR!");
+                System.out.println(ERROR);
             }
         }
     }
