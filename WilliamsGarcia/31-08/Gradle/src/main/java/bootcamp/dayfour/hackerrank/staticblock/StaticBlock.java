@@ -15,6 +15,7 @@ public class StaticBlock {
     static boolean flag = isValidInput();
 
     private static boolean isValidInput() {
+        scan.close();
         boolean auxiliaryFlag;
         if (inputNumberOne > 0 && inputNumberTwo > 0) {
             auxiliaryFlag = true;
@@ -28,7 +29,7 @@ public class StaticBlock {
     public static void main(String[] args) {
         if (flag) {
             int area = inputNumberOne * inputNumberTwo;
-            LOGGER.info(area);
+            LOGGER.info("The area is "+area);
         }
 
     }
