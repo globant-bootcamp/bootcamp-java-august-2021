@@ -2,12 +2,13 @@ package arrayList;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Solution {
     public static void main(String args[]) {
         Scanner scan = new Scanner(System.in);
         int lines = scan.nextInt();
-        ArrayList<ArrayList<Integer>> queryArray = new ArrayList<ArrayList<Integer>>();
+        List<ArrayList<Integer>> queryArray = new ArrayList<ArrayList<Integer>>();
 
         for (int index = 0; index < lines; index++) {
 

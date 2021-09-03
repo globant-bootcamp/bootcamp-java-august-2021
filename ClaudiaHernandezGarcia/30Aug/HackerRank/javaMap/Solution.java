@@ -1,13 +1,14 @@
 package javaMap;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Solution {
     public static void main(String[] argh) {
         Scanner scanner = new Scanner(System.in);
         int numberOfEntries = scanner.nextInt();
-        HashMap<String, Integer> map = new HashMap<>();
+        Map<String, Integer> map = new HashMap<>();
         scanner.nextLine();
         for (int i = 0; i < numberOfEntries; i++) {
             String name = scanner.nextLine();

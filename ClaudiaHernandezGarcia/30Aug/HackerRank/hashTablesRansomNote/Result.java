@@ -1,13 +1,14 @@
 package hashTablesRansomNote;
 
 import java.util.List;
+import java.util.Map;
 import java.util.HashMap;
 
 public class Result {
 
     public static void checkMagazine(List<String> magazine, List<String> note) {
 
-        HashMap<String, Integer> wordsFromMagazine = new HashMap<String, Integer>();
+        Map<String, Integer> wordsFromMagazine = new HashMap<String, Integer>();
 
         for (String word : magazine) {
             if (wordsFromMagazine.containsKey(word))

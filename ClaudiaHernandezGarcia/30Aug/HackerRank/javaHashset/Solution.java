@@ -2,6 +2,7 @@ package javaHashset;
 
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Solution {
     public static void main(String[] args) {
@@ -15,7 +16,7 @@ public class Solution {
             pairRight[i] = scanner.next();
         }
 
-        HashSet<String> hashSet = new HashSet<String>();
+        Set<String> hashSet = new HashSet<String>();
         
         for (int i = 0; i < numberOfStringPairs; i++) {
             hashSet.add(pairLeft[i] + " " + pairRight[i]);
