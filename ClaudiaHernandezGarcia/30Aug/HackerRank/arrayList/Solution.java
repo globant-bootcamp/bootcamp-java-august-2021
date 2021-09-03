@@ -8,12 +8,12 @@ public class Solution {
     public static void main(String args[]) {
         Scanner scan = new Scanner(System.in);
         int lines = scan.nextInt();
-        List<ArrayList<Integer>> queryArray = new ArrayList<ArrayList<Integer>>();
+        List<List<Integer>> queryArray = new ArrayList<ArrayList<Integer>>();
 
         for (int index = 0; index < lines; index++) {
 
             int numberOfIntegersInLine = scan.nextInt();
-            ArrayList<Integer> integersArray = new ArrayList<Integer>();
+            List<Integer> integersArray = new ArrayList<Integer>();
 
             for (int number = 0; number < numberOfIntegersInLine; number++) {
                 integersArray.add(scan.nextInt());
