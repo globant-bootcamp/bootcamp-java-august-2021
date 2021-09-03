@@ -1,3 +1,5 @@
+package fundamentals;
+
 class Animal{
   void walk() {
     final String WALKING = "I am walking";

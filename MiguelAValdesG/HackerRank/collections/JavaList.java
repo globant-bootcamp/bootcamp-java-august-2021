@@ -1,4 +1,7 @@
+package collections;
+
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -10,7 +13,7 @@ public class JavaList {
     final String ERROR = "ERROR!";
     final String SPACE = " ";
     StringBuilder response = new StringBuilder();
-    LinkedList<Integer> list = new LinkedList<>();
+    List<Integer> list = new LinkedList<>();
 
     for (int indexList = 0; indexList < numberOfElementsInList; indexList++) {
       list.add(readLineTerminal.nextInt());

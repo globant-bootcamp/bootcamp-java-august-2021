@@ -1,3 +1,5 @@
+package collections;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,7 +12,6 @@ public class JavaArrayList {
     List<List<Integer>> lines = new ArrayList<>();
     final int ONE = 1;
     final String ERROR = "ERROR!";
-
 
     int numberOfLines = readIntegerLineTerminal.nextInt();
     for (int indexLines = 0; indexLines < numberOfLines; indexLines++) {

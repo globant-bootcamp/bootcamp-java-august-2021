@@ -1,12 +1,14 @@
-import java.util.HashMap;
+package collections;
+
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class JavaHashSet {
 
   public static void main(String[] args) {
     Scanner readLineTerminal = new Scanner(System.in);
-    HashSet<String> stringPairs = new HashSet<>();
+    Set<String> stringPairs = new HashSet<>();
     final String SPACE = " ";
 
     int numberOfElements = readLineTerminal.nextInt();

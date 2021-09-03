@@ -1,11 +1,14 @@
+package collections;
+
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class JavaMap {
 
   public static void main(String[] args) {
     Scanner readLineTerminal = new Scanner(System.in);
-    HashMap<String, Integer> phoneBook = new HashMap<>();
+    Map<String, Integer> phoneBook = new HashMap<>();
     final String NOT_FOUND = "Not found";
     final String EQUALS_TO = "=";
 

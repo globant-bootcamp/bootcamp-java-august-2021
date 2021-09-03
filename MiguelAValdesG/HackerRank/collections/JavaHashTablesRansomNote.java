@@ -1,8 +1,11 @@
+package collections;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
@@ -10,8 +13,8 @@ import static java.util.stream.Collectors.toList;
 class Result {
 
   public static boolean checkMagazine(List<String> magazine, List<String> note) {
-    HashMap<String, Integer> wordsInMagazine = new HashMap<>();
-    HashMap<String, Integer> wordsInNote = new HashMap<>();
+    Map<String, Integer> wordsInMagazine = new HashMap<>();
+    Map<String, Integer> wordsInNote = new HashMap<>();
     final Integer INIT_VALUE = 0;
     final Integer ONE = 1;
     final boolean CAN_BE_FORMED = true;
@@ -21,8 +24,8 @@ class Result {
       if (!wordsInMagazine.containsKey(word)) {
         wordsInMagazine.put(word, INIT_VALUE);
       }
-      Integer wordConcurrences = wordsInMagazine.get(word);
-      wordsInMagazine.put(word, wordConcurrences + ONE);
+      Integer occurrences = wordsInMagazine.get(word);
+      wordsInMagazine.put(word, occurrences + ONE);
     }
 
     for (String word : note) {
