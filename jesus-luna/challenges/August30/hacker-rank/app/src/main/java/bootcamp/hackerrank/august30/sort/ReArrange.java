@@ -20,14 +20,14 @@ public class ReArrange extends Solution {
 		boolean validValue = true;
 		int numberOfStudents;
 		int idStudent;
-		numberOfStudents = readNumberOfStudents();
+		numberOfStudents = readNumberOfStudentsIteration();
 		
 		for (int index = 0; index < numberOfStudents; index++) {
 			
 		}
 	}
 	
-	private int readNumberOfStudents() {
+	private int readNumberOfStudentsIteration() {
 		boolean validValue = true;
 		int numberOfStudents;		
 		do {
@@ -40,6 +40,16 @@ public class ReArrange extends Solution {
 					validValue = false;
 				}
 		} while (!validValue);
+		return numberOfStudents;
+	}
+	
+	private int readNumberOfStudentsRecursive() {
+		int numberOfStudents;
+		numberOfStudents = readNumberInput(ReArrange.NUMBER_STUDENTS_INPUT_INSTRUCTIONS);
+		if(numberOfStudents < 2 || numberOfStudents > 10000) {
+			System.out.println(ReArrange.NUMBER_STUDENTS_INPUT_INVALID);
+			numberOfStudents = readNumberOfStudentsRecursive();
+		}
 		return numberOfStudents;
 	}
 
