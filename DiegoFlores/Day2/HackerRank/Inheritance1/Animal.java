@@ -1,7 +1,9 @@
 package animal;
 
+public static final String WALKING_MESSAGE = "I am walking";
+
 public class Animal {
 	void walk(){
-		System.out.println("I am walking");
+		System.out.println(WALKING_MESSAGE);
 	}
 }
