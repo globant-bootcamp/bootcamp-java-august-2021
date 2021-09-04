@@ -13,7 +13,6 @@ package person;
 	public static final String TEACHER_ONE_NAME = "Obi-Wan";
 	public static final String TEACHER_ONE_SURNAME = "Kenobi";
 
-
 public class Main {
 
 	public static void main(String[] args) {
