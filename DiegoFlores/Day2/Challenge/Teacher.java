@@ -1,6 +1,6 @@
 package person;
 
-public class Teacher extends Person{
+public class Teacher extends User {
 
 	private String course;
 	private String agreementTime;
@@ -28,7 +28,5 @@ public class Teacher extends Person{
 	public void setAgreementTime(String agreementTime) {
 		this.agreementTime = agreementTime;
 	}
-	
-	
-	
+
 }
