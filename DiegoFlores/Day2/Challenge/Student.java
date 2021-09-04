@@ -1,11 +1,10 @@
 package person;
 
-public class Student extends Person {
+public class Student extends User {
 
 	private int studentId;
-	private String	career;
+	private String career;
 	private int semester;
-	
 	
 	public Student() {
 		
@@ -17,8 +16,7 @@ public class Student extends Person {
 		this.career = career;
 		this.semester = semester;
 	}
-	
-	
+		
 	public int getStudentId() {
 		return studentId;
 	}
