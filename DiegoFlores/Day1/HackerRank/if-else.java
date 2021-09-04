@@ -17,8 +17,6 @@ public class Solution {
             System.out.println( NOT_WEIRD_NUMBER );
        }
         
-
-
         scanner.close();
         
     }
