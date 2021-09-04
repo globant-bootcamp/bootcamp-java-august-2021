@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
-public class Solution {
+public static final String WEIRD_NUMBER = "Weird";
+public static final String NOT_WEIRD_NUMBER = "Not Weird";
 
-    private static final Scanner scanner = new Scanner(System.in);
-    public static final String WEIRD_NUMBER = "Weird";
-    public static final String NOT_WEIRD_NUMBER = "Not Weird";
+public class Solution {
 
     public static void main(String[] args) {
         
+       Scanner scanner = new Scanner(System.in);
        int number = scanner.nextInt();
        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
