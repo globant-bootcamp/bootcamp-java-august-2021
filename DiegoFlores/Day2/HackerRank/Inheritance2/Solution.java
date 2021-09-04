@@ -1,7 +1,5 @@
 package arithmetic;
 
-//Write your code here
-
 class Arithmetic{
     
     public int add(Integer firstInteger, Integer secondInteger){
@@ -10,20 +8,18 @@ class Arithmetic{
     
 }
 
-
 class Adder extends Arithmetic{
     
 }
 
 public class Solution{
+    
     public static void main(String []args){
-        // Create a new Adder object
-        Adder a = new Adder();
+
+        Adder operation = new Adder();
         
-        // Print the name of the superclass on a new line
-        System.out.println("My superclass is: " + a.getClass().getSuperclass().getName());	
+        System.out.println("My superclass is: " + operation.getClass().getSuperclass().getName());        
+        System.out.print(operation.add(10,32) + " " + operation.add(10,3) + " " + operation.add(10,10) + "\n");
         
-        // Print the result of 3 calls to Adder's `add(int,int)` method as 3 space-separated integers:
-        System.out.print(a.add(10,32) + " " + a.add(10,3) + " " + a.add(10,10) + "\n");
      }
 }
