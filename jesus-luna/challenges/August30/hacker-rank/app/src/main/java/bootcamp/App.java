@@ -6,6 +6,7 @@ package bootcamp;
 import bootcamp.hackerrank.Solution;
 import bootcamp.hackerrank.august30.ramsonnote.RansomNote;
 import bootcamp.hackerrank.august30.sort.ReArrange;
+import bootcamp.hackerrank.hashset.UniquePairs;
 
 public class App {
     public static void main(String[] args) {
@@ -23,6 +24,9 @@ public class App {
   		solution.solve();
     	
     	solution = new ReArrange();
+    	solution.solve();
+    	
+    	solution = new UniquePairs();
     	solution.solve();
     }
 }
