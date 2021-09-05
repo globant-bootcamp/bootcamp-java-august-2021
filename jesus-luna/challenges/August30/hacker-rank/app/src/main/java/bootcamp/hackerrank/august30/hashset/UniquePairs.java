@@ -1,4 +1,4 @@
-package bootcamp.hackerrank.hashset;
+package bootcamp.hackerrank.august30.hashset;
 
 import java.util.HashSet;
 import java.util.Set;
