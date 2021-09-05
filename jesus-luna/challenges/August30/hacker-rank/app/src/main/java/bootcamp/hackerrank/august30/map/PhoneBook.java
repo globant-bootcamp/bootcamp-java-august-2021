@@ -1,4 +1,4 @@
-package bootcamp.hackerrank.map;
+package bootcamp.hackerrank.august30.map;
 
 import java.util.HashMap;
 import java.util.Map;
