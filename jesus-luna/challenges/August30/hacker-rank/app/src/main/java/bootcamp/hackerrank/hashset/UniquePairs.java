@@ -1,7 +1,6 @@
 package bootcamp.hackerrank.hashset;
 
 import java.util.HashSet;
-import java.util.InputMismatchException;
 import java.util.Set;
 
 import bootcamp.hackerrank.Solution;
@@ -15,7 +14,6 @@ public class UniquePairs extends Solution{
 	
 	private static final String INPUT_OUTLINE = "Give a %s for the pair %d: ";
 	private static final String GIVE_NUMBER_PAIRS = "Give number of pairs to be stored: ";
-	private static final String INPUT_NUMBER_INCORRECT = "Input must be a number";
 	private static final String NUMBER_PAIRS_INCORRECT = "The number of pairs must be between 1 - 10000";
 	private static final String INPUT_TEXT_INCORRECT = "The value must be at most 5 letters";
 	private static final String SET_FORMAT = "%s %s";
@@ -42,7 +40,7 @@ public class UniquePairs extends Solution{
 	}
 	
 	private int readNumberOfPairsValid() {
-		int numberPairs = readIntegerInput(UniquePairs.GIVE_NUMBER_PAIRS);
+		int numberPairs = Solution.readIntegerInput(UniquePairs.GIVE_NUMBER_PAIRS);
 		if(numberPairs < 1 || numberPairs > 1000) {
 			System.out.println(UniquePairs.NUMBER_PAIRS_INCORRECT);
 			numberPairs = readNumberOfPairsValid();
@@ -62,19 +60,4 @@ public class UniquePairs extends Solution{
 		}
 		return value;
 	}
-	
-	private int readIntegerInput(String instruction) {
-		int intInput;
-		try {
-			System.out.print(instruction);
-			intInput = Solution.scanner.nextInt();
-			Solution.scanner.nextLine();
-		} catch (InputMismatchException e) {
-			System.out.println(UniquePairs.INPUT_NUMBER_INCORRECT);
-			Solution.scanner.nextLine();
-			intInput = readIntegerInput(instruction);
-		}
-		return intInput;
-	}
-
 }

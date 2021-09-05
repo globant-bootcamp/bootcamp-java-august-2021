@@ -3,7 +3,6 @@ package bootcamp.hackerrank.august30.sort;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.InputMismatchException;
 import java.util.List;
 
 import bootcamp.hackerrank.Solution;
@@ -57,24 +56,10 @@ public class ReArrange extends Solution {
 		}
 		return listOfStudents;
 	}
-	
-	private int readNumberOfStudentsIteration() {
-		boolean validValue = true;
-		int numberOfStudents;		
-		do {
-				numberOfStudents = readIntegerInput(ReArrange.NUMBER_STUDENTS_INPUT_INSTRUCTIONS);
-				validValue = true;
-				if(numberOfStudents < 2 || numberOfStudents > 10000) {
-					System.out.println(ReArrange.NUMBER_STUDENTS_INPUT_INVALID);
-					validValue = false;
-				}
-		} while (!validValue);
-		return numberOfStudents;
-	}
-	
+		
 	private int readNumberOfStudentsRecursive() {
 		int numberOfStudents;
-		numberOfStudents = readIntegerInput(ReArrange.NUMBER_STUDENTS_INPUT_INSTRUCTIONS);
+		numberOfStudents = Solution.readIntegerInput(ReArrange.NUMBER_STUDENTS_INPUT_INSTRUCTIONS);
 		if(numberOfStudents < 2 || numberOfStudents > 10000) {
 			System.out.println(ReArrange.NUMBER_STUDENTS_INPUT_INVALID);
 			numberOfStudents = readNumberOfStudentsRecursive();
@@ -84,7 +69,7 @@ public class ReArrange extends Solution {
 	
 	private int readIdStudent() {
 		int idStudent;
-		idStudent = readIntegerInput(ReArrange.ID_INPUT_INSTRUCTIONS);
+		idStudent = Solution.readIntegerInput(ReArrange.ID_INPUT_INSTRUCTIONS);
 		if(idStudent < 0 || idStudent > 100000) {
 			System.out.println(ReArrange.ID_INPUT_INVALID);
 			idStudent = readIdStudent();
@@ -94,7 +79,7 @@ public class ReArrange extends Solution {
 	
 	private double readCgpa() {
 		double cgpa;
-		cgpa = readDoubleInput(ReArrange.CGPA_INPUT_INSTRUCTIONS);
+		cgpa = Solution.readDoubleInput(ReArrange.CGPA_INPUT_INSTRUCTIONS);
 		DecimalFormat formateador = new DecimalFormat("0.00");
 		String formatCgpa = formateador.format(cgpa);
 		boolean cgpaFormat = formatCgpa.matches(ReArrange.CGPA_FORMAT_INPUT);
@@ -117,30 +102,4 @@ public class ReArrange extends Solution {
 		}
 		return name;
 	}
-	
-	private int readIntegerInput(String instruction) {
-		int intInput;
-		try {
-			System.out.print(instruction);
-			intInput = Solution.scanner.nextInt();
-		} catch (InputMismatchException e) {
-			Solution.scanner.nextLine();
-			intInput = readIntegerInput(instruction);
-		}
-		return intInput;
-	}
-	
-	private double readDoubleInput(String instruction) {
-		double doubleInput;
-		try {
-			System.out.print(instruction);
-			doubleInput = Solution.scanner.nextDouble();
-		} catch (InputMismatchException e) {
-			Solution.scanner.nextLine();
-			doubleInput = readDoubleInput(instruction);
-		}
-		return doubleInput;
-	}
-	
-
 }
