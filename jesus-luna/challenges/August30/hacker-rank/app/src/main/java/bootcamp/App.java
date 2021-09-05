@@ -7,6 +7,7 @@ import bootcamp.hackerrank.Solution;
 import bootcamp.hackerrank.august30.ramsonnote.RansomNote;
 import bootcamp.hackerrank.august30.sort.ReArrange;
 import bootcamp.hackerrank.hashset.UniquePairs;
+import bootcamp.hackerrank.map.PhoneBook;
 
 public class App {
     public static void main(String[] args) {
@@ -20,6 +21,7 @@ public class App {
     }
     
     private void hackerRankAugust30(Solution solution) {
+    	
     	solution = new RansomNote();
   		solution.solve();
     	
@@ -28,5 +30,10 @@ public class App {
     	
     	solution = new UniquePairs();
     	solution.solve();
+    	
+    	
+    	solution = new PhoneBook();
+    	solution.solve();
+    	
     }
 }
