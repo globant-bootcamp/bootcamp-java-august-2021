@@ -2,6 +2,7 @@ package bootcamp;
 
 import bootcamp.hackerrank.Solution;
 import bootcamp.hackerrank.august30.List.QuerieList;
+import bootcamp.hackerrank.august30.arraylist.QuerieArrayList;
 import bootcamp.hackerrank.august30.hashset.UniquePairs;
 import bootcamp.hackerrank.august30.map.PhoneBook;
 import bootcamp.hackerrank.august30.ramsonnote.RansomNote;
@@ -36,5 +37,7 @@ public class App {
     	solution = new QuerieList();
     	solution.solve();
     	
+    	solution = new QuerieArrayList();
+    	solution.solve();
     }
 }
