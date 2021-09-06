@@ -24,21 +24,16 @@ public class ReArrange extends Solution {
 	@Override
 	public void solve() {
 		List<Student> studentsList = createStudentsList();
-				
+
 		System.out.println(ReArrange.BEFORE_SORT);
-		studentsList.forEach(student->System.out.println(student.toString()));
-		
+		studentsList.forEach(student -> System.out.println(student.toString()));
+
 		System.out.println(ReArrange.AFTER_SORT);
-    Comparator<Student> comparatorByCgpa = (former,ladder) -> Double.compare(former.getCgpa(), ladder.getCgpa());
-    Comparator<Student> comparatorByName = (former,ladder) -> former.getName().compareTo(ladder.getName());
-    Comparator<Student> comparatorById = (former,ladder) -> Integer.compare(former.getId(), former.getId());
-    studentsList.sort(
-    		Comparator
-    			.nullsFirst(comparatorByCgpa.reversed())
-    			.thenComparing(comparatorByName)
-    			.thenComparing(comparatorById)
-    );
-		studentsList.forEach(student->System.out.println(student.toString()));
+		Comparator<Student> comparatorByCgpa = (former, ladder) -> Double.compare(former.getCgpa(), ladder.getCgpa());
+		Comparator<Student> comparatorByName = (former, ladder) -> former.getName().compareTo(ladder.getName());
+		Comparator<Student> comparatorById = (former, ladder) -> Integer.compare(former.getId(), former.getId());
+		studentsList.sort(Comparator.nullsFirst(comparatorByCgpa.reversed()).thenComparing(comparatorByName).thenComparing(comparatorById));
+		studentsList.forEach(student -> System.out.println(student.toString()));
 	}
 
 	private List<Student> createStudentsList() {
@@ -56,48 +51,47 @@ public class ReArrange extends Solution {
 		}
 		return listOfStudents;
 	}
-		
+
 	private int readNumberOfStudentsRecursive() {
 		int numberOfStudents;
 		numberOfStudents = Solution.readIntegerInput(ReArrange.NUMBER_STUDENTS_INPUT_INSTRUCTIONS);
-		if(numberOfStudents < 2 || numberOfStudents > 10000) {
+		if (numberOfStudents < 2 || numberOfStudents > 10000) {
 			System.out.println(ReArrange.NUMBER_STUDENTS_INPUT_INVALID);
 			numberOfStudents = readNumberOfStudentsRecursive();
 		}
 		return numberOfStudents;
 	}
-	
+
 	private int readIdStudent() {
 		int idStudent;
 		idStudent = Solution.readIntegerInput(ReArrange.ID_INPUT_INSTRUCTIONS);
-		if(idStudent < 0 || idStudent > 100000) {
+		if (idStudent < 0 || idStudent > 100000) {
 			System.out.println(ReArrange.ID_INPUT_INVALID);
 			idStudent = readIdStudent();
 		}
 		return idStudent;
 	}
-	
+
 	private double readCgpa() {
 		double cgpa;
 		cgpa = Solution.readDoubleInput(ReArrange.CGPA_INPUT_INSTRUCTIONS);
 		DecimalFormat formateador = new DecimalFormat("0.00");
 		String formatCgpa = formateador.format(cgpa);
 		boolean cgpaFormat = formatCgpa.matches(ReArrange.CGPA_FORMAT_INPUT);
-		if(cgpa < 0 || cgpa > 4.00 || !cgpaFormat) {
+		if (cgpa < 0 || cgpa > 4.00 || !cgpaFormat) {
 			System.out.println(ReArrange.CGPA_INPUT_INVALID);
 			cgpa = readCgpa();
 		}
 		return cgpa;
 	}
-	
+
 	private String readName() {
 		String name;
 		System.out.print(ReArrange.NAME_INPUT_INSTRUCTIONS);
 		Solution.scanner.nextLine();
 		name = Solution.scanner.nextLine().toLowerCase();
-		if(name.length() < 5 || name.length() > 30) {
+		if (name.length() < 5 || name.length() > 30) {
 			System.out.println(ReArrange.NAME_INPUT_INVALID);
-			
 			name = readName();
 		}
 		return name;

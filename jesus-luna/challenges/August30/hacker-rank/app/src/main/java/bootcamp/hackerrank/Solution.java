@@ -7,14 +7,14 @@ public abstract class Solution {
 	protected static final Scanner scanner = new Scanner(System.in);
 	private static final String INPUT_INTEGER_INCORRECT = "Input must be a integer number";
 	private static final String INPUT_BOUBLE_INCORRECT = "Input must be a double number";
-  
-  public abstract void solve();
 
-  public static void closeScanner() {
-    Solution.scanner.close();
-  }
-  
-  protected static double readDoubleInput(String instruction) {
+	public abstract void solve();
+
+	public static void closeScanner() {
+		Solution.scanner.close();
+	}
+
+	protected static double readDoubleInput(String instruction) {
 		double doubleInput;
 		try {
 			System.out.print(instruction);
@@ -26,8 +26,8 @@ public abstract class Solution {
 		}
 		return doubleInput;
 	}
-  
-  protected static int readIntegerInput(String instruction) {
+
+	protected static int readIntegerInput(String instruction) {
 		int intInput;
 		try {
 			System.out.print(instruction);
@@ -40,5 +40,5 @@ public abstract class Solution {
 		}
 		return intInput;
 	}
-  
+
 }

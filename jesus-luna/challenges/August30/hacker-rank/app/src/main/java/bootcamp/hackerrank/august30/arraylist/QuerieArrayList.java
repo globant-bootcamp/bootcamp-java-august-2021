@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import bootcamp.hackerrank.Solution;
 
 public class QuerieArrayList extends Solution {
-	
+
 	private static final String LINE_OUTPUT_FORMAT = "LINE %d => %s";
 	private static final String LINE_INDICATOR = "LINE %d: ";
 	private static final String LINE_TITLE = "Printing lines";
@@ -27,11 +27,9 @@ public class QuerieArrayList extends Solution {
 	private static final String CURL_CHARACTER_OPEN = "{";
 	private static final String CURL_CHARACTER_CLOSE = "}";
 
-	
 	private List<List<Integer>> listOfLines = new ArrayList<>();
 	private String outline;
 	private String errorMsg;
-	
 
 	@Override
 	public void solve() {
@@ -39,7 +37,7 @@ public class QuerieArrayList extends Solution {
 		printLines();
 		performQueries();
 	}
-	
+
 	private void storeLines() {
 		outline = QuerieArrayList.NUMBER_LINES_OUTLINE;
 		errorMsg = QuerieArrayList.NUMBER_LINES_ERROR;
@@ -47,78 +45,74 @@ public class QuerieArrayList extends Solution {
 		outline = QuerieArrayList.LINE_OUTLINE;
 		System.out.println(outline);
 		for (int index = 0; index < numberOfLines; index++) {
-			storeLine(index+1);
+			storeLine(index + 1);
 		}
 	}
 
-	private int getValidNumber(String outlineToDisplay,String errorToDisplay, int maxSize) {
+	private int getValidNumber(String outlineToDisplay, String errorToDisplay, int maxSize) {
 		int validNumber = Solution.readIntegerInput(outlineToDisplay);
-		if(validNumber < 1 || validNumber > maxSize) {
+		if (validNumber < 1 || validNumber > maxSize) {
 			System.out.println(errorToDisplay);
-			validNumber = getValidNumber(outlineToDisplay, errorToDisplay,maxSize);
+			validNumber = getValidNumber(outlineToDisplay, errorToDisplay, maxSize);
 		}
 		return validNumber;
 	}
-	
-	private void storeLine(int numberLine){
+
+	private void storeLine(int numberLine) {
 		List<Integer> validNumericList;
 		outline = String.format(QuerieArrayList.LINE_INDICATOR, numberLine);
 		System.out.print(outline);
 		String lineOfElements = Solution.scanner.nextLine();
 		String[] splittedElements = lineOfElements.split(QuerieArrayList.SPLIT_SEPARATOR_SPACE);
 		List<String> stringElements = Arrays.asList(splittedElements);
-		validNumericList = stringElements.stream()
-				.filter(element->element.chars().allMatch(Character::isDigit))
-				.map(Integer::parseInt)
-				.collect(Collectors.toList());
+		validNumericList = stringElements.stream().filter(element -> element.chars().allMatch(Character::isDigit))
+				.map(Integer::parseInt).collect(Collectors.toList());
 		int numberOfElements = validNumericList.get(0);
 		validNumericList.remove(0);
-		if(validNumericList.size() != numberOfElements) {
+		if (validNumericList.size() != numberOfElements) {
 			errorMsg = String.format(QuerieArrayList.LINE_ERROR, numberOfElements);
 			System.out.println(errorMsg);
 			storeLine(numberLine);
-		}else {
+		} else {
 			listOfLines.add(validNumericList);
 		}
-		
 	}
-	
+
 	private void printLines() {
 		outline = QuerieArrayList.LINE_TITLE;
 		System.out.println(outline);
 		for (int index = 0; index < listOfLines.size(); index++) {
-			String lineContent = listOfLines.get(index).stream()
-				.map(String::valueOf)
-				.collect(Collectors.joining(SPLIT_SEPARATOR_SPACE, CURL_CHARACTER_OPEN, CURL_CHARACTER_CLOSE));
-			outline = String.format(QuerieArrayList.LINE_OUTPUT_FORMAT, index+1,lineContent);
+			String lineContent = listOfLines.get(index).stream().map(String::valueOf)
+					.collect(Collectors.joining(SPLIT_SEPARATOR_SPACE, CURL_CHARACTER_OPEN, CURL_CHARACTER_CLOSE));
+			outline = String.format(QuerieArrayList.LINE_OUTPUT_FORMAT, index + 1, lineContent);
 			System.out.println(outline);
 		}
 	}
-	
+
 	private void performQueries() {
-		
+
 		outline = QuerieArrayList.NUMBER_QUERY_OUTLINE;
 		errorMsg = QuerieArrayList.QUERY_SIZE_ERROR;
 		int numberOfQueries = getValidNumber(outline, errorMsg, 1000);
 		outline = QuerieArrayList.QUERY_OUTLINE;
 		System.out.println(outline);
-		for(int index = 0; index < numberOfQueries; index ++) {
-			outline = String.format(QuerieArrayList.QUERY_INDICATOR, index+1);
+		for (int index = 0; index < numberOfQueries; index++) {
+			outline = String.format(QuerieArrayList.QUERY_INDICATOR, index + 1);
 			System.out.print(outline);
 			String[] splittedInput = Solution.scanner.nextLine().split(QuerieArrayList.SPLIT_SEPARATOR_SPACE);
-			if(splittedInput.length < 2) {
+			if (splittedInput.length < 2) {
 				outline = QuerieArrayList.QUERY_INVALID_ERROR;
 				System.out.println(outline);
-			}else {
-				int realLineIndex = Integer.valueOf(splittedInput[0])- 1;
+			} else {
+				int realLineIndex = Integer.valueOf(splittedInput[0]) - 1;
 				int realElementIndex = Integer.valueOf(splittedInput[1]) - 1;
 				printQueriResult(realLineIndex, realElementIndex);
 			}
 		}
 	}
-	
+
 	private void printQueriResult(int lineTarget, int indexTaget) {
-		int lineTargetOutput = lineTarget +1;
+		int lineTargetOutput = lineTarget + 1;
 		int iindexTagetOutput = indexTaget + 1;
 		try {
 			List<Integer> line = listOfLines.get(lineTarget);
@@ -126,7 +120,7 @@ public class QuerieArrayList extends Solution {
 			outline = String.format(QuerieArrayList.VALUE_FOUND, number);
 			System.out.println(outline);
 		} catch (IndexOutOfBoundsException e) {
-			errorMsg = String.format(QuerieArrayList.INDEX_ERROR, lineTargetOutput,iindexTagetOutput);
+			errorMsg = String.format(QuerieArrayList.INDEX_ERROR, lineTargetOutput, iindexTagetOutput);
 			System.out.println(errorMsg);
 		}
 	}
