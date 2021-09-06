@@ -12,37 +12,44 @@ import com.bolsadeideas.springboot.bootcamp.app.services.JavaAnagramsService;
 @Service
 public class JavaAnagramsServiceImpl implements JavaAnagramsService {
 	private static final Logger javaLog = Logger.getLogger(JavaAnagramsServiceImpl.class);
-	Map<Character, Integer> wordMap;
-	Map<Character, Integer> anagramMap;
+	Map<Character, Integer> wordMap = new Hashtable<>();
+	Map<Character, Integer> anagramMap = new Hashtable<>();
 
 	@Override
 	public String validateAnagram(String word, String anagram) {
-		wordMap = new Hashtable<>();
-		anagramMap = new Hashtable<>();
+		word = word.toLowerCase();
 		anagram = anagram.toLowerCase();
 		if (word.length() == anagram.length()) {
 			for (int i = 0; i < word.length(); i++) {
-				if (wordMap.containsKey(word.charAt(i))) {
-					wordMap.put(word.charAt(i), wordMap.get(word.charAt(i)) + 1);
-				} else {
-					wordMap.put(word.charAt(i), 1);
-				}
-				if (anagramMap.containsKey(anagram.charAt(i))) {
-					anagramMap.put(anagram.charAt(i), anagramMap.get(anagram.charAt(i)) + 1);
-				} else {
-					anagramMap.put(anagram.charAt(i), 1);
-				}
+				wordMap = countingElements(wordMap, word.charAt(i));
+				anagramMap = countingElements(anagramMap, anagram.charAt(i));
 			}
 			if (wordMap.equals(anagramMap)) {
 				javaLog.debug(ANSWER_ANAGRAM_YES);
+				cleanMaps();
 				return ANSWER_ANAGRAM_YES;
 			} else {
 				javaLog.debug(ANSWER_ANAGRAM_NO);
+				cleanMaps();
 				return ANSWER_ANAGRAM_NO;
 			}
 		} else {
 			javaLog.debug(ANSWER_ANAGRAM_NO);
 			return ANSWER_ANAGRAM_NO;
 		}
+	}
+
+	private Map<Character,Integer> countingElements(Map<Character, Integer> searchElementMap, Character element){
+		if(searchElementMap.containsKey(element)) {
+			searchElementMap.put(element, searchElementMap.get(element) + 1);
+		}else {
+			searchElementMap.put(element, 1);
+		}
+		return searchElementMap;
+	}
+
+	private void cleanMaps() {
+		wordMap.clear();
+		anagramMap.clear();
 	}
 }

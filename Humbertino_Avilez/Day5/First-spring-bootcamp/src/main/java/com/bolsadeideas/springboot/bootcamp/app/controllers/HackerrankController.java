@@ -13,13 +13,13 @@ import com.bolsadeideas.springboot.bootcamp.app.services.JavaStringReverseServic
 public class HackerrankController {
 
 	@Autowired
-	JavaStringReverseService javaStringReverseService;
+	private JavaStringReverseService javaStringReverseService;
 
 	@Autowired
-	JavaAnagramsService javaAnagramsService;
+	private JavaAnagramsService javaAnagramsService;
 
 	@Autowired
-	JavaPatternSyntaxChecker javaPatternSyntaxChecker;
+	private JavaPatternSyntaxChecker javaPatternSyntaxChecker;
 
 	@GetMapping("/JavaStringReverse/{word}")
 	public String getJavaStringReverse(@PathVariable String word) {
