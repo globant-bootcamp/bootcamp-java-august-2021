@@ -1,3 +1,5 @@
+package hackerrankExercises;
+
 import java.security.Permission;
 
 class DoNotTerminate {
