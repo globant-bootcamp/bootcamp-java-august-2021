@@ -42,17 +42,17 @@ public class HackerrankDay4 {
     }
 
     @PostMapping(value = "${api.url.check-palindrome}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<GenericResponse> getWord(@Valid @RequestBody PalindromeRequest word) {
+    public ResponseEntity<GenericResponse> postWord(@Valid @RequestBody PalindromeRequest word) {
         return new ResponseEntity<>(palindromeValidate.validatePalindrome(word), HttpStatus.OK);
     }
 
     @PostMapping(value = "${api.url.check-pattern}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<GenericResponse> getPattern(@Valid @RequestBody PatternSyntaxRequest pattern) {
+    public ResponseEntity<GenericResponse> postPattern(@Valid @RequestBody PatternSyntaxRequest pattern) {
         return new ResponseEntity<>(syntaxChecker.checkPattern(pattern), HttpStatus.OK);
     }
 
     @PostMapping(value = "${api.url.check-anagram}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<GenericResponse> getAnagram(@Valid @RequestBody AnagramRequest anagram) {
+    public ResponseEntity<GenericResponse> postAnagram(@Valid @RequestBody AnagramRequest anagram) {
         return new ResponseEntity<>(checkAnagram.checkAnagram(anagram), HttpStatus.OK);
     }
 
