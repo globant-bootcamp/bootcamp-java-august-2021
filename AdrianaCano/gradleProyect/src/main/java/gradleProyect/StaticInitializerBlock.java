@@ -1,5 +1,6 @@
 package gradleProyect;
 
+import static gradleProyect.JavaIntToString.LOGGER;
 import java.util.Scanner;
 
 public class StaticInitializerBlock {
@@ -16,12 +17,12 @@ public class StaticInitializerBlock {
         try {
             if (base > 0 && height > 0) {
                 flag = true;
-                System.out.println(base * height);
+                LOGGER.info(base * height);
             } else {
                 throw new Exception("Breadth and height must be positive");
             }
         } catch (Exception e) {
-            System.out.println(e);
+            LOGGER.info(e);
         }
 
     }

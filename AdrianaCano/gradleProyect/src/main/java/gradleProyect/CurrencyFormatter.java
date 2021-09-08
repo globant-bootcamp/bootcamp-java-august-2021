@@ -1,5 +1,6 @@
 package gradleProyect;
 
+import static gradleProyect.JavaIntToString.LOGGER;
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Scanner;
@@ -15,7 +16,7 @@ public class CurrencyFormatter {
         NumberFormat chinaFormat = NumberFormat.getCurrencyInstance(Locale.CHINA);
         NumberFormat franceFormat = NumberFormat.getCurrencyInstance(Locale.FRANCE);
 
-        System.out.println("US: " + usFormat.format(payment)
+        LOGGER.info("US: " + usFormat.format(payment)
                 + "\nIndia: " + indiaFormat.format(payment)
                 + "\nChina: " + chinaFormat.format(payment)
                 + "\nFrance: " + franceFormat.format(payment));
