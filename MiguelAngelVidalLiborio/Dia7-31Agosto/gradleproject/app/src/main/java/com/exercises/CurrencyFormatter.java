@@ -2,7 +2,6 @@ package com.exercises;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.chainsaw.Main;
-
 import java.util.Scanner;
 import java.text.NumberFormat;
 import java.util.Locale;

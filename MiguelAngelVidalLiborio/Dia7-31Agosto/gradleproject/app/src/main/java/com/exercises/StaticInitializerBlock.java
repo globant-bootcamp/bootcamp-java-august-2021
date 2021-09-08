@@ -1,8 +1,8 @@
 package com.exercises;
 
-import java.util.Scanner;
 import org.apache.log4j.Logger;
 import org.apache.log4j.chainsaw.Main;
+import java.util.Scanner;
 
 public class StaticInitializerBlock {
 
