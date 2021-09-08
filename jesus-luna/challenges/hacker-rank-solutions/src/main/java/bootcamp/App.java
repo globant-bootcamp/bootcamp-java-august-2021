@@ -11,6 +11,7 @@ import bootcamp.hackerrank.august30.map.PhoneBook;
 import bootcamp.hackerrank.august30.ramsonnote.RansomNote;
 import bootcamp.hackerrank.august30.sort.ReArrange;
 import bootcamp.hackerrank.august30.sort.Student;
+import bootcamp.hackerrank.august31.staticinitializer.StatickInitializerBlock;
 import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
@@ -52,7 +53,6 @@ public class App {
 	
 	
 	private void hackerRankAugust31(Solution solution) {
-		
-		
+		StatickInitializerBlock.solve();
 	}
 }
