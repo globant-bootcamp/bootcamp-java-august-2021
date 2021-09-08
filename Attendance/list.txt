@@ -9,7 +9,7 @@ Miguel Angel Vidal Liborio |25|26|27|
 Marco Antonio Cardenas Medina |25|26|27|30|31|
 Vicente Paul Romero Douriet |25|26|27|
 Horacio Miguel Alvarado Garza |25|
-Humbertino Avilez Carpintero |25|26|27|30|31|1|2|
+Humbertino Avilez Carpintero |25|26|27|30|31|1|2|3|6|7|
 Brandon Ali Beltran Rivera |25|26|27|
 Miguel Angel Valdés García |25|26|27|
 Brandon Ali Beltran Rivera |25||26|27|30|
