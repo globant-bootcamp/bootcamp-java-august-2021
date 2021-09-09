@@ -26,31 +26,30 @@ import com.globant.hackerrank.util.ValidatorInputs;
 @RestController
 @RequestMapping("septiembre02")
 public class Septiembre02 {
-	
+
 	@Autowired
 	private StringService stringService;
-	
+
 	@Autowired
 	private ValidatorInputs validator;
 
 	@GetMapping(value = "reverse")
-	public ResponseEntity<ResponseDTO<String>> palindromeIssue(@RequestParam(name = "input",defaultValue = "") String inputToDeterminePalindrome) {
+	public ResponseEntity<ResponseDTO<String>> palindromeIssue(@RequestParam(name = "input", defaultValue = "") String inputToDeterminePalindrome) {
 		validator.validAtMostNLetters(50, inputToDeterminePalindrome);
-		return ResponseEntity.ok().body(new ResponseDTO<String>(Constants.ResponseConstants.SUCCESS,Constants.ResponseConstants.SUCCESS.getDescription() , stringService.isPalindrome(inputToDeterminePalindrome)));
-	}
-	
-	@GetMapping(value = "anagram")
-	public ResponseEntity<ResponseDTO<String>> anagramIssue(@RequestParam(defaultValue = "") String firstWord, @RequestParam(defaultValue = "") String secondWord) {
-		validator.validAtMostNLetters(50, firstWord);
-		validator.validAtMostNLetters(50, secondWord);
-		return ResponseEntity.ok().body(new ResponseDTO<String>(Constants.ResponseConstants.SUCCESS,Constants.GENERIC_MESSAGE_RESPONSE,stringService.wordsAreAnagram(firstWord, secondWord)));
+		return ResponseEntity.ok().body(new ResponseDTO<String>(Constants.ResponseConstants.SUCCESS,Constants.ResponseConstants.SUCCESS.getDescription(), stringService.isPalindrome(inputToDeterminePalindrome)));
 	}
 
-	
-	@PostMapping(value = "check-pattern",produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "anagram")
+	public ResponseEntity<ResponseDTO<String>> anagramIssue(@RequestParam(defaultValue = "") String firstWord,@RequestParam(defaultValue = "") String secondWord) {
+		validator.validAtMostNLetters(50, firstWord);
+		validator.validAtMostNLetters(50, secondWord);
+		return ResponseEntity.ok().body(new ResponseDTO<String>(Constants.ResponseConstants.SUCCESS,Constants.GENERIC_MESSAGE_RESPONSE, stringService.wordsAreAnagram(firstWord, secondWord)));
+	}
+
+	@PostMapping(value = "check-pattern", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ResponseDTO<List<String>>> patternsIssue(@Valid @RequestBody RequestDTO<PatternSyntaxRequest> request) {
 		validator.validateNullPaternRequest(request);
-		return ResponseEntity.ok().body(new ResponseDTO<List<String>>(Constants.ResponseConstants.SUCCESS,Constants.GENERIC_MESSAGE_RESPONSE,stringService.validatePatternSyntax(request.getData().getPatterns())));
+		return ResponseEntity.ok().body(new ResponseDTO<List<String>>(Constants.ResponseConstants.SUCCESS,Constants.GENERIC_MESSAGE_RESPONSE, stringService.validatePatternSyntax(request.getData().getPatterns())));
 	}
-	
+
 }

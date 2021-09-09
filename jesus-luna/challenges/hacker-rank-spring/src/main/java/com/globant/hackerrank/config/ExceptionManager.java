@@ -11,10 +11,10 @@ import com.globant.hackerrank.util.Constants;
 
 @ControllerAdvice
 public class ExceptionManager {
-	
+
 	@ExceptionHandler(ConstraintViolationException.class)
-	public ResponseEntity<ResponseDTO<String>> invalidConstraintValidation(ConstraintViolationException constraintViolated){
-		ResponseDTO<String> response = new ResponseDTO<>(Constants.ResponseConstants.FAILURE, constraintViolated.getMessage(), null);
+	public ResponseEntity<ResponseDTO<String>> invalidConstraintValidation(ConstraintViolationException constraintViolated) {
+		ResponseDTO<String> response = new ResponseDTO<>(Constants.ResponseConstants.FAILURE,constraintViolated.getMessage(), null);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
 	}
 }

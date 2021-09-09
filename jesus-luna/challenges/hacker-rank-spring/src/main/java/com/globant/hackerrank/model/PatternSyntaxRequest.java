@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PatternSyntaxRequest{
-	
 	private int numberOfPatterns;
 	@NotNull(message = "patterns can not be null")
 	@NotEmpty(message = "patterns can not be empty")
