@@ -41,7 +41,7 @@ public class CurrencyFormatter extends Solution {
 		NumberFormat numberFormatUsa = NumberFormat.getCurrencyInstance(Locale.US);
 		NumberFormat numberFormatChinese = NumberFormat.getCurrencyInstance(Locale.CHINA);
 		NumberFormat numberFormatFrance = NumberFormat.getCurrencyInstance(Locale.FRANCE);
-    log.info("US: {}", numberFormatUsa.format(payment));
+		log.info("US: {}", numberFormatUsa.format(payment));
 		log.info("India: {}", numberFormatIndia.format(payment));
 		log.info("China: {}", numberFormatChinese.format(payment));
 		log.info("France: {}", numberFormatFrance.format(payment));
