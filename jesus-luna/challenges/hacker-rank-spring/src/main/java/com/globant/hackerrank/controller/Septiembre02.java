@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.globant.hackerrank.dto.ResponseDTO;
 import com.globant.hackerrank.service.StringService;
+import com.globant.hackerrank.util.Constants;
 import com.globant.hackerrank.util.ValidatorInputs;
 
 @RestController
@@ -21,9 +23,10 @@ public class Septiembre02 {
 	private ValidatorInputs validator;
 
 	@GetMapping(value = "reverse")
-	public ResponseEntity<Boolean> getMethodName(@RequestParam(name = "input",defaultValue = "") String inputToDeterminePalindrome) {
+	public ResponseEntity<ResponseDTO<String>> getMethodName(@RequestParam(name = "input",defaultValue = "") String inputToDeterminePalindrome) {
 		validator.validAtMostNLetters(50, inputToDeterminePalindrome);
-		return ResponseEntity.ok().body(stringService.isPalindrome(inputToDeterminePalindrome));
+		
+		return ResponseEntity.ok().body(new ResponseDTO<String>(Constants.ResponseConstants.SUCCESS,Constants.ResponseConstants.SUCCESS.getDescription() , stringService.isPalindrome(inputToDeterminePalindrome)));
 	}
 
 }
