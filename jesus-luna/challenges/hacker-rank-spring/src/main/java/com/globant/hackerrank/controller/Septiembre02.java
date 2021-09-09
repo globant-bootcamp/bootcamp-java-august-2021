@@ -23,10 +23,16 @@ public class Septiembre02 {
 	private ValidatorInputs validator;
 
 	@GetMapping(value = "reverse")
-	public ResponseEntity<ResponseDTO<String>> getMethodName(@RequestParam(name = "input",defaultValue = "") String inputToDeterminePalindrome) {
+	public ResponseEntity<ResponseDTO<String>> palindromeIssue(@RequestParam(name = "input",defaultValue = "") String inputToDeterminePalindrome) {
 		validator.validAtMostNLetters(50, inputToDeterminePalindrome);
-		
 		return ResponseEntity.ok().body(new ResponseDTO<String>(Constants.ResponseConstants.SUCCESS,Constants.ResponseConstants.SUCCESS.getDescription() , stringService.isPalindrome(inputToDeterminePalindrome)));
+	}
+	
+	@GetMapping(value = "anagram")
+	public ResponseEntity<ResponseDTO<String>> anagramIssue(@RequestParam(defaultValue = "") String firstWord, @RequestParam(defaultValue = "") String secondWord) {
+		validator.validAtMostNLetters(50, firstWord);
+		validator.validAtMostNLetters(50, secondWord);
+		return ResponseEntity.ok().body(new ResponseDTO<String>(Constants.ResponseConstants.SUCCESS,Constants.GENERIC_MESSAGE_RESPONSE,stringService.wordsAreAnagram(firstWord, secondWord)));
 	}
 
 }
