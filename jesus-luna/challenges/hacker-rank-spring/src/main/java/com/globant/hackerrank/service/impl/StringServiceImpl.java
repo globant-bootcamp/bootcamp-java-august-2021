@@ -3,9 +3,8 @@ package com.globant.hackerrank.service.impl;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 import org.springframework.stereotype.Service;
 
@@ -36,6 +35,20 @@ public class StringServiceImpl implements StringService {
 		Arrays.sort(firsWordChars);
     Arrays.sort(secondWordChars);
     return (Arrays.equals(firsWordChars, secondWordChars)) ? goodResponse : badResponse;
+	}
+
+	@Override
+	public List<String> validatePatternSyntax(List<String> patterns) {
+		List<String> responsePaterns = new ArrayList<>();
+		for (String pattern : patterns) {
+			try {
+				Pattern.compile(pattern);
+				responsePaterns.add(String.format(Constants.VALID_PATTERN, pattern));
+			} catch (PatternSyntaxException e) {
+				responsePaterns.add(String.format(Constants.INVALID_PATTERN, pattern));
+			}
+		}
+		return responsePaterns;
 	} 
 
 
