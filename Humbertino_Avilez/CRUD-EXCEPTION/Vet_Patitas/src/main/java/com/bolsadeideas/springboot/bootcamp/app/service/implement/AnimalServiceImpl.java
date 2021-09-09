@@ -19,13 +19,11 @@ public class AnimalServiceImpl implements InterfaceAnimalService {
 	private AnimalDao animalDao;
 
 	@Override
-	@Transactional(readOnly = true)
 	public List<Animal> findAll() {
 		return (List<Animal>) animalDao.findAll();
 	}
 
 	@Override
-	@Transactional(readOnly = true)
 	public Animal findById(Long id) {
 		Animal animal = animalDao.findById(id).orElse(null);
 		if (animal == null) {
@@ -52,8 +50,8 @@ public class AnimalServiceImpl implements InterfaceAnimalService {
 		animalDataBase.setName(animalUpdate.getName());
 		animalDataBase.setAge(animalUpdate.getAge());
 		animalDataBase.setType(animalUpdate.getType());
+		animalDataBase.setOwner(animalUpdate.getOwner());
 		save(animalDataBase);
 		return animalDataBase;
 	}
-
 }

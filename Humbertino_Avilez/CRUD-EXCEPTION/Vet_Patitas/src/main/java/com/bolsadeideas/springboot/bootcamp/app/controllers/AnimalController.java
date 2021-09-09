@@ -35,29 +35,25 @@ public class AnimalController {
 
 	@GetMapping("/animals/{id}")
 	public ResponseEntity<ResponseAnimal<String>> detailsAnimal(@PathVariable Long id) {
-		Animal animal = animalService.findById(id);
-		ResponseAnimal responseAnimal = new ResponseAnimal(Constants.ResponseConstants.SUCCESS, ANIMAL_FOUND, animal);
+		ResponseAnimal responseAnimal = new ResponseAnimal(Constants.ResponseConstants.SUCCESS, ANIMAL_FOUND, animalService.findById(id));
 		return new ResponseEntity<>(responseAnimal, HttpStatus.FOUND);
 	}
 
 	@PostMapping("/animals")
 	public ResponseEntity<ResponseAnimal<String>> addAnimal(@RequestBody Animal animal) {
-		Animal animalSaved = animalService.save(animal);
-		ResponseAnimal responseAnimal = new ResponseAnimal(Constants.ResponseConstants.SUCCESS, ANIMAL_CREATED, animal);
+		ResponseAnimal responseAnimal = new ResponseAnimal(Constants.ResponseConstants.SUCCESS, ANIMAL_CREATED,  animalService.save(animal));
 		return new ResponseEntity<>(responseAnimal, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/animals")
 	public ResponseEntity<ResponseAnimal<String>> updateAnimal(@RequestBody Animal animal) {
-		Animal animalUpdate = animalService.update(animal);
-		ResponseAnimal responseAnimal = new ResponseAnimal(Constants.ResponseConstants.SUCCESS, ANIMAL_UPDATED,animalUpdate);
+		ResponseAnimal responseAnimal = new ResponseAnimal(Constants.ResponseConstants.SUCCESS, ANIMAL_UPDATED,animalService.update(animal));
 		return new ResponseEntity<>(responseAnimal, HttpStatus.OK);
 	}
 
 	@DeleteMapping("animals/{id}")
 	public ResponseEntity<ResponseAnimal<String>> deleteAnimal(@PathVariable Long id) {
-		Animal animalDeleted = animalService.delete(id);
-		ResponseAnimal responseAnimal = new ResponseAnimal(Constants.ResponseConstants.SUCCESS, ANIMAL_DELETED,animalDeleted);
+		ResponseAnimal responseAnimal = new ResponseAnimal(Constants.ResponseConstants.SUCCESS, ANIMAL_DELETED,animalService.delete(id));
 		return new ResponseEntity<>(responseAnimal, HttpStatus.OK);
 	}
 }

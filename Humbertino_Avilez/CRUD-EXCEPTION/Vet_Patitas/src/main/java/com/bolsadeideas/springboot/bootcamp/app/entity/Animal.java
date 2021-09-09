@@ -29,6 +29,9 @@ public class Animal implements Serializable {
 
 	@Column(name = "sterilization")
 	private boolean sterilization;
+	
+	@Column(name = "owner")
+	private String owner;
 
 	public Animal() {
 		
@@ -72,6 +75,14 @@ public class Animal implements Serializable {
 
 	public void setSterilization(boolean sterilization) {
 		this.sterilization = sterilization;
+	}
+	
+	public String getOwner() {
+		return owner;
+	}
+
+	public void setOwner(String owner) {
+		this.owner = owner;
 	}
 
 	public static long getSerialversionuid() {
