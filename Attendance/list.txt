@@ -10,7 +10,7 @@ Marco Antonio Cardenas Medina |25|26|27|30|31|
 Vicente Paul Romero Douriet |25|26|27|
 Horacio Miguel Alvarado Garza |25|
 Humbertino Avilez Carpintero |25|26|27|30|31|1|
-Miguel Angel Valdés García |25|26|27|30|31|01|02|03|
+Miguel Angel Valdés García |25|26|27|30|31|01|02|03|06|07|08|
 Brandon Ali Beltran Rivera |25||26|27|30|
 Claudia Hernández García |25|26|
 Omar Espinosa Castro |25|26|27|30|
@@ -20,4 +20,3 @@ Adriana Cano Rodriguez |25||26||27||31|
 Vargas Martínez José de Jesús |25|26|27|30|31|01|
 Tania Belen Gayosso Domínguez |25|26|27|30|
 Gabriela Guadalupe Ramirez Tecatl |25|26|27|30|31|01|
-
