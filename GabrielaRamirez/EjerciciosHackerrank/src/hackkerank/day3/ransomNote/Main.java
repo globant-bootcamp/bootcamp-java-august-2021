@@ -7,7 +7,9 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class Main {
+
     public static void main(String[] args) throws IOException {
+
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
         String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");

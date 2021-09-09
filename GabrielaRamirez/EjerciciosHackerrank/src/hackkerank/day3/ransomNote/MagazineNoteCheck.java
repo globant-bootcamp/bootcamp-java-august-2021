@@ -5,29 +5,30 @@ import java.util.List;
 import java.util.Map;
 
 public class MagazineNoteCheck {
-    public static void checkMagazine(List<String> magazine, List<String> note) {
-        // Write your code here
-        Map<String, Integer> magazineWords = new HashMap<>();
-        for (String word:magazine){
 
-            if(magazineWords.containsKey(word)){
+    public static void checkMagazine(List<String> magazine, List<String> note) {
+
+        Map<String, Integer> magazineWords = new HashMap<>();
+        for (String word : magazine) {
+
+            if (magazineWords.containsKey(word)) {
                 int count = magazineWords.get(word);
-            }else{
+            } else {
                 magazineWords.put(word, 1);
             }
         }
 
-        for (String word:note){
+        for (String word : note) {
 
-            if(magazineWords.containsKey(word)){
+            if (magazineWords.containsKey(word)) {
                 int count = magazineWords.get(word);
-                if(count<=0){
+                if (count <= 0) {
                     System.out.println("No");
                     return;
                 }
                 count--;
                 magazineWords.put(word, count);
-            }else if(!magazineWords.containsKey(word)){
+            } else if (!magazineWords.containsKey(word)) {
                 System.out.println("No");
                 return;
             }
