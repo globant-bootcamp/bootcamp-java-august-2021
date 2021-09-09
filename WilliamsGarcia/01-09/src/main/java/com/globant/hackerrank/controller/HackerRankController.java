@@ -26,13 +26,13 @@ import static com.globant.hackerrank.utils.Constants.IS_PALINDROME;
 public class HackerRankController {
 
     @Autowired
-    AnagramService anagramService;
+    private AnagramService anagramService;
 
     @Autowired
-    PatternService patternService;
+    private PatternService patternService;
 
     @Autowired
-    PalindromeService palindromeService;
+    private PalindromeService palindromeService;
 
     @PostMapping(path = "/Anagram", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseDTO<AnagramDTO>> getResultAnagram(@RequestBody AnagramDTO anagramDTO) {
