@@ -37,13 +37,11 @@ public class CurrencyFormatter extends Solution {
 		Map<String, String> countriesMap = Arrays.asList(isoCountries).stream()
 				.map(isoCountry -> new Locale("", isoCountry))
 				.collect(Collectors.toMap(Locale::getDisplayCountry, Locale::getCountry));
-
 		NumberFormat numberFormatIndia = NumberFormat.getCurrencyInstance(new Locale("en", countriesMap.get("India")));
 		NumberFormat numberFormatUsa = NumberFormat.getCurrencyInstance(Locale.US);
 		NumberFormat numberFormatChinese = NumberFormat.getCurrencyInstance(Locale.CHINA);
 		NumberFormat numberFormatFrance = NumberFormat.getCurrencyInstance(Locale.FRANCE);
-
-		log.info("US: {}", numberFormatUsa.format(payment));
+    log.info("US: {}", numberFormatUsa.format(payment));
 		log.info("India: {}", numberFormatIndia.format(payment));
 		log.info("China: {}", numberFormatChinese.format(payment));
 		log.info("France: {}", numberFormatFrance.format(payment));
