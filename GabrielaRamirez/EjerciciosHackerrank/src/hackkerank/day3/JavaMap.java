@@ -5,26 +5,26 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class JavaMap {
-    public static void main(String []argh)
-    {
+
+    public static void main(String[] argh) {
+
         Scanner in = new Scanner(System.in);
-        int numberOfEntries=in.nextInt();
+        int numberOfEntries = in.nextInt();
         in.nextLine();
         Map<String, Integer> map = new HashMap<>(numberOfEntries);
 
-        for(int i=0;i<numberOfEntries;i++)
-        {
-            String name=in.nextLine();
-            int phone=in.nextInt();
+        for (int i = 0; i < numberOfEntries; i++) {
+            String name = in.nextLine();
+            int phone = in.nextInt();
             in.nextLine();
             map.put(name, phone);
         }
 
-        while(in.hasNext()){
+        while (in.hasNext()) {
             String query = in.nextLine().trim();
-            if(map.containsKey(query)){
+            if (map.containsKey(query)) {
                 System.out.println(query + "=" + map.get(query));
-            } else{
+            } else {
                 System.out.println("Not found");
             }
         }
