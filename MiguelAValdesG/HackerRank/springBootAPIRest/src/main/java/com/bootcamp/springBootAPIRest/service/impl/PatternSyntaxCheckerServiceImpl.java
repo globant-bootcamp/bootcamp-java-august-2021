@@ -1,9 +1,13 @@
 package com.bootcamp.springBootAPIRest.service.impl;
 
 import com.bootcamp.springBootAPIRest.service.PatternSyntaxCheckerService;
+import com.bootcamp.springBootAPIRest.utils.Constants;
 import org.springframework.stereotype.Service;
 
 import org.apache.log4j.Logger;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
@@ -11,22 +15,20 @@ import java.util.regex.PatternSyntaxException;
 public class PatternSyntaxCheckerServiceImpl implements PatternSyntaxCheckerService {
 
   @Override
-  public String patternSyntaxChecker(String[] patterns) {
-    Logger log = Logger.getLogger("PatternSyntaxChecker");
-    final String VALID = "Valid";
-    final String INVALID = "Invalid";
-    StringBuilder response = new StringBuilder();
+  public List<String> patternSyntaxChecker(String[] patterns) {
+    Logger log = Logger.getLogger(Constants.PATTERN_SYNTAX_CHECKER);
+    List<String> response = new ArrayList<>();
 
     for (String pattern : patterns) {
       try {
         Pattern.compile(pattern);
-        response.append(VALID).append(System.lineSeparator());
+        response.add(Constants.VALID);
       } catch(PatternSyntaxException e) {
-        response.append(INVALID).append(System.lineSeparator());
+        response.add(Constants.INVALID);
         log.fatal(e);
       }
     }
 
-    return response.toString();
+    return response;
   }
 }

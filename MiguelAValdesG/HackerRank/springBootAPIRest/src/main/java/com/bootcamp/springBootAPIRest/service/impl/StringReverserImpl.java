@@ -1,6 +1,7 @@
 package com.bootcamp.springBootAPIRest.service.impl;
 
 import com.bootcamp.springBootAPIRest.service.StringReverseService;
+import com.bootcamp.springBootAPIRest.utils.Constants;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -9,17 +10,18 @@ public class StringReverserImpl implements StringReverseService {
   @Override
   public String stringReverse(String characterSequence) {
     int characterSequenceLength = characterSequence.length();
-    int count = 0;
-    String response = "No";
+    int halfLengthOfCharacterSequence = characterSequenceLength/2;
+    int count = Constants.ZERO;
+    String response = Constants.NO;
 
-    for (int index = 0; index < characterSequenceLength/2; index++) {
+    for (int index = Constants.ZERO; index < halfLengthOfCharacterSequence; index++) {
       if (characterSequence.charAt(index) == characterSequence.charAt(characterSequenceLength-index-1)) {
         count++;
       }
     }
 
-    if (count == characterSequenceLength/2) {
-      response = "Yes";
+    if (count == halfLengthOfCharacterSequence) {
+      response = Constants.YES;
     }
     return response;
   }
