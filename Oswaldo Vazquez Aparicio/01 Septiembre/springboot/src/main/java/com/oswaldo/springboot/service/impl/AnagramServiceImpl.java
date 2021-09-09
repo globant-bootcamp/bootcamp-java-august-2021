@@ -24,9 +24,9 @@ public class AnagramServiceImpl implements AnagramService {
 
         anagramDTO.setResult(ANAGRAMS);
 
-        if (inputOne.length() != inputTwo.length()){
+        if (inputOne.length() != inputTwo.length()) {
             anagramDTO.setResult(NOT_ANAGRAMS);
-        }else{
+        } else {
 
             String[] arrayOne = inputOne.split("");
             String[] arrayTwo = inputTwo.split("");
@@ -36,21 +36,14 @@ public class AnagramServiceImpl implements AnagramService {
 
             charactersTwo.addAll(charactersOne);
 
-            if (charactersOne.size() == charactersTwo.size()){
+            if (charactersOne.size() == charactersTwo.size()) {
 
                 Map<String, Integer> frequencyTableOne = createFrequencyTable(arrayOne);
                 Map<String, Integer> frequencyTableTwo = createFrequencyTable(arrayTwo);
 
-                for(String character: charactersOne){
-                    Integer currentFrequencyOne = frequencyTableOne.get(character);
-                    Integer currentFrequencyTwo = frequencyTableTwo.get(character);
-                    if (!currentFrequencyOne.equals(currentFrequencyTwo)){
-                        anagramDTO.setResult(NOT_ANAGRAMS);
-                        return anagramDTO;
-                    }
-                }
+                checkSameFrequency(frequencyTableOne, frequencyTableTwo, anagramDTO);
 
-            }else{
+            } else {
                 anagramDTO.setResult(NOT_ANAGRAMS);
             }
 
@@ -58,13 +51,24 @@ public class AnagramServiceImpl implements AnagramService {
         return anagramDTO;
     }
 
-    private Map<String, Integer> createFrequencyTable(String[] characters){
+    private Map<String, Integer> createFrequencyTable(String[] characters) {
         Map<String, Integer> frequencyTable = new HashMap<>();
-        for(String character: characters){
+        for (String character : characters) {
             Integer frequency = frequencyTable.get(character);
-            frequencyTable.put(character, (frequency == null)? 1 : frequency + 1);
+            frequencyTable.put(character, (frequency == null) ? 1 : frequency + 1);
         }
         return frequencyTable;
+    }
+
+    private void checkSameFrequency(Map<String, Integer> frequencyTableOne, Map<String, Integer> frequencyTableTwo, AnagramDTO anagramDTO) {
+        for (String character : frequencyTableOne.keySet()) {
+            Integer currentFrequencyOne = frequencyTableOne.get(character);
+            Integer currentFrequencyTwo = frequencyTableTwo.get(character);
+            if (!currentFrequencyOne.equals(currentFrequencyTwo)) {
+                anagramDTO.setResult(NOT_ANAGRAMS);
+                break;
+            }
+        }
     }
 
 

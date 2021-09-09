@@ -2,12 +2,11 @@ package com.oswaldo.springboot.controller;
 
 import com.oswaldo.springboot.dto.AnagramDTO;
 import com.oswaldo.springboot.dto.PatternDTO;
-import com.oswaldo.springboot.dto.StringReverseDTO;
 import com.oswaldo.springboot.dto.ResponseDTO;
+import com.oswaldo.springboot.dto.StringReverseDTO;
 import com.oswaldo.springboot.service.AnagramService;
 import com.oswaldo.springboot.service.PatternService;
 import com.oswaldo.springboot.service.StringReverseService;
-import com.oswaldo.springboot.service.impl.PatternServiceImpl;
 import com.oswaldo.springboot.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +16,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import static com.oswaldo.springboot.utils.Constants.*;
+import static com.oswaldo.springboot.utils.Constants.VALIDATION_ANAGRAM;
+import static com.oswaldo.springboot.utils.Constants.VALIDATION_PALINDROME;
+import static com.oswaldo.springboot.utils.Constants.VALIDATION_PATTERN;
 
 @RestController
 public class HackerRankController {
