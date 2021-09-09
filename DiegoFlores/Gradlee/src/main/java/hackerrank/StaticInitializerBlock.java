@@ -1,14 +1,15 @@
+package hackerrank;
+
 import java.util.Scanner;
-
-public static boolean flag = true; 
-public static int firstParameter ;
-public static int secondPArameter ;
-public static String area;
-
-public static final String ERROR_MESSAGE = "java.lang.Exception: Breadth and height must be positive";
 
 public class StaticInitializerBlock {
 
+	public static boolean flag = true; 
+	public static int firstParameter ;
+	public static int secondPArameter ;
+	public static String area;
+
+	public static final String ERROR_MESSAGE = "java.lang.Exception: Breadth and height must be positive";
 
     static {
 

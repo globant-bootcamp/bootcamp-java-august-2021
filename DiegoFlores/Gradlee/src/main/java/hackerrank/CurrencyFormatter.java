@@ -1,8 +1,10 @@
+package hackerrank;
+
 import java.util.Scanner;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class Solution {
+public class CurrencyFormatter {
     
     public static final String US_MESSAGE = "US: ";
     public static final String INDIA_MESSAGE = "India: ";
