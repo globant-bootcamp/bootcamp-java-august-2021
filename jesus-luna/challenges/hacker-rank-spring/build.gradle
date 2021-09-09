@@ -23,6 +23,9 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+
+	
 }
 
 test {
