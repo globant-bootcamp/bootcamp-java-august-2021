@@ -44,9 +44,9 @@ public class App {
 	
 	
 	private void hackerRankAugust31(Solution solution) {
-		//StatickInitializerBlock.solve();
-		//solution = new CurrencyFormatter();
-		//solution.solve();
+		StatickInitializerBlock.solve();
+		solution = new CurrencyFormatter();
+		solution.solve();
 		
 	}
 }
