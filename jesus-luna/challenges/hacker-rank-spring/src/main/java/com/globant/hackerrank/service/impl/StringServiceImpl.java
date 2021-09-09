@@ -5,17 +5,16 @@ import org.springframework.stereotype.Service;
 import com.globant.hackerrank.service.StringService;
 import com.globant.hackerrank.util.Constants;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Service
 public class StringServiceImpl implements StringService {
 
 	@Override
-	public boolean isPalindrome(String inputToDeterminePalindrome) {
+	public String isPalindrome(String inputToDeterminePalindrome) {
 		String intpuLowerCase = inputToDeterminePalindrome.toLowerCase();
 		String inputReversed = new StringBuffer(intpuLowerCase).reverse().toString();
-		return intpuLowerCase.equalsIgnoreCase(inputReversed);
+		return (intpuLowerCase.equalsIgnoreCase(inputReversed)) ? String.format(Constants.STRING_IS_PALINDROME, intpuLowerCase) : String.format(Constants.STRING_IS_NOT_PALINDROME, intpuLowerCase);
+		
 	} 
 
 
