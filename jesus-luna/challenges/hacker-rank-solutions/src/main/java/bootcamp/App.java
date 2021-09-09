@@ -7,6 +7,7 @@ import bootcamp.hackerrank.august30.hashset.UniquePairs;
 import bootcamp.hackerrank.august30.map.PhoneBook;
 import bootcamp.hackerrank.august30.ramsonnote.RansomNote;
 import bootcamp.hackerrank.august30.sort.ReArrange;
+import bootcamp.hackerrank.august31.converter.IntToString;
 import bootcamp.hackerrank.august31.currency.CurrencyFormatter;
 import bootcamp.hackerrank.august31.staticinitializer.StatickInitializerBlock;
 
@@ -45,8 +46,11 @@ public class App {
 	
 	private void hackerRankAugust31(Solution solution) {
 		StatickInitializerBlock.solve();
+		
 		solution = new CurrencyFormatter();
 		solution.solve();
 		
+		solution = new IntToString();
+		solution.solve();		
 	}
 }
