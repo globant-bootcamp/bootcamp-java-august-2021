@@ -7,7 +7,7 @@ Diego Flores Aleman |25|
 Braulio de Jesús Luna Ocampo |25|26|27|30|31|01|02|03|06|07
 Miguel Angel Vidal Liborio |25|26|27|30|31|01|02|03|06|07|
 Marco Antonio Cardenas Medina |25|26|27|30|31|
-Vicente Paul Romero Douriet |25|26|27|
+Vicente Paul Romero Douriet ||25|26|27|30|31|01|03|06|07
 Horacio Miguel Alvarado Garza |25|
 Humbertino Avilez Carpintero |25|26|27|30|31|1|2|3|6|7|
 Miguel Angel Valdés García |25|26|27|30|31|01|02|03|06|
