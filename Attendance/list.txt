@@ -1,20 +1,20 @@
 David Gonzalez Zumaya |25|26|27|
 Sergio Mendoza Parra |25|26|27|
-Oswaldo Vazquez Aparicio |25|26|27|
-Sebastian Herrera Bermeo |25|26|27|30|31|1|2|
-Erick Eduardo Hernández Rodríguez |25|26|27|
+Oswaldo Vazquez Aparicio |25|26|27|30|31|01|02|03|06|07|
+Erick Eduardo Hernández Rodríguez |25|26|27|30|31|01|02|03|06|07|
+Sebastian Herrera Bermeo |25|26|27|30|31|1|2|3|6|7|
 Diego Flores Aleman |25|
-Braulio de Jesús Luna Ocampo |25|26|27|
-Miguel Angel Vidal Liborio |25|26|27|
+Braulio de Jesús Luna Ocampo |25|26|27|30|31|01|02|03|06|07
+Miguel Angel Vidal Liborio |25|26|27|30|31|01|02|03|06|07|
 Marco Antonio Cardenas Medina |25|26|27|30|31|
-Vicente Paul Romero Douriet |25|26|27|
+Vicente Paul Romero Douriet ||25|26|27|30|31|01|03|06|07
 Horacio Miguel Alvarado Garza |25|
-Humbertino Avilez Carpintero |25|26|27|30|31|1|
+Humbertino Avilez Carpintero |25|26|27|30|31|1|2|3|6|7|
 Miguel Angel Valdés García |25|26|27|30|31|01|02|03|06|07|08|
 Brandon Ali Beltran Rivera |25||26|27|30|
-Claudia Hernández García |25|26|
-Omar Espinosa Castro |25|26|27|30|
-Williams de Jesús García Orozco |25|26|27|30|31|01|02
+Claudia Hernández García |25|26|30|31|1|2|6|7|
+Omar Espinosa Castro |25|26|27|30|31|01|02|03|07
+Williams de Jesús García Orozco |25|26|27|30|31|01|02|03|06|07|
 Estefany Reynoso Rodriguez |25|26|27
 Adriana Cano Rodriguez |25||26||27||31|
 Vargas Martínez José de Jesús |25|26|27|30|31|01|
