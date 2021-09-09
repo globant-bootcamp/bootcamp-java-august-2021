@@ -6,7 +6,7 @@ import org.apache.logging.log4j.LogManager;
 
 public class JavaStaticInitializerBlock {
 
-    private static final Logger logger = LogManager.getLogger(JavaStaticInitializerBlock.class);
+    private static final Logger LOGGER = LogManager.getLogger(JavaStaticInitializerBlock.class);
 
     static Scanner input = new Scanner(System.in);
     static boolean positiveNumbersFlag = Boolean.TRUE;
@@ -20,7 +20,7 @@ public class JavaStaticInitializerBlock {
                 throw new Exception("Breadth and height must be positive");
             }
         }catch(Exception exception){
-            logger.info(exception);
+            LOGGER.info(exception);
         }
 
     }
@@ -28,10 +28,8 @@ public class JavaStaticInitializerBlock {
     public static void main(String[] args){
         if(positiveNumbersFlag){
             int area = breadth * height;
-            logger.info(area);
+            LOGGER.info(area);
         }
-
     }
-
 }
 

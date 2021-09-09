@@ -9,19 +9,19 @@ public class JavaArrayList {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int collections = scanner.nextInt();
-        List <List> numbers = new ArrayList<>();
+        List <List> numberList = new ArrayList<>();
 
         for(int collectionIterator = 0; collectionIterator < collections; collectionIterator++){
             int size = scanner.nextInt();
 
-            ArrayList <Integer> numberSubList = new ArrayList<>();
+            List <Integer> numberSubList = new ArrayList<>();
 
             int listIterator = 0;
             while(listIterator < size){
                 numberSubList.add(scanner.nextInt());
                 listIterator++;
             }
-            numbers.add(numberSubList);
+            numberList.add(numberSubList);
         }
         int queries = scanner.nextInt();
 
@@ -29,10 +29,10 @@ public class JavaArrayList {
             int collection = scanner.nextInt()-1;
             int index = scanner.nextInt()-1;
 
-            if( numbers.size() <= collection || numbers.get(collection).size() <= index){
+            if( numberList.size() <= collection || numberList.get(collection).size() <= index){
                 System.out.println("ERROR!");
             }else{
-                System.out.println(numbers.get(collection).get(index));
+                System.out.println(numberList.get(collection).get(index));
             }
         }
 

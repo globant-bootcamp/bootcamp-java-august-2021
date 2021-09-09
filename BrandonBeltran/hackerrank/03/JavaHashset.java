@@ -13,11 +13,11 @@ public class JavaHashset {
         Scanner scanner = new Scanner(System.in);
         int sets = Integer.parseInt(scanner.nextLine());
 
-        Set<String> names = new HashSet();
+        Set<String> nameSet = new HashSet();
 
         for(int iterator = 0; iterator < sets; iterator++){
-            names.add(scanner.nextLine());
-            System.out.println(names.size());
+            nameSet.add(scanner.nextLine());
+            System.out.println(nameSet.size());
         }
 
     }

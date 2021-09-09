@@ -6,7 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
 public class JavaIntToString {
-    private static final Logger logger = LogManager.getLogger(Test.class);
+    private static final Logger LOGGER = LogManager.getLogger(Test.class);
     public static void main(String[] args) {
 
         DoNotTerminate.forbidExit();
@@ -18,12 +18,12 @@ public class JavaIntToString {
             String s = String.valueOf(number);
 
             if (number == Integer.parseInt(s)) {
-                logger.info("Good job");
+                LOGGER.info("Good job");
             } else {
-                logger.info("Wrong answer.");
+                LOGGER.info("Wrong answer.");
             }
         } catch (DoNotTerminate.ExitTrappedException e) {
-            logger.info("Unsuccessful Termination!!");
+            LOGGER.info("Unsuccessful Termination!!");
         }
     }
 }

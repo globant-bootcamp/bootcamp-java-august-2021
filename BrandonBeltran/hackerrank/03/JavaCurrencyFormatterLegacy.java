@@ -5,7 +5,6 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-
 public class JavaCurrencyFormatterLegacy {
 
     private static final String EMPTY_STRING = "";
@@ -19,7 +18,6 @@ public class JavaCurrencyFormatterLegacy {
         /* This solution was made before I realized NumberFormat.getCurrencyInstance() existed.
         * It's preserved here just for completion purposes */
 
-
         Scanner scanner = new Scanner(System.in);
         double payment = scanner.nextDouble();
         scanner.close();
@@ -28,41 +26,38 @@ public class JavaCurrencyFormatterLegacy {
         String decimals = paymentString[1].substring(0,2);
         String numerals = paymentString[0];
 
-        List<String> splittedString = splitEveryN(numerals, 3);
+        List<String> splittedStringList = splitEveryN(numerals, 3);
 
-        String commaSeparated = splittedString.stream().map(Object::toString).
+        String commaSeparated = splittedStringList.stream().map(Object::toString).
                 collect(Collectors.joining(",")).toString();
         String spaceSeparated = commaSeparated.replaceAll(",", " ");
 
-        String us = US_CURRENCY_SIGN+commaSeparated+"."+decimals;
-        String india = INDIA_CURRENCY_SIGN+commaSeparated+"."+decimals;
-        String china = CHINA_CURRENCY_SIGN+commaSeparated+"."+decimals;
-        String france = commaSeparated+","+decimals+" "+FRANCE_CURRENCY_SIGN;
+        String us = US_CURRENCY_SIGN + commaSeparated + "." + decimals;
+        String india = INDIA_CURRENCY_SIGN + commaSeparated + "." + decimals;
+        String china = CHINA_CURRENCY_SIGN + commaSeparated + "." + decimals;
+        String france = commaSeparated + "," + decimals + " " + FRANCE_CURRENCY_SIGN;
 
         System.out.println("US: " + us);
         System.out.println("India: " + india);
         System.out.println("China: " + china);
         System.out.println("France: " + france);
-
-
-
     }
 
     public static List<String> splitEveryN(String string, int nLength){
-        List<String> splittedString = new ArrayList<>();
+        List<String> splittedStringList = new ArrayList<>();
 
         int positionSpliter = 0;
-        if((string.length()%nLength) != 0){
-            positionSpliter = nLength - (string.length()%nLength);
+        if((string.length() % nLength) != 0){
+            positionSpliter = nLength - (string.length() % nLength);
         }
 
         String tempStringContainer = EMPTY_STRING;
 
-        for(int iterator = 0; iterator<string.length(); iterator++){
+        for(int iterator = 0; iterator < string.length(); iterator++){
             tempStringContainer += string.charAt(iterator);
 
             if(positionSpliter == nLength-1){
-                splittedString.add(tempStringContainer);
+                splittedStringList.add(tempStringContainer);
                 tempStringContainer = EMPTY_STRING;
                 positionSpliter = 0;
             }else{
@@ -70,9 +65,9 @@ public class JavaCurrencyFormatterLegacy {
             }
         }
 
-        if(!tempStringContainer.equals(EMPTY_STRING)) splittedString.add(tempStringContainer);
+        if(!tempStringContainer.equals(EMPTY_STRING)) splittedStringList.add(tempStringContainer);
 
-        return splittedString;
+        return splittedStringList;
     }
 
 }
