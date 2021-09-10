@@ -6,6 +6,10 @@ import java.util.Set;
 
 public class JavaHashset {
 
+    public static final String RIGHT_PARENTHESIS = ")";
+    public static final String LEFT_PARENTHESIS = "(";
+    public static final String COMA = ", ";
+
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
@@ -21,7 +25,7 @@ public class JavaHashset {
         Set<String> pairs = new HashSet<String>(size);
 
         for (int i = 0; i < size; i++) {
-            pairs.add("(" + pair_left[i] + ", " + pair_right[i] + ")");
+            pairs.add(LEFT_PARENTHESIS + pair_left[i] + COMA + pair_right[i] + RIGHT_PARENTHESIS);
             System.out.println(pairs.size());
         }
     }

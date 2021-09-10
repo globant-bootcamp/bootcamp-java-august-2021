@@ -4,21 +4,27 @@ import org.apache.log4j.Logger;
 
 public class Main {
 
-    public static Logger logJava = Logger.getLogger(Main.class);
+    public static Logger LOG_JAVA = Logger.getLogger(Main.class);
+
+    public static final String COCO = "coconut";
+    public static final String CHOCOLATE = "chocolate";
+    public static final String MAMEY = "mamey";
+    public static final String NUTS = "nuts";
+    public static final String BANANA = "banana";
+    public static final String STRAWBERRY = "strawberry";
 
     public static void main(String[] args){
         Icecream icecream = new Icecream();
-        logJava.info(icecream.BRAND);
-        icecream.printFlavour("coconut");
-        icecream.topping("chocolate");
+        LOG_JAVA.info(icecream.BRAND);
+        icecream.printFlavour(COCO);
+        icecream.topping(CHOCOLATE);
 
-
-        SnowIceCream nieve = new SnowIceCream();
-        nieve.printFlavour("Mamey");
-        nieve.topping("nuts", "chocolate");
+        SnowIceCream snowIceCream = new SnowIceCream();
+        snowIceCream.printFlavour(MAMEY);
+        snowIceCream.topping(NUTS, CHOCOLATE);
 
         Popsicle popsicle = new Popsicle();
-        popsicle.printFlavour("banaba");
-        popsicle.topping("strawberry", "chocolate", "nuts");
+        popsicle.printFlavour(BANANA);
+        popsicle.topping(STRAWBERRY, CHOCOLATE, NUTS);
     }
 }

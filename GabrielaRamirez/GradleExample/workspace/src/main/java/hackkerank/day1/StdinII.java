@@ -5,16 +5,16 @@ import java.util.Scanner;
 
 public class StdinII {
 
-    public static Logger logJava = Logger.getLogger(StdinII.class);
+    public static Logger LOG_JAVA = Logger.getLogger(StdinI.class);
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int a = scan.nextInt();
-        int b = scan.nextInt();
-        int c = scan.nextInt();
+        int firstEntry = scan.nextInt();
+        int secondEntry = scan.nextInt();
+        int thirdEntry = scan.nextInt();
 
-        logJava.info(a);
-        logJava.info(b);
-        logJava.info(c);
+        LOG_JAVA.info(firstEntry);
+        LOG_JAVA.info(secondEntry);
+        LOG_JAVA.info(thirdEntry);
     }
 }

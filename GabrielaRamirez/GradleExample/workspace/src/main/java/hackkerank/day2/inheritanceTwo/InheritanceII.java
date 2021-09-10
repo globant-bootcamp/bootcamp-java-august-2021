@@ -1,17 +1,18 @@
 package hackkerank.day2.inheritanceTwo;
 
-import hackkerank.day1.IfElse;
 import org.apache.log4j.Logger;
 
 public class InheritanceII{
 
-    public static Logger logJava = Logger.getLogger(InheritanceII.class);
+    public static Logger LOG_JAVA = Logger.getLogger(InheritanceII.class);
+
+    public static final String SUPPER_CLASS = "My superclass is: ";
+    public static final String SPACE = " ";
 
         public static void main(String []args){
 
             Adder a = new Adder();
-            logJava.info("My superclass is: " + a.getClass().getSuperclass().getName());
-
-            logJava.info(a.add(10,32) + " " + a.add(10,3) + " " + a.add(10,10) + "\n");
+            LOG_JAVA.info(SUPPER_CLASS + a.getClass().getSuperclass().getName());
+            LOG_JAVA.info(a.add(10,32) + SPACE + a.add(10,3) + SPACE + a.add(10,10) + "\n");
         }
 }

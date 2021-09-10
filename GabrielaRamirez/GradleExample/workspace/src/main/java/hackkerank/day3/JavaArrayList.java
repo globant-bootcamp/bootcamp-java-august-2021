@@ -1,8 +1,5 @@
 package hackkerank.day3;
 
-import hackkerank.day1.IfElse;
-import org.apache.log4j.Logger;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,7 +7,7 @@ import java.util.Scanner;
 
 public class JavaArrayList {
 
-    public static Logger logJava = Logger.getLogger(IfElse.class);
+    public static final String ERROR = "ERROR!";
 
     public static void main(String[] args) {
 
@@ -32,7 +29,7 @@ public class JavaArrayList {
             try {
                 System.out.println(set[position - 1].get(line - 1));
             } catch (IndexOutOfBoundsException e) {
-                System.out.println("ERROR!");
+                System.out.println(ERROR);
             }
         }
         in.close();

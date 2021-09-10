@@ -4,13 +4,16 @@ import org.apache.log4j.Logger;
 
 class Bird extends Animal {
 
-    public static Logger logJava = Logger.getLogger(Bird.class);
+    public static Logger LOG_JAVA = Logger.getLogger(Bird.class);
+
+    public static final String FLYING = "I am flying";
+    public static final String SINGING = "I am singing";
 
     void fly() {
-        logJava.info("I am flying");
+        LOG_JAVA.info(FLYING);
     }
 
     void sing() {
-        logJava.info("I am singing");
+        LOG_JAVA.info(SINGING);
     }
 }

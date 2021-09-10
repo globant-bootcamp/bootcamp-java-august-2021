@@ -6,35 +6,38 @@ import java.util.Map;
 
 public class MagazineNoteCheck {
 
+    public static final String NO = "No";
+    public static final String YES = "Yes";
+
     public static void checkMagazine(List<String> magazine, List<String> note) {
 
-        Map<String, Integer> magazineWords = new HashMap<>();
+        Map<String, Integer> magazineWordMap = new HashMap<>();
         for (String word : magazine) {
 
-            if (magazineWords.containsKey(word)) {
-                int count = magazineWords.get(word);
+            if (magazineWordMap.containsKey(word)) {
+                int count = magazineWordMap.get(word);
             } else {
-                magazineWords.put(word, 1);
+                magazineWordMap.put(word, 1);
             }
         }
 
         for (String word : note) {
 
-            if (magazineWords.containsKey(word)) {
-                int count = magazineWords.get(word);
+            if (magazineWordMap.containsKey(word)) {
+                int count = magazineWordMap.get(word);
                 if (count <= 0) {
-                    System.out.println("No");
+                    System.out.println(NO);
                     return;
                 }
                 count--;
-                magazineWords.put(word, count);
-            } else if (!magazineWords.containsKey(word)) {
-                System.out.println("No");
+                magazineWordMap.put(word, count);
+            } else if (!magazineWordMap.containsKey(word)) {
+                System.out.println(NO);
                 return;
             }
         }
 
-        System.out.println("Yes");
+        System.out.println(YES);
 
     }
 }
