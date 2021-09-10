@@ -7,27 +7,28 @@ import java.util.Scanner;
 
 public class JavaSort {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);
         int testCases = Integer.parseInt(in.nextLine());
 
-        List<Student> studentsList = new ArrayList<Student>();
+        List<Student> studentList = new ArrayList<Student>();
 
-        while(testCases>0){
+        while (testCases > 0) {
             int id = in.nextInt();
             String firstName = in.next();
-            double cgpa = in.nextDouble();
+            double score = in.nextDouble();
 
-            Student st = new Student(id, firstName, cgpa);
-            studentsList.add(st);
+            Student student = new Student(id, firstName, score);
+            studentList.add(student);
 
             testCases--;
         }
 
-        studentsList.sort(Comparator.comparing(Student::getCgpa).reversed().thenComparing(Student::getFirstName).thenComparing(Student::getId));
+        studentList.sort(Comparator.comparing(Student::getScore).reversed().thenComparing(Student::getFirstName)
+                .thenComparing(Student::getId));
 
-        for(Student st: studentsList){
+        for (Student student : studentList) {
             System.out.println(st.getFirstName());
         }
     }

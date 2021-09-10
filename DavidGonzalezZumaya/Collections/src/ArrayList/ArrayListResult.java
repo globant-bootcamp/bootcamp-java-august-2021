@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class ArrayListResult {
+
     final static String EMPTY = "ERROR!";
 
     public static void main(String[] args) {
@@ -13,7 +14,7 @@ public class ArrayListResult {
 
         int numberOfLines = in.nextInt();
 
-        List<List<Integer>> matrix = new ArrayList<>();
+        List<List<Integer>> matrixList = new ArrayList<>();
 
         for (int row = 0; row < numberOfLines; row++) {
             int columns = in.nextInt();
@@ -21,17 +22,17 @@ public class ArrayListResult {
             for (int column = 0; column < columns; column++) {
                 rowList.add(in.nextInt());
             }
-            matrix.add(rowList);
+            matrixList.add(rowList);
         }
 
         int numberOfQueries = in.nextInt();
 
         for (int query = 0; query < numberOfQueries; query++) {
             int columnPosition = in.nextInt();
-            int RowPosition = in.nextInt();
-            List<Integer> resultRow = matrix.get(columnPosition-1);
-            if (RowPosition <= resultRow.size()) {
-                System.out.println(resultRow.get(RowPosition-1));
+            int rowPosition = in.nextInt();
+            List<Integer> resultRowListList = matrixList.get(columnPosition - 1);
+            if (rowPosition <= resultRowList.size()) {
+                System.out.println(resultRowList.get(rowPosition - 1));
             } else {
                 System.out.println(EMPTY);
             }

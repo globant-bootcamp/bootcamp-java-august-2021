@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 public class JavaList {
 
+    final static String SPACE = " ";
+
     public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);
@@ -27,14 +29,14 @@ public class JavaList {
                 int position = in.nextInt();
                 int value = in.nextInt();
                 itemsList.add(position, value);
-            }else{
+            } else {
                 int index = in.nextInt();
                 itemsList.remove(index);
             }
         }
 
         for (Integer item : itemsList) {
-            System.out.print(item + " ");
+            System.out.print(item + SPACE);
         }
     }
 }

@@ -6,37 +6,39 @@ import java.util.Map;
 
 public class RansomeNote {
 
-    public static void checkMagazine(List<String> magazine, List<String> note) {
+    final static String YES = "Yes";
+    final static String NO = "No";;
 
-        Map<String, Integer> magazineMap = createMapOfMagazine(magazine);
+    public static void checkMagazine(List<String> magazineList, List<String> noteList) {
 
-        if(validateMessage(magazineMap, note)){
-            System.out.print("Yes");
-        }
-        else{
-            System.out.print("No");
+        Map<String, Integer> magazineMap = createMapOfMagazine(magazineList);
+
+        if (validateMessage(magazineMap, noteList)) {
+            System.out.print(YES);
+        } else {
+            System.out.print(NO);
         }
     }
 
-    public static Map<String, Integer> createMapOfMagazine(List<String> magazine ){
-        Map<String, Integer> MagazineWords = new HashMap<String, Integer>();
+    public static Map<String, Integer> createMapOfMagazine(List<String> magazineList) {
+        Map<String, Integer> magazineWordsMap = new HashMap<String, Integer>();
 
-        for (String word : magazine) {
-            if (MagazineWords.containsKey(word))
-                MagazineWords.put(word, MagazineWords.get(word) + 1);
+        for (String word : magazineList) {
+            if (magazineWordsMap.containsKey(word))
+                magazineWordsMap.put(word, magazineWordsMap.get(word) + 1);
             else
-                MagazineWords.put(word, 1);
+                magazineWordsMap.put(word, 1);
         }
 
-        return MagazineWords;
+        return magazineWordsMap;
     }
 
-    public static boolean validateMessage(Map<String, Integer> MagazineWords, List<String> note){
+    public static boolean validateMessage(Map<String, Integer> magazineWordsMap, List<String> noteList) {
 
-        for (String word : note) {
-            if (MagazineWords.containsKey(word)) {
-                MagazineWords.put(word, MagazineWords.get(word) - 1);
-                if (MagazineWords.get(word) < 0) {
+        for (String word : noteList) {
+            if (magazineWordsMap.containsKey(word)) {
+                magazineWordsMap.put(word, magazineWordsMap.get(word) - 1);
+                if (magazineWordsMap.get(word) < 0) {
                     return false;
                 }
             } else {

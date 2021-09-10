@@ -4,12 +4,12 @@ public class Student {
 
     private int id;
     private String firstName;
-    private double cgpa;
+    private double score;
 
-    public Student(int id, String firstName, double cgpa) {
+    public Student(int id, String firstName, double score) {
         this.id = id;
         this.firstName = firstName;
-        this.cgpa = cgpa;
+        this.score = score;
     }
 
     public int getId() {
@@ -20,7 +20,7 @@ public class Student {
         return firstName;
     }
 
-    public double getCgpa() {
-        return cgpa;
+    public double getScore() {
+        return score;
     }
 }
