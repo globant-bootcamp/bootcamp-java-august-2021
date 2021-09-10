@@ -19,7 +19,7 @@ public class AnagramsController {
   @Autowired
   AnagramsService anagramsService;
 
-  @GetMapping("")
+  @GetMapping()
   public ResponseEntity<ResponseDTO<String>> anagrams(@RequestParam(name = "firstWord") String firstWord, @RequestParam(name = "secondWord") String secondWord) {
     ResponseDTO<String> responseDTO = new ResponseDTO<>(
       ResponseConstants.SUCCESS,

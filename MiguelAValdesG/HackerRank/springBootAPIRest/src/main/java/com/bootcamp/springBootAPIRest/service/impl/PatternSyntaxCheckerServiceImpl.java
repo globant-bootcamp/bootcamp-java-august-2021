@@ -17,18 +17,18 @@ public class PatternSyntaxCheckerServiceImpl implements PatternSyntaxCheckerServ
   @Override
   public List<String> patternSyntaxChecker(String[] patterns) {
     Logger log = Logger.getLogger(Constants.PATTERN_SYNTAX_CHECKER);
-    List<String> response = new ArrayList<>();
+    List<String> responseList = new ArrayList<>();
 
     for (String pattern : patterns) {
       try {
         Pattern.compile(pattern);
-        response.add(Constants.VALID);
-      } catch(PatternSyntaxException e) {
-        response.add(Constants.INVALID);
+        responseList.add(Constants.VALID);
+      } catch (PatternSyntaxException e) {
+        responseList.add(Constants.INVALID);
         log.fatal(e);
       }
     }
 
-    return response;
+    return responseList;
   }
 }

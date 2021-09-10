@@ -8,7 +8,13 @@ import java.util.Scanner;
 
 public class JavaCurrencyFormatter {
 
-  static Logger log = Logger.getLogger("Java Currency Formatter");
+  static final String CURRENCY_FORMATTER = "Java Currency Formatter";
+  static final String US = "US: ";
+  static final String INDIA = "India: ";
+  static final String CHINA = "China: ";
+  static final String FRANCE = "France: ";
+
+  static Logger log = Logger.getLogger(CURRENCY_FORMATTER);
 
   public static void main(String[] args) {
     Scanner readLineTerminal = new Scanner(System.in);
@@ -20,10 +26,10 @@ public class JavaCurrencyFormatter {
     String chinaPayment = NumberFormat.getCurrencyInstance(Locale.CHINA).format(payment);
     String francePayment = NumberFormat.getCurrencyInstance(Locale.FRANCE).format(payment);
 
-   log.info("US: " + unitedStatesPayment);
-   log.info("India: " + indiaPayment);
-   log.info("China: " + chinaPayment);
-   log.info("France: " + francePayment);
+    log.info(US + unitedStatesPayment);
+    log.info(INDIA + indiaPayment);
+    log.info(CHINA + chinaPayment);
+    log.info(FRANCE + francePayment);
   }
 
 }

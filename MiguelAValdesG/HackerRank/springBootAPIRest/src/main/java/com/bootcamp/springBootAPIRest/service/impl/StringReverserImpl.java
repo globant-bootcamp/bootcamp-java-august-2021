@@ -10,12 +10,12 @@ public class StringReverserImpl implements StringReverseService {
   @Override
   public String stringReverse(String characterSequence) {
     int characterSequenceLength = characterSequence.length();
-    int halfLengthOfCharacterSequence = characterSequenceLength/2;
+    int halfLengthOfCharacterSequence = characterSequenceLength / 2;
     int count = Constants.ZERO;
     String response = Constants.NO;
 
     for (int index = Constants.ZERO; index < halfLengthOfCharacterSequence; index++) {
-      if (characterSequence.charAt(index) == characterSequence.charAt(characterSequenceLength-index-1)) {
+      if (characterSequence.charAt(index) == characterSequence.charAt(characterSequenceLength - index - 1)) {
         count++;
       }
     }
