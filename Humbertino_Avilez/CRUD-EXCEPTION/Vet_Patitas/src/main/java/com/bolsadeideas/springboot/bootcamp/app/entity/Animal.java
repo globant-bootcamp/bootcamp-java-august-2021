@@ -4,9 +4,11 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -30,9 +32,6 @@ public class Animal implements Serializable {
 	@Column(name = "sterilization")
 	private boolean sterilization;
 	
-	@Column(name = "owner")
-	private String owner;
-
 	public Animal() {
 		
 	}
@@ -75,14 +74,6 @@ public class Animal implements Serializable {
 
 	public void setSterilization(boolean sterilization) {
 		this.sterilization = sterilization;
-	}
-	
-	public String getOwner() {
-		return owner;
-	}
-
-	public void setOwner(String owner) {
-		this.owner = owner;
 	}
 
 	public static long getSerialversionuid() {

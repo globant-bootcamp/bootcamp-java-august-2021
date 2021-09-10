@@ -21,4 +21,10 @@ public class Constants {
 	public static final String ANIMAL_FOUND = "found animal";
 	public static final String ANIMAL_UPDATED = "updated animal";
 	public static final String ANIMAL_DELETED = "deleted animal";
+	
+	public static final String NO_FOUND_OWNER = "ID owner not found: ";
+	public static final String OWNER_CREATED = "created owner";
+	public static final String OWNER_FOUND = "found owner";
+	public static final String OWNER_UPDATED = "updated owner";
+	public static final String OWNER_DELETED = "deleted owner";
 }

@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.bolsadeideas.springboot.bootcamp.app.dao.AnimalDao;
 import com.bolsadeideas.springboot.bootcamp.app.entity.Animal;
@@ -50,8 +49,8 @@ public class AnimalServiceImpl implements InterfaceAnimalService {
 		animalDataBase.setName(animalUpdate.getName());
 		animalDataBase.setAge(animalUpdate.getAge());
 		animalDataBase.setType(animalUpdate.getType());
-		animalDataBase.setOwner(animalUpdate.getOwner());
 		save(animalDataBase);
 		return animalDataBase;
 	}
+
 }
