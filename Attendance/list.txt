@@ -3,8 +3,6 @@ Sergio Mendoza Parra |25|26|27|
 David Gonzalez Zumaya |25|
 Sebastian Herrera Bermeo |25|
 Erick Eduardo Hernández Rodríguez |25|
-Braulio de Jesús Luna Ocampo |25|26|
-Braulio de Jesús Luna Ocampo |25|26|27
 Sebastian Herrera Bermeo |25|26|
 Sebastian Herrera Bermeo |25|26|27|
 Erick Eduardo Hernández Rodríguez |25|26|
@@ -14,12 +12,11 @@ Erick Eduardo Hernández Rodríguez |25|26|27|
 Erick Eduardo Hernández Rodríguez |25|26|27|30|31|01|02|03|06|07|
 Sebastian Herrera Bermeo |25|26|27|30|31|1|2|3|6|7|
 Diego Flores Aleman |25|26|27|30|31|01|02|03|06|07|
-Braulio de Jesús Luna Ocampo |25|26|27|
 Miguel Angel Vidal Liborio |25|26|27|30|31|01|02|03|
 Oswaldo Vazquez Aparicio |25|26|27|30|31|01|02|03|06|07|
 Erick Eduardo Hernández Rodríguez |25|26|27|30|31|01|02|03|06|07|
 Sebastian Herrera Bermeo |25|26|27|30|31|1|2|3|6|7|
-Braulio de Jesús Luna Ocampo |25|26|27|30|31|01|02|03|06|07
+Braulio de Jesús Luna Ocampo |25|26|27|30|31|01|02|03|06|07|08
 Miguel Angel Vidal Liborio |25|26|27|30|31|01|02|03|06|07|
 Marco Antonio Cardenas Medina |25|26|27|30|31|
 Vicente Paul Romero Douriet ||25|26|27|30|31|01|03|06|07
