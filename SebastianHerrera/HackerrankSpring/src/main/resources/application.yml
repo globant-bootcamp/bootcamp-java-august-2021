@@ -1,0 +1,14 @@
+server:
+  port: 8080
+request:
+  api: /Hackerrank
+api:
+  url:
+    check-palindrome: /CheckPalindrome
+    check-pattern: /CheckPattern
+    check-anagram: /CheckAnagram
+
+constans:
+  valid-message: Valid
+  not-valid-message: Not Valid
+  not-valid-length: Words length doesn't match

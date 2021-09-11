@@ -20,14 +20,14 @@ public class RansomNote {
         int magazineTotalWords = Integer.parseInt(totalWords[0]);
         int noteTotalWords = Integer.parseInt(totalWords[1]);
 
-        List<String> magazine = Stream.of(bufferedReader.readLine().replaceAll(WHITESPACE_AND_EOL, "").split(" "))
+        List<String> magazineList = Stream.of(bufferedReader.readLine().replaceAll(WHITESPACE_AND_EOL, "").split(" "))
                 .collect(toList());
 
-        List<String> note = Stream.of(bufferedReader.readLine().replaceAll(WHITESPACE_AND_EOL, "").split(" "))
+        List<String> noteList = Stream.of(bufferedReader.readLine().replaceAll(WHITESPACE_AND_EOL, "").split(" "))
                 .collect(toList());
 
         if(magazineTotalWords > noteTotalWords){
-            RandomNoteSolve.checkMagazine(magazine, note);
+            RandomNoteSolve.checkMagazine(magazineList, noteList);
         }else{
             System.out.println("No");
         }
