@@ -14,7 +14,7 @@ public class IfElse {
 
         SCANNER.close();
 
-        if (number%2==0 & 2<=number & number<=5){
+        if (number%2==0 && 2<=number && number<=5){
             LOG_JAVA.info("Not Weird");
         }
         else if(number%2==0 & 2<=number & number<=5){
