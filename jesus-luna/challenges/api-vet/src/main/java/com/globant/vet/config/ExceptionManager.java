@@ -16,15 +16,27 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import com.globant.vet.dto.ResponseDTO;
 import com.globant.vet.exception.BootstrapException;
+import com.globant.vet.exception.EntityNotFound;
 import com.globant.vet.util.constants.ResponseConstants;
 
 @ControllerAdvice
 public class ExceptionManager extends ResponseEntityExceptionHandler {
+	
+	private ResponseEntity<ResponseDTO<String>> getBadResponse(RuntimeException error){
+		ResponseDTO<String> response = new ResponseDTO<>(ResponseConstants.FAILURE,ResponseConstants.FAILURE.getDescription(),error.getMessage());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+		
+	}
 
 	@ExceptionHandler(BootstrapException.class)
 	public ResponseEntity<ResponseDTO<String>> bootstrapError(BootstrapException bootstrapError) {
 		ResponseDTO<String> response = new ResponseDTO<>(ResponseConstants.FAILURE,ResponseConstants.FAILURE.getDescription(),bootstrapError.getMessage());
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+	}
+	
+	@ExceptionHandler(EntityNotFound.class)
+	public ResponseEntity<ResponseDTO<String>> entityNotFound(EntityNotFound error) {
+		return getBadResponse(error);
 	}
 
 	@Override
