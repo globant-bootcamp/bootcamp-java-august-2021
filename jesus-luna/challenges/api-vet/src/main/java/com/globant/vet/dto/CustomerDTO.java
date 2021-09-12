@@ -1,5 +1,7 @@
 package com.globant.vet.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,7 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomerDTO {
+public class CustomerDTO<T> {
 	private int id;
-	private CustomerInfo customer;
+	@JsonProperty(value = "data")
+	private T customer;
 }

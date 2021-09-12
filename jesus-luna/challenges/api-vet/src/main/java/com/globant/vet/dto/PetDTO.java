@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PetDTO {
+public class PetDTO<T> {
 	private int id;
-	private PetInfo pet;
+	private T pet;
 	
 	
 }
