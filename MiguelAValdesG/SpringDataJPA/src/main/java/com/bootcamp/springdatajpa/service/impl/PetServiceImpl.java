@@ -3,6 +3,7 @@ package com.bootcamp.springdatajpa.service.impl;
 import com.bootcamp.springdatajpa.dao.PetDAO;
 import com.bootcamp.springdatajpa.dto.PetDTO;
 import com.bootcamp.springdatajpa.entity.Pet;
+import com.bootcamp.springdatajpa.exception.InvalidDataException;
 import com.bootcamp.springdatajpa.mapper.PetMapper;
 import com.bootcamp.springdatajpa.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,35 +41,35 @@ public class PetServiceImpl implements PetService {
   }
 
   @Override
-  public PetDTO addPet(PetDTO petDTO) throws Exception {
+  public PetDTO addPet(PetDTO petDTO) {
     return petMapper.petEntityToDTO(petDAO.save(petMapper.petDTOToEntity(petDTO)));
   }
 
   @Override
-  public PetDTO updatePet(Long id, PetDTO petDTO) throws Exception {
+  public PetDTO updatePet(Long id, PetDTO petDTO) {
     return petMapper.petEntityToDTO(petDAO.save(fillPet(findPet(id), petDTO)));
   }
 
   @Override
-  public PetDTO deletePet(Long id) throws Exception {
+  public PetDTO deletePet(Long id) {
     Pet pet = findPet(id);
     pet.setActive(false);
     return petMapper.petEntityToDTO(petDAO.save(pet));
   }
 
-  private Pet findPet(Long id) throws Exception {
+  private Pet findPet(Long id) {
     Optional<Pet> petOptional = petDAO.findById(id);
     Pet pet;
 
     if (petOptional.isPresent()) {
       pet = petOptional.get();
     } else {
-      throw new Exception(PET_NOT_FOUND);
+      throw new InvalidDataException(PET_NOT_FOUND);
     }
     return pet;
   }
 
-  private Pet fillPet(Pet pet, PetDTO petDTO) throws Exception {
+  private Pet fillPet(Pet pet, PetDTO petDTO) {
     pet.setOwner(ownerServiceImpl.findOwner(petDTO.getIdOwner()));
     pet.setName(petDTO.getName());
     pet.setAge(petDTO.getAge());

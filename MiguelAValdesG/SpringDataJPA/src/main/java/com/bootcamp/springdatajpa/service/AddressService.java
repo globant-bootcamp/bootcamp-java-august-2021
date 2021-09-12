@@ -10,8 +10,8 @@ public interface AddressService {
 
   AddressDTO addAddress(AddressDTO petDTO);
 
-  AddressDTO updateAddress(Long id, AddressDTO petDTO) throws Exception;
+  AddressDTO updateAddress(Long id, AddressDTO petDTO);
 
-  AddressDTO deleteAddress(Long id) throws Exception;
+  AddressDTO deleteAddress(Long id);
 
 }

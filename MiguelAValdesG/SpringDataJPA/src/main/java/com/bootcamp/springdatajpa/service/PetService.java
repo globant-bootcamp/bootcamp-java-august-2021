@@ -8,11 +8,11 @@ public interface PetService {
 
   List<PetDTO> getAllPets();
 
-  PetDTO addPet(PetDTO petDTO) throws Exception;
+  PetDTO addPet(PetDTO petDTO);
 
-  PetDTO updatePet(Long id, PetDTO petDTO) throws Exception;
+  PetDTO updatePet(Long id, PetDTO petDTO);
 
-  PetDTO deletePet(Long id) throws Exception;
+  PetDTO deletePet(Long id);
 
   List<PetDTO> getAllOwnersPets(Long id);
 

@@ -45,7 +45,7 @@ public class OwnerController {
   }
 
   @PutMapping(path = "/{id}")
-  public ResponseEntity<ResponseDTO<OwnerDTO>> updateOwner(@PathVariable Long id, @RequestBody @Valid OwnerDTO ownerDTO) throws Exception {
+  public ResponseEntity<ResponseDTO<OwnerDTO>> updateOwner(@PathVariable Long id, @RequestBody @Valid OwnerDTO ownerDTO) {
     ResponseDTO<OwnerDTO> responseDTO = new ResponseDTO<>(
       ResponseConstants.SUCCESS,
       OWNER_UPDATED_SUCCESSFULLY,
@@ -56,7 +56,7 @@ public class OwnerController {
   }
 
   @DeleteMapping(path = "/{id}")
-  public ResponseEntity<ResponseDTO<OwnerDTO>> deleteOwner(@PathVariable Long id) throws Exception {
+  public ResponseEntity<ResponseDTO<OwnerDTO>> deleteOwner(@PathVariable Long id) {
     ResponseDTO<OwnerDTO> responseDTO = new ResponseDTO<>(
       ResponseConstants.SUCCESS,
       OWNER_DELETED_SUCCESSFULLY,

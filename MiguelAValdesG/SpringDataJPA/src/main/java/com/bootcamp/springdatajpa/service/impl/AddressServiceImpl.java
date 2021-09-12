@@ -5,6 +5,7 @@ import com.bootcamp.springdatajpa.dao.OwnerDAO;
 import com.bootcamp.springdatajpa.dto.AddressDTO;
 import com.bootcamp.springdatajpa.entity.Address;
 import com.bootcamp.springdatajpa.entity.Owner;
+import com.bootcamp.springdatajpa.exception.InvalidDataException;
 import com.bootcamp.springdatajpa.mapper.AddressMapper;
 import com.bootcamp.springdatajpa.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,12 +42,12 @@ public class AddressServiceImpl implements AddressService {
   }
 
   @Override
-  public AddressDTO updateAddress(Long id, AddressDTO addressDTO) throws Exception {
+  public AddressDTO updateAddress(Long id, AddressDTO addressDTO) {
     return addressMapper.addressEntityToDTO(addressDAO.save(fillAddress(findAddress(id), addressDTO)));
   }
 
   @Override
-  public AddressDTO deleteAddress(Long id) throws Exception {
+  public AddressDTO deleteAddress(Long id) {
     Optional<Owner> ownerOptional = ownerDAO.findByIdAddress(id);
     AddressDTO addressDTO;
 
@@ -55,20 +56,20 @@ public class AddressServiceImpl implements AddressService {
       addressDAO.delete(address);
       addressDTO = addressMapper.addressEntityToDTO(address);
     } else {
-      throw new Exception(ADDRESS_CANNOT_BE_DELETED);
+      throw new InvalidDataException(ADDRESS_CANNOT_BE_DELETED);
     }
 
     return addressDTO;
   }
 
-  private Address findAddress(Long id) throws Exception {
+  private Address findAddress(Long id) {
     Optional<Address> addressOptional = addressDAO.findById(id);
     Address address;
 
     if (addressOptional.isPresent()) {
       address = addressOptional.get();
     } else {
-      throw new Exception(ADDRESS_NOT_FOUND);
+      throw new InvalidDataException(ADDRESS_NOT_FOUND);
     }
 
     return address;

@@ -46,7 +46,7 @@ public class PetController {
   }
 
   @PostMapping()
-  public ResponseEntity<ResponseDTO<PetDTO>> addPet(@RequestBody @Valid PetDTO petDTO) throws Exception {
+  public ResponseEntity<ResponseDTO<PetDTO>> addPet(@RequestBody @Valid PetDTO petDTO) {
     ResponseDTO<PetDTO> responseDTO = new ResponseDTO<>(
       ResponseConstants.SUCCESS,
       PET_ADDED_SUCCESSFULLY,
@@ -57,7 +57,7 @@ public class PetController {
   }
 
   @PutMapping(path = "/{id}")
-  public ResponseEntity<ResponseDTO<PetDTO>> updatePet(@PathVariable Long id, @RequestBody @Valid PetDTO petDTO) throws Exception {
+  public ResponseEntity<ResponseDTO<PetDTO>> updatePet(@PathVariable Long id, @RequestBody @Valid PetDTO petDTO) {
     ResponseDTO<PetDTO> responseDTO = new ResponseDTO<>(
       ResponseConstants.SUCCESS,
       PET_UPDATED_SUCCESSFULLY,
@@ -68,7 +68,7 @@ public class PetController {
   }
 
   @DeleteMapping(path = "/{id}")
-  public ResponseEntity<ResponseDTO<PetDTO>> deletePet(@PathVariable Long id) throws Exception {
+  public ResponseEntity<ResponseDTO<PetDTO>> deletePet(@PathVariable Long id) {
     ResponseDTO<PetDTO> responseDTO = new ResponseDTO<>(
       ResponseConstants.SUCCESS,
       PET_DELETED_SUCCESSFULLY,

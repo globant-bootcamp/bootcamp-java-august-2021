@@ -4,6 +4,7 @@ import com.bootcamp.springdatajpa.dao.OwnerDAO;
 import com.bootcamp.springdatajpa.dto.AddressDTO;
 import com.bootcamp.springdatajpa.dto.OwnerDTO;
 import com.bootcamp.springdatajpa.entity.Owner;
+import com.bootcamp.springdatajpa.exception.InvalidDataException;
 import com.bootcamp.springdatajpa.mapper.OwnerMapper;
 import com.bootcamp.springdatajpa.service.OwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +43,7 @@ public class OwnerServiceImpl implements OwnerService {
   }
 
   @Override
-  public OwnerDTO updateOwner(Long id, OwnerDTO ownerDTO) throws Exception {
+  public OwnerDTO updateOwner(Long id, OwnerDTO ownerDTO) {
     AddressDTO bodyAddressDTO = addressServiceImpl.addressEntityToDTO(ownerDTO.getAddress());
     addressServiceImpl.updateAddress(bodyAddressDTO.getId(), bodyAddressDTO);
 
@@ -50,20 +51,20 @@ public class OwnerServiceImpl implements OwnerService {
   }
 
   @Override
-  public OwnerDTO deleteOwner(Long id) throws Exception {
+  public OwnerDTO deleteOwner(Long id) {
     Owner owner = findOwner(id);
     owner.setActive(false);
     return ownerMapper.ownerEntityToDTO(ownerDAO.save(owner));
   }
 
-  public Owner findOwner(Long id) throws Exception {
+  public Owner findOwner(Long id) {
     Optional<Owner> ownerOptional = ownerDAO.findById(id);
     Owner owner;
 
     if (ownerOptional.isPresent()) {
       owner = ownerOptional.get();
-    } else { // TODO DELETE THIS TRY
-      throw new Exception(OWNER_NOT_FOUND);
+    } else {
+      throw new InvalidDataException(OWNER_NOT_FOUND);
     }
     return owner;
   }

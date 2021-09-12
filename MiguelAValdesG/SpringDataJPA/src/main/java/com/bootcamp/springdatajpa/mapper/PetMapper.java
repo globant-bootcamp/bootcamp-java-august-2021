@@ -27,7 +27,7 @@ public class PetMapper {
     return petDTO;
   }
 
-  public Pet petDTOToEntity(PetDTO petDTO) throws Exception {
+  public Pet petDTOToEntity(PetDTO petDTO) {
     Pet pet = new Pet();
     pet.setOwner(ownerServiceImpl.findOwner(petDTO.getIdOwner()));
     pet.setName(petDTO.getName());

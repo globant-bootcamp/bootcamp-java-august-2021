@@ -45,7 +45,7 @@ public class AddressController {
   }
 
   @PutMapping(path = "/{id}")
-  public ResponseEntity<ResponseDTO<AddressDTO>> updateAddress(@PathVariable Long id, @RequestBody @Valid AddressDTO addressDTO) throws Exception {
+  public ResponseEntity<ResponseDTO<AddressDTO>> updateAddress(@PathVariable Long id, @RequestBody @Valid AddressDTO addressDTO) {
     ResponseDTO<AddressDTO> responseDTO = new ResponseDTO<>(
       ResponseConstants.SUCCESS,
       ADDRESS_UPDATED_SUCCESSFULLY,
@@ -56,7 +56,7 @@ public class AddressController {
   }
 
   @DeleteMapping(path = "/{id}")
-  public ResponseEntity<ResponseDTO<AddressDTO>> deleteAddress(@PathVariable Long id) throws Exception {
+  public ResponseEntity<ResponseDTO<AddressDTO>> deleteAddress(@PathVariable Long id) {
     ResponseDTO<AddressDTO> responseDTO = new ResponseDTO<>(
       ResponseConstants.SUCCESS,
       ADDRESS_DELETED_SUCCESSFULLY,

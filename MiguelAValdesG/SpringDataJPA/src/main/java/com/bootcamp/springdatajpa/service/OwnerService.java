@@ -10,7 +10,7 @@ public interface OwnerService {
 
   OwnerDTO addOwner(OwnerDTO petDTO);
 
-  OwnerDTO updateOwner(Long id, OwnerDTO petDTO) throws Exception;
+  OwnerDTO updateOwner(Long id, OwnerDTO petDTO);
 
-  OwnerDTO deleteOwner(Long id) throws Exception;
+  OwnerDTO deleteOwner(Long id);
 }
