@@ -1,7 +1,7 @@
 package com.globant.vet.util.constants;
 
 public enum ResponseConstants {
-	SUCCESS("Successful"), FAILURE("Unsuccessful");
+	SUCCESS("everything goes well"), FAILURE("Something went wrong");
 	
 	private String description;
 	
