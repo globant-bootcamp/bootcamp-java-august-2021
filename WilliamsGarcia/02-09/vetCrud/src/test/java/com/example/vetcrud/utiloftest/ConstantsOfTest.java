@@ -21,4 +21,6 @@ public class ConstantsOfTest {
     public static final Boolean VACCINATED = true;
     public static final Integer OWNER_ID = 1;
 
+    public static final GenerateOwner generateOwner = new GenerateOwner();
+    public static final GeneratePet generatePet = new GeneratePet();
 }

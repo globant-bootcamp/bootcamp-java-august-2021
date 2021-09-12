@@ -11,8 +11,7 @@ import com.example.vetcrud.service.impl.OwnerServiceImpl;
 import static com.example.vetcrud.utiloftest.ConstantsOfTest.ONE_EXECUTED;
 import static com.example.vetcrud.utiloftest.ConstantsOfTest.TWO_EXECUTED;
 import static com.example.vetcrud.utiloftest.ConstantsOfTest.OWNER_ID;
-
-import com.example.vetcrud.utiloftest.GenerateOwner;
+import static com.example.vetcrud.utiloftest.ConstantsOfTest.generateOwner;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,7 +22,8 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -31,8 +31,6 @@ import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class OwnerServiceImplTest {
-
-    private static GenerateOwner generateOwner = new GenerateOwner();
 
     @InjectMocks
     private OwnerServiceImpl ownerService;

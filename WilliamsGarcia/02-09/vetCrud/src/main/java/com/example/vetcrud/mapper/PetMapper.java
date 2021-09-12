@@ -38,6 +38,7 @@ public class PetMapper {
         pet.setSpecie(petDTO.getSpecie());
         pet.setVaccinated(petDTO.getVaccinated());
         pet.setOwner(ownerDAO.getById(Long.valueOf(petDTO.getOwnerId())));
+        
         return pet;
     }
 

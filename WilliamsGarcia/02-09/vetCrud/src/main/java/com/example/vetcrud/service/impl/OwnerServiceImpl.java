@@ -27,6 +27,7 @@ public class OwnerServiceImpl implements OwnerService {
 
     @Override
     public List<OwnerDTO> getAllOwners() {
+
         if (!ownerDAO.findAll().isEmpty()) {
             return ownerMapper.ownerListToDTO(ownerDAO.findAll());
         } else {

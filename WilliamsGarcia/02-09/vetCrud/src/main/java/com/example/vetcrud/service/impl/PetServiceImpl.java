@@ -33,11 +33,16 @@ public class PetServiceImpl implements PetService {
     public List<PetDTO> getPetsByOwner(long id) {
         List<Pet> petList = petDAO.getPetsByOwner(ownerDAO.getById(id));
 
-        return petMapper.petListToDTO(petList);
+        if (!petList.isEmpty()) {
+            return petMapper.petListToDTO(petList);
+        } else {
+            throw new EmptyListException(EMPTY_PET_LIST);
+        }
     }
 
     @Override
     public List<PetDTO> getAllPets() {
+
         if (!petDAO.findAll().isEmpty()) {
             return petMapper.petListToDTO(petDAO.findAll());
         } else {
