@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.globant.vet.controller.VetController;
 import com.globant.vet.dto.PetDTO;
 import com.globant.vet.dto.PetInfo;
-import com.globant.vet.dto.PetInfoWithOwner;
+import com.globant.vet.dto.PetInfoWithCompleteOwner;
 import com.globant.vet.dto.ResponseDTO;
 import com.globant.vet.dto.ResponseDTO.ResponseDTOBuilder;
 import com.globant.vet.service.PetService;
@@ -32,9 +32,9 @@ public class VetControllerImpl implements VetController {
 
 	@Override
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<ResponseDTO<PetInfoWithOwner>> getInfoPet(@PathVariable(name = "id") int petId) {
-		ResponseDTOBuilder<PetInfoWithOwner> builder = ResponseDTO.builder();
-		ResponseDTO<PetInfoWithOwner> response = builder
+	public ResponseEntity<ResponseDTO<PetInfoWithCompleteOwner>> getInfoPet(@PathVariable(name = "id") int petId) {
+		ResponseDTOBuilder<PetInfoWithCompleteOwner> builder = ResponseDTO.builder();
+		ResponseDTO<PetInfoWithCompleteOwner> response = builder
 			.content(petService.getPetById(petId))
 			.message(String.format(Constants.PET_WITH_ID, petId))
 			.status(ResponseConstants.SUCCESS)
@@ -45,9 +45,9 @@ public class VetControllerImpl implements VetController {
 
 	@Override
 	@GetMapping()
-	public ResponseEntity<ResponseDTO<List<PetDTO<PetInfoWithOwner>>>> getPets() {
-		ResponseDTOBuilder<List<PetDTO<PetInfoWithOwner>>> builder = ResponseDTO.builder();
-		ResponseDTO<List<PetDTO<PetInfoWithOwner>>> response = builder
+	public ResponseEntity<ResponseDTO<List<PetDTO<PetInfoWithCompleteOwner>>>> getPets() {
+		ResponseDTOBuilder<List<PetDTO<PetInfoWithCompleteOwner>>> builder = ResponseDTO.builder();
+		ResponseDTO<List<PetDTO<PetInfoWithCompleteOwner>>> response = builder
 			.content(petService.getAllPets())
 			.message(ResponseConstants.SUCCESS.getDescription())
 			.status(ResponseConstants.SUCCESS)

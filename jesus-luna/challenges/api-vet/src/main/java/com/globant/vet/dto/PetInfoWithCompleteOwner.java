@@ -12,6 +12,6 @@ import lombok.experimental.SuperBuilder;
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class PetInfoWithOwner extends PetInfo {
+public class PetInfoWithCompleteOwner extends PetInfo {
 	private CustomerDTO<CustomerInfo> owner;
 }

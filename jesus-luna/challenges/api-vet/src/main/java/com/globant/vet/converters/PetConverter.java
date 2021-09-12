@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.globant.vet.dto.CustomerDTO;
 import com.globant.vet.dto.CustomerInfo;
 import com.globant.vet.dto.PetInfo;
-import com.globant.vet.dto.PetInfoWithOwner;
+import com.globant.vet.dto.PetInfoWithCompleteOwner;
 import com.globant.vet.model.Pet;
 
 @Service
@@ -23,8 +23,8 @@ public class PetConverter {
 			.build();
 	}
 	
-	public PetInfoWithOwner petToPetInfoWithOwner(Pet pet, CustomerDTO<CustomerInfo> customerDTO) {
-		return PetInfoWithOwner.builder()
+	public PetInfoWithCompleteOwner petToPetInfoWithOwner(Pet pet, CustomerDTO<CustomerInfo> customerDTO) {
+		return PetInfoWithCompleteOwner.builder()
 			.age(pet.getAge())
 			.meeting(pet.getMeeting())
 			.name(pet.getName())

@@ -13,7 +13,7 @@ import com.globant.vet.dto.CustomerDTO;
 import com.globant.vet.dto.CustomerInfo;
 import com.globant.vet.dto.PetDTO;
 import com.globant.vet.dto.PetInfo;
-import com.globant.vet.dto.PetInfoWithOwner;
+import com.globant.vet.dto.PetInfoWithCompleteOwner;
 import com.globant.vet.exception.EntityNotFound;
 import com.globant.vet.model.Customer;
 import com.globant.vet.model.Pet;
@@ -36,7 +36,7 @@ public class PetServiceImpl implements PetService {
 	@Autowired
 	private CustomerConverter customerConverter;
 	
-	public PetInfoWithOwner getPetWithOwner(Pet pet) {
+	public PetInfoWithCompleteOwner getPetWithOwner(Pet pet) {
 		Customer owner = pet.getOwner();
 		CustomerInfo customerInfo = customerConverter.customerToCustomerInfo(owner);
 		CustomerDTO<CustomerInfo> customerDTO = customerConverter.customerInfoToCustomerDTO(owner.getId(), customerInfo);
@@ -44,7 +44,7 @@ public class PetServiceImpl implements PetService {
 	}
 
 	@Override
-	public PetInfoWithOwner getPetById(int id) {
+	public PetInfoWithCompleteOwner getPetById(int id) {
 		Optional<Pet> optionalPet = petRepository.findById(id);
 		if(optionalPet.isEmpty()) {
 			throw new EntityNotFound(String.format(Constants.PET_NOT_FOUND, id));
@@ -54,10 +54,10 @@ public class PetServiceImpl implements PetService {
 	}
 	
 	@Override
-	public List<PetDTO<PetInfoWithOwner>> getAllPets() {
+	public List<PetDTO<PetInfoWithCompleteOwner>> getAllPets() {
 		List<Pet> pets = petRepository.findAll();
 		return pets.stream().map(pet->{
-			PetInfoWithOwner petWithOwner = getPetWithOwner(pet);
+			PetInfoWithCompleteOwner petWithOwner = getPetWithOwner(pet);
 			return new PetDTO<>(pet.getId(), petWithOwner);
 			
 		}).collect(Collectors.toList());
