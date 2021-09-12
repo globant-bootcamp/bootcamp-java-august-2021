@@ -1,0 +1,81 @@
+package com.bootcamp.springdatajpa.controller;
+
+import com.bootcamp.springdatajpa.dto.PetDTO;
+import com.bootcamp.springdatajpa.dto.ResponseDTO;
+import com.bootcamp.springdatajpa.service.PetService;
+import com.bootcamp.springdatajpa.utils.Constants.ResponseConstants;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.List;
+
+import static com.bootcamp.springdatajpa.utils.Constants.*;
+
+@RestController
+@RequestMapping("pets")
+@Validated
+public class PetController {
+
+  @Autowired
+  PetService petService;
+
+  @GetMapping()
+  public ResponseEntity<ResponseDTO<List<PetDTO>>> getAllPets() {
+    ResponseDTO<List<PetDTO>> responseDTO = new ResponseDTO<>(
+      ResponseConstants.SUCCESS,
+      PET_FOUND_SUCCESSFULLY,
+      petService.getAllPets()
+    );
+
+    return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+  }
+
+  @GetMapping("/by-owner/{id}")
+  public ResponseEntity<ResponseDTO<List<PetDTO>>> getAllOwnersPets(@PathVariable Long id) {
+    ResponseDTO<List<PetDTO>> responseDTO = new ResponseDTO<>(
+      ResponseConstants.SUCCESS,
+      PET_FOUND_SUCCESSFULLY,
+      petService.getAllOwnersPets(id)
+    );
+
+    return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+  }
+
+  @PostMapping()
+  public ResponseEntity<ResponseDTO<PetDTO>> addPet(@RequestBody @Valid PetDTO petDTO) throws Exception {
+    ResponseDTO<PetDTO> responseDTO = new ResponseDTO<>(
+      ResponseConstants.SUCCESS,
+      PET_ADDED_SUCCESSFULLY,
+      petService.addPet(petDTO)
+    );
+
+    return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
+  }
+
+  @PutMapping(path = "/{id}")
+  public ResponseEntity<ResponseDTO<PetDTO>> updatePet(@PathVariable Long id, @RequestBody @Valid PetDTO petDTO) throws Exception {
+    ResponseDTO<PetDTO> responseDTO = new ResponseDTO<>(
+      ResponseConstants.SUCCESS,
+      PET_UPDATED_SUCCESSFULLY,
+      petService.updatePet(id, petDTO)
+    );
+
+    return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+  }
+
+  @DeleteMapping(path = "/{id}")
+  public ResponseEntity<ResponseDTO<PetDTO>> deletePet(@PathVariable Long id) throws Exception {
+    ResponseDTO<PetDTO> responseDTO = new ResponseDTO<>(
+      ResponseConstants.SUCCESS,
+      PET_DELETED_SUCCESSFULLY,
+      petService.deletePet(id)
+    );
+
+    return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+  }
+
+}
