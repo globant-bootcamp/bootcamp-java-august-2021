@@ -10,10 +10,10 @@ public class JavaList {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int size = scanner.nextInt();
-        List <Integer> numbers = new ArrayList<>();
+        List <Integer> numberList = new ArrayList<>();
 
         for(int iterator = 0; iterator < size; iterator++){
-            numbers.add(scanner.nextInt());
+            numberList.add(scanner.nextInt());
         }
 
         int queries = scanner.nextInt();
@@ -22,14 +22,14 @@ public class JavaList {
             String operation = scanner.next();
             int position = scanner.nextInt();
 
-            if(position <= numbers.size() || position < 0){
+            if(position <= numberList.size() || position < 0){
                 switch(operation) {
                     case "Insert":
                         int addition = scanner.nextInt();
-                        numbers.add(position, addition);
+                        numberList.add(position, addition);
                         break;
                     case "Delete":
-                        numbers.remove(position);
+                        numberList.remove(position);
                         break;
                     default:
                         break;
@@ -39,9 +39,9 @@ public class JavaList {
             }
         }
 
-        Iterator numbersIterator = numbers.iterator();
-        while(numbersIterator.hasNext()){
-            System.out.printf("%d ", numbersIterator.next());
+        Iterator numberListIterator = numberList.iterator();
+        while(numberListIterator.hasNext()){
+            System.out.printf("%d ", numberListIterator.next());
         }
     }
 }
