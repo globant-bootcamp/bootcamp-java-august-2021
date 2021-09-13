@@ -1,5 +1,6 @@
 package com.globant.vet.converters;
 
+
 import org.springframework.stereotype.Service;
 
 import com.globant.vet.dto.CustomerDTO;
@@ -17,7 +18,7 @@ public class CustomerConverter {
 		return customerDTO;
 	}
 	
-	public CustomerDTO<CustomerInfoWithPets> customerInfoToCustomerDTO(int idCustomer,CustomerInfoWithPets customerInfoWithPets){
+	public CustomerDTO<CustomerInfoWithPets> customerInfoWithPetsToCustomerDTO(int idCustomer,CustomerInfoWithPets customerInfoWithPets){
 		CustomerDTO<CustomerInfoWithPets> customerDTO = new CustomerDTO<>();
 		customerDTO.setId(idCustomer);
 		customerDTO.setCustomer(customerInfoWithPets);
