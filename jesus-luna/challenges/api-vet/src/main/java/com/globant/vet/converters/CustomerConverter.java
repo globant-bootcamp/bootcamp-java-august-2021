@@ -30,4 +30,18 @@ public class CustomerConverter {
 			.build();
 	}
 	
+	public Customer customerInfoToCostumerWithId(int customerId, CustomerInfo costumerInfo) {
+		Customer customer = new Customer();
+		customer.setId(customerId);
+		customer.setName(costumerInfo.getName());
+		return customer;
+	}
+	
+	public Customer customerInfoToCostumer(CustomerInfo costumerInfo) {
+		Customer customer = new Customer();
+		customer.setName(costumerInfo.getName());
+		return customer;
+	}
+
+	
 }

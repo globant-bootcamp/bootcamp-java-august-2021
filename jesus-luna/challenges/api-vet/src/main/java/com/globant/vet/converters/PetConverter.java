@@ -9,10 +9,21 @@ import com.globant.vet.dto.CustomerDTO;
 import com.globant.vet.dto.CustomerInfo;
 import com.globant.vet.dto.PetInfo;
 import com.globant.vet.dto.PetInfoWithCompleteOwner;
+import com.globant.vet.model.Customer;
 import com.globant.vet.model.Pet;
 
 @Service
 public class PetConverter {
+	
+	public Pet petInfoWithCompleteOwnertToPetWithOwner(PetInfoWithCompleteOwner petInfoWithCompleteOwner,Customer owner) {
+		Pet pet = new Pet();
+		pet.setAge(petInfoWithCompleteOwner.getAge());
+		pet.setMeeting(petInfoWithCompleteOwner.getMeeting());
+		pet.setName(petInfoWithCompleteOwner.getName());
+		pet.setType(petInfoWithCompleteOwner.getType());
+		pet.setOwner(owner);
+		return pet;
+	}
 	
 	public static PetInfo petToPetInfo(Pet pet) {
 		return PetInfo.builder()
