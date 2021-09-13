@@ -86,7 +86,13 @@ public class VetControllerImpl implements VetController {
 	@Override
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<ResponseDTO<String>> deletePet(@PathVariable(name = "id") int id) {
-		return null;
+		ResponseDTOBuilder<String> builder = ResponseDTO.builder();
+		ResponseDTO<String> response = builder
+				.content(petService.deletePetById(id))
+				.message(ResponseConstants.SUCCESS.getDescription())
+				.status(ResponseConstants.SUCCESS)
+				.build();
+		return ResponseEntity.ok().body(response);
 	}
 
 }
