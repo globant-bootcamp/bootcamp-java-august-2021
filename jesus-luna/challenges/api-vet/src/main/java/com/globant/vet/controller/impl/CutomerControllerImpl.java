@@ -64,7 +64,14 @@ public class CutomerControllerImpl implements CustomerController {
 	@Override
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ResponseDTO<CustomerInfo>> createPet(@RequestBody CustomerInfo newCustomer) {
-		return null;
+		CustomerDTO<CustomerInfo> customerCreatedDto = customerService.createCustomer(newCustomer);
+		ResponseDTOBuilder<CustomerInfo> builder = ResponseDTO.builder();
+		ResponseDTO<CustomerInfo> response = builder
+				.content(customerCreatedDto.getCustomer())
+				.status(ResponseConstants.SUCCESS)
+				.message(String.format(Constants.CUSTOMER_CREATED_WITH_ID, customerCreatedDto.getId()))
+				.build();
+		return ResponseEntity.ok().body(response);
 	}
 
 	@Override
