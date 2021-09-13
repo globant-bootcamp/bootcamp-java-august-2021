@@ -1,7 +1,8 @@
 package Hackerrank.August31;
 
-import java.util.*;
-import java.text.*;
+import java.text.NumberFormat;
+import java.util.Locale;
+import java.util.Scanner;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
