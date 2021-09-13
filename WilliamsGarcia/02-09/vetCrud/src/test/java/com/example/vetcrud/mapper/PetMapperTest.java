@@ -2,7 +2,6 @@ package com.example.vetcrud.mapper;
 
 import com.example.vetcrud.dto.PetDTO;
 import com.example.vetcrud.entity.Pet;
-import com.example.vetcrud.utiloftest.GeneratePet;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -12,6 +11,8 @@ import java.util.List;
 
 import static com.example.vetcrud.utiloftest.ConstantsOfTest.ONE_EXECUTED;
 import static com.example.vetcrud.utiloftest.ConstantsOfTest.PET_ID;
+import static com.example.vetcrud.utiloftest.ConstantsOfTest.generatePet;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.times;
@@ -23,8 +24,6 @@ public class PetMapperTest {
 
     @Mock
     private PetMapper petMapper;
-
-    private static GeneratePet generatePet = new GeneratePet();
 
     @Test
     public void ownerToDTOTestSuccess() {

@@ -2,7 +2,6 @@ package com.example.vetcrud.mapper;
 
 import com.example.vetcrud.dto.OwnerDTO;
 import com.example.vetcrud.entity.Owner;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

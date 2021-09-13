@@ -1,10 +1,9 @@
 package com.example.vetcrud.controller;
 
-import com.example.vetcrud.dto.OwnerDTO;
 import com.example.vetcrud.dto.PetDTO;
 import com.example.vetcrud.dto.ResponseDTO;
+import com.example.vetcrud.exception.NotFoundException;
 import com.example.vetcrud.service.PetService;
-import com.example.vetcrud.utiloftest.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -16,21 +15,22 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import java.math.BigDecimal;
 import java.util.List;
+
+import static com.example.vetcrud.utiloftest.ConstantsOfTest.OWNER_ID;
+import static com.example.vetcrud.utiloftest.ConstantsOfTest.ONE_EXECUTED;
+import static com.example.vetcrud.utiloftest.ConstantsOfTest.PET_ID;
+import static com.example.vetcrud.utiloftest.ConstantsOfTest.generatePet;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PetControllerTest {
-
-    private final Long PET_ID = 1L;
-    private final Long OWNER_ID = 1L;
-    private static GeneratePet generatePet = new GeneratePet();
-    private static int ONE_EXECUTED = BigDecimal.ONE.intValue();
 
     @InjectMocks
     private PetController petController;
@@ -52,7 +52,7 @@ public class PetControllerTest {
     }
 
     @Test
-    public void getPetByIdTestSuccess() {
+    public void getPetByIdTestSuccess() throws NotFoundException {
         PetDTO petDTO = generatePet.createPetDTO(PET_ID);
 
         when(petService.getPetById(PET_ID)).thenReturn(petDTO);
@@ -93,7 +93,7 @@ public class PetControllerTest {
     }
 
     @Test
-    public void updatePetTestSuccess() {
+    public void updatePetTestSuccess() throws NotFoundException {
         MockHttpServletRequest request = new MockHttpServletRequest();
         RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
         PetDTO petDTOEntry = generatePet.createPetDTO(null);
@@ -109,9 +109,7 @@ public class PetControllerTest {
     }
 
     @Test
-    public void deletePetTestSuccess() {
-        when(petService.deletePet(PET_ID)).thenReturn(null);
-
+    public void deletePetTestSuccess() throws NotFoundException {
         ResponseEntity<ResponseDTO<PetDTO>> responseEntity = petController.deletePet(PET_ID);
 
         assertNotNull(responseEntity);

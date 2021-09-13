@@ -1,6 +1,7 @@
 package com.example.vetcrud.service;
 
 import com.example.vetcrud.dto.PetDTO;
+import com.example.vetcrud.exception.NotFoundException;
 
 import java.util.List;
 
@@ -11,9 +12,9 @@ public interface PetService {
 
     PetDTO createPet(PetDTO petDTO);
 
-    PetDTO updatePet(PetDTO petDTO, long id);
+    PetDTO updatePet(PetDTO petDTO, long id) throws NotFoundException;
 
-    PetDTO getPetById(long id);
+    PetDTO getPetById(long id) throws NotFoundException;
 
-    PetDTO deletePet(long id);
+    void deletePet(long id) throws NotFoundException;
 }

@@ -1,10 +1,10 @@
 package com.example.vetcrud.controller;
 
-import com.example.vetcrud.dao.OwnerDAO;
 import com.example.vetcrud.dto.OwnerDTO;
 import com.example.vetcrud.dto.ResponseDTO;
+import com.example.vetcrud.exception.NotFoundException;
 import com.example.vetcrud.service.OwnerService;
-import com.example.vetcrud.utiloftest.*;
+import com.sun.media.sound.InvalidDataException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -16,22 +16,22 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import java.math.BigDecimal;
 import java.util.List;
+
+import static com.example.vetcrud.utiloftest.ConstantsOfTest.ONE_EXECUTED;
+import static com.example.vetcrud.utiloftest.ConstantsOfTest.OWNER_ID;
+import static com.example.vetcrud.utiloftest.ConstantsOfTest.generateOwner;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import static org.powermock.api.mockito.PowerMockito.when;
 import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class OwnerControllerTest {
-
-    private final Long OWNER_ID = 1L;
-    private static GenerateOwner generateOwner = new GenerateOwner();
-    private static int ONE_EXECUTED = BigDecimal.ONE.intValue();
 
     @InjectMocks
     private OwnerController ownerController;
@@ -53,8 +53,8 @@ public class OwnerControllerTest {
     }
 
     @Test
-    public void getOwnerByIdTestSuccess() {
-        OwnerDTO ownerDTO = generateOwner.createOwnerDTO(OWNER_ID);
+    public void getOwnerByIdTestSuccess() throws NotFoundException {
+        OwnerDTO ownerDTO = generateOwner.createOwnerDTO(OWNER_ID.longValue());
 
         when(ownerService.getOwnerById(OWNER_ID)).thenReturn(ownerDTO);
 
@@ -66,7 +66,7 @@ public class OwnerControllerTest {
     }
 
     @Test
-    public void registerOwnerTestSuccess() {
+    public void registerOwnerTestSuccess() throws InvalidDataException {
         MockHttpServletRequest request = new MockHttpServletRequest();
         RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
         OwnerDTO ownerDTO = generateOwner.createOwnerDTO(null);
@@ -81,11 +81,11 @@ public class OwnerControllerTest {
     }
 
     @Test
-    public void updateOwnerTestSuccess() {
+    public void updateOwnerTestSuccess() throws NotFoundException {
         MockHttpServletRequest request = new MockHttpServletRequest();
         RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
         OwnerDTO ownerDTOEntry = generateOwner.createOwnerDTO(null);
-        OwnerDTO ownerDTOGenerated = generateOwner.createOwnerDTO(OWNER_ID);
+        OwnerDTO ownerDTOGenerated = generateOwner.createOwnerDTO(OWNER_ID.longValue());
 
         when(ownerService.updateOwner(ownerDTOEntry, OWNER_ID)).thenReturn(ownerDTOGenerated);
 
@@ -97,9 +97,7 @@ public class OwnerControllerTest {
     }
 
     @Test
-    public void deleteOwnerTestSuccess() {
-        when(ownerService.deleteOwner(OWNER_ID)).thenReturn(null);
-
+    public void deleteOwnerTestSuccess() throws NotFoundException {
         ResponseEntity<ResponseDTO<OwnerDTO>> responseEntity = ownerController.deleteOwner(OWNER_ID);
 
         assertNotNull(responseEntity);

@@ -1,5 +1,6 @@
 package com.example.vetcrud.service;
 
+import com.example.vetcrud.dao.OwnerDAO;
 import com.example.vetcrud.dao.PetDAO;
 import com.example.vetcrud.dto.PetDTO;
 import com.example.vetcrud.entity.Pet;
@@ -7,7 +8,7 @@ import com.example.vetcrud.exception.EmptyListException;
 import com.example.vetcrud.exception.NotFoundException;
 import com.example.vetcrud.mapper.PetMapper;
 import com.example.vetcrud.service.impl.PetServiceImpl;
-import com.example.vetcrud.utiloftest.GeneratePet;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -17,9 +18,11 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.vetcrud.utiloftest.ConstantsOfTest.PET_ID;
 import static com.example.vetcrud.utiloftest.ConstantsOfTest.ONE_EXECUTED;
 import static com.example.vetcrud.utiloftest.ConstantsOfTest.TWO_EXECUTED;
+import static com.example.vetcrud.utiloftest.ConstantsOfTest.OWNER_ID;
+import static com.example.vetcrud.utiloftest.ConstantsOfTest.PET_ID;
+import static com.example.vetcrud.utiloftest.ConstantsOfTest.generatePet;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -31,8 +34,6 @@ import static org.powermock.api.mockito.PowerMockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class PetServiceImplTest {
 
-    private static GeneratePet generatePet = new GeneratePet();
-
     @InjectMocks
     private PetServiceImpl petService;
 
@@ -40,7 +41,31 @@ public class PetServiceImplTest {
     private PetDAO petDAO;
 
     @Mock
+    private OwnerDAO ownerDAO;
+
+    @Mock
     private PetMapper petMapper;
+
+    @Test
+    public void getPetsByOwnerTestSuccess() {
+        List<Pet> petList = generatePet.createPetList();
+        List<PetDTO> petDTOList = generatePet.createPetDTOList();
+
+        when(petDAO.getPetsByOwner(ownerDAO.getById(OWNER_ID.longValue()))).thenReturn(petList);
+        when(petMapper.petListToDTO(petList)).thenReturn(petDTOList);
+
+        List<PetDTO> petDTOListResponse = petService.getPetsByOwner(OWNER_ID.longValue());
+        assertNotNull(petDTOListResponse);
+        verify(petMapper, times(ONE_EXECUTED)).petListToDTO(petList);
+    }
+
+    @Test(expected = EmptyListException.class)
+    public void getPetsByOwnerTestFailure() {
+        List<Pet> petList = new ArrayList<>();
+
+        when(petDAO.getPetsByOwner(ownerDAO.getById(OWNER_ID.longValue()))).thenReturn(petList);
+        petService.getPetsByOwner(OWNER_ID);
+    }
 
     @Test
     public void getAllPetsTestSuccess() {
@@ -85,7 +110,7 @@ public class PetServiceImplTest {
     }
 
     @Test
-    public void updatePetTestSuccess() {
+    public void updatePetTestSuccess() throws NotFoundException {
         Pet petEntry = generatePet.createPet(PET_ID);
         Pet petGenerated = generatePet.createPet(PET_ID);
 
@@ -106,13 +131,13 @@ public class PetServiceImplTest {
     }
 
     @Test(expected = NotFoundException.class)
-    public void updatePetTestFailure() {
+    public void updatePetTestFailure() throws NotFoundException {
         when(petDAO.existsById(PET_ID)).thenReturn(Boolean.FALSE);
         petService.updatePet(null, PET_ID);
     }
 
     @Test
-    public void getPetByIdTestSuccess() {
+    public void getPetByIdTestSuccess() throws NotFoundException {
         Pet pet = generatePet.createPet(PET_ID);
         PetDTO petDTO = generatePet.createPetDTO(PET_ID);
 
@@ -128,14 +153,14 @@ public class PetServiceImplTest {
     }
 
     @Test(expected = NotFoundException.class)
-    public void getPetByIdTestFailure() {
+    public void getPetByIdTestFailure() throws NotFoundException {
         when(petDAO.existsById(PET_ID)).thenReturn(Boolean.FALSE);
 
         petService.getPetById(PET_ID);
     }
 
     @Test
-    public void deletePetTestSuccess() {
+    public void deletePetTestSuccess() throws NotFoundException {
         Pet pet = generatePet.createPet(PET_ID);
         Pet petSimulatorDelete = generatePet.createPet(PET_ID);
 
@@ -149,7 +174,7 @@ public class PetServiceImplTest {
     }
 
     @Test(expected = NotFoundException.class)
-    public void deletePetTestFailure() {
+    public void deletePetTestFailure() throws NotFoundException {
         when(petDAO.existsById(PET_ID)).thenReturn(Boolean.FALSE);
 
         petService.deletePet(PET_ID);

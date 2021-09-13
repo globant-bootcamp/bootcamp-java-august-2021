@@ -24,6 +24,8 @@ public class Constants {
     public static final String NOT_FOUND_PET = "The pet wasn't found";
     public static final String PET_LIST_BY_USER = "This is the pet list of user";
 
+
+    public static final String OWNER_WAS_REGISTER = "The owner is already registered";
     public static final String OWNER_CREATED = "The owner was registered successfully";
     public static final String OWNER_LIST = "The owner list successfully";
     public static final String EMPTY_OWNER_LIST = "Sorry, the owner list is empty";

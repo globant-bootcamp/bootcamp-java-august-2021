@@ -11,9 +11,9 @@ import com.example.vetcrud.service.impl.OwnerServiceImpl;
 import static com.example.vetcrud.utiloftest.ConstantsOfTest.ONE_EXECUTED;
 import static com.example.vetcrud.utiloftest.ConstantsOfTest.TWO_EXECUTED;
 import static com.example.vetcrud.utiloftest.ConstantsOfTest.OWNER_ID;
+import static com.example.vetcrud.utiloftest.ConstantsOfTest.generateOwner;
 
-import com.example.vetcrud.utiloftest.GenerateOwner;
-
+import com.sun.media.sound.InvalidDataException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -23,7 +23,8 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -31,8 +32,6 @@ import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class OwnerServiceImplTest {
-
-    private static GenerateOwner generateOwner = new GenerateOwner();
 
     @InjectMocks
     private OwnerServiceImpl ownerService;
@@ -66,7 +65,7 @@ public class OwnerServiceImplTest {
     }
 
     @Test
-    public void createOwnerTestSuccess() {
+    public void createOwnerTestSuccess() throws InvalidDataException {
         Owner ownerEntry = generateOwner.createOwner(null);
         Owner ownerGenerated = generateOwner.createOwner(OWNER_ID.longValue());
 
@@ -87,7 +86,7 @@ public class OwnerServiceImplTest {
     }
 
     @Test
-    public void updateOwnerTestSuccess() {
+    public void updateOwnerTestSuccess() throws NotFoundException {
         Owner ownerEntry = generateOwner.createOwner(OWNER_ID.longValue());
         Owner ownerGenerated = generateOwner.createOwner(OWNER_ID.longValue());
 
@@ -108,13 +107,13 @@ public class OwnerServiceImplTest {
     }
 
     @Test(expected = NotFoundException.class)
-    public void updateOwnerTestFailure() {
+    public void updateOwnerTestFailure() throws NotFoundException {
         when(ownerDAO.existsById(OWNER_ID.longValue())).thenReturn(Boolean.FALSE);
         ownerService.updateOwner(null, OWNER_ID);
     }
 
     @Test
-    public void getOwnerByIdTestSuccess() {
+    public void getOwnerByIdTestSuccess() throws NotFoundException {
         Owner owner = generateOwner.createOwner(OWNER_ID.longValue());
         OwnerDTO ownerDTO = generateOwner.createOwnerDTO(OWNER_ID.longValue());
 
@@ -130,14 +129,14 @@ public class OwnerServiceImplTest {
     }
 
     @Test(expected = NotFoundException.class)
-    public void getOwnerByIdTestFailure() {
+    public void getOwnerByIdTestFailure() throws NotFoundException {
         when(ownerDAO.existsById(OWNER_ID.longValue())).thenReturn(Boolean.FALSE);
 
         ownerService.getOwnerById(OWNER_ID);
     }
 
     @Test
-    public void deleteOwnerTestSuccess() {
+    public void deleteOwnerTestSuccess() throws NotFoundException {
         Owner owner = generateOwner.createOwner(OWNER_ID.longValue());
         Owner ownerSimulatorDelete = generateOwner.createOwner(OWNER_ID.longValue());
 
@@ -151,7 +150,7 @@ public class OwnerServiceImplTest {
     }
 
     @Test(expected = NotFoundException.class)
-    public void deleteOwnerTestFailure() {
+    public void deleteOwnerTestFailure() throws NotFoundException {
         when(ownerDAO.existsById(OWNER_ID.longValue())).thenReturn(Boolean.FALSE);
 
         ownerService.deleteOwner(OWNER_ID);

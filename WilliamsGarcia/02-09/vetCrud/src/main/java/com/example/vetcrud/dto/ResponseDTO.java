@@ -8,7 +8,9 @@ public class ResponseDTO<T> {
     private String message;
     private T content;
 
-    public ResponseDTO() {
+    public ResponseDTO(ResponseConstants responseConstants, String message) {
+        this.responseConstants = responseConstants;
+        this.message = message;
     }
 
     public ResponseDTO(ResponseConstants responseConstants, String message, T content) {

@@ -33,11 +33,16 @@ public class PetServiceImpl implements PetService {
     public List<PetDTO> getPetsByOwner(long id) {
         List<Pet> petList = petDAO.getPetsByOwner(ownerDAO.getById(id));
 
-        return petMapper.petListToDTO(petList);
+        if (!petList.isEmpty()) {
+            return petMapper.petListToDTO(petList);
+        } else {
+            throw new EmptyListException(EMPTY_PET_LIST);
+        }
     }
 
     @Override
     public List<PetDTO> getAllPets() {
+
         if (!petDAO.findAll().isEmpty()) {
             return petMapper.petListToDTO(petDAO.findAll());
         } else {
@@ -51,7 +56,7 @@ public class PetServiceImpl implements PetService {
     }
 
     @Override
-    public PetDTO updatePet(PetDTO petDTO, long id) {
+    public PetDTO updatePet(PetDTO petDTO, long id) throws NotFoundException {
 
         if (petDAO.existsById(id)) {
             petDTO.setId(id);
@@ -62,7 +67,7 @@ public class PetServiceImpl implements PetService {
     }
 
     @Override
-    public PetDTO getPetById(long id) {
+    public PetDTO getPetById(long id) throws NotFoundException {
 
         if (petDAO.existsById(id)) {
             return petMapper.petToDTO(petDAO.getById(id));
@@ -72,11 +77,10 @@ public class PetServiceImpl implements PetService {
     }
 
     @Override
-    public PetDTO deletePet(long id) {
+    public void deletePet(long id) throws NotFoundException {
 
         if (petDAO.existsById(id)) {
             petDAO.delete(petDAO.getById(id));
-            return null;
         } else {
             throw new NotFoundException(NOT_FOUND_PET);
         }

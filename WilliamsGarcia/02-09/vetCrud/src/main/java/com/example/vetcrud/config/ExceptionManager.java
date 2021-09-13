@@ -15,7 +15,7 @@ public class ExceptionManager {
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<ResponseDTO> notFoundException(NotFoundException notFoundException) {
         ResponseDTO responseDTO = new ResponseDTO(ResponseConstants.FAILURE, notFoundException.getMessage(), null);
-        return new ResponseEntity<>(responseDTO, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(responseDTO, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(EmptyListException.class)

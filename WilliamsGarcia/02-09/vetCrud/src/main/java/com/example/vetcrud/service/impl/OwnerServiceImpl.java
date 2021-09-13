@@ -2,19 +2,17 @@ package com.example.vetcrud.service.impl;
 
 import com.example.vetcrud.dao.OwnerDAO;
 import com.example.vetcrud.dto.OwnerDTO;
-import com.example.vetcrud.entity.Owner;
 import com.example.vetcrud.exception.EmptyListException;
 import com.example.vetcrud.exception.NotFoundException;
 import com.example.vetcrud.mapper.OwnerMapper;
 import com.example.vetcrud.service.OwnerService;
+import com.sun.media.sound.InvalidDataException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
-import static com.example.vetcrud.utils.Constants.EMPTY_OWNER_LIST;
-import static com.example.vetcrud.utils.Constants.NOT_FOUND_OWNER;
+import static com.example.vetcrud.utils.Constants.*;
 
 @Service
 public class OwnerServiceImpl implements OwnerService {
@@ -27,6 +25,7 @@ public class OwnerServiceImpl implements OwnerService {
 
     @Override
     public List<OwnerDTO> getAllOwners() {
+
         if (!ownerDAO.findAll().isEmpty()) {
             return ownerMapper.ownerListToDTO(ownerDAO.findAll());
         } else {
@@ -35,12 +34,16 @@ public class OwnerServiceImpl implements OwnerService {
     }
 
     @Override
-    public OwnerDTO createOwner(OwnerDTO ownerDTO) {
-        return ownerMapper.ownerToDTO(ownerDAO.save(ownerMapper.ownerDTOToOwner(ownerDTO)));
+    public OwnerDTO createOwner(OwnerDTO ownerDTO) throws InvalidDataException {
+        if (!ownerDAO.existsByName(ownerDTO.getName().concat(" ").concat(ownerDTO.getLastName()))) {
+            return ownerMapper.ownerToDTO(ownerDAO.save(ownerMapper.ownerDTOToOwner(ownerDTO)));
+        } else {
+            throw new InvalidDataException(OWNER_WAS_REGISTER);
+        }
     }
 
     @Override
-    public OwnerDTO updateOwner(OwnerDTO ownerDTO, long id) {
+    public OwnerDTO updateOwner(OwnerDTO ownerDTO, long id) throws NotFoundException {
 
         if (ownerDAO.existsById(id)) {
             ownerDTO.setId(id);
@@ -51,7 +54,7 @@ public class OwnerServiceImpl implements OwnerService {
     }
 
     @Override
-    public OwnerDTO getOwnerById(long id) {
+    public OwnerDTO getOwnerById(long id) throws NotFoundException {
 
         if (ownerDAO.existsById(id)) {
             return ownerMapper.ownerToDTO(ownerDAO.getById(id));
@@ -61,11 +64,10 @@ public class OwnerServiceImpl implements OwnerService {
     }
 
     @Override
-    public OwnerDTO deleteOwner(long id) {
+    public void deleteOwner(long id) throws NotFoundException {
 
         if (ownerDAO.existsById(id)) {
             ownerDAO.delete(ownerDAO.getById(id));
-            return null;
         } else {
             throw new NotFoundException(NOT_FOUND_OWNER);
         }

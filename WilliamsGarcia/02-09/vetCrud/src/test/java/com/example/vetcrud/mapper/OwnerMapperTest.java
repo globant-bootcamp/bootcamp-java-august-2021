@@ -7,12 +7,12 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import com.example.vetcrud.utiloftest.GenerateOwner;
-
 import java.util.List;
 
 import static com.example.vetcrud.utiloftest.ConstantsOfTest.ONE_EXECUTED;
 import static com.example.vetcrud.utiloftest.ConstantsOfTest.OWNER_ID;
+import static com.example.vetcrud.utiloftest.ConstantsOfTest.generateOwner;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.times;
@@ -24,8 +24,6 @@ public class OwnerMapperTest {
 
     @Mock
     private OwnerMapper ownerMapper;
-
-    private static GenerateOwner generateOwner = new GenerateOwner();
 
     @Test
     public void ownerToDTOTestSuccess() {
