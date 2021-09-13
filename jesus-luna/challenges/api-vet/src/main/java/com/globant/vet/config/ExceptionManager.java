@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import com.globant.vet.dto.ResponseDTO;
 import com.globant.vet.exception.BootstrapException;
 import com.globant.vet.exception.EntityNotFound;
+import com.globant.vet.exception.InputMismatchException;
 import com.globant.vet.util.constants.ResponseConstants;
 
 @ControllerAdvice
@@ -27,11 +28,15 @@ public class ExceptionManager extends ResponseEntityExceptionHandler {
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
 		
 	}
+	
+	@ExceptionHandler(InputMismatchException.class)
+	public ResponseEntity<ResponseDTO<String>> inputMismatchException(InputMismatchException error) {
+		return getBadResponse(error);
+	}
 
 	@ExceptionHandler(BootstrapException.class)
 	public ResponseEntity<ResponseDTO<String>> bootstrapError(BootstrapException bootstrapError) {
-		ResponseDTO<String> response = new ResponseDTO<>(ResponseConstants.FAILURE,ResponseConstants.FAILURE.getDescription(),bootstrapError.getMessage());
-		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+		return getBadResponse(bootstrapError);
 	}
 	
 	@ExceptionHandler(EntityNotFound.class)
