@@ -15,7 +15,7 @@ import com.globant.vet.dto.ResponseDTO;
 public interface VetController {
 	public ResponseEntity<ResponseDTO<PetInfoWithCompleteOwner>> getInfoPet(int petId);
 	public ResponseEntity<ResponseDTO<List<PetDTO<PetInfoWithCompleteOwner>>>> getPets();
-	public ResponseEntity<ResponseDTO<PetInfo>> updatePet(int petId, PetInfo newPet);
+	public ResponseEntity<ResponseDTO<PetInfo>> updatePet(int petId,@Valid PetInfo newPet);
 	public ResponseEntity<ResponseDTO<PetInfoWithCompleteOwner>> createPet(@Valid  PetInfoWithCompleteOwner newPet);
 	public ResponseEntity<ResponseDTO<String>> deletePet(int petId);
 }

@@ -2,6 +2,7 @@ package com.globant.vet.controller.impl;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -57,9 +58,16 @@ public class VetControllerImpl implements VetController {
 	}
 
 	@Override
-	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ResponseDTO<PetInfo>> updatePet(int id, PetInfo newPet) {
-		return null;
+	@PutMapping(value = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<ResponseDTO<PetInfo>> updatePet(@PathVariable(name = "id") int id,@RequestBody PetInfo newPet) {
+		PetInfo updatePet = petService.updatePet(newPet, id);
+		ResponseDTOBuilder<PetInfo> builder = ResponseDTO.builder();
+		ResponseDTO<PetInfo> response = builder
+				.content(petService.updatePet(updatePet, id))
+				.message(Constants.PET_UPDATE)
+				.status(ResponseConstants.SUCCESS)
+				.build();
+		return ResponseEntity.ok().body(response);
 	}
 
 	@Override
