@@ -46,7 +46,13 @@ public class CutomerControllerImpl implements CustomerController {
 	@Override
 	@GetMapping
 	public ResponseEntity<ResponseDTO<List<CustomerDTO<CustomerInfoWithPets>>>> getCustomers() {
-		return null;
+		ResponseDTOBuilder<List<CustomerDTO<CustomerInfoWithPets>>> builder = ResponseDTO.builder();
+		ResponseDTO<List<CustomerDTO<CustomerInfoWithPets>>> response = builder
+				.content(customerService.getCustomers())
+				.status(ResponseConstants.SUCCESS)
+				.message(ResponseConstants.SUCCESS.getDescription())
+				.build();
+		return ResponseEntity.ok().body(response);
 	}
 
 	@Override
