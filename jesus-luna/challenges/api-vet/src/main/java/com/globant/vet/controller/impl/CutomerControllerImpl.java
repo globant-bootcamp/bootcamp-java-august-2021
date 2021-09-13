@@ -58,7 +58,13 @@ public class CutomerControllerImpl implements CustomerController {
 	@Override
 	@PutMapping(value = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ResponseDTO<CustomerInfo>> updateCustomer(@PathVariable(name = "id") int customerId, @RequestBody CustomerInfo newCustomer) {
-		return null;
+		ResponseDTOBuilder<CustomerInfo> builder = ResponseDTO.builder();
+		ResponseDTO<CustomerInfo> response = builder
+				.content(customerService.updateCustomer(customerId, newCustomer))
+				.status(ResponseConstants.SUCCESS)
+				.message(Constants.CUSTOMER_UPDATE)
+				.build();
+		return ResponseEntity.ok().body(response);
 	}
 
 	@Override
