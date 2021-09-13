@@ -10,6 +10,6 @@ public interface CustomerService {
 	public CustomerInfoWithPets getCustomer(int customerId);
 	public List<CustomerDTO<CustomerInfoWithPets>> getCustomers();
 	public CustomerInfo updateCustomer(int customerId, CustomerInfo newCustomer);
-	public CustomerInfo createCustomer(CustomerInfo newCustomer);
+	public CustomerDTO<CustomerInfo> createCustomer(CustomerInfo newCustomer);
 	public String deleteCustomer(int customerId);
 }
