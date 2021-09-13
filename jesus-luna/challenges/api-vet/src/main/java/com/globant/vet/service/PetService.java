@@ -9,7 +9,7 @@ import com.globant.vet.dto.PetInfoWithCompleteOwner;
 public interface PetService {
 	public PetInfoWithCompleteOwner getPetById(int id);
 	public List<PetDTO<PetInfoWithCompleteOwner>> getAllPets();
-	public PetDTO createPet(PetInfo petInfo);
+	public PetDTO<PetInfoWithCompleteOwner> createPet(PetInfoWithCompleteOwner petInfoWithCompleteOwner);
 	public String deletePetById(int id);
 	public PetInfo updatePet(PetInfo petInfo, int id);
 }

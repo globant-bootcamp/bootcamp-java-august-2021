@@ -1,12 +1,12 @@
 package com.globant.vet.service.impl;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.globant.vet.converters.CustomerConverter;
 import com.globant.vet.converters.PetConverter;
 import com.globant.vet.dto.CustomerDTO;
@@ -17,6 +17,7 @@ import com.globant.vet.dto.PetInfoWithCompleteOwner;
 import com.globant.vet.exception.EntityNotFound;
 import com.globant.vet.model.Customer;
 import com.globant.vet.model.Pet;
+import com.globant.vet.repository.CustomerRepository;
 import com.globant.vet.repository.PetRepository;
 import com.globant.vet.service.PetService;
 import com.globant.vet.util.constants.Constants;
@@ -29,6 +30,9 @@ public class PetServiceImpl implements PetService {
 	
 	@Autowired
 	private PetRepository petRepository;
+	
+	@Autowired
+	private CustomerRepository customerRepository;
 	
 	@Autowired
 	private PetConverter petConverter;
@@ -64,7 +68,22 @@ public class PetServiceImpl implements PetService {
 	}
 
 	@Override
-	public PetDTO createPet(PetInfo petInfo) {
+	public PetDTO<PetInfoWithCompleteOwner> createPet(PetInfoWithCompleteOwner petInfoRequest) {
+		CustomerDTO<CustomerInfo> owner = petInfoRequest.getOwner();
+		CustomerInfo customerInfo = owner.getCustomer();
+		int customerId = owner.getId();
+		Optional<Customer> optionalCustomer = customerRepository.findById(customerId);
+		Customer customerDB;
+		if(optionalCustomer.isEmpty()) {
+			customerDB = customerConverter.customerInfoToCostumer(customerId, customerInfo);
+		}else {
+			customerDB = optionalCustomer.get();
+		}
+		String name = petInfoRequest.getName();
+		int age = petInfoRequest.getAge();
+		LocalDateTime meeting = petInfoRequest.getMeeting();
+		String type = petInfoRequest.getType();
+		
 		return null;
 	}
 
