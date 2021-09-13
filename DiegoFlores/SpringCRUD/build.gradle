@@ -17,9 +17,13 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	runtimeOnly 'mysql:mysql-connector-java'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation group: 'org.powermock', name: 'powermock-module-junit4', version: '2.0.9'
+	testImplementation group: 'org.powermock', name: 'powermock-api-mockito2', version: '2.0.9'
+	
 	
 }
 
 test {
-	useJUnitPlatform()
+	//useJUnitPlatform()
+	
 }
