@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.globant.vet.dto.CustomerDTO;
 import com.globant.vet.dto.CustomerInfo;
+import com.globant.vet.dto.PetDTO;
 import com.globant.vet.dto.PetInfo;
 import com.globant.vet.dto.PetInfoWithCompleteOwner;
 import com.globant.vet.model.Customer;
@@ -46,5 +47,9 @@ public class PetConverter {
 	
 	public List<PetInfo> petsToPetsInfo(List<Pet> pets){
 		return pets.stream().map(pet->petToPetInfo(pet)).collect(Collectors.toList());
+	}
+	
+	public List<PetDTO<PetInfo>> petsToPetsDtoOfPetInfo(List<Pet> pets){
+		return pets.stream().map(pet->new PetDTO<>(pet.getId(), petToPetInfo(pet))).collect(Collectors.toList());
 	}
 }
