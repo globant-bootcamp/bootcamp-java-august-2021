@@ -9,6 +9,7 @@ import com.example.vetcrud.exception.NotFoundException;
 import com.example.vetcrud.mapper.PetMapper;
 import com.example.vetcrud.service.impl.PetServiceImpl;
 
+import com.sun.media.sound.InvalidDataException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -89,7 +90,7 @@ public class PetServiceImplTest {
     }
 
     @Test
-    public void createPetTestSuccess() {
+    public void createPetTestSuccess() throws InvalidDataException {
         Pet petEntry = generatePet.createPet(null);
         Pet petGenerated = generatePet.createPet(PET_ID);
 

@@ -12,7 +12,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static com.example.vetcrud.utils.Constants.*;
+import static com.example.vetcrud.utils.Constants.EMPTY_OWNER_LIST;
+import static com.example.vetcrud.utils.Constants.OWNER_WAS_REGISTER;
+import static com.example.vetcrud.utils.Constants.NOT_FOUND_OWNER;
 
 @Service
 public class OwnerServiceImpl implements OwnerService {

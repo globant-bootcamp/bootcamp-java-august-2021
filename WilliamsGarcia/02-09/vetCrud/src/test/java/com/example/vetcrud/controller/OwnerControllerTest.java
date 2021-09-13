@@ -4,10 +4,7 @@ import com.example.vetcrud.dto.OwnerDTO;
 import com.example.vetcrud.dto.ResponseDTO;
 import com.example.vetcrud.exception.NotFoundException;
 import com.example.vetcrud.service.OwnerService;
-<<<<<<< HEAD
 import com.sun.media.sound.InvalidDataException;
-=======
->>>>>>> 2e9fd3d13785c741d87e3c001bb133b2d74ef9a4
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

@@ -11,11 +11,10 @@ import com.example.vetcrud.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-import static com.example.vetcrud.utils.Constants.*;
+import static com.example.vetcrud.utils.Constants.EMPTY_PET_LIST;
+import static com.example.vetcrud.utils.Constants.NOT_FOUND_PET;
 
 @Service
 public class PetServiceImpl implements PetService {
@@ -62,7 +61,7 @@ public class PetServiceImpl implements PetService {
             petDTO.setId(id);
             return petMapper.petToDTO(petDAO.save(petMapper.petDTOToPet(petDTO)));
         } else {
-            throw new NotFoundException(NOT_FOUND_OWNER);
+            throw new NotFoundException(NOT_FOUND_PET);
         }
     }
 

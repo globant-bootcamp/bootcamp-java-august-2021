@@ -33,7 +33,7 @@ public class Pet implements Serializable {
     @Column(name = "race", nullable = false)
     private String race;
 
-    @Column(name = "isVaccinated", nullable = false)
+    @Column(name = "is_vaccinated", nullable = false)
     private Boolean isVaccinated;
 
     @ManyToOne(fetch = FetchType.EAGER)
