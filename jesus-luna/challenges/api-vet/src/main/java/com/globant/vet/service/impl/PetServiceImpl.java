@@ -13,7 +13,6 @@ import com.globant.vet.dto.CustomerInfo;
 import com.globant.vet.dto.PetDTO;
 import com.globant.vet.dto.PetInfo;
 import com.globant.vet.dto.PetInfoWithCompleteOwner;
-import com.globant.vet.exception.EntityNotFound;
 import com.globant.vet.model.Customer;
 import com.globant.vet.model.Pet;
 import com.globant.vet.repository.CustomerRepository;
@@ -23,10 +22,8 @@ import com.globant.vet.util.GeneralUtil;
 import com.globant.vet.util.ValidatorUtils;
 import com.globant.vet.util.constants.Constants;
 
-import lombok.extern.slf4j.Slf4j;
 
 @Service
-@Slf4j
 public class PetServiceImpl implements PetService {
 	
 	@Autowired
@@ -57,10 +54,7 @@ public class PetServiceImpl implements PetService {
 	@Override
 	public PetInfoWithCompleteOwner getPetById(int id) {
 		Optional<Pet> optionalPet = petRepository.findById(id);
-		if(optionalPet.isEmpty()) {
-			throw new EntityNotFound(String.format(Constants.PET_NOT_FOUND, id));
-		}
-		Pet pet = optionalPet.get();
+		Pet pet = validatorUtil.validateExistancePet(optionalPet, id);
 		return getPetWithOwner(pet);
 	}
 	
@@ -96,17 +90,18 @@ public class PetServiceImpl implements PetService {
 
 	@Override
 	public String deletePetById(int id) {
-		return null;
+		Optional<Pet> optionalPet = petRepository.findById(id);
+		validatorUtil.validateExistancePet(optionalPet, id);
+		petRepository.deleteById(id);
+		return Constants.PET_DELETED;
 	}
 
 	@Override
 	public PetInfo updatePet(PetInfo petInfo, int id) {
 		Optional<Pet> optionalPet = petRepository.findById(id);
-		if(optionalPet.isEmpty()) {
-			throw new EntityNotFound(String.format(Constants.PET_NOT_FOUND, id));
-		}
-		Pet petToUpdate = generalUtil.overridePetWithPetInfo(optionalPet.get(), petInfo);
-		Pet updatedPet = petRepository.save(petToUpdate);
+		Pet petDb = validatorUtil.validateExistancePet(optionalPet, id);
+		Pet petOverrided = generalUtil.overridePetWithPetInfo(petDb, petInfo);
+		Pet updatedPet = petRepository.save(petOverrided);
 		return petConverter.petToPetInfo(updatedPet);
 	}
 
