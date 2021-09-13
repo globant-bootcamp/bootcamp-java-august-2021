@@ -3,12 +3,12 @@ package com.oswaldo.vetpatitas.service.impl;
 import com.oswaldo.vetpatitas.dao.PetDAO;
 import com.oswaldo.vetpatitas.dto.PetDTO;
 import com.oswaldo.vetpatitas.entity.Pet;
+import com.oswaldo.vetpatitas.exception.RecordAlreadyExistsException;
+import com.oswaldo.vetpatitas.exception.RecordNotFoundException;
 import com.oswaldo.vetpatitas.mapper.PetMapper;
 import com.oswaldo.vetpatitas.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -32,7 +32,7 @@ public class PetServiceImpl implements PetService {
         if (petDTO.getId() != null){
             optionalPet = petDAO.findById(petDTO.getId());
             if (optionalPet.isPresent()){
-                throw new ResponseStatusException(HttpStatus.CONFLICT, PET_ALREADY_EXISTS);
+                throw new RecordAlreadyExistsException(PET_ALREADY_EXISTS);
             }else{
                 return savePetDTO(petDTO);
             }
@@ -68,7 +68,7 @@ public class PetServiceImpl implements PetService {
             petDTO.setId(id);
             return petMapper.petEntityToPetDTO(petDAO.save(petMapper.petDTOToEntity(petDTO)));
         } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, PET_NOT_FOUND);
+            throw new RecordNotFoundException(PET_NOT_FOUND);
         }
     }
 
@@ -78,7 +78,7 @@ public class PetServiceImpl implements PetService {
         if (optionalPet.isPresent()) {
             petDAO.delete(optionalPet.get());
         } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, PET_NOT_FOUND);
+            throw new RecordNotFoundException(PET_NOT_FOUND);
         }
     }
 }

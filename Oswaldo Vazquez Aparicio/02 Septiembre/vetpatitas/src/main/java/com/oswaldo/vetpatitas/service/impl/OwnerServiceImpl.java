@@ -6,13 +6,13 @@ import com.oswaldo.vetpatitas.dto.OwnerDTO;
 import com.oswaldo.vetpatitas.dto.PetDTO;
 import com.oswaldo.vetpatitas.entity.Owner;
 import com.oswaldo.vetpatitas.entity.Pet;
+import com.oswaldo.vetpatitas.exception.RecordAlreadyExistsException;
+import com.oswaldo.vetpatitas.exception.RecordNotFoundException;
 import com.oswaldo.vetpatitas.mapper.OwnerMapper;
 import com.oswaldo.vetpatitas.mapper.PetMapper;
 import com.oswaldo.vetpatitas.service.OwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -40,7 +40,7 @@ public class OwnerServiceImpl implements OwnerService {
         if (ownerDTO.getId() != null){
             optionalOwner = ownerDAO.findById(ownerDTO.getId());
             if (optionalOwner.isPresent()){
-                throw new ResponseStatusException(HttpStatus.CONFLICT, OWNER_ALREADY_EXISTS);
+                throw new RecordAlreadyExistsException(OWNER_ALREADY_EXISTS);
             }else{
                 return saveOwnerDTO(ownerDTO);
             }
@@ -78,7 +78,7 @@ public class OwnerServiceImpl implements OwnerService {
             owner.setPetList(ownerOptional.get().getPetList());
             return ownerMapper.ownerEntityToOwnerDTO(ownerDAO.save(owner));
         }else{
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, OWNER_NOT_FOUND);
+            throw new RecordNotFoundException(OWNER_NOT_FOUND);
         }
     }
 
@@ -88,7 +88,7 @@ public class OwnerServiceImpl implements OwnerService {
         if (ownerOptional.isPresent()){
             ownerDAO.delete(ownerOptional.get());
         }else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, OWNER_NOT_FOUND);
+            throw new RecordNotFoundException(OWNER_NOT_FOUND);
         }
     }
 
@@ -101,7 +101,7 @@ public class OwnerServiceImpl implements OwnerService {
             owner.getPetList().add(pet);
             return ownerMapper.ownerEntityToOwnerDTO(ownerDAO.save(owner));
         } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, OWNER_NOT_FOUND);
+            throw new RecordNotFoundException(OWNER_NOT_FOUND);
         }
     }
 
