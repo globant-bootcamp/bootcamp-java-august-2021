@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -63,7 +64,8 @@ public class VetControllerImpl implements VetController {
 
 	@Override
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ResponseDTO<PetInfo>> createPet(PetInfo newPet) {
+	public ResponseEntity<ResponseDTO<PetInfoWithCompleteOwner>> createPet(@RequestBody PetInfoWithCompleteOwner newPet) {
+		petService.createPet(newPet);
 		return null;
 	}
 
