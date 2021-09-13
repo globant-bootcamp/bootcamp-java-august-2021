@@ -8,7 +8,6 @@ import com.globant.vet.dto.CustomerInfo;
 import com.globant.vet.exception.EntityNotFound;
 import com.globant.vet.exception.InputMismatchException;
 import com.globant.vet.model.Customer;
-import com.globant.vet.model.Pet;
 import com.globant.vet.util.constants.Constants;
 
 @Component
