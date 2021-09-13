@@ -25,7 +25,7 @@ public class PetConverter {
 		return pet;
 	}
 	
-	public static PetInfo petToPetInfo(Pet pet) {
+	public PetInfo petToPetInfo(Pet pet) {
 		return PetInfo.builder()
 			.age(pet.getAge())
 			.meeting(pet.getMeeting())
@@ -45,6 +45,6 @@ public class PetConverter {
 	}
 	
 	public List<PetInfo> petsToPetsInfo(List<Pet> pets){
-		return pets.stream().map(PetConverter::petToPetInfo).collect(Collectors.toList());
+		return pets.stream().map(pet->petToPetInfo(pet)).collect(Collectors.toList());
 	}
 }
