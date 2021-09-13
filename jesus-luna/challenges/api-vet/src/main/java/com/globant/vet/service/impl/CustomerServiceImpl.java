@@ -17,6 +17,7 @@ import com.globant.vet.dto.PetInfo;
 import com.globant.vet.model.Customer;
 import com.globant.vet.repository.CustomerRepository;
 import com.globant.vet.service.CustomerService;
+import com.globant.vet.util.GeneralUtil;
 import com.globant.vet.util.ValidatorUtils;
 import com.globant.vet.util.constants.Constants;
 
@@ -28,6 +29,9 @@ public class CustomerServiceImpl implements CustomerService {
 	
 	@Autowired
 	private ValidatorUtils validatorUtil;
+	
+	@Autowired
+	private GeneralUtil generalUtil;
 	
 	@Autowired
 	private PetConverter petConverter;
@@ -59,7 +63,11 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public CustomerInfo updateCustomer(int customerId, CustomerInfo newCustomer) {
-		return null;
+		Optional<Customer> findById = customerRepo.findById(customerId);
+		Customer customerDb = validatorUtil.validateExistance(findById, customerId, Constants.CUSTOMER_NOT_FOUND);
+		Customer customerOverrided = generalUtil.overrideCustomerWithCustomerInfo(customerDb, newCustomer);
+		Customer updatedCustomer = customerRepo.save(customerOverrided);
+		return customerConverter.customerToCustomerInfo(updatedCustomer);
 	}
 
 	@Override
