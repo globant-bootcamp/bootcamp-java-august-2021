@@ -1,5 +1,6 @@
 package com.veterinary.mapper;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -37,6 +38,8 @@ public class CustomerMapperTest {
 		CustomerDTO response = customerMapper.entityToCustomerDTO(customerEntity);
 
 		assertNotNull(response);
+		assertEquals(response, customerDTO);
+		assertEquals(response.getId(), customerDTO.getId());
 
 		Mockito.verify(customerMapper, Mockito.times(1)).entityToCustomerDTO(customerEntity);
 	}
@@ -61,6 +64,8 @@ public class CustomerMapperTest {
 		Customer response = customerMapper.customerDTOToEntity(customerDTO);
 
 		assertNotNull(response);
+		assertEquals(response, customerEntity);
+		assertEquals(response.getId(), customerEntity.getId());
 
 		Mockito.verify(customerMapper, Mockito.times(1)).customerDTOToEntity(customerDTO);
 	}

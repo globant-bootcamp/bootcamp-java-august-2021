@@ -1,5 +1,6 @@
 package com.veterinary.mapper;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
@@ -39,6 +40,8 @@ public class AnimalMapperTest {
 		AnimalDTO response = animalMapper.entityToAnimalDTO(animalEntity);
 
 		assertNotNull(response);
+		assertEquals(response, animalDTO);
+		assertEquals(response.getId(), animalDTO.getId());
 
 		Mockito.verify(animalMapper, times(1)).entityToAnimalDTO(animalEntity);
 	}
@@ -63,6 +66,8 @@ public class AnimalMapperTest {
 		Animal response = animalMapper.animalDTOToEntity(animalDTO);
 
 		assertNotNull(response);
+		assertEquals(response, animalEntity);
+		assertEquals(response.getId(), animalEntity.getId());
 
 		Mockito.verify(animalMapper, times(1)).animalDTOToEntity(animalDTO);
 	}

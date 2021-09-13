@@ -36,6 +36,12 @@ public class AnimalServiceImpTest {
 	@Test
 	public void getAllPetsTest_WhenWeGetAllPets_Ok() {
 
+		Animal animalRequest = new Animal();
+		animalRequest.setId(1L);
+		animalRequest.setName("firulais");
+		animalRequest.setType("cat");
+		animalRequest.setAge(2);
+
 		Animal animalResponse = new Animal();
 		animalResponse.setId(1L);
 		animalResponse.setName("firulais");
@@ -50,6 +56,9 @@ public class AnimalServiceImpTest {
 		List<Animal> response = animalService.getAllPets();
 
 		assertNotNull(response);
+		assertEquals(response.get(0).getId(), animalRequest.getId());
+
+		Mockito.verify(animalRepository, Mockito.times(1)).findAll();
 
 	}
 
