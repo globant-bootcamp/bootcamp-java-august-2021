@@ -10,4 +10,5 @@ public class Constants {
 	public static final String PET_CREATED_WITH_ID = "Pet created with id: %d";
 	public static final String CUSTOMER_INFO_DIDNT_MATCH = "The provided customer info data, didnt match with th customer stored with that id";
 	public static final String PET_UPDATE = "Pet was updated with the provided info";
+	public static final String PET_DELETED = "Pet was deleted";
 }
