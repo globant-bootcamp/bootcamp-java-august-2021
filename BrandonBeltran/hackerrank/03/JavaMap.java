@@ -8,7 +8,7 @@ public class JavaMap {
 
     public static void main(String[] args) {
 
-        Map<String, Integer> phoneBook = new HashMap<>();
+        Map<String, Integer> phoneBookMap = new HashMap<>();
 
         Scanner scanner = new Scanner(System.in);
         int queries = Integer.parseInt(scanner.nextLine());
@@ -16,14 +16,14 @@ public class JavaMap {
 
             String name = scanner.nextLine();
             int number = Integer.parseInt(scanner.nextLine());
-            phoneBook.put(name, number);
+            phoneBookMap.put(name, number);
 
         }
 
         while(scanner.hasNext()){
             String query = scanner.nextLine();
-            if(phoneBook.containsKey(query)){
-                int number = phoneBook.get(query);
+            if(phoneBookMap.containsKey(query)){
+                int number = phoneBookMap.get(query);
                 System.out.printf("%s=%d%n",query,number);
             }else{
                 System.out.println("Not found");
