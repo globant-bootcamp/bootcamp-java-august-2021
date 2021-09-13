@@ -2,6 +2,7 @@ package com.globant.vet.controller.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,15 +19,28 @@ import com.globant.vet.dto.CustomerDTO;
 import com.globant.vet.dto.CustomerInfo;
 import com.globant.vet.dto.CustomerInfoWithPets;
 import com.globant.vet.dto.ResponseDTO;
+import com.globant.vet.dto.ResponseDTO.ResponseDTOBuilder;
+import com.globant.vet.service.CustomerService;
+import com.globant.vet.util.constants.Constants;
+import com.globant.vet.util.constants.ResponseConstants;
 
 @RestController
 @RequestMapping("/customers")
 public class CutomerControllerImpl implements CustomerController {
+	
+	@Autowired
+	private CustomerService customerService;
 
 	@Override
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<ResponseDTO<CustomerInfoWithPets>> getCustomer(@PathVariable(name = "id") int customerId) {
-		return null;
+		ResponseDTOBuilder<CustomerInfoWithPets> builder = ResponseDTO.builder();
+		ResponseDTO<CustomerInfoWithPets> response = builder
+				.content(customerService.getCustomer(customerId))
+				.message(String.format(Constants.CUSTOMER_FOUND_WITH_ID, customerId))
+				.status(ResponseConstants.SUCCESS)
+				.build();
+		return ResponseEntity.ok().body(response);
 	}
 
 	@Override
