@@ -4,11 +4,16 @@ import com.example.vetpatitas.dto.ResponseDTO;
 import com.example.vetpatitas.dto.UserDTO;
 import com.example.vetpatitas.service.UserService;
 import com.example.vetpatitas.utils.Constants;
+import com.sun.media.sound.InvalidDataException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import static com.example.vetpatitas.utils.Constants.ResponseConstants.USER_ADDED_SUCCESSFULLY;
 import static com.example.vetpatitas.utils.Constants.ResponseConstants.VALIDATION_USER_BOOTCAMP;
@@ -32,7 +37,7 @@ public class UserController {
     }
 
     @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResponseDTO<UserDTO>> addUser(@RequestBody UserDTO userDTO){
+    public ResponseEntity<ResponseDTO<UserDTO>> addUser(@RequestBody UserDTO userDTO) throws InvalidDataException {
         ResponseDTO responseDTO= new ResponseDTO(Constants.ResponseConstants.SUCCESS, USER_ADDED_SUCCESSFULLY, userService.addUser(userDTO));
         return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
     }

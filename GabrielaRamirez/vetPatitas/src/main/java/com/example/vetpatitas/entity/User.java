@@ -1,17 +1,25 @@
 package com.example.vetpatitas.entity;
 
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
 
 @Entity
 @Table(name = "pet_table")
 public class User {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column (name = "name")
+    @Column(name = "name")
     private String name;
 
     @Column (name = "species")
@@ -27,7 +35,7 @@ public class User {
     private String owner;
 
     @Column (name = "telephone")
-    private long telephone;
+    private Long telephone;
 
     public Long getId() {
         return id;

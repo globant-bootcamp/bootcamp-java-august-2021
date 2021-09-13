@@ -7,7 +7,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserMapper {
 
-    public User UserDTOEntity(UserDTO userDTO){
+    public User userDTOEntity(UserDTO userDTO){
+
         User user = new User();
 
         user.setName(userDTO.getName());

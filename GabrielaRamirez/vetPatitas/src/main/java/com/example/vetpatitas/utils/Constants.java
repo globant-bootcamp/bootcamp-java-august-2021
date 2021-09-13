@@ -17,6 +17,7 @@ public class Constants {
 
         public static final String VALIDATION_USER_BOOTCAMP= "The user was validated successfully";
         public static final String USER_ADDED_SUCCESSFULLY= "The user was added successfully";
+        public static final String INVALID_USER_AGE= "Invalid user age";
         public static final String POSITIVE = "POSITIVE";
     }
 }
