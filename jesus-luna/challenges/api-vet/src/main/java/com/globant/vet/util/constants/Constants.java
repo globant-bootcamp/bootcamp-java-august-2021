@@ -16,4 +16,5 @@ public class Constants {
 	
 	public static final String CUSTOMER_FOUND_WITH_ID = "Customer corresponding to id: %d";
 	public static final String CUSTOMER_NOT_FOUND = "None customer have been found with id: %d";
+	public static final String CUSTOMER_CREATED_WITH_ID = "Customer created with id: %d";
 }
