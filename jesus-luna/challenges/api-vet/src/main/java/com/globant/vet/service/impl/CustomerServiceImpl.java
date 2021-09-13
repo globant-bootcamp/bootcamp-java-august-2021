@@ -78,8 +78,10 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public String deleteCustomer(int customerId) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Customer> findById = customerRepo.findById(customerId);
+		validatorUtil.validateExistance(findById, customerId, Constants.CUSTOMER_NOT_FOUND);
+		customerRepo.deleteById(customerId);
+		return Constants.CUSTOMER_DELETED;
 	}
 
 }
