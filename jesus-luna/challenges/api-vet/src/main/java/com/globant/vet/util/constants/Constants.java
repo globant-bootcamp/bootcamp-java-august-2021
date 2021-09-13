@@ -7,4 +7,6 @@ public class Constants {
 	public static final String PROPERTY_NOT_FOUND = "Property key not found, unable to start application";
 	public static final String PET_WITH_ID = "Pet corresponding to id: %d";
 	public static final String PET_NOT_FOUND = "None pet have been found with id: %d";
+	public static final String PET_CREATED_WITH_ID = "Pet created with id: %d";
+	public static final String CUSTOMER_INFO_DIDNT_MATCH = "The provided customer info data, didnt match with th customer stored with that id";
 }
