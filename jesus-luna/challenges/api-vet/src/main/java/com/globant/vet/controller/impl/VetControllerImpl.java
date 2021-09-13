@@ -65,8 +65,14 @@ public class VetControllerImpl implements VetController {
 	@Override
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ResponseDTO<PetInfoWithCompleteOwner>> createPet(@RequestBody PetInfoWithCompleteOwner newPet) {
-		petService.createPet(newPet);
-		return null;
+		PetDTO<PetInfoWithCompleteOwner> petDtoCreated = petService.createPet(newPet);
+		ResponseDTOBuilder<PetInfoWithCompleteOwner> builder = ResponseDTO.builder();
+		ResponseDTO<PetInfoWithCompleteOwner> response = builder
+				.content(petDtoCreated.getPet())
+				.message(String.format(Constants.PET_CREATED_WITH_ID, petDtoCreated.getId()))
+				.status(ResponseConstants.SUCCESS)
+				.build();
+		return ResponseEntity.ok().body(response);
 	}
 
 	@Override
