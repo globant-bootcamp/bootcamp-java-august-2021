@@ -1,6 +1,5 @@
 package com.globant.vet.service.impl;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -20,6 +19,7 @@ import com.globant.vet.model.Pet;
 import com.globant.vet.repository.CustomerRepository;
 import com.globant.vet.repository.PetRepository;
 import com.globant.vet.service.PetService;
+import com.globant.vet.util.GeneralUtil;
 import com.globant.vet.util.ValidatorUtils;
 import com.globant.vet.util.constants.Constants;
 
@@ -44,7 +44,10 @@ public class PetServiceImpl implements PetService {
 	@Autowired
 	private ValidatorUtils validatorUtil;
 	
-	public PetInfoWithCompleteOwner getPetWithOwner(Pet pet) {
+	@Autowired
+	private GeneralUtil generalUtil;
+	
+	private PetInfoWithCompleteOwner getPetWithOwner(Pet pet) {
 		Customer owner = pet.getOwner();
 		CustomerInfo customerInfo = customerConverter.customerToCustomerInfo(owner);
 		CustomerDTO<CustomerInfo> customerDTO = customerConverter.customerInfoToCustomerDTO(owner.getId(), customerInfo);
@@ -98,7 +101,13 @@ public class PetServiceImpl implements PetService {
 
 	@Override
 	public PetInfo updatePet(PetInfo petInfo, int id) {
-		return null;
+		Optional<Pet> optionalPet = petRepository.findById(id);
+		if(optionalPet.isEmpty()) {
+			throw new EntityNotFound(String.format(Constants.PET_NOT_FOUND, id));
+		}
+		Pet petToUpdate = generalUtil.overridePetWithPetInfo(optionalPet.get(), petInfo);
+		Pet updatedPet = petRepository.save(petToUpdate);
+		return petConverter.petToPetInfo(updatedPet);
 	}
 
 }
