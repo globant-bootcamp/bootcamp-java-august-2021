@@ -83,7 +83,13 @@ public class CutomerControllerImpl implements CustomerController {
 	@Override
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<ResponseDTO<String>> deleteCustomer(@PathVariable(name = "id") int customerId) {
-		return null;
+		ResponseDTOBuilder<String> builder = ResponseDTO.builder();
+		ResponseDTO<String> response = builder
+				.content(customerService.deleteCustomer(customerId))
+				.status(ResponseConstants.SUCCESS)
+				.message(ResponseConstants.SUCCESS.getDescription())
+				.build();
+		return ResponseEntity.ok().body(response);
 	}
 
 }
