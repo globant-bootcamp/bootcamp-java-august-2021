@@ -2,6 +2,7 @@ package com.globant.vet.service.impl;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,6 @@ import com.globant.vet.dto.CustomerInfoWithPets;
 import com.globant.vet.dto.PetDTO;
 import com.globant.vet.dto.PetInfo;
 import com.globant.vet.model.Customer;
-import com.globant.vet.model.Pet;
 import com.globant.vet.repository.CustomerRepository;
 import com.globant.vet.service.CustomerService;
 import com.globant.vet.util.ValidatorUtils;
@@ -51,7 +51,10 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public List<CustomerDTO<CustomerInfoWithPets>> getCustomers() {
-		return null;
+		List<Customer> customers = customerRepo.findAll();
+		return customers.stream()
+				.map(customer->customerConverter.customerInfoWithPetsToCustomerDTO(customer.getId(), getCustomerWithPets(customer)))
+				.collect(Collectors.toList());
 	}
 
 	@Override
