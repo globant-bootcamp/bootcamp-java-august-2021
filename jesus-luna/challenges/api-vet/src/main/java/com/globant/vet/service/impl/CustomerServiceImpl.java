@@ -63,8 +63,9 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public CustomerInfo createCustomer(CustomerInfo newCustomer) {
-		return null;
+	public CustomerDTO<CustomerInfo> createCustomer(CustomerInfo newCustomer) {
+		Customer customerStored = customerRepo.save(customerConverter.customerInfoToCostumer(newCustomer));
+		return new CustomerDTO<>(customerStored.getId(), customerConverter.customerToCustomerInfo(customerStored));
 	}
 
 	@Override
