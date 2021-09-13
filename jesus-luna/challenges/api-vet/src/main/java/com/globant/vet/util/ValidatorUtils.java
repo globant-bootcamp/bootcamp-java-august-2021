@@ -20,10 +20,10 @@ public class ValidatorUtils {
 		return customerDb;
 	}
 	
-	public Pet validateExistancePet(Optional<Pet> optionalPet, int id) {
-		if(optionalPet.isEmpty()) {
-			throw new EntityNotFound(String.format(Constants.PET_NOT_FOUND, id));
+	public <T extends Object> T validateExistance(Optional<T> optionalObject, int id, String exception){
+		if(optionalObject.isEmpty()) {
+			throw new EntityNotFound(String.format(exception, id));
 		}
-		return optionalPet.get();
+		return optionalObject.get();
 	}
 }
