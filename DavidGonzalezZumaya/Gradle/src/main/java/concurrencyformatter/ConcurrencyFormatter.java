@@ -1,4 +1,4 @@
-package ConcurrencyFormatter;
+package concurrencyformatter;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.chainsaw.Main;

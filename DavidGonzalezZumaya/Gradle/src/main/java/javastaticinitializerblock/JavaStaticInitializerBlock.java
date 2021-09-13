@@ -1,4 +1,4 @@
-package JavaStaticInitializerBlock;
+package javastaticinitializerblock;
 
 import org.apache.log4j.Logger;
 
@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class JavaStaticInitializerBlock {
 
-    static final String EXCEPTION_MESSAGE = "java.lang.Exception: Breadth and height must be positive";
+    static final String NUMBER_MUST_BE_POSITIVE_EXCEPTION = "java.lang.Exception: Breadth and height must be positive";
     static final String LOGGER_MESSAGE = "Static Initializer Log";
 
     private static final Logger logger = Logger.getLogger(LOGGER_MESSAGE);
@@ -19,7 +19,7 @@ public class JavaStaticInitializerBlock {
         try {
             if (breadth <= 0 || height <= 0) {
                 flag = false;
-                throw new Exception(EXCEPTION_MESSAGE);
+                throw new Exception(NUMBER_MUST_BE_POSITIVE_EXCEPTION);
             }
         } catch (Exception e) {
             logger.error(e.getMessage());

@@ -1,4 +1,4 @@
-package JavaIntToString;
+package javainttostring;
 
 import java.security.Permission;
 
