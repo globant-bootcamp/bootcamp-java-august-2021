@@ -8,14 +8,14 @@ public class RandomNoteSolve {
 
     public static void checkMagazine(List<String> magazine, List<String> note) {
 
-        Map<String, Integer> magazineWords = wordsToHashMap(magazine);
-        Map<String, Integer> noteWords = wordsToHashMap(note);
+        Map<String, Integer> magazineWordsMap = wordsToHashMap(magazine);
+        Map<String, Integer> noteWordMap = wordsToHashMap(note);
 
         String doable = "Yes";
 
-        for(String word: noteWords.keySet()){
-            if(magazineWords.containsKey((word)) && magazineWords.get(word) >= noteWords.get(word)){
-                magazineWords.put(word, magazineWords.get(word)-noteWords.get(word));
+        for(String word: noteWordMap.keySet()){
+            if(magazineWordsMap.containsKey((word)) && magazineWordsMap.get(word) >= noteWordMap.get(word)){
+                magazineWordsMap.put(word, magazineWordsMap.get(word)-noteWordMap.get(word));
             }else{
                 doable = "No";
                 break;
@@ -25,8 +25,8 @@ public class RandomNoteSolve {
         System.out.println(doable);
     }
 
-    public static HashMap<String, Integer> wordsToHashMap(List<String> wordsList){
-        HashMap<String, Integer> convertedList = new HashMap<>();
+    public static Map<String, Integer> wordsToHashMap(List<String> wordsList){
+        Map<String, Integer> convertedList = new HashMap<>();
         for(String word: wordsList){
             if(convertedList.containsKey(word)){
                 convertedList.replace(word, convertedList.get(word)+1);
