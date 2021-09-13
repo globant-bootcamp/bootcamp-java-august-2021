@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class StringReverseServiceImpl implements StringReverseService {
 
     @Override
-    public StringReverseDTO Solution(StringReverseDTO stringReverseDTO) {
+    public StringReverseDTO solution(StringReverseDTO stringReverseDTO) {
         StringBuilder inputStringReverse = new StringBuilder();
 
         for (int i = stringReverseDTO.getWordToEvaluate().length() - 1; i >= 0; i --) {

@@ -21,29 +21,29 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("hackerrank")
 public class HackerrankController {
     @Autowired
-    StringReverseService stringReverseService;
+    private StringReverseService stringReverseService;
 
     @Autowired
-    AnagramsService anagramsService;
+    private AnagramsService anagramsService;
 
     @Autowired
-    PatternSyntaxCheckerService patternSyntaxCheckerService;
+    private PatternSyntaxCheckerService patternSyntaxCheckerService;
 
     @PostMapping(path = "stringReverse", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseDTO<StringReverseDTO>> getIsPalindrome(@RequestBody StringReverseDTO stringReverseDTO) {
-        ResponseDTO responseDTO = new ResponseDTO(Constants.ResponseConstants.SUCCESS, stringReverseService.Solution(stringReverseDTO));
+        ResponseDTO responseDTO = new ResponseDTO(Constants.ResponseConstants.SUCCESS, stringReverseService.solution(stringReverseDTO));
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
     @PostMapping(path = "anagrams", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseDTO<AnagramsDTO>> getIsAnagram(@RequestBody AnagramsDTO anagramsDTO) {
-        ResponseDTO responseDTO = new ResponseDTO(Constants.ResponseConstants.SUCCESS, anagramsService.Solution(anagramsDTO));
+        ResponseDTO responseDTO = new ResponseDTO(Constants.ResponseConstants.SUCCESS, anagramsService.solution(anagramsDTO));
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
     @PostMapping(path = "patternSyntaxChecker", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseDTO<PatternSyntaxCheckerDTO>> getIsValidPattern(@RequestBody PatternSyntaxCheckerDTO patternSyntaxCheckerDTO) {
-        ResponseDTO responseDTO = new ResponseDTO(Constants.ResponseConstants.SUCCESS, patternSyntaxCheckerService.Solution(patternSyntaxCheckerDTO));
+        ResponseDTO responseDTO = new ResponseDTO(Constants.ResponseConstants.SUCCESS, patternSyntaxCheckerService.solution(patternSyntaxCheckerDTO));
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 }

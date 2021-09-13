@@ -13,7 +13,7 @@ import java.util.regex.PatternSyntaxException;
 public class PatternSyntaxCheckerServiceImpl implements PatternSyntaxCheckerService {
 
     @Override
-    public PatternSyntaxCheckerDTO Solution(PatternSyntaxCheckerDTO patternSyntaxCheckerDTO) {
+    public PatternSyntaxCheckerDTO solution(PatternSyntaxCheckerDTO patternSyntaxCheckerDTO) {
         List<String> results = new ArrayList<String>();
 
         for (String pattern: patternSyntaxCheckerDTO.getPatterns()) {
@@ -25,7 +25,7 @@ public class PatternSyntaxCheckerServiceImpl implements PatternSyntaxCheckerServ
             }
         };
 
-        patternSyntaxCheckerDTO.setIsValidPattern(results.toArray(new String[0]));
+        patternSyntaxCheckerDTO.setValidationPattern(results.toArray(new String[0]));
         return patternSyntaxCheckerDTO;
     }
 

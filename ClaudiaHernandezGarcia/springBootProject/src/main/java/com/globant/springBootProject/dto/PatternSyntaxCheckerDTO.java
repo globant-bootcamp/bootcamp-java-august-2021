@@ -21,11 +21,11 @@ public class PatternSyntaxCheckerDTO {
         this.patterns = patterns;
     }
 
-    public String[] getIsValidPattern() {
+    public String[] getValidationPattern() {
         return isValidPattern;
     }
 
-    public void setIsValidPattern(String[] isValidPattern) {
+    public void setValidationPattern(String[] isValidPattern) {
         this.isValidPattern = isValidPattern;
     }
 }

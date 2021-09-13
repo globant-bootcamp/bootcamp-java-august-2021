@@ -11,7 +11,7 @@ import java.util.Map;
 public class AnagramsServiceImpl implements AnagramsService {
 
     @Override
-    public AnagramsDTO Solution(AnagramsDTO anagramsDTO) {
+    public AnagramsDTO solution(AnagramsDTO anagramsDTO) {
         char[] line1Array = anagramsDTO.getLine1().toCharArray();
         char[] line2Array = anagramsDTO.getLine2().toCharArray();
         Map<Character, Integer> lettersFromMLine1 = getHashMap(line1Array);
