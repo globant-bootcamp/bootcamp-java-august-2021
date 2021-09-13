@@ -54,7 +54,7 @@ public class PetServiceImpl implements PetService {
 	@Override
 	public PetInfoWithCompleteOwner getPetById(int id) {
 		Optional<Pet> optionalPet = petRepository.findById(id);
-		Pet pet = validatorUtil.validateExistancePet(optionalPet, id);
+		Pet pet = validatorUtil.validateExistance(optionalPet, id, Constants.PET_NOT_FOUND);
 		return getPetWithOwner(pet);
 	}
 	
@@ -91,7 +91,7 @@ public class PetServiceImpl implements PetService {
 	@Override
 	public String deletePetById(int id) {
 		Optional<Pet> optionalPet = petRepository.findById(id);
-		validatorUtil.validateExistancePet(optionalPet, id);
+		validatorUtil.validateExistance(optionalPet, id, Constants.PET_NOT_FOUND);
 		petRepository.deleteById(id);
 		return Constants.PET_DELETED;
 	}
@@ -99,7 +99,7 @@ public class PetServiceImpl implements PetService {
 	@Override
 	public PetInfo updatePet(PetInfo petInfo, int id) {
 		Optional<Pet> optionalPet = petRepository.findById(id);
-		Pet petDb = validatorUtil.validateExistancePet(optionalPet, id);
+		Pet petDb = validatorUtil.validateExistance(optionalPet, id, Constants.PET_NOT_FOUND);
 		Pet petOverrided = generalUtil.overridePetWithPetInfo(petDb, petInfo);
 		Pet updatedPet = petRepository.save(petOverrided);
 		return petConverter.petToPetInfo(updatedPet);
