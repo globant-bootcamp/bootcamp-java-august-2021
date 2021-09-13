@@ -20,6 +20,7 @@ import com.globant.vet.model.Pet;
 import com.globant.vet.repository.CustomerRepository;
 import com.globant.vet.repository.PetRepository;
 import com.globant.vet.service.PetService;
+import com.globant.vet.util.ValidatorUtils;
 import com.globant.vet.util.constants.Constants;
 
 import lombok.extern.slf4j.Slf4j;
@@ -39,6 +40,9 @@ public class PetServiceImpl implements PetService {
 	
 	@Autowired
 	private CustomerConverter customerConverter;
+	
+	@Autowired
+	private ValidatorUtils validatorUtil;
 	
 	public PetInfoWithCompleteOwner getPetWithOwner(Pet pet) {
 		Customer owner = pet.getOwner();
@@ -68,23 +72,23 @@ public class PetServiceImpl implements PetService {
 	}
 
 	@Override
-	public PetDTO<PetInfoWithCompleteOwner> createPet(PetInfoWithCompleteOwner petInfoRequest) {
-		CustomerDTO<CustomerInfo> owner = petInfoRequest.getOwner();
+	public PetDTO<PetInfoWithCompleteOwner> createPet(PetInfoWithCompleteOwner petRequest) {
+		CustomerDTO<CustomerInfo> owner = petRequest.getOwner();
 		CustomerInfo customerInfo = owner.getCustomer();
 		int customerId = owner.getId();
 		Optional<Customer> optionalCustomer = customerRepository.findById(customerId);
 		Customer customerDB;
 		if(optionalCustomer.isEmpty()) {
-			customerDB = customerConverter.customerInfoToCostumer(customerId, customerInfo);
+			customerDB = customerConverter.customerInfoToCostumer(customerInfo);
+			customerDB = customerRepository.save(customerDB);
 		}else {
-			customerDB = optionalCustomer.get();
+			customerDB = validatorUtil.validateCustomerRqWithCustomerDB(optionalCustomer.get(), customerInfo);
 		}
-		String name = petInfoRequest.getName();
-		int age = petInfoRequest.getAge();
-		LocalDateTime meeting = petInfoRequest.getMeeting();
-		String type = petInfoRequest.getType();
+		Pet petToStore = petConverter.petInfoWithCompleteOwnertToPetWithOwner(petRequest, customerDB);
+		Pet storedPet = petRepository.save(petToStore);
+		PetInfoWithCompleteOwner petWithOwner = getPetWithOwner(storedPet);
 		
-		return null;
+		return new PetDTO<>(storedPet.getId(), petWithOwner);
 	}
 
 	@Override
