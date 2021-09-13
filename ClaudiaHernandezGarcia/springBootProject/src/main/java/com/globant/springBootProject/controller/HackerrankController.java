@@ -30,13 +30,13 @@ public class HackerrankController {
     private PatternSyntaxCheckerService patternSyntaxCheckerService;
 
     @PostMapping(path = "stringReverse", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResponseDTO<StringReverseDTO>> getIsPalindrome(@RequestBody StringReverseDTO stringReverseDTO) {
+    public ResponseEntity<ResponseDTO<StringReverseDTO>> getPalindrome(@RequestBody StringReverseDTO stringReverseDTO) {
         ResponseDTO responseDTO = new ResponseDTO(Constants.ResponseConstants.SUCCESS, stringReverseService.solution(stringReverseDTO));
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
     @PostMapping(path = "anagrams", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResponseDTO<AnagramsDTO>> getIsAnagram(@RequestBody AnagramsDTO anagramsDTO) {
+    public ResponseEntity<ResponseDTO<AnagramsDTO>> getAnagram(@RequestBody AnagramsDTO anagramsDTO) {
         ResponseDTO responseDTO = new ResponseDTO(Constants.ResponseConstants.SUCCESS, anagramsService.solution(anagramsDTO));
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
