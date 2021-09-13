@@ -26,13 +26,13 @@ import static com.globant.bootcamp.utils.Constants.REGEX_SYNTAX_EVALUATION;
 public class HackerrankController {
 
     @Autowired
-    AnagramService anagramService;
+    private AnagramService anagramService;
 
     @Autowired
-    PalindromeService palindromeService;
+    private PalindromeService palindromeService;
 
     @Autowired
-    PatternSyntaxCheckerService patternSyntaxCheckerService;
+    private PatternSyntaxCheckerService patternSyntaxCheckerService;
 
     @PostMapping(path = "/anagram", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseDTO<AnagramDTO>> getStringsToEvaluate(@RequestBody AnagramDTO anagramDTO) {
