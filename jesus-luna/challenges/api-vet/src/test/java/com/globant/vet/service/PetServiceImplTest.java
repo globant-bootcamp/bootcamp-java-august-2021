@@ -1,12 +1,17 @@
 package com.globant.vet.service;
 
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.globant.vet.converters.CustomerConverter;
@@ -28,6 +33,7 @@ import com.globant.vet.util.ValidatorUtils;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.ArgumentMatchers.any;
 import static org.powermock.api.mockito.PowerMockito.when;
 
 import static com.globant.vet.util.ConstantsTests.AGE_PET;
@@ -64,6 +70,7 @@ public class PetServiceImplTest {
 	@Mock
 	private GeneralUtil generalUtil;
 	
+	
 	@Test
 	public void getPetByIdSucess() {
 		Optional<Pet> optionalPetPresent = PetFactory.createOptionalPetPresent();
@@ -73,16 +80,42 @@ public class PetServiceImplTest {
 		CustomerDTO<CustomerInfo> customerDtoOfCustomerInfo = CustomerFactory.createCustomerDtoOfCustomerInfo();
 		PetInfoWithCompleteOwner petInfoWithCompleteOwner = PetFactory.createPetInfoWithCompleteOwner();
 		
-		when(petRepository.findById(ID_PET)).thenReturn(optionalPetPresent);
-		when(validatorUtil.validateExistance(optionalPetPresent, ID_PET, PET_NOT_FOUND)).thenReturn(petWithIdAndOwner);
-		when(customerConverter.customerToCustomerInfo(customerWithId)).thenReturn(customerInfo);
-		when(customerConverter.customerInfoToCustomerDTO(customerWithId.getId(), customerInfo)).thenReturn(customerDtoOfCustomerInfo);
-		when(petConverter.petToPetInfoWithOwner(petWithIdAndOwner, customerDtoOfCustomerInfo)).thenReturn(petInfoWithCompleteOwner);
+		when(petRepository.findById(any(Integer.class))).thenReturn(optionalPetPresent);
+		when(validatorUtil.validateExistance(ArgumentMatchers.<Optional<Pet>>any(), any(Integer.class), any(String.class))).thenReturn(petWithIdAndOwner);
+		when(customerConverter.customerToCustomerInfo(any(Customer.class))).thenReturn(customerInfo);
+		when(customerConverter.customerInfoToCustomerDTO(any(Integer.class), any(CustomerInfo.class))).thenReturn(customerDtoOfCustomerInfo);
+		when(petConverter.petToPetInfoWithOwner(any(Pet.class), ArgumentMatchers.<CustomerDTO<CustomerInfo>>any())).thenReturn(petInfoWithCompleteOwner);
 		
 		PetInfoWithCompleteOwner petResponse = petService.getPetById(ID_PET);
 		
+		Customer c = new Customer();
+		c.setId(ID_CUSTOMER);
+		c.setName(NAME_CUSTOMER);
+		List<Pet> pets = new ArrayList<>();
+		Pet p = new Pet();
+		p.setAge(AGE_PET);
+		p.setId(ID_PET);
+		p.setMeeting(MEETING_PET);
+		p.setName(NAME_PET);
+		p.setType(TYPE_PET);
+		p.setOwner(c);
+		pets.add(p);
+		c.setPets(pets);
+		
 		assertNotNull(petResponse);
-		verify(customerConverter, times(1)).customerToCustomerInfo(customerWithId);
+		verify(customerConverter, times(1)).customerToCustomerInfo(c);
 	}
 	
+	
+	@Test
+	public void deletePetSucess(){
+		Pet petWithIdAndOwner = PetFactory.createPetWithIdAndOwnerWithId();
+		
+		when(petRepository.findById(any(Integer.class))).thenReturn(Optional.of(petWithIdAndOwner));
+		when(validatorUtil.validateExistance(ArgumentMatchers.<Optional<Pet>>any(), any(Integer.class), any(String.class))).thenReturn(petWithIdAndOwner);
+		
+		String msgPetDeleted = petService.deletePetById(ID_PET);
+		
+		assertNotNull(msgPetDeleted);
+	}	
 }
