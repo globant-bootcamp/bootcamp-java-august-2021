@@ -1,4 +1,4 @@
-package com.bootcamp.vetPatitas.config;
+package com.bootcamp.vetpatitas.config;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
