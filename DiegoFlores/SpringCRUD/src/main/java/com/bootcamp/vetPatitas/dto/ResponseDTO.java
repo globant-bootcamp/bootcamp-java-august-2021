@@ -1,6 +1,6 @@
-package com.bootcamp.vetPatitas.dto;
+package com.bootcamp.vetpatitas.dto;
 
-import com.bootcamp.vetPatitas.utils.Constants.ResponseConstants;
+import com.bootcamp.vetpatitas.utils.Constants.ResponseConstants;
 
 public class ResponseDTO<T> {
 
