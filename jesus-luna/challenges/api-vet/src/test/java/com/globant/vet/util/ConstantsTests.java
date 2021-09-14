@@ -4,7 +4,10 @@ import java.time.LocalDateTime;
 import java.time.Month;
 
 public class ConstantsTests {
-	public static final int ID_PET = 10;
+	public static final int ID_PET_1 = 10;
+	public static final int ID_PET_2 = 11;
+	
+	public static final int ID_PET_NOT_FOUND = 100;
 	public static final String NAME_PET = "Riley";
 	public static final String TYPE_PET = "Canine";
 	public static final int AGE_PET = 1;
@@ -14,5 +17,6 @@ public class ConstantsTests {
 	public static final String NAME_CUSTOMER = "Fulanito";
 	
 	public static final String PET_NOT_FOUND = "None pet have been found with id: %d";
+	public static final String PET_DELETED = "Pet was deleted";
 	
 }
