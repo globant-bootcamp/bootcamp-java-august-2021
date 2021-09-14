@@ -1,6 +1,7 @@
 package com.globant.vet.util;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import com.globant.vet.dto.CustomerDTO;
 import com.globant.vet.dto.CustomerInfo;
@@ -14,6 +15,15 @@ public class CustomerFactory {
 		customer.setId(ConstantsTests.ID_CUSTOMER);
 		customer.setName(ConstantsTests.NAME_CUSTOMER);
 		return customer;
+	}
+	
+	public static Optional<Customer> createOptionalCustomerPresent(){
+		Customer customer = CustomerFactory.createCustomerWitId();
+		return Optional.of(customer);
+	}
+	
+	public static Optional<Customer> createOptionalCustomerNotPresent(){
+		return Optional.empty();
 	}
 	
 	public static Customer createCustomerWithIdAndListPetsWithIds() {

@@ -1,21 +1,10 @@
 package com.globant.vet.service;
 
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import javax.persistence.EntityNotFoundException;
-
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.beans.HasPropertyWithValue;
-import org.hibernate.collection.internal.PersistentBag;
-import org.hibernate.engine.spi.SessionImplementor;
-import org.junit.Assert;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
@@ -27,6 +16,7 @@ import com.globant.vet.converters.PetConverter;
 import com.globant.vet.dto.CustomerDTO;
 import com.globant.vet.dto.CustomerInfo;
 import com.globant.vet.dto.PetDTO;
+import com.globant.vet.dto.PetInfo;
 import com.globant.vet.dto.PetInfoWithCompleteOwner;
 import com.globant.vet.exception.EntityNotFound;
 import com.globant.vet.model.Customer;
@@ -45,10 +35,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -58,15 +46,11 @@ import static org.mockito.ArgumentMatchers.anyString;
 
 import static org.powermock.api.mockito.PowerMockito.when;
 
-import static com.globant.vet.util.ConstantsTests.AGE_PET;
 import static com.globant.vet.util.ConstantsTests.ID_CUSTOMER;
 import static com.globant.vet.util.ConstantsTests.ID_PET_1;
 import static com.globant.vet.util.ConstantsTests.ID_PET_2;
 import static com.globant.vet.util.ConstantsTests.ID_PET_NOT_FOUND;
-import static com.globant.vet.util.ConstantsTests.MEETING_PET;
-import static com.globant.vet.util.ConstantsTests.NAME_CUSTOMER;
 import static com.globant.vet.util.ConstantsTests.NAME_PET;
-import static com.globant.vet.util.ConstantsTests.TYPE_PET;
 import static com.globant.vet.util.ConstantsTests.PET_NOT_FOUND;
 
 
@@ -173,5 +157,101 @@ public class PetServiceImplTest {
 		assertThat(petsDtos.get(0).getId(), is(ID_PET_1));
 		assertThat(petsDtos.get(1).getId(), is(ID_PET_2));
 		assertThat(petsDtos.get(0).getPet().getName(), is(NAME_PET));
+	}
+	
+	@Test
+	public void createPetSuccessAndCreateCustomer() {
+		Optional<Customer> optionalCustomerFromDbNotPresent = CustomerFactory.createOptionalCustomerNotPresent();
+		Customer customerWithOutId = CustomerFactory.createCustomerWitId();
+		customerWithOutId.setId(0);
+		PetInfoWithCompleteOwner petRequest = PetFactory.createPetInfoWithCompleteOwner();
+		Customer customerWithId = CustomerFactory.createCustomerWitId();
+		Pet petToStore = PetFactory.createPetWithIdAndOwnerWithId(0);
+		Pet storedPet = PetFactory.createPetWithIdAndOwnerWithId(ID_PET_1);
+		CustomerInfo customerInfo = CustomerFactory.createCustomerInfo();
+		CustomerDTO<CustomerInfo> customerDTO = CustomerFactory.createCustomerDtoOfCustomerInfo();
+		PetInfoWithCompleteOwner petInfoWithCompleteOwner = PetFactory.createPetInfoWithCompleteOwner();
+		
+		when(customerRepository.findById(anyInt())).thenReturn(optionalCustomerFromDbNotPresent);
+		when(customerConverter.customerInfoToCostumer(any(CustomerInfo.class))).thenReturn(customerWithOutId);
+		when(customerRepository.save(any(Customer.class))).thenReturn(customerWithId);
+		when(petConverter.petInfoWithCompleteOwnertToPetWithOwner(petRequest, customerWithId)).thenReturn(petToStore);
+		when(petRepository.save(any(Pet.class))).thenReturn(storedPet);
+		
+		when(customerConverter.customerToCustomerInfo(any(Customer.class))).thenReturn(customerInfo);
+		when(customerConverter.customerInfoToCustomerDTO(anyInt(), any(CustomerInfo.class))).thenReturn(customerDTO);
+		when(petConverter.petToPetInfoWithOwner(any(Pet.class), ArgumentMatchers.<CustomerDTO<CustomerInfo>>any())).thenReturn(petInfoWithCompleteOwner);
+		
+		PetDTO<PetInfoWithCompleteOwner> response = petService.createPet(petRequest);
+		
+		assertNotNull(response);
+		assertThat(response.getId(), is(storedPet.getId()));
+		assertEquals(response.getPet().getMeeting(), storedPet.getMeeting());
+	}
+	
+	@Test
+	public void createPetSuccessDontCreateCustomer() {
+		Optional<Customer> optionalCustomerFromDbPresent = CustomerFactory.createOptionalCustomerPresent();
+		Customer customerWithId = CustomerFactory.createCustomerWitId();
+		
+		PetInfoWithCompleteOwner petRequest = PetFactory.createPetInfoWithCompleteOwner();
+		
+		Pet petToStore = PetFactory.createPetWithIdAndOwnerWithId(0);
+		Pet storedPet = PetFactory.createPetWithIdAndOwnerWithId(ID_PET_1);
+		CustomerInfo customerInfo = CustomerFactory.createCustomerInfo();
+		CustomerDTO<CustomerInfo> customerDTO = CustomerFactory.createCustomerDtoOfCustomerInfo();
+		PetInfoWithCompleteOwner petInfoWithCompleteOwner = PetFactory.createPetInfoWithCompleteOwner();
+		
+		when(customerRepository.findById(anyInt())).thenReturn(optionalCustomerFromDbPresent);
+		when(validatorUtil.validateCustomerRqWithCustomerDB(any(Customer.class),any(CustomerInfo.class))).thenReturn(customerWithId);
+		when(petConverter.petInfoWithCompleteOwnertToPetWithOwner(petRequest, customerWithId)).thenReturn(petToStore);
+		when(petRepository.save(any(Pet.class))).thenReturn(storedPet);
+		
+		when(customerConverter.customerToCustomerInfo(any(Customer.class))).thenReturn(customerInfo);
+		when(customerConverter.customerInfoToCustomerDTO(anyInt(), any(CustomerInfo.class))).thenReturn(customerDTO);
+		when(petConverter.petToPetInfoWithOwner(any(Pet.class), ArgumentMatchers.<CustomerDTO<CustomerInfo>>any())).thenReturn(petInfoWithCompleteOwner);
+		
+		PetDTO<PetInfoWithCompleteOwner> response = petService.createPet(petRequest);
+		
+		assertNotNull(response);
+		assertThat(response.getId(), is(storedPet.getId()));
+		assertEquals(response.getPet().getMeeting(), storedPet.getMeeting());
+	}
+	
+	@Test
+	public void updatePetExistanceSuccess() {
+		PetInfoWithCompleteOwner petInfoRequest = PetFactory.createPetInfoWithCompleteOwner();
+		petInfoRequest.setOwner(null);
+		Optional<Pet> optionalPetPresent = PetFactory.createOptionalPetPresent();
+		Pet petOverrided = PetFactory.createPetWithIdAndOwnerWithId(ID_PET_1);
+		Pet updatedPet = PetFactory.createPetWithIdAndOwnerWithId(ID_PET_1);
+		PetInfoWithCompleteOwner petInfoResponse = PetFactory.createPetInfoWithCompleteOwner();
+		
+		
+		when(petRepository.findById(anyInt())).thenReturn(optionalPetPresent);
+		when(validatorUtil.validateExistance(optionalPetPresent, ID_PET_1, PET_NOT_FOUND)).thenReturn(optionalPetPresent.get());
+		when(generalUtil.overridePetWithPetInfo(optionalPetPresent.get(), petInfoRequest)).thenReturn(petOverrided);
+		when(petRepository.save(petOverrided)).thenReturn(updatedPet);
+		when(petConverter.petToPetInfo(updatedPet)).thenReturn(petInfoResponse);
+		
+		PetInfo response = petService.updatePet(petInfoRequest, ID_PET_1);
+		
+		assertNotNull(response);
+		assertThat(response.getName(), is(updatedPet.getName()));
+		assertThat(response.getMeeting(), is(updatedPet.getMeeting()));
+		assertThat(response.getType(), is(updatedPet.getType()));
+	}
+	
+	@Test
+	public void updatePetExistanceFailure() {
+		PetInfoWithCompleteOwner petInfoRequest = PetFactory.createPetInfoWithCompleteOwner();
+		petInfoRequest.setOwner(null);
+		Optional<Pet> optionalPetNotPresent = PetFactory.createOptionalPetNotPresent();
+		
+		
+		when(petRepository.findById(anyInt())).thenReturn(optionalPetNotPresent);
+		when(validatorUtil.validateExistance(optionalPetNotPresent, ID_PET_NOT_FOUND, PET_NOT_FOUND)).thenThrow(EntityNotFound.class);
+		
+		assertThrows(EntityNotFound.class , () -> petService.updatePet(petInfoRequest,ID_PET_NOT_FOUND));
 	}
 }
