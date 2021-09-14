@@ -1,4 +1,4 @@
-package com.bootcamp.vetPatitas.dao;
+package com.bootcamp.vetpatitas.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
