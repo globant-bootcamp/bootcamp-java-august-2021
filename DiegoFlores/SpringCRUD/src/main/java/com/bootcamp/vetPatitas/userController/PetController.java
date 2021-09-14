@@ -1,9 +1,9 @@
-package com.bootcamp.vetPatitas.userController;
+package com.bootcamp.vetpatitas.userController;
 
-import static com.bootcamp.vetPatitas.utils.Constants.PET_ADDED_SUCCESSFULLY;
-import static com.bootcamp.vetPatitas.utils.Constants.PET_DELETED_SUCCESSFULLY;
-import static com.bootcamp.vetPatitas.utils.Constants.PET_FOUNDED_SUCCESSFULLY;
-import static com.bootcamp.vetPatitas.utils.Constants.PET_UPDATED_SUCCESSFULLY;
+import static com.bootcamp.vetpatitas.utils.Constants.PET_ADDED_SUCCESSFULLY;
+import static com.bootcamp.vetpatitas.utils.Constants.PET_DELETED_SUCCESSFULLY;
+import static com.bootcamp.vetpatitas.utils.Constants.PET_FOUNDED_SUCCESSFULLY;
+import static com.bootcamp.vetpatitas.utils.Constants.PET_UPDATED_SUCCESSFULLY;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bootcamp.vetPatitas.dto.PetDTO;
-import com.bootcamp.vetPatitas.dto.ResponseDTO;
-import com.bootcamp.vetPatitas.service.PetService;
-import com.bootcamp.vetPatitas.utils.Constants.ResponseConstants;
+import com.bootcamp.vetpatitas.dto.PetDTO;
+import com.bootcamp.vetpatitas.dto.ResponseDTO;
+import com.bootcamp.vetpatitas.service.PetService;
+import com.bootcamp.vetpatitas.utils.Constants.ResponseConstants;
 
 @RestController
 @RequestMapping("pets")
