@@ -1,4 +1,4 @@
-package com.bootcamp.vetPatitas.dto;
+package com.bootcamp.vetpatitas.dto;
 
 public class PetDTO {
 	
