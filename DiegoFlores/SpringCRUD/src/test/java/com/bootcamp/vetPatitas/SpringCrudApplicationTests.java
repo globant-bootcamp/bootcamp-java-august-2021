@@ -1,4 +1,4 @@
-package com.bootcamp.vetPatitas;
+package com.bootcamp.vetpatitas;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
