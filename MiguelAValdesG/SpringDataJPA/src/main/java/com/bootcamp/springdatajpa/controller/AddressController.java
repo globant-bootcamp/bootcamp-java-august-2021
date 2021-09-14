@@ -7,7 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -20,7 +27,7 @@ import static com.bootcamp.springdatajpa.utils.Constants.*;
 public class AddressController {
 
   @Autowired
-  AddressService addressService;
+  private AddressService addressService;
 
   @GetMapping()
   public ResponseEntity<ResponseDTO<List<AddressDTO>>> getAllAddresses() {
@@ -56,8 +63,8 @@ public class AddressController {
   }
 
   @DeleteMapping(path = "/{id}")
-  public ResponseEntity<ResponseDTO<AddressDTO>> deleteAddress(@PathVariable Long id) {
-    ResponseDTO<AddressDTO> responseDTO = new ResponseDTO<>(
+  public ResponseEntity<ResponseDTO<String>> deleteAddress(@PathVariable Long id) {
+    ResponseDTO<String> responseDTO = new ResponseDTO<>(
       ResponseConstants.SUCCESS,
       ADDRESS_DELETED_SUCCESSFULLY,
       addressService.deleteAddress(id)

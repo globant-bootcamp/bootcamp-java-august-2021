@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class PetMapper {
 
   @Autowired
-  OwnerServiceImpl ownerServiceImpl;
+  private OwnerServiceImpl ownerServiceImpl;
 
   public PetDTO petEntityToDTO(Pet pet) {
     PetDTO petDTO = new PetDTO();

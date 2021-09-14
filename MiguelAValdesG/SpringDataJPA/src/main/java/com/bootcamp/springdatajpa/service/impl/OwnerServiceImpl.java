@@ -20,15 +20,12 @@ import static com.bootcamp.springdatajpa.utils.Constants.OWNER_NOT_FOUND;
 public class OwnerServiceImpl implements OwnerService {
 
   @Autowired
-  OwnerDAO ownerDAO;
+  private OwnerDAO ownerDAO;
   @Autowired
-  OwnerMapper ownerMapper;
+  private OwnerMapper ownerMapper;
 
   @Autowired
-  AddressServiceImpl addressServiceImpl;
-
-  @Autowired
-  PetServiceImpl petServiceImpl;
+  private AddressServiceImpl addressServiceImpl;
 
   @Override
   public List<OwnerDTO> getAllOwners() {

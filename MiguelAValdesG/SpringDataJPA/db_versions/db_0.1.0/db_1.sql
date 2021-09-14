@@ -1,7 +1,7 @@
 
 CREATE DATABASE IF NOT EXISTS vetPatitas;
 
-CREATE TABLE IF NOT EXISTS vetPatitas.addresses (
+CREATE TABLE IF NOT EXISTS vetPatitas.address (
     id INT NOT NULL AUTO_INCREMENT,
     street VARCHAR(50) NOT NULL,
     ext_number CHAR(6) NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS vetPatitas.addresses (
     PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE IF NOT EXISTS vetPatitas.owners (
+CREATE TABLE IF NOT EXISTS vetPatitas.owner (
     id INT NOT NULL AUTO_INCREMENT,
     id_address INT NOT NULL,
     first_name VARCHAR(50) NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS vetPatitas.owners (
     CONSTRAINT owners_ibfk_1 FOREIGN KEY (id_address) REFERENCES addresses (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE IF NOT EXISTS vetPatitas.pets (
+CREATE TABLE IF NOT EXISTS vetPatitas.pet (
     id INT NOT NULL AUTO_INCREMENT,
     id_owner INT,
     name VARCHAR(50) NOT NULL,

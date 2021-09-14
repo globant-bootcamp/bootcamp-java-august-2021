@@ -19,12 +19,12 @@ import static com.bootcamp.springdatajpa.utils.Constants.PET_NOT_FOUND;
 public class PetServiceImpl implements PetService {
 
   @Autowired
-  PetDAO petDAO;
+  private PetDAO petDAO;
   @Autowired
-  PetMapper petMapper;
+  private PetMapper petMapper;
 
   @Autowired
-  OwnerServiceImpl ownerServiceImpl;
+  private OwnerServiceImpl ownerServiceImpl;
 
   @Override
   public List<PetDTO> getAllPets() {

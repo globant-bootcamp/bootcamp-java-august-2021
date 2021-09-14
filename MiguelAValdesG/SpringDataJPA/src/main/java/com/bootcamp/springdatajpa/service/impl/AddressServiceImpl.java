@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static com.bootcamp.springdatajpa.utils.Constants.ADDRESS_DELETED_SUCCESSFULLY;
 import static com.bootcamp.springdatajpa.utils.Constants.ADDRESS_NOT_FOUND;
 import static com.bootcamp.springdatajpa.utils.Constants.ADDRESS_CANNOT_BE_DELETED;
 
@@ -22,16 +23,16 @@ import static com.bootcamp.springdatajpa.utils.Constants.ADDRESS_CANNOT_BE_DELET
 public class AddressServiceImpl implements AddressService {
 
   @Autowired
-  AddressDAO addressDAO;
+  private AddressDAO addressDAO;
   @Autowired
-  OwnerDAO ownerDAO;
+  private OwnerDAO ownerDAO;
 
   @Autowired
-  AddressMapper addressMapper;
+  private AddressMapper addressMapper;
 
   @Override
   public List<AddressDTO> getAllAddresses() {
-    return addressDAO.findAll().parallelStream()
+    return addressDAO.findAll().stream()
       .map(addressDAO -> addressMapper.addressEntityToDTO(addressDAO))
       .collect(Collectors.toList());
   }
@@ -47,19 +48,17 @@ public class AddressServiceImpl implements AddressService {
   }
 
   @Override
-  public AddressDTO deleteAddress(Long id) {
+  public String deleteAddress(Long id) {
     Optional<Owner> ownerOptional = ownerDAO.findByIdAddress(id);
-    AddressDTO addressDTO;
 
     if (!ownerOptional.isPresent()) {
       Address address = findAddress(id);
       addressDAO.delete(address);
-      addressDTO = addressMapper.addressEntityToDTO(address);
     } else {
       throw new InvalidDataException(ADDRESS_CANNOT_BE_DELETED);
     }
 
-    return addressDTO;
+    return ADDRESS_DELETED_SUCCESSFULLY;
   }
 
   private Address findAddress(Long id) {
