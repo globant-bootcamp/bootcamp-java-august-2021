@@ -1,6 +1,6 @@
-package com.bootcamp.vetPatitas.service;
+package com.bootcamp.vetpatitas.service;
 
-import com.bootcamp.vetPatitas.dto.PetDTO;
+import com.bootcamp.vetpatitas.dto.PetDTO;
 
 public interface PetService {
 
