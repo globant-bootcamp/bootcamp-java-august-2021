@@ -1,4 +1,4 @@
-package com.bootcamp.vetPatitas.utils;
+package com.bootcamp.vetpatitas.utils;
 
 public class Constants {
 
@@ -17,7 +17,6 @@ public class Constants {
 		 
 	}
 	
-
 	public static final String PET_ADDED_SUCCESSFULLY = "Pet added to data base successfully";
 	public static final String PET_ADDED_ERROR = "Pet was not added to data base";
 	public static final String PET_FOUNDED_SUCCESSFULLY = " The pet was founded successfully";
