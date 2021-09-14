@@ -1,4 +1,4 @@
-package com.bootcamp.vetPatitas.service;
+package com.bootcamp.vetpatitas.service;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,11 +12,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import com.bootcamp.vetPatitas.dao.PetDAO;
-import com.bootcamp.vetPatitas.dto.PetDTO;
-import com.bootcamp.vetPatitas.entity.Pet;
-import com.bootcamp.vetPatitas.exception.InvalidDataException;
-import com.bootcamp.vetPatitas.mapper.PetMapper;
+import com.bootcamp.vetpatitas.dao.PetDAO;
+import com.bootcamp.vetpatitas.dto.PetDTO;
+import com.bootcamp.vetpatitas.entity.Pet;
+import com.bootcamp.vetpatitas.exception.InvalidDataException;
+import com.bootcamp.vetpatitas.mapper.PetMapper;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PetServiceImpTest {
