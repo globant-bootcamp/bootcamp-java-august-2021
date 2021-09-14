@@ -1,9 +1,9 @@
-package com.bootcamp.vetPatitas.mapper;
+package com.bootcamp.vetpatitas.mapper;
 
 import org.springframework.stereotype.Component;
 
-import com.bootcamp.vetPatitas.dto.PetDTO;
-import com.bootcamp.vetPatitas.entity.Pet;
+import com.bootcamp.vetpatitas.dto.PetDTO;
+import com.bootcamp.vetpatitas.entity.Pet;
 
 @Component
 public class PetMapper {
