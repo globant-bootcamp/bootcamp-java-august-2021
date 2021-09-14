@@ -1,4 +1,6 @@
 package challenge.day2;
+
+
 /**
  * @author Sebastian Herrera (bermeosebas@gmail.com)
  * @created 27/08/21
