@@ -28,7 +28,7 @@ public class Owner {
     private String lastName;
 
     @Column(name = "age")
-    private String age;
+    private Integer age;
 
     @OneToMany
     private List<Pet> petList;
