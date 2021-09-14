@@ -1,6 +1,6 @@
 package com.bootcamp.vetPatitas.exception;
 
-public class InvalidDataException  extends NullPointerException {
+public class InvalidDataException  extends RuntimeException {
 
 	
 
