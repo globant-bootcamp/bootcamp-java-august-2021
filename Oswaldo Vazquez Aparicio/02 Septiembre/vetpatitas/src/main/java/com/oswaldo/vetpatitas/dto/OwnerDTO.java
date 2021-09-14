@@ -10,7 +10,7 @@ public class OwnerDTO {
     private Long id;
     private String firstName;
     private String lastName;
-    private String age;
+    private Integer age;
     private List<PetDTO> petList;
 
 }
