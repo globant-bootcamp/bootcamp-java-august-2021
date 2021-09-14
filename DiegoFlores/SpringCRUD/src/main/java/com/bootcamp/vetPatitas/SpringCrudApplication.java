@@ -1,4 +1,4 @@
-package com.bootcamp.vetPatitas;
+package com.bootcamp.vetpatitas;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
