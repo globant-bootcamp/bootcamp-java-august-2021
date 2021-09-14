@@ -1,4 +1,4 @@
-package com.bootcamp.vetPatitas.entity;
+package com.bootcamp.vetpatitas.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
