@@ -28,14 +28,14 @@ public class PetServiceImpl implements PetService {
 
   @Override
   public List<PetDTO> getAllPets() {
-    return petDAO.findAllActive().parallelStream()
+    return petDAO.findAllActive().stream()
       .map(petDAO -> petMapper.petEntityToDTO(petDAO))
       .collect(Collectors.toList());
   }
 
   @Override
   public List<PetDTO> getAllOwnersPets(Long id) {
-    return petDAO.findAllOwnersPets(id).parallelStream()
+    return petDAO.findAllOwnersPets(id).stream()
       .map(petDAO -> petMapper.petEntityToDTO(petDAO))
       .collect(Collectors.toList());
   }

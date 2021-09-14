@@ -3,6 +3,7 @@ package com.bootcamp.springdatajpa.controller;
 import com.bootcamp.springdatajpa.dto.AddressDTO;
 import com.bootcamp.springdatajpa.dto.ResponseDTO;
 import com.bootcamp.springdatajpa.service.AddressService;
+import com.bootcamp.springdatajpa.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 import java.util.List;
 
-import static com.bootcamp.springdatajpa.utils.Constants.*;
+import static com.bootcamp.springdatajpa.utils.Constants.ADDRESS_ADDED_SUCCESSFULLY;
+import static com.bootcamp.springdatajpa.utils.Constants.ADDRESS_FOUND_SUCCESSFULLY;
+import static com.bootcamp.springdatajpa.utils.Constants.ADDRESS_UPDATED_SUCCESSFULLY;
+import static com.bootcamp.springdatajpa.utils.Constants.ADDRESS_DELETED_SUCCESSFULLY;
 
 @RestController
 @RequestMapping("addresses")
@@ -32,7 +36,7 @@ public class AddressController {
   @GetMapping()
   public ResponseEntity<ResponseDTO<List<AddressDTO>>> getAllAddresses() {
     ResponseDTO<List<AddressDTO>> responseDTO = new ResponseDTO<>(
-      ResponseConstants.SUCCESS,
+      Constants.ResponseConstants.SUCCESS,
       ADDRESS_FOUND_SUCCESSFULLY,
       addressService.getAllAddresses()
     );
@@ -43,7 +47,7 @@ public class AddressController {
   @PostMapping()
   public ResponseEntity<ResponseDTO<AddressDTO>> addAddress(@RequestBody @Valid AddressDTO addressDTO) {
     ResponseDTO<AddressDTO> responseDTO = new ResponseDTO<>(
-      ResponseConstants.SUCCESS,
+      Constants.ResponseConstants.SUCCESS,
       ADDRESS_ADDED_SUCCESSFULLY,
       addressService.addAddress(addressDTO)
     );
@@ -54,7 +58,7 @@ public class AddressController {
   @PutMapping(path = "/{id}")
   public ResponseEntity<ResponseDTO<AddressDTO>> updateAddress(@PathVariable Long id, @RequestBody @Valid AddressDTO addressDTO) {
     ResponseDTO<AddressDTO> responseDTO = new ResponseDTO<>(
-      ResponseConstants.SUCCESS,
+      Constants.ResponseConstants.SUCCESS,
       ADDRESS_UPDATED_SUCCESSFULLY,
       addressService.updateAddress(id, addressDTO)
     );
@@ -65,7 +69,7 @@ public class AddressController {
   @DeleteMapping(path = "/{id}")
   public ResponseEntity<ResponseDTO<String>> deleteAddress(@PathVariable Long id) {
     ResponseDTO<String> responseDTO = new ResponseDTO<>(
-      ResponseConstants.SUCCESS,
+      Constants.ResponseConstants.SUCCESS,
       ADDRESS_DELETED_SUCCESSFULLY,
       addressService.deleteAddress(id)
     );

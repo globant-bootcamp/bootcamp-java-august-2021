@@ -29,7 +29,7 @@ public class OwnerServiceImpl implements OwnerService {
 
   @Override
   public List<OwnerDTO> getAllOwners() {
-    return ownerDAO.findAllActive().parallelStream()
+    return ownerDAO.findAllActive().stream()
       .map(ownerDAO -> ownerMapper.ownerEntityToDTO(ownerDAO))
       .collect(Collectors.toList());
   }
