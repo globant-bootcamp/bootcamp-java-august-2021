@@ -35,7 +35,7 @@ public class ClientServiceImplTest {
     private ClientDAO clientDAO;
 
     @Test
-    public void addClientTest_WithAllFields_Ok() {
+    public void addClientTest_WithAllFields_Ok() throws InvalidDataException {
         ClientDTO clientDTORequest = new ClientDTO();
         clientDTORequest.setFirstName("client name");
         clientDTORequest.setLastName("client last name");
@@ -79,7 +79,7 @@ public class ClientServiceImplTest {
     }
 
     @Test(expected = InvalidDataException.class)
-    public void addClientTest_WithMissingFields_ThemInvalidDataException() {
+    public void addClientTest_WithMissingFields_ThemInvalidDataException() throws InvalidDataException {
         ClientDTO clientDTORequest = new ClientDTO();
         clientDTORequest.setFirstName("Client name");
         clientDTORequest.setLastName("Client last name");
@@ -88,7 +88,7 @@ public class ClientServiceImplTest {
     }
 
     @Test
-    public void getClientsTest_Ok() {
+    public void getClientsTest_Ok() throws InvalidDataException {
         List<Client> clientsResponse = new ArrayList<>();
         Client clientResponse = new Client();
         clientResponse.setId(1L);
@@ -119,7 +119,7 @@ public class ClientServiceImplTest {
     }
 
     @Test
-    public void getClientByIDTes_WithClientIdValid_Ok() {
+    public void getClientByIDTes_WithClientIdValid_Ok() throws InvalidDataException {
         Long clientIdRequest = 1L;
 
         Client clientResponse = new Client();
@@ -148,12 +148,12 @@ public class ClientServiceImplTest {
     }
 
     @Test(expected = InvalidDataException.class)
-    public void getClientTest_WithClientIdNull_ThemInvalidDataException() {
+    public void getClientTest_WithClientIdNull_ThemInvalidDataException() throws InvalidDataException {
         clientService.getClient(null);
     }
 
     @Test(expected = InvalidDataException.class)
-    public void getClientTest_WithClientIdInvalid_ThemInvalidDataException() {
+    public void getClientTest_WithClientIdInvalid_ThemInvalidDataException() throws InvalidDataException {
         Long clientIdRequest = 1L;
 
         when(clientDAO.findClientById(any())).thenReturn(null);
@@ -161,7 +161,7 @@ public class ClientServiceImplTest {
     }
 
     @Test
-    public void deleteClientTest_WithClientIdValid_Ok() {
+    public void deleteClientTest_WithClientIdValid_Ok() throws InvalidDataException {
         Long clientIdRequest = 1L;
 
         clientService.deleteClientByID(clientIdRequest);
@@ -170,12 +170,12 @@ public class ClientServiceImplTest {
     }
 
     @Test(expected = InvalidDataException.class)
-    public void deleteClientTest_WithClientIdNull_ThemInvalidDataException() {
+    public void deleteClientTest_WithClientIdNull_ThemInvalidDataException() throws InvalidDataException {
         clientService.deleteClientByID(null);
     }
 
     @Test
-    public void editClientTest_WithClientIdValid_Ok() {
+    public void editClientTest_WithClientIdValid_Ok() throws InvalidDataException {
         Long clientIdRequest = 1L;
         ClientDTO clientDTORequest = new ClientDTO();
         clientDTORequest.setFirstName("name");
@@ -221,7 +221,7 @@ public class ClientServiceImplTest {
     }
 
     @Test
-    public void editClientTest_WithValidClientId_AndOnlyClientFirstName_OK() {
+    public void editClientTest_WithValidClientId_AndOnlyClientFirstName_OK() throws InvalidDataException {
         Long clientIdRequest = 1L;
         ClientDTO clientDTORequest = new ClientDTO();
         clientDTORequest.setFirstName("name");
@@ -265,7 +265,7 @@ public class ClientServiceImplTest {
     }
 
     @Test
-    public void editClientTest_WithValidClientId_AndOnlyClientLastName_OK() {
+    public void editClientTest_WithValidClientId_AndOnlyClientLastName_OK() throws InvalidDataException {
         Long clientIdRequest = 1L;
         ClientDTO clientDTORequest = new ClientDTO();
         clientDTORequest.setLastName("last name");
@@ -309,7 +309,7 @@ public class ClientServiceImplTest {
     }
 
     @Test
-    public void editClientTest_WithValidClientId_AndOnlyClientPhoneNumber_OK() {
+    public void editClientTest_WithValidClientId_AndOnlyClientPhoneNumber_OK() throws InvalidDataException {
         Long clientIdRequest = 1L;
         ClientDTO clientDTORequest = new ClientDTO();
         clientDTORequest.setPhoneNumber("789");
@@ -353,7 +353,7 @@ public class ClientServiceImplTest {
     }
 
     @Test(expected = InvalidDataException.class)
-    public void editClientTest_WithClientIdNull_ThemInvalidDataException() {
+    public void editClientTest_WithClientIdNull_ThemInvalidDataException() throws InvalidDataException {
         ClientDTO clientDTORequest = new ClientDTO();
         clientDTORequest.setFirstName("client name");
         clientDTORequest.setLastName("client last name");
@@ -363,7 +363,7 @@ public class ClientServiceImplTest {
     }
 
     @Test(expected = InvalidDataException.class)
-    public void editClientTest_WithInvalidClientId_ThemInvalidDataException() {
+    public void editClientTest_WithInvalidClientId_ThemInvalidDataException() throws InvalidDataException {
         ClientDTO clientDTORequest = new ClientDTO();
         clientDTORequest.setFirstName("client name");
         clientDTORequest.setLastName("client last name");

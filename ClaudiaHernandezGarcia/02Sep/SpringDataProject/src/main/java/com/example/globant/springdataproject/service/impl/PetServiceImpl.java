@@ -31,7 +31,7 @@ public class PetServiceImpl implements PetService {
     private ClientDAO clientDAO;
 
     @Override
-    public PetDTO addPet(PetDTO petDTO) {
+    public PetDTO addPet(PetDTO petDTO) throws InvalidDataException {
         if (petDTO.getNameOfPet() == null || petDTO.getBreed() == null || petDTO.getClientId() == null || petDTO.getDateOfBirth() == null || petDTO.getSpecies() == null) {
             throw new InvalidDataException(MISSING_PET_FIELDS);
         }
@@ -64,7 +64,7 @@ public class PetServiceImpl implements PetService {
     }
 
     @Override
-    public PetDTO getPetByID(Long petId) {
+    public PetDTO getPetByID(Long petId) throws InvalidDataException {
         if (petId == null) {
             throw new InvalidDataException(PET_ID_NOT_NULL);
         }
@@ -79,7 +79,7 @@ public class PetServiceImpl implements PetService {
     }
 
     @Override
-    public void deletePetByID(Long petId) {
+    public void deletePetByID(Long petId) throws InvalidDataException {
         if (petId == null) {
             throw new InvalidDataException(PET_ID_NOT_NULL);
         }
@@ -88,7 +88,7 @@ public class PetServiceImpl implements PetService {
     }
 
     @Override
-    public PetDTO editPetByID(Long petId, PetDTO petDTO) {
+    public PetDTO editPetByID(Long petId, PetDTO petDTO) throws InvalidDataException {
         if (petId == null) {
             throw new InvalidDataException(PET_ID_NOT_NULL);
         }

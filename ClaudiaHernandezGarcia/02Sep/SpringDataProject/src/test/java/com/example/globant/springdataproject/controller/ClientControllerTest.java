@@ -3,6 +3,7 @@ package com.example.globant.springdataproject.controller;
 import com.example.globant.springdataproject.dto.ClientDTO;
 import com.example.globant.springdataproject.dto.ResponseDTO;
 import com.example.globant.springdataproject.entity.Client;
+import com.example.globant.springdataproject.exception.InvalidDataException;
 import com.example.globant.springdataproject.service.ClientService;
 import com.example.globant.springdataproject.utils.Constants;
 import org.junit.Test;
@@ -34,7 +35,7 @@ public class ClientControllerTest {
     private ClientService clientService;
 
     @Test
-    public void addClientTest_OK() {
+    public void addClientTest_OK() throws InvalidDataException {
         ClientDTO clientDTORequest = new ClientDTO();
         clientDTORequest.setFirstName("client name");
         clientDTORequest.setLastName("client last name");
@@ -63,7 +64,7 @@ public class ClientControllerTest {
     }
 
     @Test
-    public void getClientsTest_OK() {
+    public void getClientsTest_OK() throws InvalidDataException {
         Client clientResponse = new Client();
         clientResponse.setId(1L);
         clientResponse.setFirstName("client name");
@@ -98,7 +99,7 @@ public class ClientControllerTest {
     }
 
     @Test
-    public void getClientByIDTest_OK() {
+    public void getClientByIDTest_OK() throws InvalidDataException {
         Long idRequest = 1L;
 
         Client clientResponse = new Client();
@@ -130,7 +131,7 @@ public class ClientControllerTest {
     }
 
     @Test
-    public void deletePetByIDTest_OK() {
+    public void deletePetByIDTest_OK() throws InvalidDataException {
         Long idRequest = 1L;
 
         ResponseEntity<ResponseDTO<ClientDTO>> response = clientController.deletePetByID(idRequest);
@@ -145,7 +146,7 @@ public class ClientControllerTest {
     }
 
     @Test
-    public void editPetByIDTest_OK() {
+    public void editPetByIDTest_OK() throws InvalidDataException {
         Long idRequest = 1L;
         ClientDTO clientDTORequest = new ClientDTO();
         clientDTORequest.setFirstName("name");

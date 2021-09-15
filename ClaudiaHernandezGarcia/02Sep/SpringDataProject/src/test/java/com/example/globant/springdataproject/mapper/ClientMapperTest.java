@@ -4,6 +4,7 @@ import com.example.globant.springdataproject.dto.ClientDTO;
 import com.example.globant.springdataproject.dto.PetDTO;
 import com.example.globant.springdataproject.entity.Client;
 import com.example.globant.springdataproject.entity.Pet;
+import com.example.globant.springdataproject.exception.InvalidDataException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -50,7 +51,7 @@ public class ClientMapperTest {
     }
 
     @Test
-    public void clientEntityToDTOTest_OK() {
+    public void clientEntityToDTOTest_OK() throws InvalidDataException {
         Client clientRequest = new Client();
         clientRequest.setId(1L);
         clientRequest.setFirstName("client name");
@@ -77,7 +78,7 @@ public class ClientMapperTest {
     }
 
     @Test
-    public void clientEntityToDTOTest_WithPets_OK() {
+    public void clientEntityToDTOTest_WithPets_OK() throws InvalidDataException {
         Client clientRequest = new Client();
         clientRequest.setId(1L);
         clientRequest.setFirstName("client name");

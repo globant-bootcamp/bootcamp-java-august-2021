@@ -2,6 +2,7 @@ package com.example.globant.springdataproject.controller;
 
 import com.example.globant.springdataproject.dto.PetDTO;
 import com.example.globant.springdataproject.dto.ResponseDTO;
+import com.example.globant.springdataproject.exception.InvalidDataException;
 import com.example.globant.springdataproject.service.PetService;
 import com.example.globant.springdataproject.utils.Constants;
 import org.junit.Test;
@@ -34,7 +35,7 @@ public class PetControllerTest {
     private PetService petService;
 
     @Test
-    public void addPetTest_OK() {
+    public void addPetTest_OK() throws InvalidDataException {
         PetDTO petDTORequest = new PetDTO();
         petDTORequest.setNameOfPet("Pet name");
         petDTORequest.setBreed("breed");
@@ -94,7 +95,7 @@ public class PetControllerTest {
     }
 
     @Test
-    public void getPetByIDTest_OK() {
+    public void getPetByIDTest_OK() throws InvalidDataException {
         Long idRequest = 1L;
 
         PetDTO petDTOResponse = new PetDTO();
@@ -120,7 +121,7 @@ public class PetControllerTest {
     }
 
     @Test
-    public void deletePetByIDTest_OK() {
+    public void deletePetByIDTest_OK() throws InvalidDataException {
         Long idRequest = 1L;
 
         ResponseEntity<ResponseDTO<PetDTO>> response = petController.deletePetByID(idRequest);
@@ -135,7 +136,7 @@ public class PetControllerTest {
     }
 
     @Test
-    public void editPetByIDTest_OK() {
+    public void editPetByIDTest_OK() throws InvalidDataException {
         Long idRequest = 1L;
         PetDTO petDTORequest = new PetDTO();
         petDTORequest.setNameOfPet("Pet");

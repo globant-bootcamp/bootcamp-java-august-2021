@@ -28,7 +28,7 @@ public class ClientMapper {
         return client;
     }
 
-    public ClientDTO clientEntityToDTO(Client client) {
+    public ClientDTO clientEntityToDTO(Client client) throws InvalidDataException {
         ClientDTO clientDTO = new ClientDTO();
         clientDTO.setId(client.getId());
         clientDTO.setFirstName(client.getFirstName());
@@ -39,7 +39,7 @@ public class ClientMapper {
         return clientDTO;
     }
 
-    private List<PetDTO> getPetListByClient(Client client) {
+    private List<PetDTO> getPetListByClient(Client client) throws InvalidDataException {
         List<PetDTO> petsList = new ArrayList<>();
 
         if (client != null) {

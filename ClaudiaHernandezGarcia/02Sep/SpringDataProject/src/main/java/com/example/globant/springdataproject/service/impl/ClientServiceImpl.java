@@ -26,7 +26,7 @@ public class ClientServiceImpl implements ClientService {
     ClientDAO clientDAO;
 
     @Override
-    public ClientDTO addClient(ClientDTO clientDTO) {
+    public ClientDTO addClient(ClientDTO clientDTO) throws InvalidDataException {
         if (clientDTO.getFirstName() == null || clientDTO.getLastName() == null || clientDTO.getPhoneNumber() == null) {
             throw new InvalidDataException(MISSING_CLIENT_FIELDS);
         }
@@ -39,7 +39,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public List<ClientDTO> getClients() {
+    public List<ClientDTO> getClients() throws InvalidDataException {
         List<Client> clients = clientDAO.findAll();
         List<ClientDTO> listClientsDTO = new ArrayList<>();
 
@@ -51,7 +51,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public ClientDTO getClient(Long clientId) {
+    public ClientDTO getClient(Long clientId) throws InvalidDataException {
         if (clientId == null) {
             throw new InvalidDataException(CLIENT_ID_NOT_NULL);
         }
@@ -66,7 +66,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public void deleteClientByID(Long clientId) {
+    public void deleteClientByID(Long clientId) throws InvalidDataException {
         if (clientId == null) {
             throw new InvalidDataException(CLIENT_ID_NOT_NULL);
         }
@@ -75,7 +75,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public ClientDTO editClientByID(Long clientId, ClientDTO clientDTO) {
+    public ClientDTO editClientByID(Long clientId, ClientDTO clientDTO) throws InvalidDataException {
         if (clientId == null) {
             throw new InvalidDataException(CLIENT_ID_NOT_NULL);
         }

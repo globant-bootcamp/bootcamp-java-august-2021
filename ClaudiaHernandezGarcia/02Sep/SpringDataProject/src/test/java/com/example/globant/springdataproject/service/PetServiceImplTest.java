@@ -41,7 +41,7 @@ public class PetServiceImplTest {
     private ClientDAO clientDAO;
 
     @Test
-    public void addPetTest_WithAllRequiredFields_OK() {
+    public void addPetTest_WithAllRequiredFields_OK() throws InvalidDataException {
         PetDTO petDTORequest = new PetDTO();
         petDTORequest.setNameOfPet("Pet name");
         petDTORequest.setBreed("breed");
@@ -96,7 +96,7 @@ public class PetServiceImplTest {
     }
 
     @Test(expected = InvalidDataException.class)
-    public void addPetTest_WithMissingFields_ThemInvalidDataException() {
+    public void addPetTest_WithMissingFields_ThemInvalidDataException() throws InvalidDataException {
         PetDTO petDTORequest = new PetDTO();
         petDTORequest.setSpecies("Species");
         petDTORequest.setBreed("Breed");
@@ -105,7 +105,7 @@ public class PetServiceImplTest {
     }
 
     @Test(expected = InvalidDataException.class)
-    public void addPetTest_WithInvalidClientId_ThemInvalidDataException() {
+    public void addPetTest_WithInvalidClientId_ThemInvalidDataException() throws InvalidDataException {
         PetDTO petDTORequest = new PetDTO();
         petDTORequest.setNameOfPet("Pet name");
         petDTORequest.setBreed("breed");
@@ -158,7 +158,7 @@ public class PetServiceImplTest {
     }
 
     @Test
-    public void getPetTest_WithValidPetId_Ok() {
+    public void getPetTest_WithValidPetId_Ok() throws InvalidDataException {
         Long petIdRequest = 1L;
 
         Client ClientResponse = new Client();
@@ -195,12 +195,12 @@ public class PetServiceImplTest {
     }
 
     @Test(expected = InvalidDataException.class)
-    public void getPetTest_WithNullPetIdl_ThemInvalidDataException() {
+    public void getPetTest_WithNullPetIdl_ThemInvalidDataException() throws InvalidDataException {
         petService.getPetByID(null);
     }
 
     @Test(expected = InvalidDataException.class)
-    public void getPetTest_WithPetIdInvalid_ThemInvalidDataException() {
+    public void getPetTest_WithPetIdInvalid_ThemInvalidDataException() throws InvalidDataException {
         Long petIdRequest = 1L;
 
         when(petDAO.findPetById(any(Long.class))).thenReturn(null);
@@ -208,7 +208,7 @@ public class PetServiceImplTest {
     }
 
     @Test
-    public void deletePetTest_WithPetIdValid_Ok() {
+    public void deletePetTest_WithPetIdValid_Ok() throws InvalidDataException {
         Long petIdRequest = 1L;
 
         petService.deletePetByID(petIdRequest);
@@ -217,12 +217,12 @@ public class PetServiceImplTest {
     }
 
     @Test(expected = InvalidDataException.class)
-    public void deletePetTest_WithPetIdNull_ThemInvalidDataException() {
+    public void deletePetTest_WithPetIdNull_ThemInvalidDataException() throws InvalidDataException {
         petService.deletePetByID(null);
     }
 
     @Test
-    public void editPetTest_WithPetIdValid_Ok() {
+    public void editPetTest_WithPetIdValid_Ok() throws InvalidDataException {
         Long petIdRequest = 1L;
         PetDTO petDTORequest = new PetDTO();
         petDTORequest.setNameOfPet("Pet");
@@ -281,7 +281,7 @@ public class PetServiceImplTest {
     }
 
     @Test
-    public void editPetTest_WithValidPetId_AndOnlyPetName_OK() {
+    public void editPetTest_WithValidPetId_AndOnlyPetName_OK() throws InvalidDataException {
         Long petIdRequest = 1L;
         PetDTO petDTORequest = new PetDTO();
         petDTORequest.setNameOfPet("Pet name");
@@ -339,7 +339,7 @@ public class PetServiceImplTest {
     }
 
     @Test
-    public void editPetTest_WithValidPetId_AndOnlyPetBreed_OK() {
+    public void editPetTest_WithValidPetId_AndOnlyPetBreed_OK() throws InvalidDataException {
         Long petIdRequest = 1L;
         PetDTO petDTORequest = new PetDTO();
         petDTORequest.setBreed("breed");
@@ -397,7 +397,7 @@ public class PetServiceImplTest {
     }
 
     @Test
-    public void editPetTest_WithValidPetId_AndOnlyPetSpecies_OK() {
+    public void editPetTest_WithValidPetId_AndOnlyPetSpecies_OK() throws InvalidDataException {
         Long petIdRequest = 1L;
         PetDTO petDTORequest = new PetDTO();
         petDTORequest.setSpecies("species");
@@ -456,7 +456,7 @@ public class PetServiceImplTest {
     }
 
     @Test(expected = InvalidDataException.class)
-    public void editPetTest_WithPetIdNull_ThemInvalidDataException() {
+    public void editPetTest_WithPetIdNull_ThemInvalidDataException() throws InvalidDataException {
         PetDTO petDTORequest = new PetDTO();
         petDTORequest.setNameOfPet("pet name");
         petDTORequest.setBreed("Breed");
@@ -466,7 +466,7 @@ public class PetServiceImplTest {
     }
 
     @Test(expected = InvalidDataException.class)
-    public void editPetTest_WithInvalidPetId_ThemInvalidDataException() {
+    public void editPetTest_WithInvalidPetId_ThemInvalidDataException() throws InvalidDataException {
         PetDTO petDTORequest = new PetDTO();
         petDTORequest.setNameOfPet("pet name");
         petDTORequest.setBreed("Breed");
