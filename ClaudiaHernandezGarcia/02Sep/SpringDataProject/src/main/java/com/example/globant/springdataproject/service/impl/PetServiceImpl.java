@@ -14,7 +14,10 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.globant.springdataproject.utils.Constants.*;
+import static com.example.globant.springdataproject.utils.Constants.MISSING_PET_FIELDS;
+import static com.example.globant.springdataproject.utils.Constants.INVALID_CLIENT_ID;
+import static com.example.globant.springdataproject.utils.Constants.PET_ID_NOT_NULL;
+import static com.example.globant.springdataproject.utils.Constants.INVALID_PET_ID;
 
 @Service
 public class PetServiceImpl implements PetService {

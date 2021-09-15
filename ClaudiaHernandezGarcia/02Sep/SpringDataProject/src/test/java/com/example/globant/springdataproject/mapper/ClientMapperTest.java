@@ -23,10 +23,10 @@ import static org.mockito.Mockito.when;
 public class ClientMapperTest {
 
     @InjectMocks
-    ClientMapper clientMapper;
+    private ClientMapper clientMapper;
 
     @Mock
-    PetMapper petMapper;
+    private PetMapper petMapper;
 
     @Test()
     public void clientDTOToEntityTest_OK() {

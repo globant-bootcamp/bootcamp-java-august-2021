@@ -15,7 +15,9 @@ import org.springframework.http.ResponseEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.globant.springdataproject.utils.Constants.*;
+import static com.example.globant.springdataproject.utils.Constants.PET_ADDED_SUCCESSFULLY;
+import static com.example.globant.springdataproject.utils.Constants.PET_DELETED_SUCCESSFULLY;
+import static com.example.globant.springdataproject.utils.Constants.PET_EDITED_SUCCESSFULLY;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
@@ -26,10 +28,10 @@ import static org.mockito.Mockito.when;
 public class PetControllerTest {
 
     @InjectMocks
-    PetController petController;
+    private PetController petController;
 
     @Mock
-    PetService petService;
+    private PetService petService;
 
     @Test
     public void addPetTest_OK() {

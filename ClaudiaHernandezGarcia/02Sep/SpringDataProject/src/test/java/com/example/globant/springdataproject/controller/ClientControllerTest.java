@@ -16,7 +16,9 @@ import org.springframework.http.ResponseEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.globant.springdataproject.utils.Constants.*;
+import static com.example.globant.springdataproject.utils.Constants.CLIENT_ADDED_SUCCESSFULLY;
+import static com.example.globant.springdataproject.utils.Constants.CLIENT_DELETED_SUCCESSFULLY;
+import static com.example.globant.springdataproject.utils.Constants.CLIENT_EDITED_SUCCESSFULLY;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
@@ -26,10 +28,10 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class ClientControllerTest {
     @InjectMocks
-    ClientController clientController;
+    private ClientController clientController;
 
     @Mock
-    ClientService clientService;
+    private ClientService clientService;
 
     @Test
     public void addClientTest_OK() {

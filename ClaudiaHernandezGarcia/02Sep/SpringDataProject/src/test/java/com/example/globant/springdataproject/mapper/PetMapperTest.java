@@ -16,7 +16,7 @@ import static org.junit.Assert.assertNotNull;
 public class PetMapperTest {
 
     @InjectMocks
-    PetMapper petMapper;
+    private PetMapper petMapper;
 
     @Test()
     public void petDTOToEntityTest_OK() {

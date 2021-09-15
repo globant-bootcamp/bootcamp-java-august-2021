@@ -16,7 +16,8 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
@@ -28,10 +29,10 @@ public class ClientServiceImplTest {
     private ClientServiceImpl clientService;
 
     @Mock
-    ClientMapper clientMapper;
+    private ClientMapper clientMapper;
 
     @Mock
-    ClientDAO clientDAO;
+    private ClientDAO clientDAO;
 
     @Test
     public void addClientTest_WithAllFields_Ok() {
@@ -219,7 +220,7 @@ public class ClientServiceImplTest {
         Mockito.verify(clientDAO, times(1)).save(any(Client.class));
     }
 
-    @Test()
+    @Test
     public void editClientTest_WithValidClientId_AndOnlyClientFirstName_OK() {
         Long clientIdRequest = 1L;
         ClientDTO clientDTORequest = new ClientDTO();
@@ -263,7 +264,7 @@ public class ClientServiceImplTest {
         Mockito.verify(clientDAO, times(1)).save(any(Client.class));
     }
 
-    @Test()
+    @Test
     public void editClientTest_WithValidClientId_AndOnlyClientLastName_OK() {
         Long clientIdRequest = 1L;
         ClientDTO clientDTORequest = new ClientDTO();
@@ -307,7 +308,7 @@ public class ClientServiceImplTest {
         Mockito.verify(clientDAO, times(1)).save(any(Client.class));
     }
 
-    @Test()
+    @Test
     public void editClientTest_WithValidClientId_AndOnlyClientPhoneNumber_OK() {
         Long clientIdRequest = 1L;
         ClientDTO clientDTORequest = new ClientDTO();

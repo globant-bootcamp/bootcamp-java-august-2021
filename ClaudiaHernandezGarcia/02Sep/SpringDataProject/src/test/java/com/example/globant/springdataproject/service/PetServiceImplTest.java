@@ -32,13 +32,13 @@ public class PetServiceImplTest {
     private PetServiceImpl petService;
 
     @Mock
-    PetMapper petMapper;
+    private PetMapper petMapper;
 
     @Mock
-    PetDAO petDAO;
+    private PetDAO petDAO;
 
     @Mock
-    ClientDAO clientDAO;
+    private ClientDAO clientDAO;
 
     @Test
     public void addPetTest_WithAllRequiredFields_OK() {
