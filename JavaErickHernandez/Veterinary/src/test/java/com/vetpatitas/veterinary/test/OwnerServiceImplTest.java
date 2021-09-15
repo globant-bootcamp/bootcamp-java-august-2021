@@ -2,6 +2,7 @@ package com.vetpatitas.veterinary.test;
 
 import com.vetpatitas.veterinary.dao.OwnerDAO;
 import com.vetpatitas.veterinary.dto.OwnerDTO;
+import com.vetpatitas.veterinary.entity.AnimalTreatment;
 import com.vetpatitas.veterinary.entity.Owner;
 import com.vetpatitas.veterinary.exception.InvalidDataException;
 import com.vetpatitas.veterinary.mapper.OwnerMapper;
@@ -156,5 +157,6 @@ public class OwnerServiceImplTest {
         when(ownerService.deleteOwner(ownerDTORequest));
         OwnerDTO response = ownerService.deleteOwner(ownerDTORequest);
         assertNotNull(response);
+        Mockito.verify(ownerDAO, times(1)).delete((any(Owner.class)));
     }
 }

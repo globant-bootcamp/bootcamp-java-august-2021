@@ -134,6 +134,7 @@ public class AnimalServiceImplTest {
         when(animalService.deleteAnimal(id));
         AnimalDTO response = animalService.deleteAnimal(id);
         assertNotNull(response);
+        Mockito.verify(animalDAO, times(1)).deleteById(id);
     }
 
 }

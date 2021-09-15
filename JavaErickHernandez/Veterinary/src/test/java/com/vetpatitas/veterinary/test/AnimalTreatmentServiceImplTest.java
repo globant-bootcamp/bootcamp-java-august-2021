@@ -177,5 +177,6 @@ public class AnimalTreatmentServiceImplTest {
         when(animalTreatmentService.deleteTreatment(animalTreatmentDTORequest));
         AnimalTreatmentDTO response = animalTreatmentService.deleteTreatment(animalTreatmentDTORequest);
         assertNotNull(response);
+        Mockito.verify(animalTreatmentDAO, times(1)).delete((any(AnimalTreatment.class)));
     }
 }
