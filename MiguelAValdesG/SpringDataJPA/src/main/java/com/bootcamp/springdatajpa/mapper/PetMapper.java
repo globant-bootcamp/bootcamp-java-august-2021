@@ -29,7 +29,7 @@ public class PetMapper {
 
   public Pet petDTOToEntity(PetDTO petDTO) {
     Pet pet = new Pet();
-    pet.setOwner(ownerServiceImpl.findOwner(petDTO.getIdOwner()));
+    pet.setOwner(ownerServiceImpl.findOwnerById(petDTO.getIdOwner()));
     pet.setName(petDTO.getName());
     pet.setAge(petDTO.getAge());
     pet.setSpecies(petDTO.getSpecies());

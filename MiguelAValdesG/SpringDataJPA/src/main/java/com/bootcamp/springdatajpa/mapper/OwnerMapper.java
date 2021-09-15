@@ -9,8 +9,8 @@ public class OwnerMapper {
 
   public OwnerDTO ownerEntityToDTO(Owner owner) {
     OwnerDTO ownerDTO = new OwnerDTO();
-    ownerDTO.setAddress(owner.getAddress());
     ownerDTO.setId(owner.getId());
+    ownerDTO.setAddress(owner.getAddress());
     ownerDTO.setFirstName(owner.getFirstName());
     ownerDTO.setLastName(owner.getLastName());
     ownerDTO.setAge(owner.getAge());

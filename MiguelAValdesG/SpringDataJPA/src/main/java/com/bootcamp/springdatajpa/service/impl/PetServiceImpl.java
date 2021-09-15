@@ -36,7 +36,7 @@ public class PetServiceImpl implements PetService {
   @Override
   public List<PetDTO> getAllOwnersPets(Long id) {
     return petDAO.findAllOwnersPets(id).stream()
-      .map(petDAO -> petMapper.petEntityToDTO(petDAO))
+      .map(pet -> petMapper.petEntityToDTO(pet))
       .collect(Collectors.toList());
   }
 
@@ -47,17 +47,17 @@ public class PetServiceImpl implements PetService {
 
   @Override
   public PetDTO updatePet(Long id, PetDTO petDTO) {
-    return petMapper.petEntityToDTO(petDAO.save(fillPet(findPet(id), petDTO)));
+    return petMapper.petEntityToDTO(petDAO.save(fillPet(findPetById(id), petDTO)));
   }
 
   @Override
   public PetDTO deletePet(Long id) {
-    Pet pet = findPet(id);
+    Pet pet = findPetById(id);
     pet.setActive(false);
     return petMapper.petEntityToDTO(petDAO.save(pet));
   }
 
-  private Pet findPet(Long id) {
+  public Pet findPetById(Long id) {
     Optional<Pet> petOptional = petDAO.findById(id);
     Pet pet;
 
@@ -69,8 +69,8 @@ public class PetServiceImpl implements PetService {
     return pet;
   }
 
-  private Pet fillPet(Pet pet, PetDTO petDTO) {
-    pet.setOwner(ownerServiceImpl.findOwner(petDTO.getIdOwner()));
+  public Pet fillPet(Pet pet, PetDTO petDTO) {
+    pet.setOwner(ownerServiceImpl.findOwnerById(petDTO.getIdOwner()));
     pet.setName(petDTO.getName());
     pet.setAge(petDTO.getAge());
     pet.setSpecies(petDTO.getSpecies());

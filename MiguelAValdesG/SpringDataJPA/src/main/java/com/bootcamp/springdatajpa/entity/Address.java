@@ -31,6 +31,19 @@ public class Address {
   @Column
   public int zipCode;
 
+  public Address() {}
+
+  public Address(Long id, String street, int extNumber, int intNumber, String colony, String municipality, String state, int zipCode) {
+    this.id = id;
+    this.street = street;
+    this.extNumber = extNumber;
+    this.intNumber = intNumber;
+    this.colony = colony;
+    this.municipality = municipality;
+    this.state = state;
+    this.zipCode = zipCode;
+  }
+
   public Long getId() {
     return id;
   }

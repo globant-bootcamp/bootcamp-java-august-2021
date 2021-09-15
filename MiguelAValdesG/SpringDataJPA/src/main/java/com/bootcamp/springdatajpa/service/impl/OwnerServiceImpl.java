@@ -44,17 +44,17 @@ public class OwnerServiceImpl implements OwnerService {
     AddressDTO bodyAddressDTO = addressServiceImpl.addressEntityToDTO(ownerDTO.getAddress());
     addressServiceImpl.updateAddress(bodyAddressDTO.getId(), bodyAddressDTO);
 
-    return ownerMapper.ownerEntityToDTO(ownerDAO.save(fillOwner(findOwner(id), ownerDTO)));
+    return ownerMapper.ownerEntityToDTO(ownerDAO.save(fillOwner(findOwnerById(id), ownerDTO)));
   }
 
   @Override
   public OwnerDTO deleteOwner(Long id) {
-    Owner owner = findOwner(id);
+    Owner owner = findOwnerById(id);
     owner.setActive(false);
     return ownerMapper.ownerEntityToDTO(ownerDAO.save(owner));
   }
 
-  public Owner findOwner(Long id) {
+  public Owner findOwnerById(Long id) {
     Optional<Owner> ownerOptional = ownerDAO.findById(id);
     Owner owner;
 
@@ -66,7 +66,7 @@ public class OwnerServiceImpl implements OwnerService {
     return owner;
   }
 
-  private Owner fillOwner(Owner owner, OwnerDTO ownerDTO) {
+  public Owner fillOwner(Owner owner, OwnerDTO ownerDTO) {
     owner.setAddress(ownerDTO.getAddress());
     owner.setFirstName(ownerDTO.getFirstName());
     owner.setLastName(ownerDTO.getLastName());
