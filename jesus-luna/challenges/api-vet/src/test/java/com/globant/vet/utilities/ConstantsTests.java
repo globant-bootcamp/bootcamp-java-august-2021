@@ -30,4 +30,12 @@ public class ConstantsTests {
 	public static final String CUSTOMER_NOT_FOUND = "None customer have been found with id: %d";
 	public static final String CUSTOMER_DELETED = "Customer was deleted";
 	
+	public static final String STATUS_SUCCESS = "SUCCESS";
+	public static final String STATUS_FAIL = "FAILURE";
+	public static final String PET_FOUND_WITH_ID = "Pet corresponding to id: %d";
+	public static final String CUSTOMER_FOUND_WITH_ID = "Customer corresponding to id: %d";
+	public static final String PET_CREATED_WITH_ID = "Pet created with id: %d";
+	public static final String CUSTOMER_CREATED_WITH_ID = "Customer created with id: %d";
+	public static final String CUSTOMER_UPDATE = "Customer was updated with the provided info";
+	public static final String PET_UPDATE = "Pet was updated with the provided info";
 }
