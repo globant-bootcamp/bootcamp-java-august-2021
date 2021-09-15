@@ -57,8 +57,6 @@ public class UserServiceImplTest {
 
         User userRequest= new User();
         userRequest.setFirstName("Rocky");
-        userRequest.setLastName("Vargas");
-        userRequest.setOwnersName("José");
         userRequest.setSpecies("DOG");
         userRequest.setRace("Dogo");
         userRequest.setAge(2);
@@ -68,8 +66,6 @@ public class UserServiceImplTest {
         User userResponse = new User();
         userResponse.setId(1);
         userResponse.setFirstName("Rocky");
-        userResponse.setLastName("Vargas");
-        userResponse.setOwnersName("José");
         userResponse.setSpecies("DOG");
         userResponse.setRace("Dogo");
         userResponse.setAge(2);

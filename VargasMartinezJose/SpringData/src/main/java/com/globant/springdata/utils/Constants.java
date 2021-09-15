@@ -16,5 +16,7 @@ public class Constants {
     public static final String DOG="DOG";
     public static final String DELETED_USER="DELETED_USER";
     public static final String USER_WAS_NOT_FOUND="USER_WAS_NOT_FOUND";
+    public static final String ANIMAL_UPDATED="ANIMAL_UPDATED";
+    public static final String SET_APOINTMENT="SET_APOINTMENT";
 }
 

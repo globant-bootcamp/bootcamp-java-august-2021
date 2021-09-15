@@ -12,7 +12,7 @@ public class UserMapper {
         user.setSpecies(userDTO.getSpecies());
         user.setFirstName(userDTO.getFirstName());
         user.setOwnersName(userDTO.getOwnersName());
-        user.setLastName(userDTO.getLastName());
+        user.setLastname(userDTO.getLastName());
         user.setRace(userDTO.getRace());
         user.setAge(userDTO.getAge());
         user.setWeight(userDTO.getWeight());
@@ -25,7 +25,7 @@ public class UserMapper {
         userDTO.setSpecies(user.getSpecies());
         userDTO.setFirstName(user.getFirstName());
         userDTO.setOwnersName(user.getOwnersName());
-        userDTO.setLastName(user.getLastName());
+        userDTO.setLastName(user.getLastname());
         userDTO.setRace(user.getRace());
         userDTO.setAge(user.getAge());
         userDTO.setWeight(user.getWeight());

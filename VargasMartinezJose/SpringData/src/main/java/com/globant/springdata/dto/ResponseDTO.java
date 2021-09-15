@@ -10,9 +10,6 @@ public class ResponseDTO<T> {
     private String userAddedSuccessfully;
     private UserDTO addUser;
 
-    public ResponseDTO(){
-    }
-
     public ResponseDTO(ResponseConstants responseConstants, String userAddedSuccessfully, UserDTO addUser) {
         this.responseConstants=responseConstants;
         this.userAddedSuccessfully = userAddedSuccessfully;

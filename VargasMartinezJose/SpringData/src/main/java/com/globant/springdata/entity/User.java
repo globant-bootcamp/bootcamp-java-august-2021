@@ -1,6 +1,6 @@
 package com.globant.springdata.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,8 +25,8 @@ public class User {
     @Column(name = "owners_name")
     private String ownersName;
 
-    @Column(name = "last_name")
-    private String lastName;
+    @Column(name = "first_name")
+    private String lastname;
 
     @Column(name = "race")
     private String race;
@@ -64,22 +64,6 @@ public class User {
         this.firstName = firstName;
     }
 
-    public String getOwnersName() {
-        return ownersName;
-    }
-
-    public void setOwnersName(String ownersName) {
-        this.ownersName = ownersName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public String getRace() {
         return race;
     }
@@ -110,5 +94,21 @@ public class User {
 
     public void setHealthy(Boolean healthy) {
         isHealthy = healthy;
+    }
+
+    public String getOwnersName() {
+        return ownersName;
+    }
+
+    public void setOwnersName(String ownersName) {
+        this.ownersName = ownersName;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 }

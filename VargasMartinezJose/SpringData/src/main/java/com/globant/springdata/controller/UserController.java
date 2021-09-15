@@ -25,11 +25,15 @@ public class UserController {
         return new ResponseEntity<ResponseDTO<UserDTO>>(responseDTO, HttpStatus.CREATED);
     }
     @DeleteMapping("animals/{id}")
-    public ResponseEntity<ResponseDTO<String>> deleteAnimal(@PathVariable Long id){
-        ResponseDTO responseDTO= new ResponseDTO(Constants.ResponseConstants.SUCCESS,DELETED_USER, userService.addUser(UserDTO));
-        return  new ResponseEntity<ResponseDTO<UserDTO>>(responseDTO, HttpStatus.DELETED);
+    public ResponseEntity<ResponseDTO<String>> deleteUser(@PathVariable Long id){
+        ResponseDTO responseDTO= new ResponseDTO(Constants.ResponseConstants.SUCCESS,DELETED_USER, userService.deleteUser(id));
+        return new ResponseEntity<ResponseDTO<String>>(responseDTO, HttpStatus.OK);
     }
-
+    @PutMapping("/animals")
+    public ResponseEntity<ResponseDTO<String>> updateUser(@RequestBody UserDTO userDTO) {
+        ResponseDTO responseDTO = new ResponseDTO(Constants.ResponseConstants.SUCCESS, ANIMAL_UPDATED,userService.updateUser(userDTO));
+        return new ResponseEntity<ResponseDTO<String>>(responseDTO, HttpStatus.OK);
+    }
 }
 
 
