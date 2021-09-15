@@ -1,10 +1,14 @@
 package com.globant.vet.util;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import com.globant.vet.dto.CustomerDTO;
 import com.globant.vet.dto.CustomerInfo;
+import com.globant.vet.dto.CustomerInfoWithPets;
+import com.globant.vet.dto.PetDTO;
+import com.globant.vet.dto.PetInfo;
 import com.globant.vet.model.Customer;
 import com.globant.vet.model.Pet;
 
@@ -40,6 +44,15 @@ public class CustomerFactory {
 		CustomerInfo customerInfo = new CustomerInfo();
 		customerInfo.setName(ConstantsTests.NAME_CUSTOMER);
 		return customerInfo;
+	}
+	
+	public static CustomerInfoWithPets createCustomerInfoWithPets() {
+		CustomerInfoWithPets customerInfoWithPets = new CustomerInfoWithPets();
+		customerInfoWithPets.setName(ConstantsTests.NAME_CUSTOMER);
+		List<PetDTO<PetInfo>> listOfPetsDtoOfPetInfo = PetFactory.createListOfPetDtosOfPetInfo();
+		customerInfoWithPets.setPets(listOfPetsDtoOfPetInfo);
+		return customerInfoWithPets;
+		
 	}
 	
 	public static CustomerDTO<CustomerInfo> createCustomerDtoOfCustomerInfo(){
