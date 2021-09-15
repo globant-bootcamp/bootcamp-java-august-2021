@@ -23,7 +23,7 @@ Vicente Paul Romero Douriet ||25|26|27|30|31|01|03|06|07
 Horacio Miguel Alvarado Garza |25|
 Humbertino Avilez Carpintero |25|26|27|30|31|1|2|3|6|7|
 Miguel Angel Valdés García |25|26|27|30|31|01|02|03|06|07|08|09|10|
-Brandon Ali Beltran Rivera |25|26|27|30|31|01|02|03|06|07|08|09|10|
+Brandon Ali Beltran Rivera |25|26|27|30|31|01|02|03|06|07|08|09|10|13|14|
 Claudia Hernández García |25|26|30|31|1|2|6|7|
 Omar Espinosa Castro |25|26|27|30|31|01|02|03|07
 Williams de Jesús García Orozco |25|26|27|30|31|01|02|03|06|07|08
