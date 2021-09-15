@@ -1,7 +1,7 @@
 
 David Gonzalez Zumaya |25|26|27|30|31|01|02|05|06|07|08
 Sergio Mendoza Parra |25|26|27|
-Erick Eduardo Hernández Rodríguez |25|26|27|30|31|01|02|03|06|07|
+Erick Eduardo Hernández Rodríguez |25|26|27|30|31|01|02|03|06|07|08|09|10|13|14|
 Sebastian Herrera Bermeo |25|26|27|30|31|1|2|3|6|7|8|9
 Diego Flores Aleman |25|26|27|30|31|01|02|03|06|07|
 Oswaldo Vazquez Aparicio |25|26|27|30|31|01|02|03|06|07|08|09|10|13|14|
