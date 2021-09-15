@@ -1,0 +1,11 @@
+server:
+  port: 8080
+
+spring:
+  data:
+    jpa.hibernate.ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost:3306/vetpatitas
+    driver-class-name: com.mysql.jdbc.Driver
+    username: oswaldo
+    password: vazquezaparicio
