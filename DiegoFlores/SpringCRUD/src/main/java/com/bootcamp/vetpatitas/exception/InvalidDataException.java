@@ -1,4 +1,4 @@
-package com.bootcamp.vetPatitas.exception;
+package com.bootcamp.vetpatitas.exception;
 
 public class InvalidDataException  extends RuntimeException {
 

@@ -10,6 +10,6 @@ public interface PetService {
 	
 	PetDTO getPet (Long petId);
 	
-	PetDTO deletePet (PetDTO petDTO);
+	PetDTO deletePet (Long petId);
 	
 }

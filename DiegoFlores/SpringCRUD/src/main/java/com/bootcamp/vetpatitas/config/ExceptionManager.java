@@ -5,9 +5,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.bootcamp.vetPatitas.dto.ResponseDTO;
-import com.bootcamp.vetPatitas.exception.InvalidDataException;
-import com.bootcamp.vetPatitas.utils.Constants.ResponseConstants;
+import com.bootcamp.vetpatitas.dto.ResponseDTO;
+import com.bootcamp.vetpatitas.exception.InvalidDataException;
+import com.bootcamp.vetpatitas.utils.Constants.ResponseConstants;
 
 @ControllerAdvice
 public class ExceptionManager {
