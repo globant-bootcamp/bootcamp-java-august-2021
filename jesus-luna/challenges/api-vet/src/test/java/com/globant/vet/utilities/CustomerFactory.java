@@ -1,4 +1,4 @@
-package com.globant.vet.util;
+package com.globant.vet.utilities;
 
 import java.util.Arrays;
 import java.util.List;

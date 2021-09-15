@@ -24,12 +24,18 @@ import com.globant.vet.model.Pet;
 import com.globant.vet.repository.CustomerRepository;
 import com.globant.vet.repository.PetRepository;
 import com.globant.vet.service.impl.PetServiceImpl;
-import com.globant.vet.util.ConstantsTests;
-import com.globant.vet.util.CustomerFactory;
 import com.globant.vet.util.GeneralUtil;
-import com.globant.vet.util.PetFactory;
 import com.globant.vet.util.ValidatorUtils;
+import com.globant.vet.utilities.ConstantsTests;
+import com.globant.vet.utilities.CustomerFactory;
+import com.globant.vet.utilities.PetFactory;
 
+import static com.globant.vet.utilities.ConstantsTests.ID_CUSTOMER;
+import static com.globant.vet.utilities.ConstantsTests.ID_PET_1;
+import static com.globant.vet.utilities.ConstantsTests.ID_PET_2;
+import static com.globant.vet.utilities.ConstantsTests.ID_PET_NOT_FOUND;
+import static com.globant.vet.utilities.ConstantsTests.NAME_PET;
+import static com.globant.vet.utilities.ConstantsTests.PET_NOT_FOUND;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
@@ -45,13 +51,6 @@ import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
 
 import static org.powermock.api.mockito.PowerMockito.when;
-
-import static com.globant.vet.util.ConstantsTests.ID_CUSTOMER;
-import static com.globant.vet.util.ConstantsTests.ID_PET_1;
-import static com.globant.vet.util.ConstantsTests.ID_PET_2;
-import static com.globant.vet.util.ConstantsTests.ID_PET_NOT_FOUND;
-import static com.globant.vet.util.ConstantsTests.NAME_PET;
-import static com.globant.vet.util.ConstantsTests.PET_NOT_FOUND;
 
 
 @RunWith(MockitoJUnitRunner.class)
