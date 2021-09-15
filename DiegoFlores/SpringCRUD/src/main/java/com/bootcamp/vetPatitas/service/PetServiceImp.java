@@ -1,28 +1,28 @@
 package com.bootcamp.vetpatitas.service;
 
 import static com.bootcamp.vetpatitas.utils.Constants.PET_INVALID_PHONE;
-import static com.bootcamp.vetpatitas.utils.Constants.PET_NULL_NAME;
-import static com.bootcamp.vetpatitas.utils.Constants.PET_NULL_TYPE;
 import static com.bootcamp.vetpatitas.utils.Constants.PET_NULL_AGE;
+import static com.bootcamp.vetpatitas.utils.Constants.PET_NULL_NAME;
 import static com.bootcamp.vetpatitas.utils.Constants.PET_NULL_OWNER;
+import static com.bootcamp.vetpatitas.utils.Constants.PET_NULL_TYPE;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bootcamp.vetpatitas.dao.PetDAO;
 import com.bootcamp.vetpatitas.dto.PetDTO;
+import com.bootcamp.vetpatitas.entity.Pet;
 import com.bootcamp.vetpatitas.exception.InvalidDataException;
 import com.bootcamp.vetpatitas.mapper.PetMapper;
-
 
 @Service
 public class PetServiceImp implements PetService{
 
 	@Autowired
-	PetMapper petMapper;
+	private PetMapper petMapper;
 	
 	@Autowired
-	PetDAO petDao;
+	private PetDAO petDao;
 	
 	@Override
 	public PetDTO addPet(PetDTO petDTO) {
@@ -47,28 +47,30 @@ public class PetServiceImp implements PetService{
 			throw new InvalidDataException(PET_NULL_OWNER);
 		}
 			
-		petDTO.setStatus(true);		
+		petDTO.setStatus(Boolean.TRUE);
 		return petMapper.EntityToUserDTO(petDao.save(petMapper.PetDTOToEntity(petDTO)));
 	}
 
 	@Override
 	public PetDTO updatePet(PetDTO petDTO) {
 		
-		return petMapper.EntityToUserDTO(petDao.save(petDao.getById(petDTO.getId())));				 
+		return petMapper.EntityToUserDTO(petDao.save(petMapper.PetDTOToEntity(petDTO)));				 
 	}
 
+	@Override
 	public PetDTO getPet(Long petId) {
-
+				
 		return petMapper.EntityToUserDTO(petDao.getById(petId));
 	}
 
 	@Override
-	public PetDTO deletePet(PetDTO petDTO) {
-
-		PetDTO petToBeDesabled = new PetDTO();
-		petToBeDesabled =  petMapper.EntityToUserDTO(petDao.getById(petDTO.getId()));
+	public PetDTO deletePet(Long petId) {
+		Pet petToBeDesabled = new Pet();
+		petToBeDesabled = petDao.getById(petId);		
 		petToBeDesabled.setStatus(false);
-		return petMapper.EntityToUserDTO(petDao.save(petMapper.PetDTOToEntity(petToBeDesabled)));
+				
+		return petMapper.EntityToUserDTO(petDao.save(petToBeDesabled));
+		
 	}
 
 }
