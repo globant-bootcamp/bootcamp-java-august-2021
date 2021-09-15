@@ -22,13 +22,13 @@ import static com.example.globant.springdataproject.utils.Constants.INVALID_PET_
 @Service
 public class PetServiceImpl implements PetService {
     @Autowired
-    PetMapper petMapper;
+    private PetMapper petMapper;
 
     @Autowired
-    PetDAO petDAO;
+    private PetDAO petDAO;
 
     @Autowired
-    ClientDAO clientDAO;
+    private ClientDAO clientDAO;
 
     @Override
     public PetDTO addPet(PetDTO petDTO) {

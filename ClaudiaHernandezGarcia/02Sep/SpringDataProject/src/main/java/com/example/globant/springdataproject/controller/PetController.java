@@ -29,7 +29,7 @@ import static com.example.globant.springdataproject.utils.Constants.PET_EDITED_S
 public class PetController {
 
     @Autowired
-    PetService petService;
+    private PetService petService;
 
     @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseDTO<PetDTO>> addPet(@RequestBody PetDTO petDTO) {

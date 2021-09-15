@@ -28,7 +28,7 @@ public class ClientMapperTest {
     @Mock
     private PetMapper petMapper;
 
-    @Test()
+    @Test
     public void clientDTOToEntityTest_OK() {
         ClientDTO clientDTORequest = new ClientDTO();
         clientDTORequest.setFirstName("client name");
@@ -49,7 +49,7 @@ public class ClientMapperTest {
         assertEquals(response.getPhoneNumber(), clientDTORequest.getPhoneNumber());
     }
 
-    @Test()
+    @Test
     public void clientEntityToDTOTest_OK() {
         Client clientRequest = new Client();
         clientRequest.setId(1L);
@@ -76,7 +76,7 @@ public class ClientMapperTest {
         assertEquals(response.getPhoneNumber(), clientDTOResponse.getPhoneNumber());
     }
 
-    @Test()
+    @Test
     public void clientEntityToDTOTest_WithPets_OK() {
         Client clientRequest = new Client();
         clientRequest.setId(1L);

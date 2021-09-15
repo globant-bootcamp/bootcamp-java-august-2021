@@ -18,7 +18,7 @@ public class PetMapperTest {
     @InjectMocks
     private PetMapper petMapper;
 
-    @Test()
+    @Test
     public void petDTOToEntityTest_OK() {
         PetDTO petDTORequest = new PetDTO();
         petDTORequest.setNameOfPet("Pet name");
@@ -44,7 +44,7 @@ public class PetMapperTest {
         assertEquals(response.getDateOfBirth(), "2021-07-12");
     }
 
-    @Test()
+    @Test
     public void petEntityToDTOTest_OK() {
         Pet petRequest = new Pet();
         petRequest.setId(1L);

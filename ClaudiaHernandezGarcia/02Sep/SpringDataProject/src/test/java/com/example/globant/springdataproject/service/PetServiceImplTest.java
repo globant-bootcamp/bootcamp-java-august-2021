@@ -280,7 +280,7 @@ public class PetServiceImplTest {
         Mockito.verify(petDAO, times(1)).save(any(Pet.class));
     }
 
-    @Test()
+    @Test
     public void editPetTest_WithValidPetId_AndOnlyPetName_OK() {
         Long petIdRequest = 1L;
         PetDTO petDTORequest = new PetDTO();
@@ -338,7 +338,7 @@ public class PetServiceImplTest {
         Mockito.verify(petDAO, times(1)).save(any(Pet.class));
     }
 
-    @Test()
+    @Test
     public void editPetTest_WithValidPetId_AndOnlyPetBreed_OK() {
         Long petIdRequest = 1L;
         PetDTO petDTORequest = new PetDTO();
@@ -396,7 +396,7 @@ public class PetServiceImplTest {
         Mockito.verify(petDAO, times(1)).save(any(Pet.class));
     }
 
-    @Test()
+    @Test
     public void editPetTest_WithValidPetId_AndOnlyPetSpecies_OK() {
         Long petIdRequest = 1L;
         PetDTO petDTORequest = new PetDTO();

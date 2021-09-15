@@ -28,7 +28,7 @@ import static com.example.globant.springdataproject.utils.Constants.CLIENT_EDITE
 public class ClientController {
 
     @Autowired
-    ClientService clientService;
+    private ClientService clientService;
 
     @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseDTO<ClientDTO>> addClient(@RequestBody ClientDTO clientDTO) {
