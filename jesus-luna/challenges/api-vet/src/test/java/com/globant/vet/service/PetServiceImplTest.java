@@ -87,7 +87,8 @@ public class PetServiceImplTest {
 		PetInfoWithCompleteOwner petInfoWithCompleteOwner = PetFactory.createPetInfoWithCompleteOwner();
 		
 		when(petRepository.findById(any(Integer.class))).thenReturn(optionalPetPresent);
-		when(validatorUtil.validateExistance(ArgumentMatchers.<Optional<Pet>>any(), any(Integer.class), any(String.class))).thenReturn(petWithIdAndOwner);
+		when(validatorUtil.validateExistance(
+				ArgumentMatchers.<Optional<Pet>>any(), any(Integer.class), any(String.class))).thenReturn(petWithIdAndOwner);
 		when(customerConverter.customerToCustomerInfo(any(Customer.class))).thenReturn(customerInfo);
 		when(customerConverter.customerInfoToCustomerDTO(any(Integer.class), any(CustomerInfo.class))).thenReturn(customerDtoOfCustomerInfo);
 		when(petConverter.petToPetInfoWithOwner(any(Pet.class), ArgumentMatchers.<CustomerDTO<CustomerInfo>>any())).thenReturn(petInfoWithCompleteOwner);
