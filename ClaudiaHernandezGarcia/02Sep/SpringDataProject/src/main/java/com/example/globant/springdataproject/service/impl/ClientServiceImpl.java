@@ -20,10 +20,10 @@ import static com.example.globant.springdataproject.utils.Constants.INVALID_CLIE
 public class ClientServiceImpl implements ClientService {
 
     @Autowired
-    ClientMapper clientMapper;
+    private ClientMapper clientMapper;
 
     @Autowired
-    ClientDAO clientDAO;
+    private ClientDAO clientDAO;
 
     @Override
     public ClientDTO addClient(ClientDTO clientDTO) throws InvalidDataException {

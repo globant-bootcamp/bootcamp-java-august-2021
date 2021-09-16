@@ -25,7 +25,7 @@ import static com.example.globant.springdataproject.utils.Constants.CLIENT_DELET
 import static com.example.globant.springdataproject.utils.Constants.CLIENT_EDITED_SUCCESSFULLY;
 
 @RestController
-@RequestMapping("client")
+@RequestMapping("clients")
 public class ClientController {
 
     @Autowired
@@ -37,26 +37,26 @@ public class ClientController {
         return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
     }
 
-    @GetMapping("/all")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseDTO<List<ClientDTO>>> getClients() throws InvalidDataException {
         ResponseDTO responseDTO = new ResponseDTO(Constants.ResponseConstants.SUCCESS, "", clientService.getClients());
         return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
     }
 
-    @GetMapping("/get/{clientId}")
+    @GetMapping(value = "/{clientId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseDTO<ClientDTO>> getClient(@PathVariable Long clientId) throws InvalidDataException {
         ResponseDTO responseDTO = new ResponseDTO(Constants.ResponseConstants.SUCCESS, "", clientService.getClient(clientId));
         return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/delete/{clientId}")
+    @DeleteMapping(value = "/{clientId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseDTO<ClientDTO>> deletePetByID(@PathVariable Long clientId) throws InvalidDataException {
         clientService.deleteClientByID(clientId);
         ResponseDTO responseDTO = new ResponseDTO(Constants.ResponseConstants.SUCCESS, CLIENT_DELETED_SUCCESSFULLY, null);
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
-    @PatchMapping("/{clientId}")
+    @PatchMapping(value = "/{clientId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseDTO<ClientDTO>> editPetByID(@PathVariable Long clientId, @RequestBody ClientDTO clientDTO) throws InvalidDataException {
         ResponseDTO responseDTO = new ResponseDTO(Constants.ResponseConstants.SUCCESS, CLIENT_EDITED_SUCCESSFULLY, clientService.editClientByID(clientId, clientDTO));
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);

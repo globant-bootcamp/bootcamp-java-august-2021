@@ -17,7 +17,7 @@ import static com.example.globant.springdataproject.utils.Constants.INVALID_CLIE
 public class ClientMapper {
 
     @Autowired
-    PetMapper petMapper;
+    private PetMapper petMapper;
 
     public Client clientDTOToEntity(ClientDTO clientDTO) {
         Client client = new Client();

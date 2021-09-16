@@ -26,7 +26,7 @@ import static com.example.globant.springdataproject.utils.Constants.PET_EDITED_S
 
 
 @RestController
-@RequestMapping("pet")
+@RequestMapping("pets")
 public class PetController {
 
     @Autowired
@@ -38,26 +38,26 @@ public class PetController {
         return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
     }
 
-    @GetMapping("/all")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseDTO<List<PetDTO>>> getPets() {
         ResponseDTO responseDTO = new ResponseDTO(Constants.ResponseConstants.SUCCESS, "", petService.getPets());
         return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
     }
 
-    @GetMapping("/get/{petId}")
+    @GetMapping(value = "/{petId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseDTO<PetDTO>> getPetByID(@PathVariable Long petId) throws InvalidDataException {
         ResponseDTO responseDTO = new ResponseDTO(Constants.ResponseConstants.SUCCESS, "", petService.getPetByID(petId));
         return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/delete/{petId}")
+    @DeleteMapping(value = "/{petId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseDTO<PetDTO>> deletePetByID(@PathVariable Long petId) throws InvalidDataException {
         petService.deletePetByID(petId);
         ResponseDTO responseDTO = new ResponseDTO(Constants.ResponseConstants.SUCCESS, PET_DELETED_SUCCESSFULLY, null);
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
-    @PatchMapping("/{petId}")
+    @PatchMapping(value = "/{petId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseDTO<PetDTO>> editPetByID(@PathVariable Long petId, @RequestBody PetDTO petDTO) throws InvalidDataException {
         ResponseDTO responseDTO = new ResponseDTO(Constants.ResponseConstants.SUCCESS, PET_EDITED_SUCCESSFULLY, petService.editPetByID(petId, petDTO));
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
