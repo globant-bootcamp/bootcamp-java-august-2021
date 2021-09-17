@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+request:
+  api:
+    client: /Client
+    pet: /Pet
+
+api:
+  url:
+    pet:
+      all-pets: /
+      search-id-pet: /{idPet}
+      add-pet: /add
+      update-pet: /updatePet/{idPet}
+      delete-pet: /deletePet/{idPet}
+
+    client:
+      all-clients: /
+      search-id-client: /{idClient}
+      add-client: /add
+      update-client: /updateClient/{idClient}
+      delete-client: /deleteClient/{idClient}
+
+successfull:
+  messages:
+    success: "The transaction has been successful"
+    unsuccessful: "Transaction was not successful"
+
+database:
+  data:
+    url: jdbc:mysql://localhost:3306/veterinaryDB?useSSl=false&useTimezone=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: huesos_1999
+
