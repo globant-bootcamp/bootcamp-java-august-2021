@@ -12,8 +12,8 @@ public class UserDTO {
     private Integer weight;
     private Boolean isHealthy;
 
-    public long getId() {
-        return id;
+    public long getId(Long id) {
+        return this.id;
     }
 
     public void setId(long id) {
