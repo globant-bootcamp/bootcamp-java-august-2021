@@ -33,7 +33,7 @@ public class AddressServiceImpl implements AddressService {
   @Override
   public List<AddressDTO> getAllAddresses() {
     return addressDAO.findAll().stream()
-      .map(addressDAO -> addressMapper.addressEntityToDTO(addressDAO))
+      .map(address -> addressMapper.addressEntityToDTO(address))
       .collect(Collectors.toList());
   }
 

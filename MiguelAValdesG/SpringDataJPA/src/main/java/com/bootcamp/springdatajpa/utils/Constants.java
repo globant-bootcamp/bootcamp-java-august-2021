@@ -32,5 +32,4 @@ public class Constants {
   public static final String PET_UPDATED_SUCCESSFULLY = "The pet was updated successfully";
   public static final String PET_DELETED_SUCCESSFULLY = "The pet was deleted successfully";
 
-
 }
