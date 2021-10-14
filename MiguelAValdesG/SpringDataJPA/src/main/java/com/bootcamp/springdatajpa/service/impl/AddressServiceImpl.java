@@ -33,7 +33,7 @@ public class AddressServiceImpl implements AddressService {
   @Override
   public List<AddressDTO> getAllAddresses() {
     return addressDAO.findAll().stream()
-      .map(addressDAO -> addressMapper.addressEntityToDTO(addressDAO))
+      .map(address -> addressMapper.addressEntityToDTO(address))
       .collect(Collectors.toList());
   }
 
@@ -44,7 +44,7 @@ public class AddressServiceImpl implements AddressService {
 
   @Override
   public AddressDTO updateAddress(Long id, AddressDTO addressDTO) {
-    return addressMapper.addressEntityToDTO(addressDAO.save(fillAddress(findAddress(id), addressDTO)));
+    return addressMapper.addressEntityToDTO(addressDAO.save(fillAddress(findAddressById(id), addressDTO)));
   }
 
   @Override
@@ -52,7 +52,7 @@ public class AddressServiceImpl implements AddressService {
     Optional<Owner> ownerOptional = ownerDAO.findByIdAddress(id);
 
     if (!ownerOptional.isPresent()) {
-      Address address = findAddress(id);
+      Address address = findAddressById(id);
       addressDAO.delete(address);
     } else {
       throw new InvalidDataException(ADDRESS_CANNOT_BE_DELETED);
@@ -61,7 +61,7 @@ public class AddressServiceImpl implements AddressService {
     return ADDRESS_DELETED_SUCCESSFULLY;
   }
 
-  private Address findAddress(Long id) {
+  public Address findAddressById(Long id) {
     Optional<Address> addressOptional = addressDAO.findById(id);
     Address address;
 
@@ -74,7 +74,7 @@ public class AddressServiceImpl implements AddressService {
     return address;
   }
 
-  private Address fillAddress(Address address, AddressDTO addressDTO) {
+  public Address fillAddress(Address address, AddressDTO addressDTO) {
     address.setId(addressDTO.getId());
     address.setStreet(addressDTO.getStreet());
     address.setExtNumber(addressDTO.getExtNumber());
@@ -87,7 +87,7 @@ public class AddressServiceImpl implements AddressService {
     return address;
   }
 
-  protected AddressDTO addressEntityToDTO(Address address) {
+  public AddressDTO addressEntityToDTO(Address address) {
     return addressMapper.addressEntityToDTO(address);
   }
 

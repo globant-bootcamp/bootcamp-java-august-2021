@@ -36,6 +36,19 @@ public class Owner {
   @Column
   private boolean active;
 
+  public Owner() {}
+
+  public Owner(Long id, Address address, String firstName, String lastName, int age, String email, String phone, boolean active) {
+    this.id = id;
+    this.address = address;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.email = email;
+    this.phone = phone;
+    this.active = active;
+  }
+
   public Long getId() {
     return id;
   }
